@@ -1,0 +1,808 @@
+                              UN/EDIFACT
+
+                UNITED NATIONS STANDARD MESSAGE (UNSM)
+
+                       Receiving advice message
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                            Message Type : RECADV
+                                            Version      : D
+                                            Release      : 97A
+                                            Contr. Agency: UN
+
+                                            Revision     : 2
+                                            Date         : 96-12-13
+
+
+
+
+
+
+SOURCE: Western European EDIFACT Board - MD1
+
+
+
+                               CONTENTS
+
+                       Receiving advice message
+
+0.   INTRODUCTION
+
+1.   SCOPE
+
+     1.1   Functional definition
+
+     1.2   Field of application
+
+     1.3   Principles
+
+2.   REFERENCES
+
+3.   TERMS AND DEFINITIONS
+
+     3.1   Standard terms and definitions
+
+4.   MESSAGE DEFINITION
+
+     4.1   Data segment clarification
+
+     4.2   Data segment index (alphabetical sequence)
+
+     4.3   Message structure
+
+           4.3.1 Segment table
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------
+For general information on UN standard message types see UN Trade Data
+Interchange Directory, UNTDID, Part 4, Section 2.6, UN/ECE UNSM
+General Introduction
+----------------------------------------------------------------------
+
+
+
+0.     INTRODUCTION
+
+       This specification provides the definition of the Receiving
+       advice message (RECADV) to be used in Electronic Data
+       Interchange (EDI) between trading partners involved in
+       administration, commerce and transport.
+
+1.     SCOPE
+
+1.1    Functional Definition
+
+       This message is to address the business needs related to the
+       goods receipt. This message is used to report the physical
+       receipt of goods. The message allows for the reporting of
+       discrepancies in products, quantities, terms, packages, etc.
+       
+       The message may contain only the information that the received
+       consignment is completely in line with the consignment
+       information given in the Despatch advice message. In case there
+       is no detail to be provided.
+       
+       The message may inform about the discrepancies:
+       - between the received consignment and consignment information
+       given in the Despatch advice message.
+       - between the received goods and the ordered goods in the
+       ORDERS, DELFOR or DELJIT information.
+
+1.2    Field of Application
+
+       The Receiving advice message may be used for both national and
+       international applications. It is based on universal practice
+       related to administration, commerce and transport, and is not
+       dependent on the type of business or industry.
+
+1.3    Principles
+
+       The message is initiated by the party which received the goods.
+       The message relates to a single or to multiple receiving
+       points. It may cover a number of different items or packages.
+
+2.     REFERENCES
+
+       See UNTDID, Part 4, Chapter 2.6 UN/ECE UNSM - General
+       Introduction, Section 1.
+
+3.     TERMS AND DEFINITIONS
+
+3.1    Standard terms and definitions
+
+       See UNTDID, Part 4, Chapter 2.6 UN/ECE UNSM - General
+       Introduction, Section 2.
+
+4.     MESSAGE DEFINITION
+
+       This section is provided to give clarification and further
+       explanation to the usage of segments within the message
+       structure.
+
+4.1    Data Segment Clarification
+
+       This section should be read in conjunction with the Segment
+       Table which indicate mandatory, conditional and repeating
+       requirements.
+       
+       The following guidelines and principles apply to the whole
+       message and are intended to facilitate the understanding and
+       implementation of the message:
+       
+       All specified dates/times should be in the format
+       'yymmdd'/'hhmm' unless all parties involved in the transaction
+       agree that there is a functional requirement for an alternative
+       format.
+       Periods should be specified as whole numbers representing the
+       required period as indicated in the format qualifier (weeks,
+       months, etc.)
+       
+       Where a choice of code or text is given only the code element
+       should be used wherever possible.
+       
+       Care must be taken to avoid the conflicting use of qualifiers.
+       
+       Free text information within the message should be avoided as
+       this inhibits automatic processing.
+
+0010   UNH, Message header
+       A service segment starting and uniquely identifying a message.
+       The message type code for the Receiving advice message is
+       RECADV.
+       
+       Note: Receiving advice messages conforming to this document
+       must contain the following data in segment UNH, composite S009:
+
+       Data element  0065 RECADV
+                     0052 D
+                     0054 97A
+                     0051 UN
+
+0020   BGM, Beginning of message
+       A segment for unique identification of the Receiving advice
+       message, name and its number.
+
+0030   DTM, Date/time/period
+       Date/time/period related to the whole message.
+
+0040   ALI, Additional information
+       A segment indicating that the message is subject to special
+       conditions owing to origin or commercial factors.
+
+
+0050   Segment group 1:  RFF-DTM
+       A group of segments giving references where necessary, dates
+       relating to the whole message, e.g. despatch advice, contract
+       number.
+
+0060      RFF, Reference
+          A segment for referencing documents relating to the whole
+          Receiving advice message, e.g. despatch advice, purchase
+          orders, delivery instructions. If the RECADV refers to a
+          prior message, this message has to be referenced.
+
+0070      DTM, Date/time/period
+          Date or date and time as applied to the referred document.
+
+
+0080   Segment group 2:  DOC-SG3
+       A group of segments identifying the discrepancies with the
+       documentary requirements relating to the whole consignment.
+
+0090      DOC, Document/message details
+          A segment identifying documents where a discrepancy occurs.
+
+
+0100      Segment group 3:  CDI-INP
+          A group of segments to report the physical or logical state
+          of the document upon receipt and to give the appropriate
+          instructions if needed.
+
+0110         CDI, Physical or logical state
+             A segment to report the logical state of the document
+             upon receipt, e.g. required document not received or
+             incorrect.
+
+0120         INP, Parties to instruction
+             A segment to give instructions to correct the discrepancy
+             reflected by CDI segment, e.g. send again.
+
+
+0130   Segment group 4:  NAD-LOC-SG5-SG6
+       A group of segments identifying names, addresses and locations,
+       relevant to the whole Receiving advice.
+
+0140      NAD, Name and address
+          A segment for identifying names and addresses and their
+          functions relevant for the whole Receiving advice.
+          Identification of at least the recipient of the goods is
+          mandatory. It is recommended that where possible only the
+          coded form of the party ID should be specified.
+
+0150      LOC, Place/location identification
+          A segment indicating more details regarding specific places
+          or locations related to the party specified in the NAD
+          segment, e.g. internal site and, or building number.
+
+
+0160      Segment group 5:  RFF-DTM
+          A group of segments giving references only relevant to the
+          specified party rather than the whole message.
+
+0170         RFF, Reference
+             A segment for referencing documents relating to the party
+             specified by the NAD segment.
+
+0180         DTM, Date/time/period
+             A segment for date or date and time as related to the
+             referred document.
+
+
+0190      Segment group 6:  CTA-COM
+          A group of segments giving contact details of the specific
+          person or department within the party identified in the NAD
+          segment.
+
+0200         CTA, Contact information
+             A segment to identify person, function, department to
+             whom communication should be directed.
+
+0210         COM, Communication contact
+             A segment to identify communication types and numbers for
+             person, function, department identified in CTA.
+
+
+0220   Segment group 7:  TOD-SG8-SG9
+       A group of segments to report on discrepancies on terms of
+       deliveries.
+
+0230      TOD, Terms of delivery or transport
+          A segment to indicate the terms of delivery.
+
+
+0240      Segment group 8:  CDI-INP
+          A group of segments to report on the discrepancy and to give
+          the appropriate instructions, if needed.
+
+0250         CDI, Physical or logical state
+             A segment to report a discrepancy on the terms of
+             delivery upon receipt.
+
+0260         INP, Parties to instruction
+             A segment to give instructions to correct the discrepancy
+             reflected by CDI segment.
+
+
+0270      Segment group 9:  LOC-CDI
+          A group of segments to report discrepancy on locations
+          related to terms of delivery.
+
+0280         LOC, Place/location identification
+             A segment indicating locations relevant to the TOD
+             segment.
+
+0290         CDI, Physical or logical state
+             A segment to report discrepancy on locations.
+
+
+0300   Segment group 10: TDT-DTM-CDI
+       A group of segments specifying details of the mode and means of
+       transport, the date or date and time of arrival, if a
+       discrepancy has occurred or if required by the recipient of the
+       message for further identification.
+
+0310      TDT, Details of transport
+          A segment specifying the carriage, and the mode and means of
+          transport of the goods arrived.
+
+0320      DTM, Date/time/period
+          A segment giving the date or date and time information of
+          the identified means of transport.
+
+0330      CDI, Physical or logical state
+          A segment to report the state of the mode and means of
+          transport.
+
+
+0340   Segment group 11: EQD-SG12-SG13-SG14
+       A group of segments identifying equipment with which a problem
+       has occurred or if required by the recipient of the message for
+       further identification.
+
+0350      EQD, Equipment details
+          A segment to identify the specific equipment item.
+
+
+0360      Segment group 12: CDI-INP
+          A segment group to report on the physical state of the
+          identified equipment upon receipt and to give the
+          appropriate instructions if needed.
+
+0370         CDI, Physical or logical state
+             A segment to report the physical state of the equipment
+             upon receipt, e.g. damaged, missing.
+
+0380         INP, Parties to instruction
+             A segment to give instructions , e.g. pick up.
+
+
+0390      Segment group 13: SEL-CDI
+          A group of segments identifying the seal number and
+          reporting anomalies.
+
+0400         SEL, Seal number
+             A segment specifying a seal number.
+
+0410         CDI, Physical or logical state
+             A segment identifying the anomaly reported.
+
+
+0420      Segment group 14: EQA-SG15
+          A group of segments identifying attached equipment with
+          which a problem has occurred or if required by the recipient
+          of the message for further identification.
+
+0430         EQA, Attached equipment
+             A segment identifying equipment attached to the equipment
+             identified in the EQD segment.
+
+
+0440         Segment group 15: CDI-INP
+             A segment group to report the physical state of the
+             identified attached equipment upon receipt and to give
+             the appropriate instructions if needed.
+
+0450            CDI, Physical or logical state
+                A segment to report the physical state of the attached
+                equipment upon receipt, e.g. damaged, missing.
+
+0460            INP, Parties to instruction
+                A segment to give instruction, e.g. pick up.
+
+
+0470   Segment group 16: CPS-SG17-SG22
+       A group of segments providing details of all packages and/or
+       individual items as received. This segment group provides the
+       capability to give the top-down hierarchical relationship of
+       the package levels.
+
+0480      CPS, Consignment packing sequence
+          A segment identifying the sequence in which packing of the
+          consignment is presented, e.g. a pallet loaded with boxes.
+
+
+0490      Segment group 17: PAC-QVR-SG18
+          A group of segments identifying packaging, quantities and
+          marks and numbers.
+
+0500         PAC, Package
+             A segment specifying the number and type of packages or
+             physical units and the physical type of packaging of the
+             arrived goods.
+
+0510         QVR, Quantity variances
+             A segment identifying quantity variances between the
+             number of units received (as specified in the PAC
+             segment) and the number of units expected or planned.
+
+
+0520         Segment group 18: PCI-RFF-SG19-SG20
+             A group of segments specifying markings and labels and,
+             if required, related anomalies.
+
+0530            PCI, Package identification
+                A segment specifying markings and labels used on
+                individual physical units (packages) described in the
+                PAC segment.
+
+0540            RFF, Reference
+                A segment for referencing the package identification,
+                e.g. master local number.
+
+
+0550            Segment group 19: CDI-INP
+                A group of segments to report the physical state of
+                the package upon receipt and to give the appropriate
+                instructions if needed.
+
+0560               CDI, Physical or logical state
+                   A segment to report the physical state of the
+                   related package, e.g. damaged, missing.
+
+0570               INP, Parties to instruction
+                   A segment to give instructions, e.g. replace.
+
+
+0580            Segment group 20: GIN-SG21
+                A group of segments giving package identification
+                numbers and if required the related anomalies.
+
+0590               GIN, Goods identity number
+                   A segment providing identity numbers applied to
+                   packages being received or missing.
+
+
+0600               Segment group 21: CDI-INP
+                   A group of segments to report the physical state of
+                   the identified package upon receipt and to give the
+                   appropriate instructions if needed.
+
+0610                  CDI, Physical or logical state
+                      A segment to report the physical state of the
+                      identified package upon receipt, e.g. damaged,
+                      missing.
+
+0620                  INP, Parties to instruction
+                      A segment to give instructions, e.g. replace.
+
+
+0630 |    Segment group 22: LIN-PIA-IMD-QTY-QVR-DTM-PRI-SG23-SG24-
+                            SG26-SG28-SG29
+          A group of segments providing details of the product or
+          service received.
+
+0640         LIN, Line item
+             A segment identifying the product or service received.
+
+0650         PIA, Additional product id
+             A segment providing additional product or service
+             identification.
+
+0660         IMD, Item description
+             A segment describing the product or service received.
+             This segment should be used for a product or service that
+             cannot be identified by a product code or article number.
+
+0670         QTY, Quantity
+             A segment to give quantity information about the product
+             specified in the LIN, PIA or IMD segment.
+
+0680         QVR, Quantity variances
+             A segment identifying quantity variances between quantity
+             per item and quantity per item expected or planned.
+
+0690         DTM, Date/time/period
+             A segment providing date or date and time information
+             relevant for the delivery of product.
+
+0700 +       PRI, Price details
+             A segment to provide price information related to the
+             current line item.
+
+
+0710         Segment group 23: CDI-INP
+             A group of segments to report the physical state of the
+             product given in the LIN or IMD segment upon receipt and
+             to give the appropriate instructions if needed.
+
+0720            CDI, Physical or logical state
+                A segment to report the physical state of the product
+                upon receipt e.g. wrong colour.
+
+0730            INP, Parties to instruction
+                A segment to give instructions, e.g. replace.
+
+
+0740         Segment group 24: DOC-SG25
+             A group of segments identifying the discrepancies with
+             the documentary requirements relating to line item.
+
+0750            DOC, Document/message details
+                A segment identifying documents where a discrepancy
+                occurs.
+
+
+0760            Segment group 25: CDI-INP
+                A group of segments to report the physical or logical
+                state of the document upon receipt and to give the
+                appropriate instructions if needed.
+
+0770               CDI, Physical or logical state
+                   A segment to report the physical or logical state
+                   of the document upon receipt, e.g. required
+                   documents not received or incorrect.
+
+0780               INP, Parties to instruction
+                   A segment to give instructions, e.g. send again.
+
+
+0790         Segment group 26: GIN-SG27
+             A group of segments giving goods identification numbers
+             and if required the related anomalies.
+
+0800            GIN, Goods identity number
+                A segment providing identity numbers of goods being
+                received or missing.
+
+
+0810            Segment group 27: CDI-INP
+                A group of segments to report the physical state of
+                the identified goods at receipt and to give the
+                appropriate instructions, if needed.
+
+0820               CDI, Physical or logical state
+                   A segment to report the receiving conditions for
+                   the identified goods, e.g. missing, damaged.
+
+0830               INP, Parties to instruction
+                   A segment to give instructions , e.g. replace.
+
+
+0840         Segment group 28: RFF-DTM
+             A group of segments giving references relevant to the
+             line item.
+
+0850            RFF, Reference
+                A segment for referencing documents relating to the
+                line item specified by the LIN or IMD segment.
+
+0860            DTM, Date/time/period
+                A segment for date or date and time as related to the
+                referred document.
+
+
+0870         Segment group 29: PCI-QTY-QVR-SG30-SG31
+             A group of segments identifying one specific package or a
+             number of packages, the marks and numbers, quantities and
+             receiving conditions.
+
+0880            PCI, Package identification
+                A segment specifying marking and labels used on
+                identified package(s).
+
+0890            QTY, Quantity
+                A segment to specify the quantity per package.
+
+0900            QVR, Quantity variances
+                A segment identifying quantity variances between
+                quantity per package received and quantity per package
+                expected or planned.
+
+
+0910            Segment group 30: CDI-INP
+                A group of segments to report the physical state of
+                the package upon receipt and to give the appropriate
+                instructions, if needed.
+
+0920               CDI, Physical or logical state
+                   A segment to report the physical state of the
+                   package, e.g. missing, damaged.
+
+0930               INP, Parties to instruction
+                   A segment to give instructions, e.g. replace.
+
+
+0940            Segment group 31: GIN-SG32
+                A group of segments giving package identification
+                numbers and if required the related anomalies.
+
+0950               GIN, Goods identity number
+                   A segment providing identity numbers of packages
+                   received or missing.
+
+
+0960               Segment group 32: CDI-INP
+                   A group of segments to report the physical state of
+                   the identified packages upon receipt and to give
+                   the appropriate instructions, if needed.
+
+0970                  CDI, Physical or logical state
+                      A segment to report the physical state of the
+                      identified packages , e.g. missing, damaged.
+
+0980                  INP, Parties to instruction
+                      A segment to give instructions, e.g. replace.
+
+0990   CNT, Control total
+       A segment by which control total may be provided by sender for
+       checking by the receiver.
+
+1000   UNT, Message trailer
+       A service segment ending a message, giving the total number of
+       segments in the message and the control reference number of the
+       message.
+
+4.2    Data segment index (Alphabetical sequence by tag)
+
+          ALI Additional information
+          BGM Beginning of message
+          CDI Physical or logical state
+          CNT Control total
+          COM Communication contact
+          CPS Consignment packing sequence
+          CTA Contact information
+          DOC Document/message details
+          DTM Date/time/period
+          EQA Attached equipment
+          EQD Equipment details
+          GIN Goods identity number
+          IMD Item description
+          INP Parties to instruction
+          LIN Line item
+          LOC Place/location identification
+          NAD Name and address
+          PAC Package
+          PCI Package identification
+          PIA Additional product id
+       +  PRI Price details
+          QTY Quantity
+          QVR Quantity variances
+          RFF Reference
+          SEL Seal number
+          TDT Details of transport
+          TOD Terms of delivery or transport
+          UNH Message header
+          UNT Message trailer
+
+4.3    Message structure
+
+4.3.1  Segment table
+
+Pos    Tag Name                                      S   R
+
+0010   UNH Message header                            M   1     
+0020   BGM Beginning of message                      M   1     
+0030   DTM Date/time/period                          M   10    
+0040   ALI Additional information                    C   5     
+
+0050       ÄÄÄÄÄ Segment group 1  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   10ÄÄÄÄÄÄÄÄÄÄ¿
+0060   RFF Reference                                 M   1           ³
+0070   DTM Date/time/period                          C   1ÄÄÄÄÄÄÄÄÄÄÄÙ
+
+0080       ÄÄÄÄÄ Segment group 2  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   10ÄÄÄÄÄÄÄÄÄÄ¿
+0090   DOC Document/message details                  M   1           ³
+                                                                     ³
+0100       ÄÄÄÄÄ Segment group 3  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   10ÄÄÄÄÄÄÄÄÄ¿³
+0110   CDI Physical or logical state                 M   1          ³³
+0120   INP Parties to instruction                    C   5ÄÄÄÄÄÄÄÄÄÄÁÙ
+
+0130       ÄÄÄÄÄ Segment group 4  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   10ÄÄÄÄÄÄÄÄÄÄ¿
+0140   NAD Name and address                          M   1           ³
+0150   LOC Place/location identification             C   10          ³
+                                                                     ³
+0160       ÄÄÄÄÄ Segment group 5  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   10ÄÄÄÄÄÄÄÄÄ¿³
+0170   RFF Reference                                 M   1          ³³
+0180   DTM Date/time/period                          C   1ÄÄÄÄÄÄÄÄÄÄÙ³
+                                                                     ³
+0190       ÄÄÄÄÄ Segment group 6  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   10ÄÄÄÄÄÄÄÄÄ¿³
+0200   CTA Contact information                       M   1          ³³
+0210   COM Communication contact                     C   5ÄÄÄÄÄÄÄÄÄÄÁÙ
+
+0220       ÄÄÄÄÄ Segment group 7  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   10ÄÄÄÄÄÄÄÄÄÄ¿
+0230   TOD Terms of delivery or transport            M   1           ³
+                                                                     ³
+0240       ÄÄÄÄÄ Segment group 8  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   10ÄÄÄÄÄÄÄÄÄ¿³
+0250   CDI Physical or logical state                 M   1          ³³
+0260   INP Parties to instruction                    C   5ÄÄÄÄÄÄÄÄÄÄÙ³
+                                                                     ³
+0270       ÄÄÄÄÄ Segment group 9  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   10ÄÄÄÄÄÄÄÄÄ¿³
+0280   LOC Place/location identification             M   1          ³³
+0290   CDI Physical or logical state                 C   10ÄÄÄÄÄÄÄÄÄÁÙ
+
+0300       ÄÄÄÄÄ Segment group 10 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   10ÄÄÄÄÄÄÄÄÄÄ¿
+0310   TDT Details of transport                      M   1           ³
+0320   DTM Date/time/period                          C   10          ³
+0330   CDI Physical or logical state                 C   10ÄÄÄÄÄÄÄÄÄÄÙ
+
+0340       ÄÄÄÄÄ Segment group 11 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9999ÄÄÄÄÄÄÄÄ¿
+0350   EQD Equipment details                         M   1           ³
+                                                                     ³
+0360       ÄÄÄÄÄ Segment group 12 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   10ÄÄÄÄÄÄÄÄÄ¿³
+0370   CDI Physical or logical state                 M   1          ³³
+0380   INP Parties to instruction                    C   5ÄÄÄÄÄÄÄÄÄÄÙ³
+                                                                     ³
+0390       ÄÄÄÄÄ Segment group 13 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   25ÄÄÄÄÄÄÄÄÄ¿³
+0400   SEL Seal number                               M   1          ³³
+0410   CDI Physical or logical state                 M   10ÄÄÄÄÄÄÄÄÄÙ³
+                                                                     ³
+0420       ÄÄÄÄÄ Segment group 14 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   10ÄÄÄÄÄÄÄÄÄ¿³
+0430   EQA Attached equipment                        M   1          ³³
+                                                                    ³³
+0440       ÄÄÄÄÄ Segment group 15 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   10ÄÄÄÄÄÄÄÄ¿³³
+0450   CDI Physical or logical state                 M   1         ³³³
+0460   INP Parties to instruction                    C   5ÄÄÄÄÄÄÄÄÄÁÁÙ
+
+0470       ÄÄÄÄÄ Segment group 16 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9999ÄÄÄÄÄÄÄÄ¿
+0480   CPS Consignment packing sequence              M   1           ³
+                                                                     ³
+0490       ÄÄÄÄÄ Segment group 17 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9999ÄÄÄÄÄÄÄ¿³
+0500   PAC Package                                   M   1          ³³
+0510   QVR Quantity variances                        C   1          ³³
+                                                                    ³³
+0520       ÄÄÄÄÄ Segment group 18 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   999ÄÄÄÄÄÄÄ¿³³
+0530   PCI Package identification                    M   1         ³³³
+0540   RFF Reference                                 C   1         ³³³
+                                                                   ³³³
+0550       ÄÄÄÄÄ Segment group 19 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   10ÄÄÄÄÄÄÄ¿³³³
+0560   CDI Physical or logical state                 M   1        ³³³³
+0570   INP Parties to instruction                    C   5ÄÄÄÄÄÄÄÄÙ³³³
+                                                                   ³³³
+0580       ÄÄÄÄÄ Segment group 20 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   999ÄÄÄÄÄÄ¿³³³
+0590   GIN Goods identity number                     M   1        ³³³³
+                                                                  ³³³³
+0600       ÄÄÄÄÄ Segment group 21 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   10ÄÄÄÄÄÄ¿³³³³
+0610   CDI Physical or logical state                 M   1       ³³³³³
+0620   INP Parties to instruction                    C   5ÄÄÄÄÄÄÄÁÁÁÙ³
+                                                                     ³
+0630       ÄÄÄÄÄ Segment group 22 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9999ÄÄÄÄÄÄÄ¿³
+0640   LIN Line item                                 M   1          ³³
+0650   PIA Additional product id                     C   10         ³³
+0660   IMD Item description                          C   25         ³³
+0670   QTY Quantity                                  C   10         ³³
+0680   QVR Quantity variances                        C   10         ³³
+0690   DTM Date/time/period                          C   5          ³³
+0700 + PRI Price details                             C   1          ³³
+                                                                    ³³
+0710       ÄÄÄÄÄ Segment group 23 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   10ÄÄÄÄÄÄÄÄ¿³³
+0720   CDI Physical or logical state                 M   1         ³³³
+0730   INP Parties to instruction                    C   5ÄÄÄÄÄÄÄÄÄÙ³³
+                                                                    ³³
+0740       ÄÄÄÄÄ Segment group 24 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   10ÄÄÄÄÄÄÄÄ¿³³
+0750   DOC Document/message details                  M   1         ³³³
+                                                                   ³³³
+0760       ÄÄÄÄÄ Segment group 25 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   10ÄÄÄÄÄÄÄ¿³³³
+0770   CDI Physical or logical state                 M   1        ³³³³
+0780   INP Parties to instruction                    C   5ÄÄÄÄÄÄÄÄÁÙ³³
+                                                                    ³³
+0790       ÄÄÄÄÄ Segment group 26 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99ÄÄÄÄÄÄÄÄ¿³³
+0800   GIN Goods identity number                     M   1         ³³³
+                                                                   ³³³
+0810       ÄÄÄÄÄ Segment group 27 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   10ÄÄÄÄÄÄÄ¿³³³
+0820   CDI Physical or logical state                 M   1        ³³³³
+0830   INP Parties to instruction                    C   5ÄÄÄÄÄÄÄÄÁÙ³³
+                                                                    ³³
+0840       ÄÄÄÄÄ Segment group 28 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   10ÄÄÄÄÄÄÄÄ¿³³
+0850   RFF Reference                                 M   1         ³³³
+0860   DTM Date/time/period                          C   1ÄÄÄÄÄÄÄÄÄÙ³³
+                                                                    ³³
+0870       ÄÄÄÄÄ Segment group 29 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9999ÄÄÄÄÄÄ¿³³
+0880   PCI Package identification                    M   1         ³³³
+0890   QTY Quantity                                  C   1         ³³³
+0900   QVR Quantity variances                        C   1         ³³³
+                                                                   ³³³
+0910       ÄÄÄÄÄ Segment group 30 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   10ÄÄÄÄÄÄÄ¿³³³
+0920   CDI Physical or logical state                 M   1        ³³³³
+0930   INP Parties to instruction                    C   5ÄÄÄÄÄÄÄÄÙ³³³
+                                                                   ³³³
+0940       ÄÄÄÄÄ Segment group 31 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   10ÄÄÄÄÄÄÄ¿³³³
+0950   GIN Goods identity number                     M   1        ³³³³
+                                                                  ³³³³
+0960       ÄÄÄÄÄ Segment group 32 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   10ÄÄÄÄÄÄ¿³³³³
+0970   CDI Physical or logical state                 M   1       ³³³³³
+0980   INP Parties to instruction                    C   5ÄÄÄÄÄÄÄÁÁÁÁÙ
+0990   CNT Control total                             C   1     
+1000   UNT Message trailer                           M   1     

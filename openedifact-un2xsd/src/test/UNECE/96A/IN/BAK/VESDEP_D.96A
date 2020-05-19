@@ -1,0 +1,284 @@
+                              UN/EDIFACT
+
+                         DRAFT RECOMMENDATION
+
+                       Vessel departure message
+
+
+
+
+
+----------------------------------------------------------------------
+This message is available for formal trial for at least six months
+from the date of approval by UN/ECE/TRADE/WP.4.
+ 
+Organisations are invited to trial this message. Comments on the
+results from the trial should be forwarded to their Rapporteur's Team
+Secretariat as soon as they are available. Based on the results of the
+trials, a UNSM may be issued.
+ 
+The segments, composite data elements, data elements and codes for
+use in the trial of this message are contained in the Draft directory.
+However, this information may differ from that in the Standard
+directory (UNTDID), even for material having the same identifying
+tags.
+----------------------------------------------------------------------
+
+
+
+
+
+
+
+
+                                            Message Type : VESDEP
+                                            Version      : D
+                                            Release      : 96A
+                                            Contr. Agency: UN
+                                            Status       : 1
+                                            Revision     : 1
+                                            Date         : 95-11-23
+
+
+
+
+
+
+SOURCE: Joint Transport Group (JM4)
+
+
+
+                               CONTENTS
+
+                       Vessel departure message
+
+
+
+0.   INTRODUCTION
+
+
+1.   SCOPE
+
+     1.1   Functional definition
+
+     1.2   Field of application
+
+     1.3   Principles
+
+2.   REFERENCES
+
+3.   TERMS AND DEFINITIONS
+
+4.   MESSAGE DEFINITION
+
+     4.1   Data segment clarification
+
+     4.2   Data segment index (alphabetical sequence)
+
+     4.3   Message structure
+
+           4.3.1 Segment table
+
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------
+For general information on UN standard message types see UN Trade Data
+Interchange Directory, UNTDID, Part 4, Section 2.6, UN/ECE UNSM
+General Introduction
+----------------------------------------------------------------------
+
+
+
+0.     INTRODUCTION
+
+       This specification provides the definition of the Vessel
+       departure message (VESDEP) to be used in Electronic Data
+       Interchange (EDI) between trading partners involved in
+       administration, commerce and transport.
+
+1.     SCOPE
+
+1.1    Functional Definition
+
+       A message from a stevedore to a liner agent informing the
+       latter party of the closing of a vessel's file and giving
+       information on the actual container operations.
+       
+       This message is part of a total set of container-related
+       messages. These messages serve to facilitate the intermodal
+       handling of containers by streamlining the information
+       exchange.
+       The business scenario for the container messages is clarified
+       in a separate document, called: 'Guide to the scenario of
+       EDIFACT container messages'.
+
+1.2    Field of Application
+
+       The Vessel departure message may be used for both national and
+       international trade. It is based on universal commercial
+       practice and is not dependent on the type of business or
+       industry.
+
+1.3    Principles
+
+       In the context of the 'Guide to the scenario of EDIFACT
+       container messages' (as referred to at the start of section 1)
+       the following guidelines, rules and functionality apply to this
+       Vessel departure message:
+       
+       *   A message will contain information on only one means of
+       transport/conveyance.
+       
+       *   Separate messages (Call info message and Vessel departure
+       message) will be used for the means of transport in order to
+       cater for opening and closing of the information exchange
+       related to that means of transport. Updates for these messages
+       may be sent.
+       
+       *   The message contents can be uniquely identified by a
+       combination of the following data elements:
+       - ordering customer/principal
+       - ordering customer agent
+       - mode of transport
+       - conveyance reference number/voyage number
+       
+       The ordering customer agent is to supplement the unique
+       identification only when several agents are acting on behalf of
+       the same shipping line for the same voyage number.
+
+2.     REFERENCES
+
+       See UNTDID, Part 4, Chapter 2.6 UN/ECE UNSM - General
+       Introduction, Section 1.
+
+3.     TERMS AND DEFINITIONS
+
+       See UNTDID, Part 4, Chapter 2.6 UN/ECE UNSM - General
+       Introduction, Section 2.
+
+4.     MESSAGE DEFINITION
+
+4.1    Data Segment Clarification
+
+       This section should be read in conjunction with the Branching
+       Diagram and the Segment Table which indicate mandatory,
+       conditional and repeating requirements.
+
+0010 | UNH, Message header
+       A service segment starting and uniquely identifying a message.
+       The message type code for the Vessel departure message is
+       VESDEP.
+       
+       Note: Vessel departure messages conforming to this document
+       must contain the following data in segment UNH, composite S009:
+
+       Data element  0065 VESDEP
+                     0052 D
+                     0054 96A
+                     0051 UN
+
+0020   BGM, Beginning of message
+       A segment to indicate the beginning of a message and to
+       transmit identifying number.
+
+0030   RFF, Reference
+       A segment to provide a reference relating to the whole message,
+       such as:
+       -   reference to previous message
+
+
+0040   Segment group 1:  NAD-CTA
+       A group of segments to identify a party and related contacts.
+
+0050      NAD, Name and address
+          A segment to identify a name and address of a party, such
+          as:
+          -   message sender
+          -   message recipient
+          -   ordering customer/principal
+          -   ordering customer agent
+
+0060      CTA, Contact information
+          A segment to identify a person or department for the party,
+          such as:
+          -   information contact
+
+
+0070   Segment group 2:  TDT-RFF-DTM
+       A group of segments to specify details of the departing means
+       of transport.
+
+0080      TDT, Details of transport
+          A segment to identify the transport details of the departing
+          vessel.
+
+0090      RFF, Reference
+          A segment to identify a relevant reference number, such as:
+          -   voyage number
+
+0100      DTM, Date/time/period
+          A segment to identify a date and time related to the
+          departure of the means of transport, such as:
+          -   actual sailing date/time
+
+
+0110   Segment group 3:  QTY-FTX
+       A group of segments to specify total numbers.
+
+0120      QTY, Quantity
+          A segment to specify the actual number of segments in the
+          message and the control reference number of the message.
+
+0130      FTX, Free text
+          A segment to provide supplementary information related to
+          the actual number of operations on equipment.
+
+0140   UNT, Message trailer
+       A service segment ending a message, giving the total number of
+       segments in the message and the control reference number of the
+       message.
+
+4.2    Data segment index (Alphabetical sequence by tag)
+
+          BGM Beginning of message
+          CTA Contact information
+          DTM Date/time/period
+          FTX Free text
+          NAD Name and address
+          QTY Quantity
+          RFF Reference
+          TDT Details of transport
+          UNH Message header
+          UNT Message trailer
+
+4.3    Message structure
+
+4.3.1  Segment table
+
+Pos    Tag Name                                      S   R
+
+0010   UNH Message header                            M   1     
+0020   BGM Beginning of message                      M   1     
+0030   RFF Reference                                 C   9     
+
+0040       ÄÄÄÄÄ Segment group 1  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   9ÄÄÄÄÄÄÄÄÄÄÄ¿
+0050   NAD Name and address                          M   1           ³
+0060   CTA Contact information                       C   9ÄÄÄÄÄÄÄÄÄÄÄÙ
+
+0070       ÄÄÄÄÄ Segment group 2  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   1ÄÄÄÄÄÄÄÄÄÄÄ¿
+0080   TDT Details of transport                      M   1           ³
+0090   RFF Reference                                 C   9           ³
+0100   DTM Date/time/period                          C   9ÄÄÄÄÄÄÄÄÄÄÄÙ
+
+0110       ÄÄÄÄÄ Segment group 3  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄÄÄÄ¿
+0120   QTY Quantity                                  M   1           ³
+0130   FTX Free text                                 C   1ÄÄÄÄÄÄÄÄÄÄÄÙ
+0140   UNT Message trailer                           M   1     

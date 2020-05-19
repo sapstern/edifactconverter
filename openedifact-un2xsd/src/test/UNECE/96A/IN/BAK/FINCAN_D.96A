@@ -1,0 +1,341 @@
+                              UN/EDIFACT
+
+                         DRAFT RECOMMENDATION
+
+                    Financial cancellation message
+
+
+
+
+
+----------------------------------------------------------------------
+This message is available for formal trial for at least six months
+from the date of approval by UN/ECE/TRADE/WP.4.
+ 
+Organisations are invited to trial this message. Comments on the
+results from the trial should be forwarded to their Rapporteur's Team
+Secretariat as soon as they are available. Based on the results of the
+trials, a UNSM may be issued.
+ 
+The segments, composite data elements, data elements and codes for
+use in the trial of this message are contained in the Draft directory.
+However, this information may differ from that in the Standard
+directory (UNTDID), even for material having the same identifying
+tags.
+----------------------------------------------------------------------
+
+
+
+
+
+
+
+
+                                            Message Type : FINCAN
+                                            Version      : D
+                                            Release      : 96A
+                                            Contr. Agency: UN
+                                            Status       : 2
+                                            Revision     : 1
+                                            Date         : 95-11-23
+
+
+
+
+
+
+SOURCE: Joint development by the Pan American EDIFACT Board and the
+       Western European EDIFACT Board MD4
+
+
+
+                               CONTENTS
+
+                    Financial cancellation message
+
+
+
+0.   INTRODUCTION
+
+
+1.   SCOPE
+
+     1.1   Functional definition
+
+     1.2   Field of application
+
+     1.3   Principles
+
+2.   REFERENCES
+
+3.   TERMS AND DEFINITIONS
+
+4.   MESSAGE DEFINITION
+
+     4.1   Data segment clarification
+
+     4.2   Data segment index (alphabetical sequence)
+
+     4.3   Message structure
+
+           4.3.1 Segment table
+
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------
+For general information on UN standard message types see UN Trade Data
+Interchange Directory, UNTDID, Part 4, Section 2.6, UN/ECE UNSM
+General Introduction
+----------------------------------------------------------------------
+
+
+
+0.     INTRODUCTION
+
+       This specification provides the definition of the Financial
+       cancellation message (FINCAN) to be used in Electronic Data
+       Interchange (EDI) between trading partners involved in
+       administration, commerce and transport.
+
+1.     SCOPE
+
+1.1    Functional Definition
+
+       A Financial Cancellation Message is sent by the Ordering
+       Customer (or Payor or Agent on behalf of the Ordering
+       Customer)or by a third party having authority on the Ordering
+       Customer's payments to the Ordered Bank to request cancellation
+       of a given financial message or transaction.
+       
+       Throughout this document: - The term 'Original Message' refers
+       to the message to be cancelled (in full or part thereof); the
+       term 'originator' refers to the sender of the original message.
+
+1.2    Field of Application
+
+       The Financial cancellation message may be used for both
+       national and international trade. It is based on universal
+       commercial practice and is not dependent on the type of
+       business or industry.
+
+1.3    Principles
+
+       - This message contains one to many cancellation instructions.
+
+2.     REFERENCES
+
+       See UNTDID, Part 4, Chapter 2.6 UN/ECE UNSM - General
+       Introduction, Section 1.
+
+3.     TERMS AND DEFINITIONS
+
+       See UNTDID, Part 4, Chapter 2.6 UN/ECE UNSM - General
+       Introduction, Section 2.
+
+4.     MESSAGE DEFINITION
+
+4.1    Data Segment Clarification
+
+       This section should be read in conjunction with the Branching
+       Diagram and the Segment Table which indicate mandatory,
+       conditional and repeating requirements.
+       
+       The following semantic principles applying to the message are
+       intended to facilitate the understanding of the message. 
+        
+       The Financial Cancellation message is structured in two levels:
+       A and B. 
+        
+       Level A Segment Groups 1, 2, 3 and 6 contains general data
+       related to the whole message. 
+        
+       Level B Segment Groups 4 and 5 contains data identifying the
+       message or transaction to be cancelled. 
+        
+       Where a choice of code or text is given, only the code element
+       should be used wherever possible.
+
+0010 | UNH, Message header
+       A service segment starting and uniquely identifying a message.
+       The message type code for the Financial cancellation message is
+       FINCAN.
+       
+       Note: Financial cancellation messages conforming to this
+       document must contain the following data in segment UNH,
+       composite S009:
+
+       Data element  0065 FINCAN
+                     0052 D
+                     0054 96A
+                     0051 UN
+
+0020   BGM, Beginning of message
+       A segment for unique identification of the Financial
+       Cancellation message, its type, number and function.
+
+0030   DTM, Date/time/period
+       A segment containing the creation date of the Financial
+       Cancellation Message.
+
+0040   BUS, Business function
+       A segment providing information for routing of the message.
+
+
+0050   Segment group 1:  RFF-DTM
+       A group of segments identifying a previously sent message.
+
+0060      RFF, Reference
+          A segment specifying the reference number of the previously
+          sent message.
+
+0070      DTM, Date/time/period
+          A segment indicating the creation date of the referenced
+          message.
+
+
+0080   Segment group 2:  FII-CTA-COM
+       A group of segments identifying the financial institutions
+       involved in the Financial Cancellation message.
+
+0090      FII, Financial institution information
+          A segment identifying the financial institution which
+          received the original message which this message refers to.
+
+0100      CTA, Contact information
+          A segment identifying a person or department for the
+          financial institution identified in the FII segment and to
+          whom communication should be directed.
+
+0110      COM, Communication contact
+          A segment providing communication numbers for the financial
+          institution identified in the FII segment and optionally for
+          the contact identified in the associated CTA segment.
+
+
+0120   Segment group 3:  NAD-CTA-COM
+       A group of segments identifying the parties involved in the
+       exchange of the message and their contacts.
+
+0130      NAD, Name and address
+          A segment identifying the two parties involved in the
+          exchange of the message, i.e., the message sender and
+          message recipient. The message sender should be identical to
+          the originator of the original message (i.e. the message
+          which contains instructions to be cancelled).
+
+0140      CTA, Contact information
+          A segment identifying a person or a department for the party
+          specified in the NAD segment and to whom communication
+          should be directed.
+
+0150      COM, Communication contact
+          A segment providing communication numbers for the party
+          identified in the NAD segment and optionally for the contact
+          identified in the associated CTA segment.
+
+
+0160   Segment group 4:  LIN-SG5
+       A group of segments identifying a message or transaction to be
+       cancelled.
+
+0170      LIN, Line item
+          A segment specifying the beginning of details referring to
+          the message/transaction to be cancelled.
+
+
+0180      Segment group 5:  RFF-DTM
+          A group of segments specifying reference numbers, dates
+          and/or times needed to identify a referenced message or
+          transaction.
+
+0190         RFF, Reference
+             A segment indicating reference number(s) for the message
+             or transaction to be cancelled.
+
+0200         DTM, Date/time/period
+             A segment specifying the date/time of the referenced
+             message or transaction.
+
+0210   CNT, Control total
+       A segment identifying the type of control checks and totals.
+
+
+0220   Segment group 6:  AUT-DTM
+       A segment specifying the details of any authentication
+       (validation) procedure applied to the Financial Cancellation
+       message.
+
+0230      AUT, Authentication result
+          A segment specifying the details of any authentication
+          (validation) procedure applied to the Financial Cancellation
+          Message.
+
+0240      DTM, Date/time/period
+          A segment defining the date and time of the authentication.
+
+0250   UNT, Message trailer
+       A service segment ending a message, giving the total number of
+       segments in the message and the control reference number of the
+       message.
+
+4.2    Data segment index (Alphabetical sequence by tag)
+
+          AUT Authentication result
+          BGM Beginning of message
+          BUS Business function
+          CNT Control total
+          COM Communication contact
+          CTA Contact information
+          DTM Date/time/period
+          FII Financial institution information
+          LIN Line item
+          NAD Name and address
+          RFF Reference
+          UNH Message header
+          UNT Message trailer
+
+4.3    Message structure
+
+4.3.1  Segment table
+
+Pos    Tag Name                                      S   R
+
+0010   UNH Message header                            M   1     
+0020   BGM Beginning of message                      M   1     
+0030   DTM Date/time/period                          M   1     
+0040   BUS Business function                         C   1     
+
+0050       ÄÄÄÄÄ Segment group 1  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   2ÄÄÄÄÄÄÄÄÄÄÄ¿
+0060   RFF Reference                                 M   1           ³
+0070   DTM Date/time/period                          C   1ÄÄÄÄÄÄÄÄÄÄÄÙ
+
+0080       ÄÄÄÄÄ Segment group 2  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   5ÄÄÄÄÄÄÄÄÄÄÄ¿
+0090   FII Financial institution information         M   1           ³
+0100   CTA Contact information                       C   1           ³
+0110   COM Communication contact                     C   5ÄÄÄÄÄÄÄÄÄÄÄÙ
+
+0120       ÄÄÄÄÄ Segment group 3  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   3ÄÄÄÄÄÄÄÄÄÄÄ¿
+0130   NAD Name and address                          M   1           ³
+0140   CTA Contact information                       C   1           ³
+0150   COM Communication contact                     C   5ÄÄÄÄÄÄÄÄÄÄÄÙ
+
+0160       ÄÄÄÄÄ Segment group 4  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   9999ÄÄÄÄÄÄÄÄ¿
+0170   LIN Line item                                 M   1           ³
+                                                                     ³
+0180       ÄÄÄÄÄ Segment group 5  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   5ÄÄÄÄÄÄÄÄÄÄ¿³
+0190   RFF Reference                                 M   1          ³³
+0200   DTM Date/time/period                          C   1ÄÄÄÄÄÄÄÄÄÄÁÙ
+0210   CNT Control total                             C   5     
+
+0220       ÄÄÄÄÄ Segment group 6  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   5ÄÄÄÄÄÄÄÄÄÄÄ¿
+0230   AUT Authentication result                     M   1           ³
+0240   DTM Date/time/period                          C   1ÄÄÄÄÄÄÄÄÄÄÄÙ
+0250   UNT Message trailer                           M   1     

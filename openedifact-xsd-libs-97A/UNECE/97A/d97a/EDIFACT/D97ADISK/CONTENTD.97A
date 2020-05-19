@@ -1,0 +1,199 @@
+   UNITED NATIONS DIRECTORIES FOR ELECTRONIC DATA INTERCHANGE FOR                
+                ADMINISTRATION, COMMERCE AND TRANSPORT
+
+
+                              UN/EDIFACT
+
+                           STANDARD DIRECTORY
+
+
+           UNITED NATIONS TRADE DATA INTERCHANGE DIRECTORY
+                               (UNTDID)   
+
+
+
+                                 D.97A
+
+
+
+
+
+
+
+
+
+
+
+                              1996-12-10
+
+
+
+
+
+
+
+
+
+
+
+
+
+Approved by UN/ECE Working party on Facilitation of International
+Trade Procedures  (WP.4) (21 March 1997)
+
+
+Copyright (1993) United Nations, all rights reserved
+---------------------------------------------------------------------------
+
+
+
+                           TABLE OF CONTENTS
+
+        DESCRIPTION                                DISKETTE FILE
+						  
+PART 1  INTRODUCTION                               D100_D.97A
+
+PART 2  UNIFORM RULES OF CONDUCT FOR INTERCHANGE   PART2_D.ZIP (1)   
+	OF TRADE DATA BY TELETRANSMISSION (UNCID)
+
+Chapter 1 Introductory note                        D210_D.97A
+
+Chapter 2 Text of the uniform rules of conduct     D220_D.97A
+
+Chapter 3 Guide for users (2)
+
+Chapter 4 Interchange agreement                    D240_D.97A
+
+PART 3  TERMS AND DEFINITIONS (2)                  PART3_D.97A
+	Glossary                                   D300_D.97A
+
+PART 4  UNITED NATIONS RULES FOR ELECTRONIC DATA   PART4_D.ZIP (1)
+	INTERCHANGE FOR ADMINISTRATION,
+	COMMERCE AND TRANSPORT
+
+Chapter 1 Introduction                             D410_D.97A
+
+Chapter 2 General information
+     2.1  Establishment of United Nations Standard D421_D.97A
+          Message types (UNSMs)                    
+     2.2  EDIFACT syntax rules                     D422_D.97A                
+	    (ISO 9735 - latest ISO approved version)
+     2.3  UN/EDIFACT syntax implementation         D4231_D.97A
+	    guidelines                             D4232_D.97A
+						   D4232A_D.97A
+						   D4233_D.97A
+     2.4  UN/EDIFACT message design guidelines     D424_D.97A
+     2.5  Directory version/release procedures     D425_D.97A (2)
+     2.6  General introduction to UNSM             D426_D.97A
+	  descriptions                             
+
+
+PART 5  UNITED NATIONS DIRECTORIES FOR ELECTRONIC DATA INTERCHANGE
+	FOR ADMINISTRATION, COMMERCE AND TRANSPORT
+
+Chapter 1 Introduction                             CONTENTD.97A
+
+Chapter 2 Message type directory xDMD              xDMD.ZIP(1)
+     1.   Indexes
+     1.1  Index of message types by code           xDMDI1.97A
+     1.2  Index of message types by name           xDMDI2.97A
+     2.   Message type specifications              xxxxxx_D.97A
+	  (xxxxxx = message type; for example,
+	  INVOIC_D.97A contains the specification
+	  for the invoice message)
+
+Chapter 3 Segment directory xDSD                   xDSD.ZIP(1)(3)
+     1.   Indexes
+     1.1  Index of segments by tag                 xDSDI1.97A
+     1.2  Index of segments by name                xDSDI2.97A
+     2.   Segment specifications                   xDSD.97A
+
+Chapter 4 Composite data element directory xDCD    xDCD.ZIP(1)(4)
+     1.   Indexes
+     1.1  Index of composites by tag               xDCDI1.97A
+     1.2  Index of composites by name              xDCDI2.97A
+     2.   Composite specifications                 xDCD.97A
+
+Chapter 5 Data element directory EDED              EDED.ZIP(1)(5)
+     1.   Indexes
+     1.1  Index of data elements by tag            EDEDI1.97A
+     1.2  Index of data elements by name           EDEDI2.97A
+     2.   Data element specifications              EDED.97A
+
+Chapter 6 Code lists                               UNCL.ZIP(1)
+     1.   Code list UNCL                           UNCL.97A
+     2.   Service code list UNSL                   UNSL.ZIP(1)
+						   UNSL.97A
+
+
+
+
+Where: x=E for the batch directory set and
+         I for the interactive directory set.
+
+NOTES:
+
+(1) Each .ZIP file expands when "unzipped" (following the instructions
+in the README.TXT file) to become the files listed underneath with the
+exception of all CONTENTD.97A references. These are found in this file
+(below). 
+
+(2) Under development.
+
+(3) Chapter 3 of Part 5 does not include service segments (tags
+beginning with Uxx) defined in ISO 9735 (the EDIFACT syntax).  Version
+control of these service segments is reflected in data element
+0002 in the interchange header segment and is based on changes 
+to ISO 9735. Therefore the usual UN/EDIFACT directory version/release
+procedures for UN/EDIFACT messages (using data elements 0052 and 0054
+in the message header segment and the functional group header segment)
+is NOT applicable to those segments.
+
+(4) Chapter 4 of Part 5 does not include service composite data
+elements (the "Sxxx" series) which are defined in ISO 9735 (the
+EDIFACT syntax).  Version control for these composite data elements
+is reflected in data element 0002 in the interchange header segment
+and is based on changes to ISO 9735. Therefore the usual UN/EDIFACT 
+directory version/release procedures for UN/EDIFACT messages (using 
+data elements 0052 and 0054 in composite S008 and S009) is NOT
+applicable to those composite data elements.
+
+(5) Chapter 5 of Part 5 does not include service data elements (the
+"0xxx" series) which are defined in ISO 9735 (the EDIFACT syntax).
+Version control for these data elements is reflected in data element
+0002 in the interchange header segment and is based on changes to 
+ISO 9735. Therefore the usual UN/EDIFACT directory version/release 
+procedures for UN/EDIFACT messages (using data elements 0052 and 0054) 
+is NOT applicable to those data elements.
+
+
+PART 5    UNITED NATIONS DIRECTORIES FOR ELECTRONIC DATA INTERCHANGE
+	  FOR ADMINISTRATION, COMMERCE AND TRANSPORT
+
+CHAPTER 1 INTRODUCTION
+
+This Part 5 of the UN/EDIFACT directories shall in each successive
+issue include: 
+
+     all unchanged, changed and new UN Standard Message Types (UNSMs)
+     and their supporting directories agreed for public use by 
+     UN/ECE/TRADE/Working Party 4. 
+
+In the directories, UNSMs are specified in the chapter xDMD,
+supporting segments in xDSD, composite data elements in xDCD, data
+elements in EDED and code lists in UNCL and UNSL (where x=E for the 
+batch directory set, and x=I for the interactive directory set).
+
+Additions, changes and deletions in a new issue will be marked in
+reference to the previous issue of directory.
+
+The data element part of the UN Trade Data Element Directory (UNTDED),
+of which EDED (the Data element directory within the standard
+directory) is an excerpt in condensed form, is also ISO standard 7372
+for which there is a UN/ECE-ISO agreement for the Maintenance Agency,
+ISO 7372 MA.
+
+The complete contents of the current directory, as well as the
+diskette files in which this information can be found, are listed in
+the table of contents in the diskette file CONTENTD.97A.
+

@@ -1,0 +1,336 @@
+                              UN/EDIFACT
+
+                         DRAFT RECOMMENDATION
+
+              Bayplan/stowage plan total numbers message
+
+
+
+
+
+----------------------------------------------------------------------
+This message is available for formal trial for at least six months
+from the date of approval by UN/ECE/TRADE/WP.4.
+ 
+Organisations are invited to trial this message. Comments on the
+results from the trial should be forwarded to their Rapporteur's Team
+Secretariat as soon as they are available. Based on the results of the
+trials, a UNSM may be issued.
+ 
+The segments, composite data elements, data elements and codes for
+use in the trial of this message are contained in the Draft directory.
+However, this information may differ from that in the Standard
+directory (UNTDID), even for material having the same identifying
+tags.
+----------------------------------------------------------------------
+
+
+
+
+
+
+
+
+                                            Message Type : BAPLTE
+                                            Version      : D
+                                            Release      : 96A
+                                            Contr. Agency: UN
+                                            Status       : 2
+                                            Revision     : 3
+                                            Date         : 95-11-23
+
+
+
+
+
+
+SOURCE: Western European EDIFACT Board, MD2
+
+
+
+                               CONTENTS
+
+              Bayplan/stowage plan total numbers message
+
+
+
+0.   INTRODUCTION
+
+
+1.   SCOPE
+
+     1.1   Functional definition
+
+     1.2   Field of application
+
+     1.3   Principles
+
+2.   REFERENCES
+
+3.   TERMS AND DEFINITIONS
+
+4.   MESSAGE DEFINITION
+
+     4.1   Data segment clarification
+
+     4.2   Data segment index (alphabetical sequence)
+
+     4.3   Message structure
+
+           4.3.1 Segment table
+
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------
+For general information on UN standard message types see UN Trade Data
+Interchange Directory, UNTDID, Part 4, Section 2.6, UN/ECE UNSM
+General Introduction
+----------------------------------------------------------------------
+
+
+
+0.     INTRODUCTION
+
+       This specification provides the definition of the
+       Bayplan/stowage plan total numbers message (BAPLTE) to be used
+       in Electronic Data Interchange (EDI) between trading partners
+       involved in administration, commerce and transport.
+
+1.     SCOPE
+
+1.1    Functional Definition
+
+       A message to transmit information about the total numbers of
+       equipment and quantity of goods on a means of transport. The
+       message can be exchanged between (liner's) agents, tonnage
+       centers, stevedores and ships masters/operators (see section
+       1.3 for more details).
+
+1.2    Field of Application
+
+       This message may be applied for both national and international
+       trade. It is based on universal practice and is not dependent
+       on the type of business or industry.
+
+1.3    Principles
+
+       In the shipping industry the BAPLTE message can be used between
+       partners as indicated below: 
+       
+       ships/liner ============== 1 ============== ships/liner
+       agents      =======2=====     =====13====== agents
+       |    |                  |     |
+       |    3                  |     |
+       |    |                  |     |
+       |    |                  |     |
+       I   tonnage ==5 ======  |     |   ======11= tonnage
+       I   centre  =========|==|=====|===|==6===== centre
+       |    |               |  |     |   |            |
+       |    7               |  |     |   |            |
+       4    |               |  |     |   |            |
+       |    |  =============|==|==8==|===|=============
+       |    |  |            |  |     |   |
+       |    |  |            |  |     |   |
+       |    |  |            |  |     |   |
+       |    |  |            |  |     |   |
+       stevedore============|==|==9==|===|======== stevedore
+               |            |  |     |   |            |
+               |            |  |     |   |            |
+               ====10=== ships master/operator ===12===
+              
+       PORT OF DEPARTURE(PD)            NEXT PORT OF CALL(NC)
+       
+       1) Agent (PD) to agent (NC) 
+       2) Agent (PD) to ships master/operator (PD) 
+       3) Agent (PD) to tonnage centre (PD) 
+       4) Agent (PD) to stevedore (PD) 
+       5) Tonnage centre (PD) to ships master/operator (PD) 
+       6) Tonnage centre (PD) to tonnage centre (NC) 
+       7) Tonnage centre (PD) to stevedore (PD) 
+       8) Stevedore (PD) to tonnage centre 
+       9) Stevedore (PD) to stevedore (NC) 
+       10) Stevedore (PD) to ships master/operator (PD) 
+       11) Ships master/operator to tonnage centre (NC) 
+       12) Ships master/operator to stevedore (NC) 
+       13) Ships master/operator to agent (NC) 
+       
+       The above gives only one set of communication channels per
+       organisation but in practice there will be a combination of one
+       or more channels per organisation from or to port of
+       departure/next port of call.
+       
+       - The message will contain only one vessel/voyage combination,
+       giving details regarding carrier, mode of transport, means of
+       transport and total numbers of equipment or packages by
+       location (i.e., port) and/or by type or equipment or packages.
+       
+       - The bayplan message BAPLIE must be used to transmit detailed
+       information about equipment, location on the means of
+       transport, goods descriptions and properties of equipment
+       and/or goods.
+
+2.     REFERENCES
+
+       See UNTDID, Part 4, Chapter 2.6 UN/ECE UNSM - General
+       Introduction, Section 1.
+
+3.     TERMS AND DEFINITIONS
+
+       See UNTDID, Part 4, Chapter 2.6 UN/ECE UNSM - General
+       Introduction, Section 2.
+
+4.     MESSAGE DEFINITION
+
+4.1    Data Segment Clarification
+
+       This section should be read in conjunction with the Branching
+       Diagram and the Segment Table which indicate mandatory,
+       conditional and repeating requirements.
+
+0010 | UNH, Message header
+       A service segment starting and uniquely identifying a message.
+       The message type code for the Bayplan/stowage plan total
+       numbers message is BAPLTE.
+       
+       Note: Bayplan/stowage plan total numbers messages conforming to
+       this document must contain the following data in segment UNH,
+       composite S009:
+
+       Data element  0065 BAPLTE
+                     0052 D
+                     0054 96A
+                     0051 UN
+
+0020   BGM, Beginning of message
+       A segment to indicate the beginning of the message and to
+       transmit function, type and number of the message.
+
+0030   DTM, Date/time/period
+       A segment to indicate date and time of the preparation of the
+       message.
+
+
+0040 + Segment group 1:  RFF-DTM
+       A group of segments to specify the document or message to which
+       the current message relates, and related date and time.
+
+0050 |    RFF, Reference
+          A segment to identify a reference which applies to the
+          entire message, e.g. reference to previous message.
+
+0060 +    DTM, Date/time/period
+          A segment to indicate date and time relating to the
+          reference.
+
+0070   NAD, Name and address
+       A segment to identify the liner service operating or
+       responsible for a particular vessel/voyage.
+
+
+0080   Segment group 2:  TDT-LOC-DTM-RFF-FTX
+       A group of segments identifying the means of transport and
+       related details.
+
+0090      TDT, Details of transport
+          A segment to identify a means of transport and discharge
+          voyage number.
+
+0100      LOC, Place/location identification
+          A segment to identify the locations to which the following
+          information applies.
+
+0110      DTM, Date/time/period
+          A segment to indicate date and time of events in local time,
+          else the time zone specifier is to be used.
+
+0120      RFF, Reference
+          A segment to identify the loading voyage number.
+
+0130      FTX, Free text
+          A segment to transmit general information about
+          vessel/voyage.
+
+
+0140   Segment group 3:  LOC-GID-SG4
+       A group of segments containing information about the total
+       numbers of equipment and/or goods by location.
+
+0150      LOC, Place/location identification
+          A segment to identify locations (ports) relevant to the
+          equipment or goods carried.
+
+0160      GID, Goods item details
+          A segment to identify the number of packages of the goods.
+
+
+0170      Segment group 4:  EQD-EQN
+          A group of segments containing information about the type of
+          equipment and the number of units.
+
+0180         EQD, Equipment details
+             A segment to identify the type of equipment to which the
+             following totals apply. Only transport equipment
+             size/type coded or plain language is used here further to
+             identify the type of equipment.
+
+0190         EQN, Number of units
+             A segment to specify the number of equipment units.
+
+0200   UNT, Message trailer
+       A service segment ending a message, giving the total number of
+       segments in the message and the control reference number of the
+       message.
+
+4.2    Data segment index (Alphabetical sequence by tag)
+
+          BGM Beginning of message
+          DTM Date/time/period
+          EQD Equipment details
+          EQN Number of units
+          FTX Free text
+          GID Goods item details
+          LOC Place/location identification
+          NAD Name and address
+          RFF Reference
+          TDT Details of transport
+          UNH Message header
+          UNT Message trailer
+
+4.3    Message structure
+
+4.3.1  Segment table
+
+Pos    Tag Name                                      S   R
+
+0010   UNH Message header                            M   1     
+0020   BGM Beginning of message                      M   1     
+0030   DTM Date/time/period                          M   1     
+
+0040 +     ÄÄÄÄÄ Segment group 1  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄÄÄÄ¿
+0050 * RFF Reference                                 M   1           ³
+0060 + DTM Date/time/period                          C   9ÄÄÄÄÄÄÄÄÄÄÄÙ
+0070   NAD Name and address                          C   3     
+
+0080       ÄÄÄÄÄ Segment group 2  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   3ÄÄÄÄÄÄÄÄÄÄÄ¿
+0090   TDT Details of transport                      M   1           ³
+0100   LOC Place/location identification             M   2           ³
+0110   DTM Date/time/period                          M   99          ³
+0120   RFF Reference                                 C   1           ³
+0130   FTX Free text                                 C   1ÄÄÄÄÄÄÄÄÄÄÄÙ
+
+0140       ÄÄÄÄÄ Segment group 3  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   999ÄÄÄÄÄÄÄÄÄ¿
+0150   LOC Place/location identification             M   1           ³
+0160   GID Goods item details                        C   1           ³
+                                                                     ³
+0170       ÄÄÄÄÄ Segment group 4  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9999ÄÄÄÄÄÄÄ¿³
+0180   EQD Equipment details                         M   1          ³³
+0190   EQN Number of units                           C   1ÄÄÄÄÄÄÄÄÄÄÁÙ
+0200   UNT Message trailer                           M   1     

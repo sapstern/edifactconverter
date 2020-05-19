@@ -1,0 +1,355 @@
+                              UN/EDIFACT
+
+                UNITED NATIONS STANDARD MESSAGE (UNSM)
+
+          Forwarding and transport rate information message
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                            Message Type : IFTRIN
+                                            Version      : D
+                                            Release      : 97A
+                                            Contr. Agency: UN
+
+                                            Revision     : 3
+                                            Date         : 96-12-13
+
+
+
+
+
+
+SOURCE: Western European EDIFACT Board
+
+
+
+                               CONTENTS
+
+          Forwarding and transport rate information message
+
+0.   INTRODUCTION
+
+1.   SCOPE
+
+     1.1   Functional definition
+
+     1.2   Field of application
+
+     1.3   Principles
+
+2.   REFERENCES
+
+3.   TERMS AND DEFINITIONS
+
+     3.1   Standard terms and definitions
+
+4.   MESSAGE DEFINITION
+
+     4.1   Data segment clarification
+
+     4.2   Data segment index (alphabetical sequence)
+
+     4.3   Message structure
+
+           4.3.1 Segment table
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------
+For general information on UN standard message types see UN Trade Data
+Interchange Directory, UNTDID, Part 4, Section 2.6, UN/ECE UNSM
+General Introduction
+----------------------------------------------------------------------
+
+
+
+0.     INTRODUCTION
+
+       This specification provides the definition of the Forwarding
+       and transport rate information message (IFTRIN) to be used in
+       Electronic Data Interchange (EDI) between trading partners
+       involved in administration, commerce and transport.
+
+1.     SCOPE
+
+1.1    Functional Definition
+
+       The function of this message is to request transport rate
+       information and to answer to such a request.
+
+1.2    Field of Application
+
+       This message may be applied for both national and international
+       trade. It is based on universal practice and is not dependent
+       on the type of business or industry.
+
+1.3    Principles
+
+       This message may be used:
+       
+       a) to request transport rate information for a specific
+       routing. Certain specific research criteria such as date/time
+       of application, means of transport and type of rate desired may
+       be specified to limit the volume of information requested.
+       
+       b) to answer to such a request, furnishing a list of rates
+       selected in accordance with the selection criteria.
+       
+       c) to request transport additional precision concerning a
+       specific rate.
+       
+       d) to answer to such a request, furnishing the additional
+       information requested.
+
+2.     REFERENCES
+
+       See UNTDID, Part 4, Chapter 2.6 UN/ECE UNSM - General
+       Introduction, Section 1.
+
+3.     TERMS AND DEFINITIONS
+
+3.1    Standard terms and definitions
+
+       See UNTDID, Part 4, Chapter 2.6 UN/ECE UNSM - General
+       Introduction, Section 2.
+
+4.     MESSAGE DEFINITION
+
+4.1    Data Segment Clarification
+
+       This section should be read in conjunction with the Segment
+       Table which indicate mandatory, conditional and repeating
+       requirements.
+
+0010   UNH, Message header
+       A service segment starting and uniquely identifying a message.
+       The message type code for the Forwarding and transport rate
+       information message is IFTRIN.
+       
+       Note: Forwarding and transport rate information messages
+       conforming to this document must contain the following data in
+       segment UNH, composite S009:
+
+       Data element  0065 IFTRIN
+                     0052 D
+                     0054 97A
+                     0051 UN
+
+0020   BGM, Beginning of message
+       A segment to indicate the type and function of the message and
+       to transmit the identifying number.
+
+0030   DTM, Date/time/period
+       A segment to indicate date(s) and time(s) applying to the whole
+       message.
+
+0040   FTX, Free text
+       A segment to specify free form or processable supplementary
+       information. In computer-to-computer exchanges free form text
+       will normally require the receiver to process this segment
+       manually.
+
+
+0050   Segment group 1:  RFF-DTM
+       A group of segments to specify a reference relating to the
+       whole message and its date and time.
+
+0060      RFF, Reference
+          A segment to express a reference which applies to the entire
+          message, e.g. rate note/commodity item number.
+
+0070      DTM, Date/time/period
+          A segment to indicate date and time relating to the
+          reference.
+
+
+0080   Segment group 2:  LOC-DTM
+       A group of segments to identify the routing and date for the
+       rate information.
+
+0090      LOC, Place/location identification
+          A segment to identify a location, e.g. place of
+          departure/arrival.
+
+0100      DTM, Date/time/period
+          A segment to indicate date(s) and time(s) related to the
+          location.
+
+
+0110   Segment group 3:  NAD-SG4
+       A group of segments to identify a party and related contacts.
+
+0120      NAD, Name and address
+          A segment to identify the party's name, address and
+          function.
+
+
+0130      Segment group 4:  CTA-COM
+          A group of segments to identify a contact and its
+          communications related to the party.
+
+0140         CTA, Contact information
+             A segment to identify a person or department within the
+             party.
+
+0150         COM, Communication contact
+             A segment to identify a communication number of a person
+             or department to whom communication should be directed.
+
+
+0160   Segment group 5:  TDT-DTM-LOC-RFF-CUX-MEA-SG6
+       A group of segments to specify the transport and rate selection
+       criteria and to indicate the rate information being provided.
+
+0170      TDT, Details of transport
+          A segment to indicate information related to the mode and
+          means of transport, e.g. specific carrier.
+
+0180      DTM, Date/time/period
+          A segment to indicate date(s) and time(s) relating to the
+          transport details.
+
+0190      LOC, Place/location identification
+          A segment to indicate a location relating to the transport
+          details.
+
+0200      RFF, Reference
+          A segment to identify a reference relating to the transport
+          details.
+
+0210      CUX, Currencies
+          A segment to indicate the currency in which the
+          charges/rates are expressed.
+
+0220      MEA, Measurements
+          A segment to indicate an applicable weight or volume.
+
+
+0230      Segment group 6:  TCC-EQN-PCD-QTY-PRI-MOA
+          A group of segments to specify the rate information
+          selection criteria and to indicate the rate information
+          being provided.
+
+0240         TCC, Transport charge/rate calculations
+             A segment to specify a charge/rate, e.g. freight rate.
+
+0250         EQN, Number of units
+             A segment to specify the number of units to which the
+             unit price/rate applies.
+
+0260         PCD, Percentage details
+             A segment to specify the applicable reduction or
+             surcharge percentage details.
+
+0270         QTY, Quantity
+             A segment to specify a quantity relevant to calculate the
+             charge, e.g. chargeable quantity.
+
+0280         PRI, Price details
+             A segment to specify the price information of the charge.
+
+0290         MOA, Monetary amount
+             A segment to specify the monetary amount related to the
+             charge.
+
+0300   UNT, Message trailer
+       A service segment ending a message, giving the total number of
+       segments in the message and the control reference number of the
+       message.
+
+4.2    Data segment index (Alphabetical sequence by tag)
+
+          BGM Beginning of message
+          COM Communication contact
+          CTA Contact information
+          CUX Currencies
+          DTM Date/time/period
+          EQN Number of units
+          FTX Free text
+          LOC Place/location identification
+          MEA Measurements
+          MOA Monetary amount
+          NAD Name and address
+          PCD Percentage details
+          PRI Price details
+          QTY Quantity
+          RFF Reference
+          TCC Transport charge/rate calculations
+          TDT Details of transport
+          UNH Message header
+          UNT Message trailer
+
+4.3    Message structure
+
+4.3.1  Segment table
+
+Pos    Tag Name                                      S   R
+
+0010   UNH Message header                            M   1     
+0020   BGM Beginning of message                      M   1     
+0030   DTM Date/time/period                          C   9     
+0040   FTX Free text                                 C   99    
+
+0050       ÄÄÄÄÄ Segment group 1  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄÄÄÄ¿
+0060   RFF Reference                                 M   1           ³
+0070   DTM Date/time/period                          C   9ÄÄÄÄÄÄÄÄÄÄÄÙ
+
+0080       ÄÄÄÄÄ Segment group 2  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄÄÄÄ¿
+0090   LOC Place/location identification             M   1           ³
+0100   DTM Date/time/period                          C   9ÄÄÄÄÄÄÄÄÄÄÄÙ
+
+0110       ÄÄÄÄÄ Segment group 3  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄÄÄÄ¿
+0120   NAD Name and address                          M   1           ³
+                                                                     ³
+0130       ÄÄÄÄÄ Segment group 4  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄÄÄ¿³
+0140   CTA Contact information                       M   1          ³³
+0150   COM Communication contact                     C   9ÄÄÄÄÄÄÄÄÄÄÁÙ
+
+0160       ÄÄÄÄÄ Segment group 5  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   999ÄÄÄÄÄÄÄÄÄ¿
+0170   TDT Details of transport                      M   1           ³
+0180   DTM Date/time/period                          C   9           ³
+0190   LOC Place/location identification             C   9           ³
+0200   RFF Reference                                 C   9           ³
+0210   CUX Currencies                                C   9           ³
+0220   MEA Measurements                              C   9           ³
+                                                                     ³
+0230       ÄÄÄÄÄ Segment group 6  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99ÄÄÄÄÄÄÄÄÄ¿³
+0240   TCC Transport charge/rate calculations        M   1          ³³
+0250   EQN Number of units                           C   9          ³³
+0260   PCD Percentage details                        C   9          ³³
+0270   QTY Quantity                                  C   9          ³³
+0280   PRI Price details                             C   9          ³³
+0290   MOA Monetary amount                           C   9ÄÄÄÄÄÄÄÄÄÄÁÙ
+0300   UNT Message trailer                           M   1     

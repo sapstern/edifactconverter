@@ -1,0 +1,411 @@
+                              UN/EDIFACT
+
+                         DRAFT RECOMMENDATION
+
+                      Raw data reporting message
+
+
+
+
+
+----------------------------------------------------------------------
+This message is available for formal trial for at least six months
+from the date of approval by UN/ECE/TRADE/WP.4.
+ 
+Organisations are invited to trial this message. Comments on the
+results from the trial should be forwarded to their Rapporteur's Team
+Secretariat as soon as they are available. Based on the results of the
+trials, a UNSM may be issued.
+ 
+The segments, composite data elements, data elements and codes for
+use in the trial of this message are contained in the Draft directory.
+However, this information may differ from that in the Standard
+directory (UNTDID), even for material having the same identifying
+tags.
+----------------------------------------------------------------------
+
+
+
+
+
+
+
+
+                                            Message Type : RDRMES
+                                            Version      : D
+                                            Release      : 96A
+                                            Contr. Agency: UN
+                                            Status       : 1
+                                            Revision     : 1
+                                            Date         : 95-11-23
+
+
+
+
+
+
+SOURCE: Joint Rapporteurs Message Design Group JM8
+
+
+
+                               CONTENTS
+
+                      Raw data reporting message
+
+
+
+0.   INTRODUCTION
+
+
+1.   SCOPE
+
+     1.1   Functional definition
+
+     1.2   Field of application
+
+     1.3   Principles
+
+2.   REFERENCES
+
+3.   TERMS AND DEFINITIONS
+
+4.   MESSAGE DEFINITION
+
+     4.1   Data segment clarification
+
+     4.2   Data segment index (alphabetical sequence)
+
+     4.3   Message structure
+
+           4.3.1 Segment table
+
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------
+For general information on UN standard message types see UN Trade Data
+Interchange Directory, UNTDID, Part 4, Section 2.6, UN/ECE UNSM
+General Introduction
+----------------------------------------------------------------------
+
+
+
+0.     INTRODUCTION
+
+       This specification provides the definition of the Raw data
+       reporting message (RDRMES) to be used in Electronic Data
+       Interchange (EDI) between trading partners involved in
+       administration, commerce and transport.
+
+1.     SCOPE
+
+1.1    Functional Definition
+
+       A Raw data reporting message (RDRMES) is sent in response to
+       predefined and identified questions.
+       Raw data are collected by numerous offices in the public and
+       private sectors. Much of the data is predefined and
+       repetitious. The data are often codified such that their
+       description has been pre-set and meets the criteria of the
+       collector.
+
+1.2    Field of Application
+
+       The Raw data reporting message may be used for both national
+       and international trade. It is based on universal commercial
+       practice and is not dependent on the type of business or
+       industry.
+
+1.3    Principles
+
+       The Raw data reporting message supports the transmission of
+       multiple responses to one or more questionnaires, each uniquely
+       identified.
+       
+       Concepts-
+       
+       definitions:
+       
+       Raw data: The respondent's answers to the collector's
+       questionnaire.
+       
+       Respondent: The organization for which raw data are provided.
+       Raw data may be sent by the responding organization or an agent
+       acting on behalf of the responding organization.
+       
+       Collector: The organization to which raw data are provided. Raw
+       data may be received by the collecting organization or an agent
+       acting on behalf of the collecting agency.
+       
+       Questionnaire: A set of questions, with collector-assigned
+       identifiers, addressed to a respondent.
+       
+       RESPONDENT 
+       +-------------------------------------------------------------+
+       |  +----------------------+       +-------------------------+ |
+       |  + Responding Agent     + << -- + Responding Organization + |
+       |  +----------------------+       +-------------------------+ |
+       +-------------------------------------------------------------+
+                                    \|/
+                                    \|/
+        COLLECTOR
+       +-------------------------------------------------------------+
+       |   +---------------------+       +-------------------------+ |
+       |   + Collecting Agent    + -- >> + Collecting Organization + |
+       |   +---------------------+       +-------------------------+ |
+       +-------------------------------------------------------------+
+       
+       Message Composition-
+       
+       the message is comprised of two parts:
+       
+       - the first part describes administrative information
+       concerning interchanging partners.
+       
+       - the second contains the predefined, identified questions and
+       the raw data, along with associated information, including the
+       organization responsible for maintaining identifiers, if
+       required.
+
+2.     REFERENCES
+
+       See UNTDID, Part 4, Chapter 2.6 UN/ECE UNSM - General
+       Introduction, Section 1.
+
+3.     TERMS AND DEFINITIONS
+
+       See UNTDID, Part 4, Chapter 2.6 UN/ECE UNSM - General
+       Introduction, Section 2.
+
+4.     MESSAGE DEFINITION
+
+4.1    Data Segment Clarification
+
+       This section should be read in conjunction with the Branching
+       Diagram and the Segment Table which indicate mandatory,
+       conditional and repeating requirements.
+
+0010   UNH, Message header
+       A service segment starting and uniquely identifying a message.
+       The message type code for the Raw data reporting message is
+       RDRMES.
+       
+       Note: Raw data reporting messages conforming to this document
+       must contain the following data in segment UNH, composite S009:
+
+       Data element  0065 RDRMES
+                     0052 D
+                     0054 96A
+                     0051 UN
+
+0020   BGM, Beginning of message
+       A segment specifying the functional use (e.g. sub-set) of the
+       Raw data reporting message and identifying the message.
+
+0030   DTM, Date/time/period
+       A segment identifying dates, times, or periods which are
+       relevant to the whole message.
+
+
+0040   Segment group 1:  NAD-RFF-FTX-SG2
+       A group of segments identifying the name and address of the
+       relevant parties, along with additional information related to
+       the interchanging partners, such as references, contacts and
+       communication numbers.
+
+0050      NAD, Name and address
+          A segment to identify the relevant parties.
+
+0060      RFF, Reference
+          A segment to specify a reference that the respondent wishes 
+          to communicate to the collector.
+
+0070      FTX, Free text
+          A segment to provide free form or coded text information.
+
+
+0080      Segment group 2:  CTA-COM
+          A group of segments identifying a contact within the 
+          identified organization and communication number (e.g. 
+          telephone number, fax number).
+
+0090         CTA, Contact information
+             A segment to identify a person or a department to whom 
+             communication should be directed.
+
+0100         COM, Communication contact
+             A segment to identify a communication number of a 
+             department or a person to whom communication should be 
+             directed.
+
+
+0110   Segment group 3:  IDE-SG4-SG6
+       A group of segments identifying a questionnaire, the responding
+       organization, the questions in the questionnaire and the
+       responses to the questions.
+
+0120      IDE, Identity
+          A segment identifying a questionnaire.
+
+
+0130      Segment group 4:  NAD-RFF-FTX-SG5
+          A group of segments identifying the responding organization 
+          to a questionnaire, the contact details, and administrative 
+          data relevant to the organization.
+
+0140         NAD, Name and address
+             A segment identifying the responding organization.
+
+0150         RFF, Reference
+             A segment to specify a reference that the responding 
+             organization wishes to communicate to the collector.
+
+0160         FTX, Free text
+             A segment to provide free form or coded text information.
+
+
+0170         Segment group 5:  CTA-COM
+             A group of segments identifying a contact within, or 
+             representing, the responding organization and 
+             communication number (e.g. telephone number, fax number).
+
+0180            CTA, Contact information
+                A segment to identify a person or a department to whom
+                 communication should be directed.
+
+0190            COM, Communication contact
+                A segment to identify a communication number of a 
+                department or a person to whom communication should be
+                 directed.
+
+
+0200      Segment group 6:  SCD-ARR-RFF-DTM-FTX-SG7
+          A group of segments which specify a question in a 
+          questionnaire and the data given in response.
+
+0210         SCD, Structure component definition
+             A segment to specify the identity of a question (e.g. in 
+             a questionnaire).
+
+0220         ARR, Array information
+             A segment containing the data in response to a question.
+
+0230         RFF, Reference
+             A segment to specify a reference relevant to the 
+             response.
+
+0240         DTM, Date/time/period
+             A segment identifying dates, times, or periods relevant 
+             to the response.
+
+0250         FTX, Free text
+             A segment to provide free form or coded text information 
+             relevant to the response.
+
+
+0260         Segment group 7:  NAD-RFF-FTX-SG8
+             A group of segments that identify an organization, 
+             contact information and administrative information given 
+             in response to a question.
+
+0270            NAD, Name and address
+                A segment specifying the identity of an organization 
+                which is given in response to a question.
+
+0280            RFF, Reference
+                A segment to specify a reference relevant to the 
+                organization.
+
+0290            FTX, Free text
+                A segment to provide free form or coded text 
+                information.
+
+
+0300            Segment group 8:  CTA-COM
+                A group of segments identifying a contact within the 
+                identified organization and communication number (e.g.
+                 telephone number, fax number).
+
+0310               CTA, Contact information
+                   A segment to identify a person or a department to 
+                   whom communication should be directed.
+
+0320               COM, Communication contact
+                   A segment to identify a communication number of a 
+                   department or a person to whom communication should
+                    be directed.
+
+0330   UNT, Message trailer
+       A service segment ending a message, giving the total number of
+       segments in the message and the control reference number of the
+       message.
+
+4.2    Data segment index (Alphabetical sequence by tag)
+
+          ARR Array information
+          BGM Beginning of message
+          COM Communication contact
+          CTA Contact information
+          DTM Date/time/period
+          FTX Free text
+          IDE Identity
+          NAD Name and address
+          RFF Reference
+          SCD Structure component definition
+          UNH Message header
+          UNT Message trailer
+
+4.3    Message structure
+
+4.3.1  Segment table
+
+Pos    Tag Name                                      S   R
+
+0010   UNH Message header                            M   1     
+0020   BGM Beginning of message                      M   1     
+0030   DTM Date/time/period                          C   5     
+
+0040       ÄÄÄÄÄ Segment group 1  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄÄÄÄ¿
+0050   NAD Name and address                          M   1           ³
+0060   RFF Reference                                 C   9           ³
+0070   FTX Free text                                 C   9           ³
+                                                                     ³
+0080       ÄÄÄÄÄ Segment group 2  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄÄÄ¿³
+0090   CTA Contact information                       M   1          ³³
+0100   COM Communication contact                     C   9ÄÄÄÄÄÄÄÄÄÄÁÙ
+
+0110       ÄÄÄÄÄ Segment group 3  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   9999ÄÄÄÄÄÄÄÄ¿
+0120   IDE Identity                                  M   1           ³
+                                                                     ³
+0130       ÄÄÄÄÄ Segment group 4  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   1ÄÄÄÄÄÄÄÄÄÄ¿³
+0140   NAD Name and address                          M   1          ³³
+0150   RFF Reference                                 C   9          ³³
+0160   FTX Free text                                 C   9          ³³
+                                                                    ³³
+0170       ÄÄÄÄÄ Segment group 5  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄÄ¿³³
+0180   CTA Contact information                       M   1         ³³³
+0190   COM Communication contact                     C   9ÄÄÄÄÄÄÄÄÄÁÙ³
+                                                                     ³
+0200       ÄÄÄÄÄ Segment group 6  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   99999ÄÄÄÄÄÄ¿³
+0210   SCD Structure component definition            M   1          ³³
+0220   ARR Array information                         C   1          ³³
+0230   RFF Reference                                 C   99         ³³
+0240   DTM Date/time/period                          C   9          ³³
+0250   FTX Free text                                 C   99         ³³
+                                                                    ³³
+0260       ÄÄÄÄÄ Segment group 7  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99999ÄÄÄÄÄ¿³³
+0270   NAD Name and address                          M   1         ³³³
+0280   RFF Reference                                 C   9         ³³³
+0290   FTX Free text                                 C   9         ³³³
+                                                                   ³³³
+0300       ÄÄÄÄÄ Segment group 8  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄ¿³³³
+0310   CTA Contact information                       M   1        ³³³³
+0320   COM Communication contact                     C   9ÄÄÄÄÄÄÄÄÁÁÁÙ
+0330   UNT Message trailer                           M   1     

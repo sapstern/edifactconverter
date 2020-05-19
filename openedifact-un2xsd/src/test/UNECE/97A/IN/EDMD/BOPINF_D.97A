@@ -1,0 +1,337 @@
+                              UN/EDIFACT
+
+                UNITED NATIONS STANDARD MESSAGE (UNSM)
+
+         Balance of payment information from customer message
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                            Message Type : BOPINF
+                                            Version      : D
+                                            Release      : 97A
+                                            Contr. Agency: UN
+
+                                            Revision     : 2
+                                            Date         : 96-12-13
+
+
+
+
+
+
+SOURCE: Joint Statistics Group (JM8)
+
+
+
+                               CONTENTS
+
+         Balance of payment information from customer message
+
+0.   INTRODUCTION
+
+1.   SCOPE
+
+     1.1   Functional definition
+
+     1.2   Field of application
+
+     1.3   Principles
+
+2.   REFERENCES
+
+3.   TERMS AND DEFINITIONS
+
+     3.1   Standard terms and definitions
+
+4.   MESSAGE DEFINITION
+
+     4.1   Data segment clarification
+
+     4.2   Data segment index (alphabetical sequence)
+
+     4.3   Message structure
+
+           4.3.1 Segment table
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------
+For general information on UN standard message types see UN Trade Data
+Interchange Directory, UNTDID, Part 4, Section 2.6, UN/ECE UNSM
+General Introduction
+----------------------------------------------------------------------
+
+
+
+0.     INTRODUCTION
+
+       This specification provides the definition of the Balance of
+       payment information from customer message (BOPINF) to be used
+       in Electronic Data Interchange (EDI) between trading partners
+       involved in administration, commerce and transport.
+
+1.     SCOPE
+
+1.1    Functional Definition
+
+       Message sent by a payee to its bank on receipt of one specified
+       amount as a settlement of a transaction with a non-resident.
+       The Balance of Payment (BOP) compiler has to be informed of the
+       transaction via the payee's bank.
+
+1.2    Field of Application
+
+       The Balance of payment information from customer message may be
+       used for both national and international applications. It is
+       based on universal practice related to administration, commerce
+       and transport, and is not dependent on the type of business or
+       industry.
+
+1.3    Principles
+
+       In some countries the receipt of an external payment has to be
+       reported to the BOP compiler via the customer's resident bank.
+       
+       It is assumed that the payee is informed about the receipt by a
+       CREADV message. As far as this message contains relevant BOP
+       data (for instance counterparties and the total amount) the
+       payee - by referring in the BOPINF message to the CREADV
+       message - refrain from reporting this data to its bank.
+       
+       For reporting to the BOP compiler the payee's bank has to
+       combine the CREADV message and the related BOPINF message in
+       order to fill in the BOPCUS message.
+       
+       The main part of the BOPINF message relates to additional BOP
+       information related to corresponding transactions and unknown
+       by the payee's bank.
+       
+       The message contains a main loop introduced by a LIN segment
+       which is used to accommodate the reporting of a large number of
+       transactions without repeating identical information.
+       
+       Each loop contains the information related to one transaction
+       for which a CREADV has been received and for which a BOP
+       information has been requested.
+
+2.     REFERENCES
+
+       See UNTDID, Part 4, Chapter 2.6 UN/ECE UNSM - General
+       Introduction, Section 1.
+
+3.     TERMS AND DEFINITIONS
+
+3.1    Standard terms and definitions
+
+       See UNTDID, Part 4, Chapter 2.6 UN/ECE UNSM - General
+       Introduction, Section 2.
+
+4.     MESSAGE DEFINITION
+
+4.1    Data Segment Clarification
+
+       This section should be read in conjunction with the Segment
+       Table which indicate mandatory, conditional and repeating
+       requirements.
+
+0010   UNH, Message header
+       A service segment starting and uniquely identifying a message.
+       The message type code for the Balance of payment information
+       from customer message is BOPINF.
+       
+       Note: Balance of payment information from customer messages
+       conforming to this document must contain the following data in
+       segment UNH, composite S009:
+
+       Data element  0065 BOPINF
+                     0052 D
+                     0054 97A
+                     0051 UN
+
+0020   BGM, Beginning of message
+       A segment to indicate the type and function of the message and
+       to transmit its identifying number.
+
+0030   DTM, Date/time/period
+       A segment to specify the date and, when required, the time at
+       which the message has been created as well as specification of
+       other process dates.
+
+
+0040   Segment group 1:  RFF-DTM
+       A group of segments to give auxiliary references and the
+       relevant dates for the message itself.
+
+0050      RFF, Reference
+          A segment to give another reference for the message.
+
+0060      DTM, Date/time/period
+          A segment to give the period reported in the message (for
+          example day/month/year).
+
+
+0070   Segment group 2:  NAD-CTA-COM
+       A group of segments to give the identification of the reporting
+       agent (generally the enterprise) or, possibly with a second
+       occurrence, the identification of the enterprise on behalf of
+       which the declaration is made.
+
+0080      NAD, Name and address
+          A segment to identify the resident party.
+
+0090      CTA, Contact information
+          A segment to identify a person or a department for the party
+          specified in the NAD segment and to whom communication
+          should be directed.
+
+0100      COM, Communication contact
+          A segment to give a communication number for the party
+          identified in the NAD segment.
+
+
+0110   Segment group 3:  LIN-SG4-SG5
+       A group of segments to accommodate the details corresponding
+       with one credit advice received during the relevant period.
+
+0120      LIN, Line item
+          A segment identifying the report line item by a current line
+          number.
+
+
+0130      Segment group 4:  RFF-DTM
+          A group of segments to give references and dates of the
+          corresponding CREADV message (to be extracted from the
+          CREADV message header).
+
+0140         RFF, Reference
+             A segment to give the serial number of the received
+             CREADV message.
+
+0150         DTM, Date/time/period
+             A segment to give the day, month & year of the CREADV
+             message.
+
+
+0160      Segment group 5:  RCS-FTX-MOA-LOC
+          A group of segments to give the nature of the transaction,
+          the amount and geographical detail. If the payment relates
+          to different transactions or consists of composite payments
+          each transaction has to be specified by its nature, its
+          amount and, if necessary its geographical detail.
+
+0170         RCS, Requirements and conditions
+             A segment to give the nature of each transaction.
+
+0180         FTX, Free text
+             A segment to give information in clear and free form
+             about the nature of each transaction.
+
+0190         MOA, Monetary amount
+             A segment to give the amount and the currency of each
+             transaction.
+
+0200         LOC, Place/location identification
+             A segment to indicate one of the different countries
+             involved in each transaction.
+
+
+0210   Segment group 6:  AUT-DTM
+       A group of segments to specify the details of authentication.
+
+0220      AUT, Authentication result
+          A segment to specify the details of any authentication
+          (validation) procedure applied to the BOPINF message.
+
+0230      DTM, Date/time/period
+          A segment identifying the validation date/time.
+
+0240   UNT, Message trailer
+       A service segment ending a message, giving the total number of
+       segments in the message and the control reference number of the
+       message.
+
+4.2    Data segment index (Alphabetical sequence by tag)
+
+          AUT Authentication result
+          BGM Beginning of message
+          COM Communication contact
+          CTA Contact information
+          DTM Date/time/period
+          FTX Free text
+          LIN Line item
+          LOC Place/location identification
+          MOA Monetary amount
+          NAD Name and address
+          RCS Requirements and conditions
+          RFF Reference
+          UNH Message header
+          UNT Message trailer
+
+4.3    Message structure
+
+4.3.1  Segment table
+
+Pos    Tag Name                                      S   R
+
+0010   UNH Message header                            M   1     
+0020   BGM Beginning of message                      M   1     
+0030   DTM Date/time/period                          M   3     
+
+0040       ÄÄÄÄÄ Segment group 1  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   2ÄÄÄÄÄÄÄÄÄÄÄ¿
+0050   RFF Reference                                 M   1           ³
+0060   DTM Date/time/period                          C   1ÄÄÄÄÄÄÄÄÄÄÄÙ
+
+0070       ÄÄÄÄÄ Segment group 2  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   2ÄÄÄÄÄÄÄÄÄÄÄ¿
+0080   NAD Name and address                          M   1           ³
+0090   CTA Contact information                       C   1           ³
+0100   COM Communication contact                     C   5ÄÄÄÄÄÄÄÄÄÄÄÙ
+
+0110       ÄÄÄÄÄ Segment group 3  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   999ÄÄÄÄÄÄÄÄÄ¿
+0120   LIN Line item                                 M   1           ³
+                                                                     ³
+0130       ÄÄÄÄÄ Segment group 4  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   1ÄÄÄÄÄÄÄÄÄÄ¿³
+0140   RFF Reference                                 M   1          ³³
+0150   DTM Date/time/period                          C   1ÄÄÄÄÄÄÄÄÄÄÙ³
+                                                                     ³
+0160       ÄÄÄÄÄ Segment group 5  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   10ÄÄÄÄÄÄÄÄÄ¿³
+0170   RCS Requirements and conditions               M   1          ³³
+0180   FTX Free text                                 C   10         ³³
+0190   MOA Monetary amount                           C   1          ³³
+0200   LOC Place/location identification             C   4ÄÄÄÄÄÄÄÄÄÄÁÙ
+
+0210       ÄÄÄÄÄ Segment group 6  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   1ÄÄÄÄÄÄÄÄÄÄÄ¿
+0220   AUT Authentication result                     M   1           ³
+0230   DTM Date/time/period                          C   1ÄÄÄÄÄÄÄÄÄÄÄÙ
+0240   UNT Message trailer                           M   1     

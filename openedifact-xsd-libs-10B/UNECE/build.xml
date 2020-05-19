@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="edifact_schema" basedir="." default="build">		
+	<property name="project.dir" value="${user.dir}" />
+	<property name="lib.dir" value="../openedifact-un2xsd/target" />
+	<property name="messageType" value="EDIFACTINTERCHANGE"/>
+	<path id="classpath">
+		<fileset dir="${lib.dir}" includes="**/*.jar" />
+	</path>
+	<pathconvert property="classpathProp" refid="classpath"/>
+
+	<echo>Classpath is ${classpathProp}</echo>
+	<target name="cleanup">
+		<echo message="#############################" />
+		<echo message="### Removing old result   ###" />
+		<echo message="#############################" />
+		<delete failonerror="no" quiet="false"
+			dir="UNECE/RESULT" />
+	</target>
+	<target name="prepare" depends="cleanup">
+		<echo message="################################" />
+		<echo message="### preparing fils and dirs  ###" />
+		<echo message="################################" />
+		<mkdir dir="UNECE/BACKUP" />
+		<mkdir dir="UNECE/${version.uppercase}" />
+		<mkdir dir="UNECE/${version.uppercase}/d${version.lower}" />
+		<mkdir dir="UNECE/${version.uppercase}/d${version.lower}/UNCL" />
+		<mkdir dir="UNECE/${version.uppercase}/d${version.lower}/IDSD" />
+		<mkdir dir="UNECE/${version.uppercase}/d${version.lower}/IDMD" />
+		<mkdir dir="UNECE/${version.uppercase}/d${version.lower}/IDCD" />
+		<mkdir dir="UNECE/${version.uppercase}/d${version.lower}/EDSD" />
+		<mkdir dir="UNECE/${version.uppercase}/d${version.lower}/EDMD" />
+		<mkdir dir="UNECE/${version.uppercase}/d${version.lower}/EDCD" />
+		<mkdir dir="UNECE/${version.uppercase}/d${version.lower}/EDED" />
+
+		<mkdir dir="UNECE/${version.uppercase}/IN" />
+		<mkdir dir="UNECE/${version.uppercase}/OUT" />
+	</target>
+	<!-- Download from UNECE Website only, if we do not have the source zip yet -->
+	<target name="check-use-file" depends="prepare">
+	    	<available property="file.exists" file="UNECE/BACKUP/${version.lower}.zip"/>
+	</target>
+	<target name="unZipOnly" depends="check-use-file" if="file.exists">
+		<unzip src="UNECE/BACKUP/${version.lower}.zip"
+			   dest="UNECE/${version.uppercase}/d${version.lower}" />				
+	</target>
+	<target name="getZip" depends="check-use-file" unless="file.exists">
+		<echo message="#####################################" />
+		<echo message="### Getting ${version} data files ###" />
+		<echo message="#####################################" />
+	 	<get
+			src="http://www.unece.org/fileadmin/DAM/trade/untdid/d${version.lower}/d${version.lower}.zip"
+			dest="UNECE/${version.uppercase}/d${version.lower}/${version.lower}.zip"
+			verbose="true" usetimestamp="true" /> 
+		<unzip src="UNECE/${version.uppercase}/d${version.lower}/${version.lower}.zip"
+			dest="UNECE/${version.uppercase}/d${version.lower}" />		
+		<copy todir="UNECE/BACKUP" overwrite="true" file="UNECE/${version.uppercase}/d${version.lower}/${version.lower}.zip"/>		
+	</target>
+	<target name="normalizeFiles" depends="unZipOnly,getZip">
+		<java classname="com.sapstern.openedifact.unece.xsd.io.DirectoryProcessor" fork="true">					
+					<arg value="-directoryName"/>
+					<arg value="UNECE/${version.uppercase}/d${version.lower}"/>
+					<classpath>
+						<pathelement location="${lib.dir}/openedifact-un2xsd-2.2-SNAPSHOT.jar" />
+					</classpath>
+		</java>
+	</target>	
+	<target name="build" depends="normalizeFiles">
+		<echo message="##########################################" />
+		<echo message="### running ${version.uppercase} build ###" />
+		<echo message="##########################################" />
+		<copy todir="UNECE/${version.uppercase}/IN/EDMD" flatten="true">
+			<resources>
+				<fileset dir="UNECE/${version.uppercase}/d${version.lower}/EDMD" includes="**/*.${version.uppercase}" />						
+			</resources>
+		</copy>
+		<copy todir="UNECE/${version.uppercase}/IN" flatten="true">
+			<resources>
+				<file file="UNECE/EDSD.XXX" />
+				<file file="UNECE/EDCD.XXX" />
+				<file file="UNECE/EDED.XXX" />
+				<file
+					file="UNECE/${version.uppercase}/d${version.lower}/EDSD/EDSD.${version.uppercase}" />
+				<file
+					file="UNECE/${version.uppercase}/d${version.lower}/EDCD/EDCD.${version.uppercase}" />
+				<file
+					file="UNECE/${version.uppercase}/d${version.lower}/EDED/EDED.${version.uppercase}" />
+			</resources>
+		</copy>
+		<java classname="com.sapstern.openedifact.unece.xsd.XSDFileGenerator" fork="true">
+			<arg value="-version"/>
+			<arg value="${version.uppercase}"/>
+			<arg value="-directoryName"/>
+			<arg value="${basedir}/UNECE"/>
+			<arg value="-messageType"/>
+			<arg value="${messageType}"/>						
+			<classpath>
+				<pathelement location="${lib.dir}/openedifact-un2xsd-2.2-SNAPSHOT.jar" />
+			</classpath>
+		</java>
+		<echo message="###############################" />
+		<echo message="### copy xsd to result folder  ###" />
+		<echo message="###############################" />
+		<copy todir="target/classes" >
+			<resources>
+				<fileset dir="UNECE/${version.uppercase}/OUT" includes="**/*.xsd" />						
+			</resources>
+		</copy>
+		<echo message="###############################" />
+		<echo message="### Removing obsolete files ###" />
+		<echo message="###############################" />
+		<delete failonerror="no" quiet="false"
+				dir="UNECE/${version.uppercase}" />
+	</target>
+
+</project>

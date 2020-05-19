@@ -1,0 +1,499 @@
+                              UN/EDIFACT
+
+                         DRAFT RECOMMENDATION
+
+          Container stuffing/stripping confirmation message
+
+
+
+
+
+----------------------------------------------------------------------
+This message is available for formal trial for at least six months
+from the date of approval by UN/ECE/TRADE/WP.4.
+ 
+Organisations are invited to trial this message. Comments on the
+results from the trial should be forwarded to their Rapporteur's Team
+Secretariat as soon as they are available. Based on the results of the
+trials, a UNSM may be issued.
+ 
+The segments, composite data elements, data elements and codes for
+use in the trial of this message are contained in the Draft directory.
+However, this information may differ from that in the Standard
+directory (UNTDID), even for material having the same identifying
+tags.
+----------------------------------------------------------------------
+
+
+
+
+
+
+
+
+                                            Message Type : COSTCO
+                                            Version      : D
+                                            Release      : 96A
+                                            Contr. Agency: UN
+                                            Status       : 1
+                                            Revision     : 1
+                                            Date         : 95-11-23
+
+
+
+
+
+
+SOURCE: Joint Transport Group (JM4)
+
+
+
+                               CONTENTS
+
+          Container stuffing/stripping confirmation message
+
+
+
+0.   INTRODUCTION
+
+
+1.   SCOPE
+
+     1.1   Functional definition
+
+     1.2   Field of application
+
+     1.3   Principles
+
+2.   REFERENCES
+
+3.   TERMS AND DEFINITIONS
+
+4.   MESSAGE DEFINITION
+
+     4.1   Data segment clarification
+
+     4.2   Data segment index (alphabetical sequence)
+
+     4.3   Message structure
+
+           4.3.1 Segment table
+
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------
+For general information on UN standard message types see UN Trade Data
+Interchange Directory, UNTDID, Part 4, Section 2.6, UN/ECE UNSM
+General Introduction
+----------------------------------------------------------------------
+
+
+
+0.     INTRODUCTION
+
+       This specification provides the definition of the Container
+       stuffing/stripping confirmation message (COSTCO) to be used in
+       Electronic Data Interchange (EDI) between trading partners
+       involved in administration, commerce and transport.
+
+1.     SCOPE
+
+1.1    Functional Definition
+
+       Confirmation that specified goods/consignments have been
+       stuffed into or stripped from LCL-containers.
+       This message is part of a total set of container-related
+       messages.
+       These messages serve to facilitate the intermodal handling of
+       containers by streamlining the information exchange.
+       The business scenario for the container messages is clarified
+       in a separate document, called: 'Guide to the scenario of
+       EDIFACT container messages'.
+
+1.2    Field of Application
+
+       The Container stuffing/stripping confirmation message may be
+       used for both national and international trade. It is based on
+       universal commercial practice and is not dependent on the type
+       of business or industry.
+
+1.3    Principles
+
+       Business area:
+       Pre- and on-carriage transport of containers/equipment
+       
+       Sending functions include:
+       Container freight station
+       
+       Receiving functions include:
+       Shipping agent, Logistic center
+       
+       
+       In the context of the 'Guide to the scenario of EDIFACT
+       container messages' (as referred to at the start of section 1)
+       the following guidelines, rules and functionality apply to this
+       Container stuffing/stripping confirmation message:
+       
+       *   The message contents can be uniquely identified by a
+       combination of the following data elements:
+       -  Carrier agent, coded (Shipping agent) (NAD)
+       -  Carrier, coded (Shipping line) (TDT)
+       -  Stuffing/stripping order reference number (RFF)
+       
+       *   One message may contain several containers.
+       
+       *   One shipping line and one shipping agent can be specified
+       on message top level.
+       
+       *   The sea booking reference can be given for each individual
+       LCL-consignment (Less than Full Container Load).
+       
+       *   For each container details can be specified such as
+       container prefix and number, size/type, seals, temperature,
+       dangerous goods and off-dimensions details.
+       
+       *   Each LCL-consignment can be identified by means of a
+       booking reference and the original shipper, and may consist of
+       several LCL goods items.
+       
+       *   For each LCL goods item details can be specified, such as
+       goods description, gross weight, volume, marks and numbers,
+       number and kind of packages, any dangerous goods specifications
+       and Customs and non-Customs documents.
+       
+       *   Goods item information can be related to the corresponding
+       containers by linking the goods item group (GID) to the
+       container details group(s) (EQD) by means of the SGP segment.
+
+2.     REFERENCES
+
+       See UNTDID, Part 4, Chapter 2.6 UN/ECE UNSM - General
+       Introduction, Section 1.
+
+3.     TERMS AND DEFINITIONS
+
+       See UNTDID, Part 4, Chapter 2.6 UN/ECE UNSM - General
+       Introduction, Section 2.
+
+4.     MESSAGE DEFINITION
+
+4.1    Data Segment Clarification
+
+       This section should be read in conjunction with the Branching
+       Diagram and the Segment Table which indicate mandatory,
+       conditional and repeating requirements.
+
+0010 | UNH, Message header
+       A service segment starting and uniquely identifying a message.
+       The message type code for the Container stuffing/stripping
+       confirmation message is COSTCO.
+       
+       Note: Container stuffing/stripping confirmation messages
+       conforming to this document must contain the following data in
+       segment UNH, composite S009:
+
+       Data element  0065 COSTCO
+                     0052 D
+                     0054 96A
+                     0051 UN
+
+0020   BGM, Beginning of message
+       A segment to indicate the beginning of a message and to
+       transmit identifying number and the further specification of
+       the message type (in data element 1001: Document/message name,
+       coded), such as Stuffing confirmation, Stripping confirmation.
+
+0030   FTX, Free text
+       A segment to specify free form or processable supplementary
+       information, such as:
+       - change Information
+
+0040   RFF, Reference
+       A segment to express a reference which applies to the entire
+       message, such as:
+       - reference to previous message
+       - stuffing/stripping order reference
+       - (sea) booking reference number
+
+
+0050   Segment group 1:  TDT-LOC-DTM
+       A group of segments to identify vessel and voyage details.
+
+0060      TDT, Details of transport
+          A segment to indicate the main carriage stage of the
+          transport, such as carrier/liner service; also vessel/voyage
+          details or inland transport details can be specified.
+
+0070      LOC, Place/location identification
+          A segment to indicate a place/port corresponding to the
+          transport stage.
+
+0080      DTM, Date/time/period
+          A segment to indicate a date and time relating to the main
+          carriage, such as:
+          -   arrival date/time
+
+
+0090   Segment group 2:  NAD-CTA
+       A group of segments to identify a party and related contacts.
+
+0100      NAD, Name and address
+          A segment to identify the party's name, address, and
+          function, such as:
+          - carrier agent (sea)
+          - message recipient
+          - message sender
+
+0110      CTA, Contact information
+          A segment to identify a person or department for contact
+          purposes, such as:
+          -   information contact
+
+
+0120   Segment group 3:  EQD-RFF-DTM-TSR-DIM-SEL-EQA-NAD
+       A group of segments to specify stuffed or stripped containers.
+
+0130      EQD, Equipment details
+          A segment to specify container prefix and number, container
+          size and type and other details.
+
+0140      RFF, Reference
+          A segment to provide a reference relating to the equipment,
+          such as:
+          -   container sequence number
+
+0150      DTM, Date/time/period
+          A segment to specify the actual stuffing/stripping
+          date/time.
+
+0160      TSR, Transport service requirements
+          A segment to specify special instructions and/or services
+          regarding the container, such as:
+          -   off-dimensions
+
+0170      DIM, Dimensions
+          -   off-standard dimensions front
+          -   off-standard dimensions rear
+          -   off-standard dimensions right
+          -   off-standard dimensions left
+          -   off-standard dimensions general 
+              (including length, width and height)
+          -   external equipment dimensions
+
+0180      SEL, Seal number
+          A segment to identify seal and seal issuer associated with
+          the container, such as consolidator and carrier (sea).
+
+0190      EQA, Attached equipment
+          A segment to specify attached equipment, such as:
+          -   chassis
+          -   clip-on units such as generator sets
+
+0200      NAD, Name and address
+          A segment to specify a related address or party, such as:
+          -   container operator
+
+
+0210   Segment group 4:  CNI-RFF-SG5
+       A group of segments to describe a consignment stuffed into or
+       stripped from LCL-containers (Less than Full Container Load).
+
+0220      CNI, Consignment information
+          A segment to indicate a stuffed or stripped consignment.
+
+0230      RFF, Reference
+          A segment to identify a reference to an LCL-consignment,
+          such as:
+          -   booking reference number (sea transport)
+
+
+0240      Segment group 5:  GID-HAN-TMP-RNG-FTX-MEA-PCI-DOC-SG6-SG7
+          A group of segments to describe the goods items of the
+          consignment.
+
+0250         GID, Goods item details
+             A segment to identify a stuffed or stripped goods item. A
+             goods item can be identified by a goods item number,
+             number and type of packages.
+
+0260         HAN, Handling instructions
+             A segment to specify handling instructions relating to
+             the goods item, such as:
+             -   hazardous cargo.
+
+0270         TMP, Temperature
+             A segment to specify the actual temperature setting for
+             the goods item.
+
+0280         RNG, Range details
+             A segment to specify the actual temperature range setting
+             for the goods item.
+
+0290         FTX, Free text
+             A segment to describe the goods item.
+
+0300         MEA, Measurements
+             A segment to specify measurements, other than dimensions,
+             applicable to a goods item, such as:
+             -   gross weight
+             -   gross measurement/cube
+
+0310         PCI, Package identification
+             A segment to specify marks and numbers of a goods item.
+
+0320         DOC, Document/message details
+             A segment to specify a document prepared for a goods
+             item, such as relevant permits.
+
+
+0330         Segment group 6:  SGP-MEA
+             A group of segments to specify the distribution of a
+             goods item among the containers.
+
+0340            SGP, Split goods placement
+                A segment to identify the containers in which goods
+                are (were) transported.
+
+0350            MEA, Measurements
+                A segment to specify the gross weight of that portion
+                of the goods item in the container.
+
+
+0360         Segment group 7:  DGS-FTX-MEA-SG8
+             A group of segments to specify dangerous goods details
+             related to the goods item. One goods item may be in
+             different dangerous goods classes.
+
+0370            DGS, Dangerous goods
+                A segment to indicate the dangerous goods regulations
+                for the corresponding mode of transport, class of
+                dangerous goods, additional dangerous goods code,
+                UN-number and shipment flash point.
+
+0380            FTX, Free text
+                A segment to specify the dangerous goods technical
+                name and to specify any additional dangerous goods
+                information.
+
+0390            MEA, Measurements
+                A segment to specify measurements of the dangerous
+                goods, such as:
+                - Net net weight
+
+
+0400            Segment group 8:  SGP-MEA
+                A group of segments to specify the distribution of the
+                dangerous goods among the containers.
+
+0410               SGP, Split goods placement
+                   A segment to identify the containers in which the
+                   dangerous goods are (were) transported.
+
+0420               MEA, Measurements
+                   A segment to specify the net net weight of that
+                   portion of the dangerous goods in the equipment.
+
+0430   CNT, Control total
+       A segment to specify the number of containers in the message,
+       explicitly given by the sender.
+
+0440   UNT, Message trailer
+       A service segment ending a message, giving the total number of
+       segments in the message and the control reference number of the
+       message.
+
+4.2    Data segment index (Alphabetical sequence by tag)
+
+          BGM Beginning of message
+          CNI Consignment information
+          CNT Control total
+          CTA Contact information
+          DGS Dangerous goods
+          DIM Dimensions
+          DOC Document/message details
+          DTM Date/time/period
+          EQA Attached equipment
+          EQD Equipment details
+          FTX Free text
+          GID Goods item details
+          HAN Handling instructions
+          LOC Place/location identification
+          MEA Measurements
+          NAD Name and address
+          PCI Package identification
+          RFF Reference
+          RNG Range details
+          SEL Seal number
+          SGP Split goods placement
+          TDT Details of transport
+          TMP Temperature
+          TSR Transport service requirements
+          UNH Message header
+          UNT Message trailer
+
+4.3    Message structure
+
+4.3.1  Segment table
+
+Pos    Tag Name                                      S   R
+
+0010   UNH Message header                            M   1     
+0020   BGM Beginning of message                      M   1     
+0030   FTX Free text                                 C   9     
+0040   RFF Reference                                 M   9     
+
+0050       ÄÄÄÄÄ Segment group 1  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   1ÄÄÄÄÄÄÄÄÄÄÄ¿
+0060   TDT Details of transport                      M   1           ³
+0070   LOC Place/location identification             C   9           ³
+0080   DTM Date/time/period                          C   9ÄÄÄÄÄÄÄÄÄÄÄÙ
+
+0090       ÄÄÄÄÄ Segment group 2  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   9ÄÄÄÄÄÄÄÄÄÄÄ¿
+0100   NAD Name and address                          M   1           ³
+0110   CTA Contact information                       C   9ÄÄÄÄÄÄÄÄÄÄÄÙ
+
+0120       ÄÄÄÄÄ Segment group 3  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   999ÄÄÄÄÄÄÄÄÄ¿
+0130   EQD Equipment details                         M   1           ³
+0140   RFF Reference                                 C   9           ³
+0150   DTM Date/time/period                          C   9           ³
+0160   TSR Transport service requirements            C   9           ³
+0170   DIM Dimensions                                C   9           ³
+0180   SEL Seal number                               C   9           ³
+0190   EQA Attached equipment                        C   9           ³
+0200   NAD Name and address                          C   9ÄÄÄÄÄÄÄÄÄÄÄÙ
+
+0210       ÄÄÄÄÄ Segment group 4  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   999ÄÄÄÄÄÄÄÄÄ¿
+0220   CNI Consignment information                   M   1           ³
+0230   RFF Reference                                 C   9           ³
+                                                                     ³
+0240       ÄÄÄÄÄ Segment group 5  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   999ÄÄÄÄÄÄÄÄ¿³
+0250   GID Goods item details                        M   1          ³³
+0260   HAN Handling instructions                     C   9          ³³
+0270   TMP Temperature                               C   9          ³³
+0280   RNG Range details                             C   9          ³³
+0290   FTX Free text                                 C   9          ³³
+0300   MEA Measurements                              C   9          ³³
+0310   PCI Package identification                    C   9          ³³
+0320   DOC Document/message details                  C   9          ³³
+                                                                    ³³
+0330       ÄÄÄÄÄ Segment group 6  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   999ÄÄÄÄÄÄÄ¿³³
+0340   SGP Split goods placement                     M   1         ³³³
+0350   MEA Measurements                              C   9ÄÄÄÄÄÄÄÄÄÙ³³
+                                                                    ³³
+0360       ÄÄÄÄÄ Segment group 7  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄÄ¿³³
+0370   DGS Dangerous goods                           M   1         ³³³
+0380   FTX Free text                                 C   9         ³³³
+0390   MEA Measurements                              C   9         ³³³
+                                                                   ³³³
+0400       ÄÄÄÄÄ Segment group 8  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   999ÄÄÄÄÄÄ¿³³³
+0410   SGP Split goods placement                     M   1        ³³³³
+0420   MEA Measurements                              C   9ÄÄÄÄÄÄÄÄÁÁÁÙ
+0430   CNT Control total                             M   1     
+0440   UNT Message trailer                           M   1     

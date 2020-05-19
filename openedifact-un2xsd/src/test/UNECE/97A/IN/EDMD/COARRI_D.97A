@@ -1,0 +1,544 @@
+                              UN/EDIFACT
+
+                UNITED NATIONS STANDARD MESSAGE (UNSM)
+
+              Container discharge/loading report message
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                            Message Type : COARRI
+                                            Version      : D
+                                            Release      : 97A
+                                            Contr. Agency: UN
+
+                                            Revision     : 3
+                                            Date         : 96-12-13
+
+
+
+
+
+
+SOURCE: Joint Transport Group (JM4)
+
+
+
+                               CONTENTS
+
+              Container discharge/loading report message
+
+0.   INTRODUCTION
+
+1.   SCOPE
+
+     1.1   Functional definition
+
+     1.2   Field of application
+
+     1.3   Principles
+
+2.   REFERENCES
+
+3.   TERMS AND DEFINITIONS
+
+     3.1   Standard terms and definitions
+
+4.   MESSAGE DEFINITION
+
+     4.1   Data segment clarification
+
+     4.2   Data segment index (alphabetical sequence)
+
+     4.3   Message structure
+
+           4.3.1 Segment table
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------
+For general information on UN standard message types see UN Trade Data
+Interchange Directory, UNTDID, Part 4, Section 2.6, UN/ECE UNSM
+General Introduction
+----------------------------------------------------------------------
+
+
+
+0.     INTRODUCTION
+
+       This specification provides the definition of the Container
+       discharge/loading report message (COARRI) to be used in
+       Electronic Data Interchange (EDI) between trading partners
+       involved in administration, commerce and transport.
+
+1.     SCOPE
+
+1.1    Functional Definition
+
+       A message by which the container terminal reports that the
+       containers specified have been discharged from a seagoing
+       vessel (discharged as ordered, overlanded or shortlanded), or
+       have been loaded into a seagoing vessel.
+       
+       This message is part of a total set of container-related
+       messages. These messages serve to facilitate the intermodal
+       handling of containers by streamlining the information
+       exchange.
+       The business scenario for the container messages is clarified
+       in a separate document, called: 'Guide to the scenario of
+       EDIFACT container messages'.
+
+1.2    Field of Application
+
+       The Container discharge/loading report message may be used for
+       both national and international applications. It is based on
+       universal practice related to administration, commerce and
+       transport, and is not dependent on the type of business or
+       industry.
+
+1.3    Principles
+
+       Business area:
+       Loading and discharging of containers/equipment
+       
+       Sending functions include:
+       Container terminal, Stevedore
+       
+       Receiving functions include:
+       Ship's agent, Liner agent
+       
+       In the context of the 'Guide to the scenario of EDIFACT
+       container messages' (as referred to at the start of section 1)
+       the following guidelines, rules and functionality apply to this
+       Container
+       discharge/loading report message:
+       
+       *   The message contents can be uniquely identified by a
+       combination of the following data elements:
+          - ordering customer, coded (NAD)
+          - ordering customer agent, coded (NAD)
+          - container discharge/loading order reference (RFF)
+       
+       The ordering customer agent, coded is needed to supplement the
+       unique identification only in the following situation: the
+       agent acts on behalf of several ordering customers issuing the
+       same range of reference numbers for each customer.
+       E.g., the ship's agent acts on behalf of several shipping lines
+       issuing for each shipping line the same range of numbers.
+       
+       *   A message contains information on only one visit/conveyance
+       of a seagoing container vessel either arriving or departing.
+       
+       *   A message contains a report of either discharged or loaded
+       containers from or into the seagoing container vessel. One
+       report message does not necessarily cover all loaded/discharged
+       containers.
+       
+       *   An indicator for the equipment status may be completed on
+       container level (EQD-segment), e.g., import, overlanded or
+       shortlanded (for a discharged container) or export (for a
+       loaded container).
+       
+       *   One shipping line can be specified on message level.
+       
+       *   The seagoing container vessel and sea voyage number can be
+       specified on message level.
+       
+       *   For each container its cell position on board the container
+       vessel and its port of discharge can be given.
+       
+       *   For each container dangerous goods information can be
+       specified.
+       
+       *   A supplementary container reference number (container
+       sequence number) is used to refer to the information of the
+       container(s) in the loading order message, if the container
+       prefix and number was not completed in that message.
+       
+       *   Goods item details cannot be completed.
+
+2.     REFERENCES
+
+       See UNTDID, Part 4, Chapter 2.6 UN/ECE UNSM - General
+       Introduction, Section 1.
+
+3.     TERMS AND DEFINITIONS
+
+3.1    Standard terms and definitions
+
+       See UNTDID, Part 4, Chapter 2.6 UN/ECE UNSM - General
+       Introduction, Section 2.
+
+4.     MESSAGE DEFINITION
+
+4.1    Data Segment Clarification
+
+       This section should be read in conjunction with the Segment
+       Table which indicate mandatory, conditional and repeating
+       requirements.
+
+0010   UNH, Message header
+       A service segment starting and uniquely identifying a message.
+       The message type code for the Container discharge/loading
+       report message is COARRI.
+       
+       Note: Container discharge/loading report messages conforming to
+       this document must contain the following data in segment UNH,
+       composite S009:
+
+       Data element  0065 COARRI
+                     0052 D
+                     0054 97A
+                     0051 UN
+
+0020   BGM, Beginning of message
+       A segment to indicate the beginning of a message and to
+       transmit identifying number and the further specification of
+       the message type (in data element 1001: Document/message name,
+       coded), such as Loading report, Discharge report.
+
+0030   DTM, Date/time/period
+       A segment to indicate a date and/or time applying to the whole
+       message, such as date and time of document or message issue.
+
+0040   FTX, Free text
+       A segment to specify free form or processable supplementary
+       information, such as:
+       -   change information
+
+
+0050   Segment group 1:  RFF-DTM
+       A group of segments to specify a reference relating to the
+       whole message, and its date and/or time.
+
+0060      RFF, Reference
+          A segment to express a reference which applies to the entire
+          message, such as:
+          -   container discharge/loading order reference
+          -   reference to previous message
+
+0070      DTM, Date/time/period
+          A segment to indicate date and/or time related to the
+          reference.
+
+
+0080   Segment group 2:  TDT-RFF-LOC-DTM
+       A group of segments to indicate the main carriage means of
+       transport.
+
+0090      TDT, Details of transport
+          A segment identifying the voyage of the vessel relevant to
+          the message (main transport).
+
+0100      RFF, Reference
+          A segment identifying a relevant reference number, such as:
+          -   shipping
+          -   syndicate
+          -   marketing organization
+          -   conference code
+
+0110      LOC, Place/location identification
+          A segment to identify a location related to the means of
+          transport, such as:
+          -   place of departure/arrival (terminal within the port)
+
+0120      DTM, Date/time/period
+          A segment identifying a date/time related to the arrival or
+          departure of the vessel, such as:
+          -   estimated date/time of arrival/departure
+
+
+0130   Segment group 3:  NAD-SG4
+       A group of segments to identify a party and related contacts.
+
+0140      NAD, Name and address
+          A segment to identify the party's name, address, and
+          function, and other addresses, such as:
+          -   message recipient
+          -   message sender
+          -   ordering customer
+          -   ordering customer agent
+
+
+0150      Segment group 4:  CTA-COM
+          A group of segments to identify a contact and its
+          communications related to the party.
+
+0160         CTA, Contact information
+             A segment to identify a person or department of a message
+             sender and/or message recipient, such as:
+             -   information contact
+
+0170         COM, Communication contact
+             A segment to identify a communication number of a person
+             or department to whom communication should be directed.
+
+
+0180 | Segment group 5:  EQD-RFF-GDS-TMD-DTM-LOC-MEA-DIM-TMP-RNG-SEL-
+                         FTX-DGS-EQA-PIA-HAN-SG6-SG7-NAD
+       A group of segments to specify containers either loaded or
+       discharged; in the latter case - only in case of shortlanded -
+       the group of segments is to specify containers that had to be
+       discharged (according to the discharge order message).
+       
+       In a normal discharge report and load report message the
+       container details are only required if they differ from the
+       details given in the respective order message.
+       In case of overlanded containers this group will contain the
+       full container details giving as much information as possible.
+       In case of shortlanded containers this group will only contain
+       the container prefix and number.
+
+0190      EQD, Equipment details
+          A segment identifying a container, container size/type.
+          The equipment status may be e.g. overlanded, shortlanded,
+          import, export.
+
+0200      RFF, Reference
+          A segment identifying a relevant reference number, such as:
+          -   container sequence number
+          -   booking reference number
+
+0210 +    GDS, Nature of cargo
+          A segment to show the broad classification of the goods
+          within a container for operational and general information
+          purposes.
+
+0220      TMD, Transport movement details
+          A segment to indicate a Full Container Load (FCL) or a Less
+          than Full Container Load (LCL).
+
+0230      DTM, Date/time/period
+          A segment to identify a date and time related to the
+          equipment, such as:
+          -  Date and/or time of actual loading or discharge
+          -  CSC expiration date (International Convention for Safe
+          Containers)
+
+0240      LOC, Place/location identification
+          A segment to identify a location or country related to the
+          equipment, such as:
+          -   stowage cell
+          -   (final) place/port of discharge
+          -   transhipment place
+          -   place of delivery
+          -   country of origin/destination
+
+0250      MEA, Measurements
+          A segment specifying a physical measurement related to the
+          equipment, such as:
+          -   gross weight
+
+0260      DIM, Dimensions
+          A segment specifying physical dimensions related to the
+          equipment, such as:
+          -   gross dimensions
+          -   off standard dimension general
+          -   off standard dimension left
+          -   off standard dimension right
+          -   off standard dimension back
+          -   off standard dimension front
+
+0270      TMP, Temperature
+          A segment which identifies the transport temperature setting
+          of the container.
+
+0280      RNG, Range details
+          A segment to specify the transport temperature range setting
+          of the container.
+
+0290      SEL, Seal number
+          A segment identifying a seal number related to the
+          equipment.
+
+0300      FTX, Free text
+          A segment to specify supplementary information related to
+          the equipment, such as:
+          -   blockade reason
+          -   government inspection service
+          -   container loading remarks
+          -   container remarks
+          -   container order information
+          -   additional remarks concerning the container
+          -   container safety convention plate
+          -   continuous examination program (ACEP)
+
+0310      DGS, Dangerous goods
+          A segment to identify the UN-number and the class of the
+          dangerous goods loaded in the container.
+
+0320      EQA, Attached equipment
+          A segment to identify clip-on units, such as:
+          -   generator sets
+
+0330      PIA, Additional product id
+          A segment to specify a commodity code relating to goods in
+          the container.
+
+0340 +    HAN, Handling instructions
+          A segment to specify handling instructions related to the
+          equipment.
+
+
+0350      Segment group 6:  DAM-COD
+          A group of segments to specify damage details related to the
+          equipment.
+
+0360         DAM, Damage
+             A segment to specify equipment damages, such as the point
+             of the damage on the equipment, and the type of damage.
+
+0370         COD, Component details
+             A segment to specify component details of the damaged
+             equipment.
+
+
+0380      Segment group 7:  TDT-LOC-DTM
+          A group of segments to specify the planned on-carriage
+          details in case this message is a discharge report message.
+
+0390         TDT, Details of transport
+             A segment to identify the on-carriage transport details
+             of the mode, means of transport by which the container
+             will depart after being discharged.
+
+0400         LOC, Place/location identification
+             A segment identifying a location related to the transport
+             details, such as:
+             -   place of departure
+
+0410         DTM, Date/time/period
+             A segment to specify a date/time relating to the
+             on-carriage transport, such as arrival or departure
+             date/time.
+
+0420      NAD, Name and address
+          A segment to specify a related address or party, such as:
+          -   container operator
+
+0430   CNT, Control total
+       A segment to specify the number of containers in the message,
+       explicitly given by the sender.
+
+0440   UNT, Message trailer
+       A service segment ending a message, giving the total number of
+       segments in the message and the control reference number of the
+       message.
+
+4.2    Data segment index (Alphabetical sequence by tag)
+
+          BGM Beginning of message
+          CNT Control total
+          COD Component details
+          COM Communication contact
+          CTA Contact information
+          DAM Damage
+          DGS Dangerous goods
+          DIM Dimensions
+          DTM Date/time/period
+          EQA Attached equipment
+          EQD Equipment details
+          FTX Free text
+       +  GDS Nature of cargo
+       +  HAN Handling instructions
+          LOC Place/location identification
+          MEA Measurements
+          NAD Name and address
+          PIA Additional product id
+          RFF Reference
+          RNG Range details
+          SEL Seal number
+          TDT Details of transport
+          TMD Transport movement details
+          TMP Temperature
+          UNH Message header
+          UNT Message trailer
+
+4.3    Message structure
+
+4.3.1  Segment table
+
+Pos    Tag Name                                      S   R
+
+0010   UNH Message header                            M   1     
+0020   BGM Beginning of message                      M   1     
+0030   DTM Date/time/period                          C   9     
+0040   FTX Free text                                 C   9     
+
+0050       ÄÄÄÄÄ Segment group 1  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄÄÄÄ¿
+0060   RFF Reference                                 M   1           ³
+0070   DTM Date/time/period                          C   9ÄÄÄÄÄÄÄÄÄÄÄÙ
+
+0080       ÄÄÄÄÄ Segment group 2  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   1ÄÄÄÄÄÄÄÄÄÄÄ¿
+0090   TDT Details of transport                      M   1           ³
+0100   RFF Reference                                 C   9           ³
+0110   LOC Place/location identification             C   9           ³
+0120   DTM Date/time/period                          C   9ÄÄÄÄÄÄÄÄÄÄÄÙ
+
+0130       ÄÄÄÄÄ Segment group 3  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   9ÄÄÄÄÄÄÄÄÄÄÄ¿
+0140   NAD Name and address                          M   1           ³
+                                                                     ³
+0150       ÄÄÄÄÄ Segment group 4  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄÄÄ¿³
+0160   CTA Contact information                       M   1          ³³
+0170   COM Communication contact                     C   9ÄÄÄÄÄÄÄÄÄÄÁÙ
+
+0180       ÄÄÄÄÄ Segment group 5  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   9999ÄÄÄÄÄÄÄÄ¿
+0190   EQD Equipment details                         M   1           ³
+0200   RFF Reference                                 C   9           ³
+0210 + GDS Nature of cargo                           C   9           ³
+0220   TMD Transport movement details                C   9           ³
+0230   DTM Date/time/period                          C   9           ³
+0240   LOC Place/location identification             C   9           ³
+0250   MEA Measurements                              C   9           ³
+0260   DIM Dimensions                                C   9           ³
+0270   TMP Temperature                               C   9           ³
+0280   RNG Range details                             C   9           ³
+0290   SEL Seal number                               C   9           ³
+0300   FTX Free text                                 C   9           ³
+0310   DGS Dangerous goods                           C   9           ³
+0320   EQA Attached equipment                        C   9           ³
+0330   PIA Additional product id                     C   9           ³
+0340 + HAN Handling instructions                     C   9           ³
+                                                                     ³
+0350       ÄÄÄÄÄ Segment group 6  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄÄÄ¿³
+0360   DAM Damage                                    M   1          ³³
+0370   COD Component details                         C   1ÄÄÄÄÄÄÄÄÄÄÙ³
+                                                                     ³
+0380       ÄÄÄÄÄ Segment group 7  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   1ÄÄÄÄÄÄÄÄÄÄ¿³
+0390   TDT Details of transport                      M   1          ³³
+0400   LOC Place/location identification             C   9          ³³
+0410   DTM Date/time/period                          C   9ÄÄÄÄÄÄÄÄÄÄÙ³
+0420   NAD Name and address                          C   1ÄÄÄÄÄÄÄÄÄÄÄÙ
+0430 * CNT Control total                             C   1     
+0440   UNT Message trailer                           M   1     

@@ -1,0 +1,482 @@
+                              UN/EDIFACT
+
+                UNITED NATIONS STANDARD MESSAGE (UNSM)
+
+                          Repair call message
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                           Message Type : RPCALL
+                                           Version      : D
+                                           Release      : 01B
+                                           Contr. Agency: UN
+
+                                           Revision     : 1
+                                           Date         : 2001-05-15
+
+
+
+
+
+
+SOURCE: D2 Purchasing (SWG)
+
+
+
+                               CONTENTS
+
+                          Repair call message
+
+0.     INTRODUCTION
+
+1.     SCOPE
+
+       1.1   Functional definition
+
+       1.2   Field of application
+
+       1.3   Principles
+
+2.     REFERENCES
+
+3.     TERMS AND DEFINITIONS
+
+       3.1   Standard terms and definitions
+
+4.     MESSAGE DEFINITION
+
+       4.1   Segment clarification
+             4.1.1 Header section
+             4.1.2 Detail section
+             4.1.3 Summary section
+
+       4.2   Segment index (alphabetical sequence by tag)
+
+       4.3   Message structure
+             4.3.1 Segment table
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------
+For general information on UN standard message types see UN Trade Data
+Interchange Directory, UNTDID, Part 4, Section 2.3, UN/ECE UNSM
+General Introduction
+----------------------------------------------------------------------
+
+
+
+0.     INTRODUCTION
+
+       This specification provides the definition of the Repair call
+       message (RPCALL) to be used in Electronic Data Interchange
+       (EDI) between trading partners involved in administration,
+       commerce and transport.
+
+1.     SCOPE
+
+1.1    Functional definition
+
+       A message sent by a manufacturer or a call centre with
+       information addressed to servicing and repair centres with
+       details of appliances requiring repair or service. The
+       information provided by the manufacturer or a call centre may
+       include, details of the appliance, symptoms and faults, service
+       history and previous repairs, parts already replaced, location
+       where the appliance it is to be found as well as contact
+       details.
+
+1.2    Field of application
+
+       The Repair call message may be used for both national and
+       international applications. It is based on universal practice
+       related to administration, commerce and transport, and is not
+       dependent on the type of business or industry.
+
+1.3    Principles
+
+       The RPCALL message can be used to inform service and repair
+       centres on one or more repair calls that are proposed by a
+       manufacturer or a call centre.  
+       
+       The message may contain the following information relating to
+       the appliance and its location:
+       - the appliance model number or type
+       - warranty details (as relevant)
+       - symptoms and defect codes
+       - repair history (as relevant)
+       - address where the appliance is to be found and contact
+       details
+       - date and time requested for the visit
+       
+       The PROSRV message may be used to respond to the manufacturer
+       or call centre indicating the details of the interventions.
+
+2.     REFERENCES
+
+       See UNTDID, Part 4, Chapter 2.3 UN/ECE UNSM - General
+       Introduction, Section 1.
+
+3.     TERMS AND DEFINITIONS
+
+3.1    Standard terms and definitions
+
+       See UNTDID, Part 4, Chapter 2.3 UN/ECE UNSM - General
+       Introduction, Section 2.
+
+4.     MESSAGE DEFINITION
+
+4.1    Segment clarification
+
+       This section should be read in conjunction with the segment
+       table which indicates mandatory, conditional and repeating
+       requirements.
+       
+       The following guidelines apply to the whole message and are
+       intended to facilitate the understanding and implementation of
+       the message: 
+              
+       All specified dates/times should be in the format
+       'ccyymmdd'/'hhmm' unless all parties involved in the
+       transaction agree that there is a functional requirement for an
+       alternative format. Periods should be specified as whole
+       numbers representing the required period as indicated in the
+       format qualifier (weeks, months, etc.). 
+              
+       Where a choice of code or text is given, the code element
+       should be used wherever possible.
+              
+       Conditional data that is not required in the message should not
+       be included.
+              
+       Care must be taken that the segment qualifier in dependent
+       segments does not conflict with the segment qualifier of the
+       trigger segment of a group.
+              
+       Free text information within the message should be avoided as
+       this inhibits automatic processing.
+
+4.1.1  Header section
+
+
+       Information to be provided in the Header section:
+
+0010   UNH, Message header
+       A service segment starting and uniquely identifying a message.
+       The message type code for the Repair call message is RPCALL.
+
+       Note: Repair call messages conforming to this document must
+       contain the following data in segment UNH, composite S009:
+
+       Data element  0065 RPCALL
+                     0052 D
+                     0054 01B
+                     0051 UN
+
+0020   BGM, Beginning of message
+       A segment by which the sender must uniquely identify the
+       message by means of its type, number and, when necessary, its
+       function.
+
+0030   DTM, Date/time/period
+       A segment specifying general dates and, when relevant, times
+       related to the whole message. The segment must be included at
+       least once to identify the message date.
+
+
+0040   Segment group 1:  RFF-DTM
+       A group of segments giving references and where necessary,
+       their dates, relating to the whole message e.g. contract
+       number.
+
+0050      RFF, Reference
+          A segment identifying the reference by its number and where
+          appropriate a line number within a document.
+
+0060      DTM, Date/time/period
+          A segment specifying the date/time related to the reference.
+
+
+0070   Segment group 2:  NAD-SG3-SG4
+       A group of segments identifying the parties and any associated
+       information.
+
+0080      NAD, Name and address
+          A segment identifying names and addresses of the parties, in
+          coded or clear form, and their functions relevant to the
+          message. Identification of the manufacturer or call centre
+          and repair centre is mandatory for the message. It is
+          recommended that where possible only the coded form of the
+          party identification should be specified e.g. the
+          manufacturer and repair centre are known to each other, thus
+          only the coded identification is required.
+
+
+0090      Segment group 3:  RFF-DTM
+          A group of segments giving references only relevant to the
+          specified party rather than the Repair call.
+
+0100         RFF, Reference
+             A segment identifying the reference by its number and
+             where appropriate a line number within a document.
+
+0110         DTM, Date/time/period
+             A segment specifying the date/time related to the
+             reference.
+
+
+0120      Segment group 4:  CTA-COM
+          A group of segments giving contact details of the specific
+          person or department within the party identified.
+
+0130         CTA, Contact information
+             A segment to identify a person or department, and their
+             function, to whom communications should be directed.
+
+0140         COM, Communication contact
+             A segment to identify a communications type and number
+             for the contact specified.
+
+4.1.2  Detail section
+
+       Information to be provided in the Detail section:
+
+
+0150   Segment group 5:  DOC-DTM-FTX-SG6
+       A group of segments providing details of a individual repair
+       call.
+
+0160      DOC, Document/message details
+          A segment to identify an individual repair call for an
+          appliance.
+
+0170      DTM, Date/time/period
+          A segment specifying date/time/period details relating to
+          the repair call.
+
+0180      FTX, Free text
+          A segment with free text information relating to the repair
+          call in coded or clear form, used when additional
+          information is needed but cannot be accommodated within
+          other segments. In computer to computer exchanges such text
+          will normally require the receiver to process this segment
+          manually.
+
+
+0190      Segment group 6:  LIN-PIA-IMD-DTM-ALI-SG7-SG8-SG10
+          A group of segments providing identification and a
+          description of the line items within the group. This segment
+          group may be repeated.
+
+0200         LIN, Line item
+             A segment identifying the line item by the line number
+             and additionally identifying the appliance requiring
+             service or repair.
+
+0210         PIA, Additional product id
+             A segment providing additional identification to the
+             product specified in the line item segment, e.g. model
+             number, serial number.
+
+0220         IMD, Item description
+             A segment to further describe the product. This segment
+             should be used for products that cannot be fully
+             identified by a product code or article number.
+
+0230         DTM, Date/time/period
+             A segment specifying date/time/period details relating to
+             the line item only, e.g. date of failure of product.
+
+0240         ALI, Additional information
+             A segment indicating special conditions related the
+             product, e.g. home repair or repair centre repair.
+
+
+0250         Segment group 7:  RFF-DTM
+             A group of segments giving references and where
+             necessary, their dates, relating to the line item.
+
+0260            RFF, Reference
+                A segment identifying the reference by its number and
+                where appropriate a line number within a document.
+
+0270            DTM, Date/time/period
+                A segment specifying the date/time related to the
+                reference.
+
+
+0280         Segment group 8:  NAD-SG9
+             A group of segments identifying the parties with
+             associated information relevant to the line item only.
+
+0290            NAD, Name and address
+                A segment identifying names and addresses of the
+                parties, in coded or clear form, and their functions
+                relevant to the line item. It is recommended that
+                where possible only the coded form of the party
+                identification should be specified. The product owner
+                or location address details may  have to be clearly
+                specified, preferably in structured format.
+
+
+0300            Segment group 9:  CTA-COM
+                A group of segments giving contact details of the
+                specific person or department within the party
+                identified.
+
+0310               CTA, Contact information
+                   A segment to identify a person or department, and
+                   their function, to whom communications should be
+                   directed.
+
+0320               COM, Communication contact
+                   A segment to identify a communications type and
+                   number for the contact specified.
+
+
+0330         Segment group 10: CCI-CAV-FTX
+             A group of segments providing product characteristic
+             details.
+
+0340            CCI, Characteristic/class id
+                A segment to identify characteristics related to the
+                problem, service or repair of the product e.g.
+                defects, repair characteristics.
+
+0350            CAV, Characteristic value
+                A segment to specify common product characteristic by
+                value in either coded form or in free format.
+
+0360            FTX, Free text
+                A segment with free text information, in coded or
+                clear form, used when additional characteristic
+                information is needed but cannot be accommodated
+                within other segments. In computer to computer
+                exchanges such text will normally require the receiver
+                to process this segment manually.
+
+4.1.3  Summary section
+
+       Information to be provided in the Summary section:
+
+0370   CNT, Control total
+       A segment by which control totals may be provided by the sender
+       for checking by the receiver.
+
+0380   UNT, Message trailer
+       A service segment ending a message, giving the total number of
+       segments in the message (including the UNH & UNT) and the
+       control reference number of the message.
+
+4.2    Segment index (alphabetical sequence by tag)
+
+          ALI Additional information
+          BGM Beginning of message
+          CAV Characteristic value
+          CCI Characteristic/class id
+          CNT Control total
+          COM Communication contact
+          CTA Contact information
+          DOC Document/message details
+          DTM Date/time/period
+          FTX Free text
+          IMD Item description
+          LIN Line item
+          NAD Name and address
+          PIA Additional product id
+          RFF Reference
+          UNH Message header
+          UNT Message trailer
+
+4.3    Message structure
+
+4.3.1  Segment table
+
+Pos    Tag Name                                      S   R
+
+           HEADER SECTION
+
+0010   UNH Message header                            M   1     
+0020   BGM Beginning of message                      M   1     
+0030   DTM Date/time/period                          M   99    
+
+0040       ÄÄÄÄÄ Segment group 1  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9999ÄÄÄÄÄÄÄÄ¿
+0050   RFF Reference                                 M   1           ³
+0060   DTM Date/time/period                          C   99ÄÄÄÄÄÄÄÄÄÄÙ
+
+0070       ÄÄÄÄÄ Segment group 2  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   999ÄÄÄÄÄÄÄÄÄ¿
+0080   NAD Name and address                          M   1           ³
+                                                                     ³
+0090       ÄÄÄÄÄ Segment group 3  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99ÄÄÄÄÄÄÄÄÄ¿³
+0100   RFF Reference                                 M   1          ³³
+0110   DTM Date/time/period                          C   9ÄÄÄÄÄÄÄÄÄÄÙ³
+                                                                     ³
+0120       ÄÄÄÄÄ Segment group 4  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99ÄÄÄÄÄÄÄÄÄ¿³
+0130   CTA Contact information                       M   1          ³³
+0140   COM Communication contact                     C   9ÄÄÄÄÄÄÄÄÄÄÁÙ
+
+           DETAIL SECTION
+
+0150       ÄÄÄÄÄ Segment group 5  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99999ÄÄÄÄÄÄÄ¿
+0160   DOC Document/message details                  M   1           ³
+0170   DTM Date/time/period                          C   9           ³
+0180   FTX Free text                                 C   9           ³
+                                                                     ³
+0190       ÄÄÄÄÄ Segment group 6  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99999ÄÄÄÄÄÄ¿³
+0200   LIN Line item                                 M   1          ³³
+0210   PIA Additional product id                     C   99         ³³
+0220   IMD Item description                          C   99         ³³
+0230   DTM Date/time/period                          C   99         ³³
+0240   ALI Additional information                    C   9          ³³
+                                                                    ³³
+0250       ÄÄÄÄÄ Segment group 7  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   999ÄÄÄÄÄÄÄ¿³³
+0260   RFF Reference                                 M   1         ³³³
+0270   DTM Date/time/period                          C   9ÄÄÄÄÄÄÄÄÄÙ³³
+                                                                    ³³
+0280       ÄÄÄÄÄ Segment group 8  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   999ÄÄÄÄÄÄÄ¿³³
+0290   NAD Name and address                          M   1         ³³³
+                                                                   ³³³
+0300       ÄÄÄÄÄ Segment group 9  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄ¿³³³
+0310   CTA Contact information                       M   1        ³³³³
+0320   COM Communication contact                     C   9ÄÄÄÄÄÄÄÄÁÙ³³
+                                                                    ³³
+0330       ÄÄÄÄÄ Segment group 10 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9999ÄÄÄÄÄÄ¿³³
+0340   CCI Characteristic/class id                   M   1         ³³³
+0350   CAV Characteristic value                      C   99        ³³³
+0360   FTX Free text                                 C   99ÄÄÄÄÄÄÄÄÁÁÙ
+
+           SUMMARY SECTION
+
+0370   CNT Control total                             C   99    
+0380   UNT Message trailer                           M   1     

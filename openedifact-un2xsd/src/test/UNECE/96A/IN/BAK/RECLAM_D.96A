@@ -1,0 +1,521 @@
+                              UN/EDIFACT
+
+                         DRAFT RECOMMENDATION
+
+                      Reinsurance claims message
+
+
+
+
+
+----------------------------------------------------------------------
+This message is available for formal trial for at least six months
+from the date of approval by UN/ECE/TRADE/WP.4.
+ 
+Organisations are invited to trial this message. Comments on the
+results from the trial should be forwarded to their Rapporteur's Team
+Secretariat as soon as they are available. Based on the results of the
+trials, a UNSM may be issued.
+ 
+The segments, composite data elements, data elements and codes for
+use in the trial of this message are contained in the Draft directory.
+However, this information may differ from that in the Standard
+directory (UNTDID), even for material having the same identifying
+tags.
+----------------------------------------------------------------------
+
+
+
+
+
+
+
+
+                                            Message Type : RECLAM
+                                            Version      : D
+                                            Release      : 96A
+                                            Contr. Agency: UN
+                                            Status       : 1
+                                            Revision     : 1
+                                            Date         : 95-11-23
+
+
+
+
+
+
+SOURCE: Western European EDIFACT Board - MD7
+
+
+
+                               CONTENTS
+
+                      Reinsurance claims message
+
+
+
+0.   INTRODUCTION
+
+
+1.   SCOPE
+
+     1.1   Functional definition
+
+     1.2   Field of application
+
+     1.3   Principles
+
+2.   REFERENCES
+
+3.   TERMS AND DEFINITIONS
+
+4.   MESSAGE DEFINITION
+
+     4.1   Data segment clarification
+
+           4.1.1 Header section
+           4.1.2 Detail section
+           4.1.3 Summary section
+
+     4.2   Data segment index (alphabetical sequence)
+
+     4.3   Message structure
+
+           4.3.1 Segment table
+
+
+
+
+
+
+
+----------------------------------------------------------------------
+For general information on UN standard message types see UN Trade Data
+Interchange Directory, UNTDID, Part 4, Section 2.6, UN/ECE UNSM
+General Introduction
+----------------------------------------------------------------------
+
+
+
+0.     INTRODUCTION
+
+       This specification provides the definition of the Reinsurance
+       claims message (RECLAM) to be used in Electronic Data
+       Interchange (EDI) between trading partners involved in
+       administration, commerce and transport.
+
+1.     SCOPE
+
+1.1    Functional Definition
+
+       A reinsurance claims message is exchanged between insurers,
+       professional intermediaries, reinsurers to send information
+       concerning a loss and/or to request settlement (payment or
+       refund) concerning the loss.
+
+1.2    Field of Application
+
+       The Reinsurance claims message may be used for both national
+       and international trade. It is based on universal commercial
+       practice and is not dependent on the type of business or
+       industry.
+
+1.3    Principles
+
+       The RECLAM message is a supporting message to the RETACC
+       (Reinsurance technical account message), but can also stand on
+       its own if for instance, only a loss reporting is done with no
+       request for money, or if the result of the request for money
+       equals zero. For each request for money, a RETACC message must
+       be made to report the RECLAM result, be it a current billing or
+       a refund.
+       
+       The RECLAM message reports loss or event information, original
+       insurance policy information and reinsurance contract
+       information.
+
+2.     REFERENCES
+
+       See UNTDID, Part 4, Chapter 2.6 UN/ECE UNSM - General
+       Introduction, Section 1.
+
+3.     TERMS AND DEFINITIONS
+
+       See UNTDID, Part 4, Chapter 2.6 UN/ECE UNSM - General
+       Introduction, Section 2.
+
+4.     MESSAGE DEFINITION
+
+4.1    Data Segment Clarification
+
+       This section should be read in conjunction with the Branching
+       Diagram and the Segment Table which indicate mandatory,
+       conditional and repeating requirements.
+
+4.1.1  Header section
+
+       Information to be provided in the Header section:
+
+0010   UNH, Message header
+       A service segment starting and uniquely identifying a message.
+       The message type code for the Reinsurance claims message is
+       RECLAM.
+       
+       Note: Reinsurance claims messages conforming to this document
+       must contain the following data in segment UNH, composite S009:
+
+       Data element  0065 RECLAM
+                     0052 D
+                     0054 96A
+                     0051 UN
+
+
+0020   Segment group 1:  GIS-FTX
+       A group of segments to transmit general processing indicators
+       and to specify loss or event details.
+
+0030      GIS, General indicator
+          A segment to give a processing indicator relating to the
+          whole message.
+
+0040      FTX, Free text
+          A segment to give free format text regarding type of
+          participation, type of risk, cause of loss, consequence of
+          loss.
+
+
+0050   Segment group 2:  NAD-PCD-CTA-COM-RFF-GIS-FTX
+       A group of segments to specify relevant parties for the whole
+       transaction.
+
+0060      NAD, Name and address
+          A segment to specify the name and address and the related
+          function of the party involved.
+
+0070      PCD, Percentage details
+          A segment to specify the producing or the placing
+          intermediary's or broker's order percentage in the
+          reinsurance, and to give the reinsurer's share in this
+          intermediary's or broker's order.
+
+0080      CTA, Contact information
+          A segment to identify a person or department to whom the
+          communication should be directed.
+
+0090      COM, Communication contact
+          A segment to identify a communication number of a department
+          or a person to whom communication should be directed.
+
+0100      RFF, Reference
+          A segment to specify the references of the party identified
+          in the leading NAD segment.
+
+0110      GIS, General indicator
+          A segment to give a processing indicator relating to the
+          consequence of loss.
+
+0120      FTX, Free text
+          A segment to provide the ceding company details, leading
+          reinsurer's comments, claimant information.
+
+0130   DTM, Date/time/period
+       A segment to specify pertinent dates and periods relating to
+       the RECLAM.
+
+0140   FTX, Free text
+       A segment to provide free format information regarding the
+       loss, the risk or the reinsurance contract.
+
+4.1.2  Detail section
+
+       Information to be provided in the Detail section:
+
+
+0150   Segment group 3:  RFF-DTM-COM-FTX
+       A group of segments to provide information concerning the loss
+       or event, and the reinsurance contract.
+
+0160      RFF, Reference
+          A segment to provide references concerning the loss or
+          event, reinsurance contract detail references, and for
+          attached documents.
+
+0170      DTM, Date/time/period
+          A segment to specify the transaction date of the attached
+          document or message.
+
+0180      COM, Communication contact
+          A segment to identify the means by which the attached
+          document or message was transmitted.
+
+0190      FTX, Free text
+          A segment to provide free text regarding the document or
+          message that is being referenced.
+
+0200   LOC, Place/location identification
+       A segment to identify the geographical scope to which the loss
+       pertains.
+
+0210   MOA, Monetary amount
+       A segment to specify the possible maximum loss amount.
+
+0220   PCD, Percentage details
+       A segment to specify the possible maximum loss as a percentage.
+
+
+0230   Segment group 4:  GIS-RFF-LOC-DTM-FTX-PCD-SG5-SG7
+       A group of segments to specify the class, line or sub-line of
+       business.
+
+0240      GIS, General indicator
+          A segment to give a processing indicator relating to the
+          policy breakdown.
+
+0250      RFF, Reference
+          A segment to specify references of the original insurance
+          policy contract.
+
+0260      LOC, Place/location identification
+          A segment to identify the geographical scope to which the
+          risk pertains.
+
+0270      DTM, Date/time/period
+          A segment to give the original insurance policy effective
+          period.
+
+0280      FTX, Free text
+          A segment used to provide additional free text information
+          about the policy effective period, the whole policy contract
+          and the class or line of business.
+
+0290      PCD, Percentage details
+          A segment used to give the percentage of the original
+          insurance policy contract ceded to one or more reinsurance
+          contract(s).
+
+
+0300      Segment group 5:  CUX-GIS-FTX-SG6-PCD
+          A group of segments to specify the amounts of the original
+          insurance policy contract in three non-equivalent
+          currencies.
+
+0310         CUX, Currencies
+             A segment to specify the appropriate non-equivalent
+             currency being used to report the amounts in the original
+             insurance policy contract section.
+
+0320         GIS, General indicator
+             A segment to indicate whether the following amounts are
+             annuities.
+
+0330         FTX, Free text
+             A segment to provide additional free text information
+             regarding the annuities.
+
+
+0340         Segment group 6:  MOA-GIS-CUX-FTX
+             A group of segments to provide all the information
+             regarding amounts and converted amounts of the original
+             insurance policy contract.
+
+0350            MOA, Monetary amount
+                A segment to specify the amounts of the original
+                insurance policy contract.
+
+0360            GIS, General indicator
+                A segment to provide the entries expression flag.
+
+0370            CUX, Currencies
+                A segment to specify the reference and target
+                currencies and the rate of exchange, in case a
+                currency conversion is required.
+
+0380            FTX, Free text
+                A segment to provide free text information regarding
+                policy contract amounts.
+
+0390         PCD, Percentage details
+             A segment to specify the cedent's share percentage.
+
+
+0400      Segment group 7:  NAD-PCD
+          A group of segments to identify the parties involved in the
+          original insurance policy section.
+
+0410         NAD, Name and address
+             A segment to specify the name and address and the related
+             function of the party involved.
+
+0420         PCD, Percentage details
+             A segment to give the percentage in the original
+             insurance policy of the party identified in the leading
+             NAD segment.
+
+0430   UNS, Section control
+       A segment used to prevent collision between the detail and the
+       summary sections of the message.
+
+4.1.3  Summary section
+
+       Information to be provided in the Summary section:
+
+
+0440   Segment group 8:  CUX-SG9
+       A group of segments to specify the amounts of the reinsurance
+       contract in three non-equivalent currencies.
+
+0450      CUX, Currencies
+          A segment to specify the appropriate non-equivalent currency
+          used to report the amounts in the reinsurance contract
+          section.
+
+
+0460      Segment group 9:  MOA-PCD-CUX-FTX-SG10-GIS
+          A group of segments to provide all the information related
+          to the amounts and their currency conversion for the
+          reinsurance contract.
+
+0470         MOA, Monetary amount
+             A segment to specify the amounts of the reinsurance
+             contract.
+
+0480         PCD, Percentage details
+             A segment to specify the reinsurer's share percentage or
+             the applicable reinsurance contract retention.
+
+0490         CUX, Currencies
+             A segment to specify the reference and target currencies
+             and the rate of exchange, in case a currency conversion
+             is required.
+
+0500         FTX, Free text
+             A segment to provide free text information regarding the
+             reinsurance contract amounts.
+
+
+0510         Segment group 10: RFF-DTM-COM-FTX
+             A group of segments to make reference to previous loss
+             notifications in case an aggregate deductible is
+             applicable.
+
+0520            RFF, Reference
+                A segment to specify the reference number of the
+                previous loss notification.
+
+0530            DTM, Date/time/period
+                A segment to specify the date of transaction of the
+                supporting document or message.
+
+0540            COM, Communication contact
+                A segment to identify the means by which the
+                referenced document or message was transmitted.
+
+0550            FTX, Free text
+                A segment to provide free text regarding the
+                referenced document or message.
+
+0560         GIS, General indicator
+             A segment to provide the entries expression flag at
+             reinsurance contract level.
+
+0570   UNT, Message trailer
+       A service segment ending a message, giving the total number of
+       segments in the message and the control reference number of the
+       message.
+
+4.2    Data segment index (Alphabetical sequence by tag)
+
+          COM Communication contact
+          CTA Contact information
+          CUX Currencies
+          DTM Date/time/period
+          FTX Free text
+          GIS General indicator
+          LOC Place/location identification
+          MOA Monetary amount
+          NAD Name and address
+          PCD Percentage details
+          RFF Reference
+          UNH Message header
+          UNS Section control
+          UNT Message trailer
+
+4.3    Message structure
+
+4.3.1  Segment table
+
+Pos    Tag Name                                      S   R
+
+           HEADER SECTION
+
+0010   UNH Message header                            M   1     
+
+0020       ÄÄÄÄÄ Segment group 1  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   14ÄÄÄÄÄÄÄÄÄÄ¿
+0030   GIS General indicator                         M   1           ³
+0040   FTX Free text                                 C   1ÄÄÄÄÄÄÄÄÄÄÄÙ
+
+0050       ÄÄÄÄÄ Segment group 2  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   212ÄÄÄÄÄÄÄÄÄ¿
+0060   NAD Name and address                          M   1           ³
+0070   PCD Percentage details                        C   1           ³
+0080   CTA Contact information                       C   1           ³
+0090   COM Communication contact                     C   5           ³
+0100   RFF Reference                                 C   5           ³
+0110   GIS General indicator                         C   2           ³
+0120   FTX Free text                                 C   2ÄÄÄÄÄÄÄÄÄÄÄÙ
+0130   DTM Date/time/period                          M   8     
+0140   FTX Free text                                 C   999   
+
+           DETAIL SECTION
+
+0150       ÄÄÄÄÄ Segment group 3  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄÄÄÄ¿
+0160   RFF Reference                                 M   1           ³
+0170   DTM Date/time/period                          C   1           ³
+0180   COM Communication contact                     C   1           ³
+0190   FTX Free text                                 C   1ÄÄÄÄÄÄÄÄÄÄÄÙ
+0200   LOC Place/location identification             C   1     
+0210   MOA Monetary amount                           C   1     
+0220   PCD Percentage details                        C   1     
+
+0230       ÄÄÄÄÄ Segment group 4  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   90ÄÄÄÄÄÄÄÄÄÄ¿
+0240   GIS General indicator                         M   1           ³
+0250   RFF Reference                                 C   8           ³
+0260   LOC Place/location identification             C   1           ³
+0270   DTM Date/time/period                          C   1           ³
+0280   FTX Free text                                 C   3           ³
+0290   PCD Percentage details                        C   2           ³
+                                                                     ³
+0300       ÄÄÄÄÄ Segment group 5  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   3ÄÄÄÄÄÄÄÄÄÄ¿³
+0310   CUX Currencies                                M   1          ³³
+0320   GIS General indicator                         C   1          ³³
+0330   FTX Free text                                 C   1          ³³
+                                                                    ³³
+0340       ÄÄÄÄÄ Segment group 6  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   99ÄÄÄÄÄÄÄÄ¿³³
+0350   MOA Monetary amount                           M   1         ³³³
+0360   GIS General indicator                         M   3         ³³³
+0370   CUX Currencies                                C   1         ³³³
+0380   FTX Free text                                 C   2ÄÄÄÄÄÄÄÄÄÙ³³
+0390   PCD Percentage details                        M   1ÄÄÄÄÄÄÄÄÄÄÙ³
+                                                                     ³
+0400       ÄÄÄÄÄ Segment group 7  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   13ÄÄÄÄÄÄÄÄÄ¿³
+0410   NAD Name and address                          M   1          ³³
+0420   PCD Percentage details                        C   1ÄÄÄÄÄÄÄÄÄÄÁÙ
+0430   UNS Section control                           M   1     
+
+           SUMMARY SECTION
+
+0440       ÄÄÄÄÄ Segment group 8  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   3ÄÄÄÄÄÄÄÄÄÄÄ¿
+0450   CUX Currencies                                M   1           ³
+                                                                     ³
+0460       ÄÄÄÄÄ Segment group 9  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   999ÄÄÄÄÄÄÄÄ¿³
+0470   MOA Monetary amount                           M   1          ³³
+0480   PCD Percentage details                        C   2          ³³
+0490   CUX Currencies                                C   1          ³³
+0500   FTX Free text                                 C   10         ³³
+                                                                    ³³
+0510       ÄÄÄÄÄ Segment group 10 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99ÄÄÄÄÄÄÄÄ¿³³
+0520   RFF Reference                                 M   1         ³³³
+0530   DTM Date/time/period                          C   1         ³³³
+0540   COM Communication contact                     C   1         ³³³
+0550   FTX Free text                                 C   1ÄÄÄÄÄÄÄÄÄÙ³³
+0560   GIS General indicator                         M   11ÄÄÄÄÄÄÄÄÄÁÙ
+0570   UNT Message trailer                           M   1     

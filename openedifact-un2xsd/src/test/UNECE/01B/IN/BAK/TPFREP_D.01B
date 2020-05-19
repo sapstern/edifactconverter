@@ -1,0 +1,258 @@
+                              UN/EDIFACT
+
+                UNITED NATIONS STANDARD MESSAGE (UNSM)
+
+                     Terminal performance message
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                           Message Type : TPFREP
+                                           Version      : D
+                                           Release      : 01B
+                                           Contr. Agency: UN
+
+                                           Revision     : 1
+                                           Date         : 2001-05-15
+
+
+
+
+
+
+SOURCE: D4 Transport (SWG)
+
+
+
+                               CONTENTS
+
+                     Terminal performance message
+
+0.     INTRODUCTION
+
+1.     SCOPE
+
+       1.1   Functional definition
+
+       1.2   Field of application
+
+       1.3   Principles
+
+2.     REFERENCES
+
+3.     TERMS AND DEFINITIONS
+
+       3.1   Standard terms and definitions
+
+4.     MESSAGE DEFINITION
+
+       4.1   Segment clarification
+
+       4.2   Segment index (alphabetical sequence by tag)
+
+       4.3   Message structure
+             4.3.1 Segment table
+
+
+
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------
+For general information on UN standard message types see UN Trade Data
+Interchange Directory, UNTDID, Part 4, Section 2.3, UN/ECE UNSM
+General Introduction
+----------------------------------------------------------------------
+
+
+
+0.     INTRODUCTION
+
+       This specification provides the definition of the Terminal
+       performance message (TPFREP) to be used in Electronic Data
+       Interchange (EDI) between trading partners involved in
+       administration, commerce and transport.
+
+1.     SCOPE
+
+1.1    Functional definition
+
+       The Terminal performance message is a message to transmit
+       information relating to the operations carried out by terminal
+       operators such as the loading, discharging and rehandling of
+       containers and/or roll on/roll off items, hatch covers etc.
+
+1.2    Field of application
+
+       The Terminal performance message may be used for both national
+       and international applications. It is based on universal
+       practice related to administration, commerce and transport, and
+       is not dependent on the type of business or industry.
+
+1.3    Principles
+
+       The Terminal performance message will be transmitted by a
+       terminal operator to the ship operator, tonnage centre or
+       shipping line. The message is used to give information on the
+       operational handling of a ship in a container terminal after
+       the completion of the operations.
+
+2.     REFERENCES
+
+       See UNTDID, Part 4, Chapter 2.3 UN/ECE UNSM - General
+       Introduction, Section 1.
+
+3.     TERMS AND DEFINITIONS
+
+3.1    Standard terms and definitions
+
+       See UNTDID, Part 4, Chapter 2.3 UN/ECE UNSM - General
+       Introduction, Section 2.
+
+4.     MESSAGE DEFINITION
+
+4.1    Segment clarification
+
+       This section should be read in conjunction with the segment
+       table which indicates mandatory, conditional and repeating
+       requirements.
+
+0010   UNH, Message header
+       A service segment starting and uniquely identifying a message.
+       The message type code for the Terminal performance message is
+       TPFREP.
+
+       Note: Terminal performance messages conforming to this document
+       must contain the following data in segment UNH, composite S009:
+
+       Data element  0065 TPFREP
+                     0052 D
+                     0054 01B
+                     0051 UN
+
+0020   BGM, Beginning of message
+       A segment to indicate the beginning of the message by
+       identifying the message by a message number.
+
+0030   DTM, Date/time/period
+       A segment to identify a date and time on which the message is
+       sent.
+
+
+0040   Segment group 1:  TDT-LOC-DTM-RFF
+       A group of segments to identify the means of transport handled
+       by the terminal operator.
+
+0050      TDT, Details of transport
+          A segment to identify the means of transport.
+
+0060      LOC, Place/location identification
+          A segment to identify the location where the means of
+          transport is handled.
+
+0070      DTM, Date/time/period
+          A segment to identify dates and times on which the means of
+          transport is handled.
+
+0080      RFF, Reference
+          A segment to identify relevant reference numbers for the
+          means of transport and the operations.
+
+
+0090   Segment group 2:  EQD-CNT-SG3
+       A group of segments to specify the details of the equipment and
+       the operations performed.
+
+0100      EQD, Equipment details
+          A segment to specify details of the equipment, such as the
+          equipment identification number.
+
+0110      CNT, Control total
+          A segment to specify control totals.
+
+
+0120      Segment group 3:  DTM-FTX
+          A group of segments to specify dates and times and other
+          details for the operations carried out.
+
+0130         DTM, Date/time/period
+             A segment to identify a date and time related to the
+             equipment operation.
+
+0140         FTX, Free text
+             A segment to provide detailed information related to the
+             equipment operation.
+
+0150   UNT, Message trailer
+       A service segment ending a message, giving the total number of
+       segments in the message (including the UNH & UNT) and the
+       control reference number of the message.
+
+4.2    Segment index (alphabetical sequence by tag)
+
+          BGM Beginning of message
+          CNT Control total
+          DTM Date/time/period
+          EQD Equipment details
+          FTX Free text
+          LOC Place/location identification
+          RFF Reference
+          TDT Details of transport
+          UNH Message header
+          UNT Message trailer
+
+4.3    Message structure
+
+4.3.1  Segment table
+
+Pos    Tag Name                                      S   R
+
+0010   UNH Message header                            M   1     
+0020   BGM Beginning of message                      M   1     
+0030   DTM Date/time/period                          C   1     
+
+0040       ÄÄÄÄÄ Segment group 1  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   1ÄÄÄÄÄÄÄÄÄÄÄ¿
+0050   TDT Details of transport                      M   1           ³
+0060   LOC Place/location identification             M   1           ³
+0070   DTM Date/time/period                          C   9           ³
+0080   RFF Reference                                 C   9ÄÄÄÄÄÄÄÄÄÄÄÙ
+
+0090       ÄÄÄÄÄ Segment group 2  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99ÄÄÄÄÄÄÄÄÄÄ¿
+0100   EQD Equipment details                         M   1           ³
+0110   CNT Control total                             C   99          ³
+                                                                     ³
+0120       ÄÄÄÄÄ Segment group 3  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   999ÄÄÄÄÄÄÄÄ¿³
+0130   DTM Date/time/period                          M   1          ³³
+0140   FTX Free text                                 C   9ÄÄÄÄÄÄÄÄÄÄÁÙ
+0150   UNT Message trailer                           M   1     

@@ -1,0 +1,483 @@
+                              UN/EDIFACT
+
+                         DRAFT RECOMMENDATION
+
+                      Sales data report message
+
+
+
+
+
+----------------------------------------------------------------------
+This message is available for formal trial for at least six months
+from the date of approval by UN/ECE/TRADE/WP.4.
+ 
+Organisations are invited to trial this message. Comments on the
+results from the trial should be forwarded to their Rapporteur's Team
+Secretariat as soon as they are available. Based on the results of the
+trials, a UNSM may be issued.
+ 
+The segments, composite data elements, data elements and codes for
+use in the trial of this message are contained in the Draft directory.
+However, this information may differ from that in the Standard
+directory (UNTDID), even for material having the same identifying
+tags.
+----------------------------------------------------------------------
+
+
+
+
+
+
+
+
+                                            Message Type : SLSRPT
+                                            Version      : D
+                                            Release      : 96A
+                                            Contr. Agency: UN
+                                            Status       : 1
+                                            Revision     : 2
+                                            Date         : 95-11-23
+
+
+
+
+
+
+SOURCE: Submitted by WEEB-MD1 on behalf of PAEB
+
+
+
+                               CONTENTS
+
+                      Sales data report message
+
+
+
+0.   INTRODUCTION
+
+
+1.   SCOPE
+
+     1.1   Functional definition
+
+     1.2   Field of application
+
+     1.3   Principles
+
+2.   REFERENCES
+
+3.   TERMS AND DEFINITIONS
+
+4.   MESSAGE DEFINITION
+
+     4.1   Data segment clarification
+
+           4.1.1 Header section
+           4.1.2 Detail section
+
+     4.2   Data segment index (alphabetical sequence)
+
+     4.3   Message structure
+
+           4.3.1 Segment table
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------
+For general information on UN standard message types see UN Trade Data
+Interchange Directory, UNTDID, Part 4, Section 2.6, UN/ECE UNSM
+General Introduction
+----------------------------------------------------------------------
+
+
+
+0.     INTRODUCTION
+
+       This specification provides the definition of the Sales data
+       report message (SLSRPT) to be used in Electronic Data
+       Interchange (EDI) between trading partners involved in
+       administration, commerce and transport.
+
+1.     SCOPE
+
+1.1    Functional Definition
+
+       A message to enable the transmission of sales data related to
+       products or services, such as corresponding location, period,
+       product identification, pricing, monetary amount, quantity,
+       market sector information, sales parties. It enables the
+       recipient to process the information automatically and use it
+       for production, planning, marketing, statistical purposes, etc.
+
+1.2    Field of Application
+
+       The Sales data report message may be used for both national and
+       international trade. It is based on universal commercial
+       practice and is not dependent on the type of business or
+       industry.
+
+1.3    Principles
+
+       The message intent is to provide sales information for one or
+       more locations for a series of products within a specified time
+       period. 
+       
+       The message is transmitted either from a seller to its supplier
+       or from a headquarters, coordination or distribution centre to
+       a manufacturer, supplier or a third party, such as a marketing
+       institute for statistical analysis. It allows the recipient to
+       know for a specific product the: 
+       
+       - Location of the sale
+       - Period in which it was sold
+       - Product identification
+       - Product selling price, quantity and value of the sales
+       - Additional Identification of the products such as promotional
+       flags, product group or family identification and internal
+       identification numbers
+       - Periodical Turnover of a specified location
+       - Global specified product sales, i.e. total sales of a product
+       in all locations
+       - Sales channel, market segment end use
+       - Sales parties identification.
+       
+       Though the message is location driven, it is conceivable that
+       the recipient process the data to derive information based on
+       other variables such as a specific product and all its related
+       sales locations and/or addresses or periodic turnover and the
+       related locations.
+
+2.     REFERENCES
+
+       See UNTDID, Part 4, Chapter 2.6 UN/ECE UNSM - General
+       Introduction, Section 1.
+
+3.     TERMS AND DEFINITIONS
+
+       See UNTDID, Part 4, Chapter 2.6 UN/ECE UNSM - General
+       Introduction, Section 2.
+
+4.     MESSAGE DEFINITION
+
+4.1    Data Segment Clarification
+
+       This section should be read in conjunction with the Branching
+       Diagram and the Segment Table which indicate mandatory,
+       conditional and repeating requirements.
+       
+       The following guidelines and principles apply to the whole
+       message and are intended to facilitate the understanding and
+       implementation of the message:
+       
+       All specified dates/times should be in the format
+       'yymmdd'/'hhmm' unless all parties involved in the transaction
+       agree that there is a functional requirement for an alternative
+       format. Periods should be specified as whole numbers
+       representing the required period as indicated in the format
+       qualifier (weeks, months, etc.).
+       
+       Where a choice of code or text is given only the code element
+       should be used wherever possible.
+       Due to the high volume of data that will be usually transmitted
+       in the Sales Data Report message, it is highly recommended to
+       use codes for products and locations.
+       
+       Conditional data that is not required in the message should not
+       be included.
+       
+       Care must be taken that the segment qualifier in dependent
+       segments do not conflict with the segment qualifier of the
+       trigger segment of a group.
+
+4.1.1  Header section
+
+       Information to be provided in the Header section:
+
+0010 | UNH, Message header
+       A service segment starting and uniquely identifying a message.
+       The message type code for the Sales data report message is
+       SLSRPT.
+       
+       Note: Sales data report messages conforming to this document
+       must contain the following data in segment UNH, composite S009:
+
+       Data element  0065 SLSRPT
+                     0052 D
+                     0054 96A
+                     0051 UN
+
+0020   BGM, Beginning of message
+       A segment by which the sender must uniquely identify the sales
+       data report by means of its type and number.
+
+0030   DTM, Date/time/period
+       A segment specifying general dates and, when relevant, times
+       related to the whole message. The sales report preparation date
+       and the sales period covered by the report must be specified
+       using this segment.
+
+
+0040   Segment group 1:  NAD-SG2
+       A group of segments identifying the parties with associated
+       information.
+
+0050      NAD, Name and address
+          A segment identifying names and addresses of the parties, in
+          coded or clear form, and their functions relevant to the
+          sales data report. Identification of the sender of the
+          report and the recipient is mandatory for the sales data
+          report message. It is recommended that where possible only
+          the coded form of the party ID should be specified e.g. the
+          sender and receiver of the report are known to each other,
+          thus only the coded ID is required, but when a new address
+          might have to be clearly specified, this should be done
+          preferably in structured format.
+
+
+0060      Segment group 2:  CTA-COM
+          A group of segments giving contact details of the specific
+          person or department within the party identified in the NAD
+          segment.
+
+0070         CTA, Contact information
+             A segment to identify a person or department, and their
+             function, to whom communications should be directed.
+
+0080         COM, Communication contact
+             A segment to identify a communications type and number
+             for the contact specified in the CTA segment.
+
+
+0090   Segment group 3:  RFF-DTM
+       A group of segments for giving references and where necessary,
+       their dates, relating to the whole message e.g. contract
+       number.
+
+0100      RFF, Reference
+          A segment identifying the reference by its number and where
+          appropriate a line number within the document.
+
+0110      DTM, Date/time/period
+          A segment specifying the date/time related to the reference.
+
+
+0120   Segment group 4:  CUX-DTM
+       A group of segments specifying the currencies and related
+       dates/periods valid for the whole sales data report. The
+       Segment Group 4 may be omitted in national applications but
+       will be required for international exchanges.
+
+0130      CUX, Currencies
+          A segment identifying the currencies specified in the sales
+          data report e.g. the currency in which the sales amounts or
+          product prices are expressed in. A rate of exchange may be
+          given to convert a reference currency into a target
+          currency.
+
+0140      DTM, Date/time/period
+          A segment specifying the date/time/period related to the
+          rate of exchange.
+
+4.1.2  Detail section
+
+       Information to be provided in the Detail section:
+
+
+0150   Segment group 5:  LOC-DTM-SG6-SG7
+       A group of segments providing details of the location for which
+       sales are being reported and the period or sub-period during
+       which the sales took place. There must be at least one
+       occurrence of Segment group 5 within a sales data report.
+
+0160      LOC, Place/location identification
+          A segment indicating in coded form the location to which the
+          sales data being reported apply e.g. a retail outlet, a
+          geographic area.
+
+0170      DTM, Date/time/period
+          A segment identifying the sub-period during which the sales
+          being reported occurred if different than the period
+          specified in the heading section e.g. within a biweekly
+          sales data report as specified in the heading section, sales
+          are reported in sub-periods of one week.
+
+
+0180      Segment group 6:  RFF-DTM
+          A group of segments giving references at an intermediate
+          level relating to several lines items, e.g. an invoice,
+          shipment, notification, etc.
+
+0190         RFF, Reference
+             To specify a reference.
+
+0200         DTM, Date/time/period
+             To specify date, and/or time, or period.
+
+
+0210 |    Segment group 7:  LIN-PIA-IMD-PAC-RFF-DOC-ALI-MOA-PRI-GIN-
+                            SG8
+          A group of segments providing details per location and
+          period of the individual products sold in terms of product
+          family or group, promotional flags, total sale monetary
+          amount and sale price.
+
+0220         LIN, Line item
+             A segment identifying the line item by the line number
+             and configuration level, and additionally identifying the
+             product or service that has been sold.
+
+0230         PIA, Additional product id
+             A segment providing either additional identification to
+             the product specified in the LIN segment or providing any
+             substitute product identification. In the Sales Data
+             Report the PIA segment can be used when a product
+             specified in LIN has to be associated with a group or
+             family of products whose identity could be specified in
+             PIA.
+
+0240         IMD, Item description
+             A segment for describing the product in the line item.
+
+0250         PAC, Package
+             A segment specifying the number and type of packages.
+
+0260         RFF, Reference
+             A segment for referencing documents or other numbers
+             pertinent to the line item.
+
+0270         DOC, Document/message details
+             A segment identifying and providing information relating
+             to documents.
+
+0280         ALI, Additional information
+             A segment indicating that the line item is subject to
+             special conditions owing to origin, customs preference,
+             embargo regulations or commercial factors. In the Sales
+             Data Report the ALI segment can be used to specify
+             promotional flags, e.g. to indicate what type of
+             promotion if any was in effect when the product specified
+             in LIN was sold.
+
+0290         MOA, Monetary amount
+             A segment specifying any monetary amounts relating to the
+             product. For the sales data report the MOA segment can be
+             used to express the total monetary amount of the product
+             sold in one location for one period.
+
+0300         PRI, Price details
+             A segment to specify the price type and amount. The price
+             used in the calculation of the total sales monetary
+             amount will normally be the selling price.
+
+0310 +       GIN, Goods identity number
+             A segment to specify identity numbers related to units of
+             the product identified in the LIN segment, e.g. serial
+             number.
+
+
+0320         Segment group 8:  QTY-MKS-NAD
+             A group of segments providing split delivery sales
+             parties and relevant quantities information.
+
+0330            QTY, Quantity
+                A segment identifying the product quantity, i.e.
+                quantity sold.
+
+0340            MKS, Market/sales channel information
+                To identify market and sales channel details for
+                products and services information.
+
+0350            NAD, Name and address
+                To specify the name/address and their related
+                function, either by CO82 only and/or unstructured by
+                CO58 or structured by CO80 thru 3207.
+
+0360   UNT, Message trailer
+       A service segment ending a message, giving the total number of
+       segments in the message and the control reference number of the
+       message.
+
+4.2    Data segment index (Alphabetical sequence by tag)
+
+          ALI Additional information
+          BGM Beginning of message
+          COM Communication contact
+          CTA Contact information
+          CUX Currencies
+          DOC Document/message details
+          DTM Date/time/period
+       +  GIN Goods identity number
+          IMD Item description
+          LIN Line item
+          LOC Place/location identification
+          MKS Market/sales channel information
+          MOA Monetary amount
+          NAD Name and address
+          PAC Package
+          PIA Additional product id
+          PRI Price details
+          QTY Quantity
+          RFF Reference
+          UNH Message header
+          UNT Message trailer
+
+4.3    Message structure
+
+4.3.1  Segment table
+
+Pos    Tag Name                                      S   R
+
+           HEADER SECTION
+
+0010   UNH Message header                            M   1     
+0020   BGM Beginning of message                      M   1     
+0030   DTM Date/time/period                          M   5     
+
+0040       ÄÄÄÄÄ Segment group 1  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   5ÄÄÄÄÄÄÄÄÄÄÄ¿
+0050   NAD Name and address                          M   1           ³
+                                                                     ³
+0060       ÄÄÄÄÄ Segment group 2  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   5ÄÄÄÄÄÄÄÄÄÄ¿³
+0070   CTA Contact information                       M   1          ³³
+0080   COM Communication contact                     C   5ÄÄÄÄÄÄÄÄÄÄÁÙ
+
+0090       ÄÄÄÄÄ Segment group 3  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   5ÄÄÄÄÄÄÄÄÄÄÄ¿
+0100   RFF Reference                                 M   1           ³
+0110   DTM Date/time/period                          C   5ÄÄÄÄÄÄÄÄÄÄÄÙ
+
+0120       ÄÄÄÄÄ Segment group 4  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   5ÄÄÄÄÄÄÄÄÄÄÄ¿
+0130   CUX Currencies                                M   1           ³
+0140   DTM Date/time/period                          C   5ÄÄÄÄÄÄÄÄÄÄÄÙ
+
+           DETAIL SECTION
+
+0150       ÄÄÄÄÄ Segment group 5  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   200000ÄÄÄÄÄÄ¿
+0160   LOC Place/location identification             M   1           ³
+0170   DTM Date/time/period                          C   5           ³
+                                                                     ³
+0180       ÄÄÄÄÄ Segment group 6  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99ÄÄÄÄÄÄÄÄÄ¿³
+0190   RFF Reference                                 M   1          ³³
+0200   DTM Date/time/period                          C   5ÄÄÄÄÄÄÄÄÄÄÙ³
+                                                                     ³
+0210 *     ÄÄÄÄÄ Segment group 7  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   200000ÄÄÄÄÄ¿³
+0220   LIN Line item                                 M   1          ³³
+0230   PIA Additional product id                     C   5          ³³
+0240   IMD Item description                          C   5          ³³
+0250   PAC Package                                   C   5          ³³
+0260   RFF Reference                                 C   5          ³³
+0270   DOC Document/message details                  C   5          ³³
+0280   ALI Additional information                    C   5          ³³
+0290   MOA Monetary amount                           C   5          ³³
+0300   PRI Price details                             C   5          ³³
+0310 + GIN Goods identity number                     C   9999       ³³
+                                                                    ³³
+0320       ÄÄÄÄÄ Segment group 8  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   999ÄÄÄÄÄÄÄ¿³³
+0330   QTY Quantity                                  M   1         ³³³
+0340   MKS Market/sales channel information          C   1         ³³³
+0350   NAD Name and address                          C   1ÄÄÄÄÄÄÄÄÄÁÁÙ
+0360   UNT Message trailer                           M   1     

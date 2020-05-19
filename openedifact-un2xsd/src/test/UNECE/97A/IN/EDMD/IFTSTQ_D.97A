@@ -1,0 +1,390 @@
+                              UN/EDIFACT
+
+                UNITED NATIONS STANDARD MESSAGE (UNSM)
+
+            International multimodal status request message
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                            Message Type : IFTSTQ
+                                            Version      : D
+                                            Release      : 97A
+                                            Contr. Agency: UN
+
+                                            Revision     : 3
+                                            Date         : 96-12-13
+
+
+
+
+
+
+SOURCE: Joint Transport Group (JM4)
+
+
+
+                               CONTENTS
+
+            International multimodal status request message
+
+0.   INTRODUCTION
+
+1.   SCOPE
+
+     1.1   Functional definition
+
+     1.2   Field of application
+
+     1.3   Principles
+
+2.   REFERENCES
+
+3.   TERMS AND DEFINITIONS
+
+     3.1   Standard terms and definitions
+
+4.   MESSAGE DEFINITION
+
+     4.1   Data segment clarification
+
+     4.2   Data segment index (alphabetical sequence)
+
+     4.3   Message structure
+
+           4.3.1 Segment table
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------
+For general information on UN standard message types see UN Trade Data
+Interchange Directory, UNTDID, Part 4, Section 2.6, UN/ECE UNSM
+General Introduction
+----------------------------------------------------------------------
+
+
+
+0.     INTRODUCTION
+
+       This specification provides the definition of the International
+       multimodal status request message (IFTSTQ) to be used in
+       Electronic Data Interchange (EDI) between trading partners
+       involved in administration, commerce and transport.
+
+1.     SCOPE
+
+1.1    Functional Definition
+
+       A message to request an International multimodal status report
+       message (IFTSTA) in order to provide details relating to
+       transport status and/or a change in the transport status
+       between agreed parties.
+
+1.2    Field of Application
+
+       The International multimodal status request message may be used
+       for both national and international applications. It is based
+       on universal practice related to administration, commerce and
+       transport, and is not dependent on the type of business or
+       industry.
+
+1.3    Principles
+
+       This message allows for the request of information regarding
+       the status of the physical movement of consignments, goods, or
+       equipment at any point (in time or place) within the full
+       transport chain.
+       
+       The request for status can be made by either:
+       
+       a) using the top level segments to request information about
+       one or a number of consignments relating to a point or period
+       of time, location(s), party related reference(s) and party(s),
+       means of transport(s) and equipment(s).
+       
+       b) using the CNI segment group and making reference to a unique
+       consignment reference number per consignment and indicating, if
+       necessary, the criteria (date(s), location(s), etc.) for which
+       the status is requested.
+       
+       APPROACHES a) AND b) MUST NOT BE USED TOGETHER WITHIN 
+       ONE IFTSTQ MESSAGE.
+       
+       Data requirements for tracking equipment, where equipment is
+       not associated with a consignment (such as repair container),
+       are not addressed in this message.
+
+2.     REFERENCES
+
+       See UNTDID, Part 4, Chapter 2.6 UN/ECE UNSM - General
+       Introduction, Section 1.
+
+3.     TERMS AND DEFINITIONS
+
+3.1    Standard terms and definitions
+
+       See UNTDID, Part 4, Chapter 2.6 UN/ECE UNSM - General
+       Introduction, Section 2.
+
+4.     MESSAGE DEFINITION
+
+4.1    Data Segment Clarification
+
+       This section should be read in conjunction with the Segment
+       Table which indicate mandatory, conditional and repeating
+       requirements.
+
+0010   UNH, Message header
+       A service segment starting and uniquely identifying a message.
+       The message type code for the International multimodal status
+       request message is IFTSTQ.
+       
+       Note: International multimodal status request messages
+       conforming to this document must contain the following data in
+       segment UNH, composite S009:
+
+       Data element  0065 IFTSTQ
+                     0052 D
+                     0054 97A
+                     0051 UN
+
+0020   BGM, Beginning of message
+       A segment to indicating the beginning of the message and
+       identifying the consignment for which status is being
+       requested.
+
+0030   DTM, Date/time/period
+       A segment indicating the date/time of the message and the
+       dates, times and periods relating to the requested status or
+       events.
+
+0040   LOC, Place/location identification
+       A segment identifying a place/location which applies to the
+       consignment such as consignment origin and destination.
+
+
+0050   Segment group 1:  RFF-DTM
+       A group of segments to specify a reference which applies to the
+       whole message, and its related date and time.
+
+0060      RFF, Reference
+          A segment to identify a reference relating to the requested
+          status, e.g. customer reference number. Also a reference to
+          previous message can be given.
+
+0070      DTM, Date/time/period
+          A segment to indicate date and time relating to the
+          reference.
+
+0080   TDT, Details of transport
+       A segment identifying conveyance relating to the status or
+       event such as flight, vessel/voyage.
+
+0090   EQD, Equipment details
+       A segment identifying equipment related to the requested status
+       or event such as a container.
+
+
+0100   Segment group 2:  NAD-SG3
+       A group of segments to specify the parties related to the
+       consignment.
+
+0110      NAD, Name and address
+          A segment identifying a party to the consignment such as a
+          shipper, consignee, freight forwarder, broker.
+
+
+0120      Segment group 3:  CTA-COM
+          A group of segments to indicate contacts related to the
+          party.
+
+0130         CTA, Contact information
+             A segment to identify a person or department to whom
+             communication should be directed.
+
+0140         COM, Communication contact
+             A segment to identify a communication number of a
+             department or a person to whom communication should be
+             directed.
+
+
+0150   Segment group 4:  CNI-DTM-LOC-RFF-TDT-SG5-SG6
+       A group of segments to provide information about specific
+       consignments, e.g. included in a consolidation.
+
+0160      CNI, Consignment information
+          A segment to indicate a consignment (in a consolidation)
+          using the reference number of its transport document.
+
+0170      DTM, Date/time/period
+          A segment to indicate the date/time of the transport
+          document of this consignment and the dates, times and
+          periods relating to the requested status or events.
+
+0180      LOC, Place/location identification
+          A segment identifying a place/location which applies to the
+          consignment such as consignment origin and destination.
+
+0190      RFF, Reference
+          A segment identifying a reference relating to the requested
+          status, e.g. customer reference number/order.
+
+0200      TDT, Details of transport
+          A segment identifying conveyance relating to the status or
+          event such as flight, vessel/voyage.
+
+
+0210      Segment group 5:  EQD-TPL
+          A group of segments to identify equipment and eventually the
+          means of transport in which it is placed.
+
+0220         EQD, Equipment details
+             A segment identifying equipment related to the requested
+             status or event such as a container.
+
+0230         TPL, Transport placement
+             A segment to identify a means of transport (e.g. train)
+             to which the equipment is linked.
+
+
+0240      Segment group 6:  NAD-SG7-SG8
+          A group of segments to specify the parties related to this
+          consignment.
+
+0250         NAD, Name and address
+             A segment identifying a party to the consignment such as
+             a shipper, consignee, freight forwarder, broker.
+
+
+0260         Segment group 7:  GID-FTX-SGP
+             A group of segments to specify a goods item, necessary in
+             cases where the request concerns only part of the
+             consignment.
+
+0270            GID, Goods item details
+                A segment to provide details of a goods item as part
+                of a consignment.
+
+0280            FTX, Free text
+                A segment to describe the goods item.
+
+0290            SGP, Split goods placement
+                A segment to identify equipment in which goods are
+                transported.
+
+
+0300         Segment group 8:  CTA-COM
+             A group of segments to indicate contacts related to the
+             party.
+
+0310            CTA, Contact information
+                A segment to identify a person or department to whom
+                communication should be directed.
+
+0320            COM, Communication contact
+                A segment to identify a communication number of a
+                department or a person to whom communication should be
+                directed.
+
+0330   UNT, Message trailer
+       A service segment ending a message, giving the total number of
+       segments in the message and the control reference number of the
+       message.
+
+4.2    Data segment index (Alphabetical sequence by tag)
+
+          BGM Beginning of message
+          CNI Consignment information
+          COM Communication contact
+          CTA Contact information
+          DTM Date/time/period
+          EQD Equipment details
+          FTX Free text
+          GID Goods item details
+          LOC Place/location identification
+          NAD Name and address
+          RFF Reference
+          SGP Split goods placement
+          TDT Details of transport
+          TPL Transport placement
+          UNH Message header
+          UNT Message trailer
+
+4.3    Message structure
+
+4.3.1  Segment table
+
+Pos    Tag Name                                      S   R
+
+0010   UNH Message header                            M   1     
+0020   BGM Beginning of message                      M   1     
+0030   DTM Date/time/period                          C   9     
+0040   LOC Place/location identification             C   99    
+
+0050       ÄÄÄÄÄ Segment group 1  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   999ÄÄÄÄÄÄÄÄÄ¿
+0060   RFF Reference                                 M   1           ³
+0070   DTM Date/time/period                          C   9ÄÄÄÄÄÄÄÄÄÄÄÙ
+0080   TDT Details of transport                      C   99    
+0090   EQD Equipment details                         C   999   
+
+0100       ÄÄÄÄÄ Segment group 2  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄÄÄÄ¿
+0110   NAD Name and address                          M   1           ³
+                                                                     ³
+0120       ÄÄÄÄÄ Segment group 3  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄÄÄ¿³
+0130   CTA Contact information                       M   1          ³³
+0140   COM Communication contact                     C   9ÄÄÄÄÄÄÄÄÄÄÁÙ
+
+0150       ÄÄÄÄÄ Segment group 4  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   999ÄÄÄÄÄÄÄÄÄ¿
+0160   CNI Consignment information                   M   1           ³
+0170   DTM Date/time/period                          C   9           ³
+0180   LOC Place/location identification             C   99          ³
+0190   RFF Reference                                 C   99          ³
+0200   TDT Details of transport                      C   99          ³
+                                                                     ³
+0210       ÄÄÄÄÄ Segment group 5  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99ÄÄÄÄÄÄÄÄÄ¿³
+0220   EQD Equipment details                         M   1          ³³
+0230   TPL Transport placement                       C   9ÄÄÄÄÄÄÄÄÄÄÙ³
+                                                                     ³
+0240       ÄÄÄÄÄ Segment group 6  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄÄÄ¿³
+0250   NAD Name and address                          M   1          ³³
+                                                                    ³³
+0260       ÄÄÄÄÄ Segment group 7  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99ÄÄÄÄÄÄÄÄ¿³³
+0270   GID Goods item details                        M   1         ³³³
+0280   FTX Free text                                 C   1         ³³³
+0290   SGP Split goods placement                     C   99ÄÄÄÄÄÄÄÄÙ³³
+                                                                    ³³
+0300       ÄÄÄÄÄ Segment group 8  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄÄ¿³³
+0310   CTA Contact information                       M   1         ³³³
+0320   COM Communication contact                     C   9ÄÄÄÄÄÄÄÄÄÁÁÙ
+0330   UNT Message trailer                           M   1     

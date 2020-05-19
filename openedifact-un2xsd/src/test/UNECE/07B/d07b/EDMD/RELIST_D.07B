@@ -1,0 +1,466 @@
+                              UN/EDIFACT
+
+                UNITED NATIONS STANDARD MESSAGE (UNSM)
+
+                    Reinsured objects list message
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                           Message Type : RELIST
+                                           Version      : D
+                                           Release      : 07B
+                                           Contr. Agency: UN
+
+                                           Revision     : 1
+                                           Date         : 2007-11-06
+
+
+
+
+
+
+SOURCE: TBG8 Insurance
+
+
+
+                               CONTENTS
+
+                    Reinsured objects list message
+
+0.     INTRODUCTION
+
+1.     SCOPE
+
+       1.1   Functional definition
+
+       1.2   Field of application
+
+       1.3   Principles
+
+2.     REFERENCES
+
+3.     TERMS AND DEFINITIONS
+
+       3.1   Standard terms and definitions
+
+4.     MESSAGE DEFINITION
+
+       4.1   Segment clarification
+
+       4.2   Segment index (alphabetical sequence by tag)
+
+       4.3   Message structure
+             4.3.1 Segment table
+
+
+
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------
+For general information on UN standard message types see UN Trade Data
+Interchange Directory, UNTDID, Part 4, Section 2.3, UN/ECE UNSM
+General Introduction
+----------------------------------------------------------------------
+
+
+
+0.     INTRODUCTION
+
+       This specification provides the definition of the Reinsured
+       objects list message (RELIST) to be used in Electronic Data
+       Interchange (EDI) between trading partners involved in
+       administration, commerce and transport.
+
+1.     SCOPE
+
+1.1    Functional definition
+
+       The RELIST provides partners involved in the placing of a
+       reinsurance contract or endorsement structured details on
+       individual items to be reinsured (partly for facultative
+       risks); this generic item list can give details on any type of
+       item, ranging from individual vessels, buildings, industrial
+       sites, aircraft to exhibitions, fleets and groups of buildings
+       or employees to name a few.
+
+1.2    Field of application
+
+       The Reinsured objects list message may be used for both
+       national and international applications. It is based on
+       universal practice related to administration, commerce and
+       transport, and is not dependent on the type of business or
+       industry.
+
+1.3    Principles
+
+       As RELIST message is a supporting message to the RECORD message
+       it has therefore the same main structure (header, contract
+       identification, subdivisions). Per subdivision, a set of
+       generic and specific segments have been grouped to report any
+       relevant and structural information relating to individual
+       risks, such as type of aircraft or vessel, category, year,
+       built, relevant measurements, etc.
+       
+       RELIST is one of a complimentary pair of messages for the
+       placing of reinsurance business. The core business data for the
+       contract is carried in the message RECORD whilst RELIST carries
+       details of all the items covered under the terms of the
+       contract.
+
+2.     REFERENCES
+
+       See UNTDID, Part 4, Chapter 2.3 UN/ECE UNSM - General
+       Introduction, Section 1.
+
+3.     TERMS AND DEFINITIONS
+
+3.1    Standard terms and definitions
+
+       See UNTDID, Part 4, Chapter 2.3 UN/ECE UNSM - General
+       Introduction, Section 2.
+
+4.     MESSAGE DEFINITION
+
+4.1    Segment clarification
+
+       This section should be read in conjunction with the segment
+       table which indicates mandatory, conditional and repeating
+       requirements.
+
+0010   UNH, Message header
+       A service segment starting and uniquely identifying a message.
+       The message type code for the Reinsured objects list message is
+       RELIST.
+
+       Note: Reinsured objects list messages conforming to this
+       document must contain the following data in segment UNH,
+       composite S009:
+
+       Data element  0065 RELIST
+                     0052 D
+                     0054 07B
+                     0051 UN
+
+0020   BGM, Beginning of message
+       To specify name and reference of the message.
+
+0030   DTM, Date/time/period
+       To specify dates relating to the transaction and the contract
+       version.
+
+0040   AGR, Agreement identification
+       To specify the placing stage.
+
+0050   RFF, Reference
+       To specify the risk reference.
+
+
+0060   Segment group 1:  PNA-ATT-RFF-SG2
+       To specify parties related to the transaction, their
+       references, contacts and communication means.
+
+0070      PNA, Party identification
+          To specify the sender and receiver of the transaction, and
+          optionally the information originator (in case the message
+          is simply passed on) and third parties that will receive a
+          courtesy copy or to whom this message needs to be
+          distributed by the receiver.
+
+0080      ATT, Attribute
+          To describe the business function of the party named.
+
+0090      RFF, Reference
+          To specify party specific references to the contract.
+
+
+0100      Segment group 2:  CTA-COM
+          This group is used to specify contact persons or departments
+          within the named party.
+
+0110         CTA, Contact information
+             To specify the contact within the named party.
+
+0120         COM, Communication contact
+             To specify the means of communicating with the named
+             party contact.
+
+
+0130   Segment group 3:  IDE-SG4
+       To identify the contract or section to which the reinsured
+       object(s) pertain.
+
+0140      IDE, Identity
+          To identify the section that the reinsured object/person
+          relates to, or the contract.
+
+
+0150      Segment group 4:  ROD-RFF-FTX-PNA-DTM-QTY-NAT-SG5-SG7-SG8-
+                            SG9
+          To identify the reinsured object and all its relevant
+          characteristics.
+
+0160         ROD, Risk object type
+             To identify the type of reinsured object.
+
+0170         RFF, Reference
+             Identification of the reinsured object via one or more
+             references.
+
+0180         FTX, Free text
+             To give textual details regarding the reinsured object.
+
+0190         PNA, Party identification
+             To name the reinsured party and/or to specify parties
+             related to the reinsured object.
+
+0200         DTM, Date/time/period
+             To express dates and time indications relating to the
+             reinsured object (including age).
+
+0210         QTY, Quantity
+             To express quantities relating to the reinsured object or
+             person.
+
+0220         NAT, Nationality
+             To express the nationality(ies) of a person or the flag
+             of a conveyance.
+
+
+0230         Segment group 5:  PER-SG6
+             This group is used to specify any period relating to the
+             reinsured object or person - in particular various
+             coverage periods.
+
+0240            PER, Period related details
+                To specify the main period details.
+
+
+0250            Segment group 6:  DTM-GEI
+                This group allows specification of dates or durations
+                related to the coverage period.
+
+0260               DTM, Date/time/period
+                   To indicate dates and/or duration for the contract
+                   coverage. One repeat of the date/time/period
+                   segment will typically be used to render the 'start
+                   date' of the period. It can however also be used to
+                   specify the period duration. The other repeat is
+                   typically to be used to render the end date of the
+                   period. In case one repeat was used to specify the
+                   duration, then the other one will be used to
+                   specify the (estimated) end date/time.
+
+0270               GEI, Processing information
+                   To give date or period related indicators such as
+                   'date included', 'date not known' etc.
+
+
+0280         Segment group 7:  ADR-DTM
+             To express the address(es) of the reinsured person or
+             object. In case of cargo risks (including exhibitions and
+             concerts), each location may be linked to dates or
+             periods.
+
+0290            ADR, Address
+                To specify the location or address of the reinsured
+                object or person.
+
+0300            DTM, Date/time/period
+                To express dates and periods related to the location.
+
+
+0310         Segment group 8:  ATT-APP-DTM-PCD
+             To specify the type of activity(-ies) the reinsured
+             object or person is involved in and its applicability.
+             Per activity, the time spent on a yearly basis can be
+             expressed either as a number of time units or as a
+             percentage of the total.
+
+0320            ATT, Attribute
+                To describe the activity of the reinsured object or
+                person.
+
+0330            APP, Applicability
+                To specify the applicability of this activity in
+                relation to the contract, such as excluded.
+
+0340            DTM, Date/time/period
+                To express the activity as a number of time units per
+                year.
+
+0350            PCD, Percentage details
+                To express the activity as a percentage of the total
+                per year (total = 100%).
+
+
+0360         Segment group 9:  PRV-APP-MOA-RTE-DTM-QTY-ATT-SG10
+             To express coverages, deductibles, deductions and
+             premiums related to a specific reinsured object or
+             person.
+
+0370            PRV, Proviso details
+                To identify the proviso for which details will be
+                specified.
+
+0380            APP, Applicability
+                To specify the applicability of the proviso in
+                relation to the contract.
+
+0390            MOA, Monetary amount
+                To express the proviso as an amount.
+
+0400            RTE, Rate details
+                To express the proviso as a rate.
+
+0410            DTM, Date/time/period
+                To express dates, times and periods related to the
+                proviso.
+
+0420            QTY, Quantity
+                To express quantities related to the proviso.
+
+0430            ATT, Attribute
+                To specify attributes of the proviso, such as type of
+                activity, origin of business and class of business.
+
+
+0440            Segment group 10: BAS-APP
+                A group of segments to specify the basis for the
+                proviso and give details of how the basis is to be
+                applied.
+
+0450               BAS, Basis
+                   To specify one basis for the proviso, such as
+                   deduction basis, premium basis.
+
+0460               APP, Applicability
+                   To specify how the basis has been applied.
+
+0470   UNT, Message trailer
+       A service segment ending a message, giving the total number of
+       segments in the message (including the UNH & UNT) and the
+       control reference number of the message.
+
+4.2    Segment index (alphabetical sequence by tag)
+
+          ADR Address
+          AGR Agreement identification
+          APP Applicability
+          ATT Attribute
+          BAS Basis
+          BGM Beginning of message
+          COM Communication contact
+          CTA Contact information
+          DTM Date/time/period
+          FTX Free text
+          GEI Processing information
+          IDE Identity
+          MOA Monetary amount
+          NAT Nationality
+          PCD Percentage details
+          PER Period related details
+          PNA Party identification
+          PRV Proviso details
+          QTY Quantity
+          RFF Reference
+          ROD Risk object type
+          RTE Rate details
+          UNH Message header
+          UNT Message trailer
+
+4.3    Message structure
+
+4.3.1  Segment table
+
+Pos    Tag Name                                      S   R
+
+0010   UNH Message header                            M   1     
+0020   BGM Beginning of message                      M   1     
+0030   DTM Date/time/period                          M   9     
+0040   AGR Agreement identification                  M   1     
+0050   RFF Reference                                 M   1     
+
+0060       ----- Segment group 1  ------------------ M   99----------+
+0070   PNA Party identification                      M   1           |
+0080   ATT Attribute                                 C   1           |
+0090   RFF Reference                                 C   9           |
+                                                                     |
+0100       ----- Segment group 2  ------------------ C   9----------+|
+0110   CTA Contact information                       M   1          ||
+0120   COM Communication contact                     C   9----------++
+
+0130       ----- Segment group 3  ------------------ M   99----------+
+0140   IDE Identity                                  M   1           |
+                                                                     |
+0150       ----- Segment group 4  ------------------ M   999--------+|
+0160   ROD Risk object type                          M   1          ||
+0170   RFF Reference                                 C   9          ||
+0180   FTX Free text                                 C   9          ||
+0190   PNA Party identification                      C   99         ||
+0200   DTM Date/time/period                          C   9          ||
+0210   QTY Quantity                                  C   9          ||
+0220   NAT Nationality                               C   9          ||
+                                                                    ||
+0230       ----- Segment group 5  ------------------ C   9---------+||
+0240   PER Period related details                    M   1         |||
+                                                                   |||
+0250       ----- Segment group 6  ------------------ C   2--------+|||
+0260   DTM Date/time/period                          M   1        ||||
+0270   GEI Processing information                    C   1--------++||
+                                                                    ||
+0280       ----- Segment group 7  ------------------ C   9---------+||
+0290   ADR Address                                   M   1         |||
+0300   DTM Date/time/period                          C   9---------+||
+                                                                    ||
+0310       ----- Segment group 8  ------------------ C   99--------+||
+0320   ATT Attribute                                 M   1         |||
+0330   APP Applicability                             C   1         |||
+0340   DTM Date/time/period                          C   9         |||
+0350   PCD Percentage details                        C   9---------+||
+                                                                    ||
+0360       ----- Segment group 9  ------------------ C   9---------+||
+0370   PRV Proviso details                           M   1         |||
+0380   APP Applicability                             C   1         |||
+0390   MOA Monetary amount                           C   9         |||
+0400   RTE Rate details                              C   9         |||
+0410   DTM Date/time/period                          C   9         |||
+0420   QTY Quantity                                  C   9         |||
+0430   ATT Attribute                                 C   99        |||
+                                                                   |||
+0440       ----- Segment group 10 ------------------ C   9--------+|||
+0450   BAS Basis                                     M   1        ||||
+0460   APP Applicability                             C   1--------++++
+0470   UNT Message trailer                           M   1     

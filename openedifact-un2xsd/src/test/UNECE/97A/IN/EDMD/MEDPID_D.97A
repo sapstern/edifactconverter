@@ -1,0 +1,452 @@
+                              UN/EDIFACT
+
+                UNITED NATIONS STANDARD MESSAGE (UNSM)
+
+                    Person identification message
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                            Message Type : MEDPID
+                                            Version      : D
+                                            Release      : 97A
+                                            Contr. Agency: UN
+
+                                            Revision     : 1
+                                            Date         : 96-12-13
+
+
+
+
+
+
+SOURCE: Western European EDIFACT Board, MD9
+
+
+
+                               CONTENTS
+
+                    Person identification message
+
+0.   INTRODUCTION
+
+1.   SCOPE
+
+     1.1   Functional definition
+
+     1.2   Field of application
+
+     1.3   Principles
+
+2.   REFERENCES
+
+3.   TERMS AND DEFINITIONS
+
+     3.1   Standard terms and definitions
+
+4.   MESSAGE DEFINITION
+
+     4.1   Data segment clarification
+
+     4.2   Data segment index (alphabetical sequence)
+
+     4.3   Message structure
+
+           4.3.1 Segment table
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------
+For general information on UN standard message types see UN Trade Data
+Interchange Directory, UNTDID, Part 4, Section 2.6, UN/ECE UNSM
+General Introduction
+----------------------------------------------------------------------
+
+
+
+0.     INTRODUCTION
+
+       This specification provides the definition of the Person
+       identification message (MEDPID) to be used in Electronic Data
+       Interchange (EDI) between trading partners involved in
+       administration, commerce and transport.
+
+1.     SCOPE
+
+1.1    Functional Definition
+
+       The message is used to pass detailed information on persons
+       from, for instance, health insurance agencies to local
+       government in order to verify, add, change or delete person
+       related data in information systems. The message may also be
+       used to transfer person information between various application
+       systems within one organisation (i.e hospital).
+       
+       Usually detailed person related information for one or more
+       persons is sent from one organisation to another who will
+       acknowledge the message that is sent and proceed with changing,
+       adding or deleting person data in their own files or use the
+       transferred information to check their own registers and send a
+       verification message back.
+
+1.2    Field of Application
+
+       This message may be applied for transfer of person related data
+       between organisations that operate on local, regional, national
+       and/or international level. These organisations typically
+       operate in the field of healthcare, health insurance,
+       government and public affairs.
+
+1.3    Principles
+
+       Detailed person information may be transferred for more than
+       one person.
+       For each person additional information about related persons
+       and related names may be included.
+       The message may indicate the action that should be taken by the
+       receiving party either to add, change, delete or verify the
+       person information.
+
+2.     REFERENCES
+
+       See UNTDID, Part 4, Chapter 2.6 UN/ECE UNSM - General
+       Introduction, Section 1.
+
+3.     TERMS AND DEFINITIONS
+
+3.1    Standard terms and definitions
+
+       See UNTDID, Part 4, Chapter 2.6 UN/ECE UNSM - General
+       Introduction, Section 2.
+
+4.     MESSAGE DEFINITION
+
+4.1    Data Segment Clarification
+
+       This section should be read in conjunction with the Segment
+       Table which indicate mandatory, conditional and repeating
+       requirements.
+
+0010   UNH, Message header
+       A service segment starting and uniquely identifying a message.
+       The message type code for the Person identification message is
+       MEDPID.
+       
+       Note: Person identification messages conforming to this
+       document must contain the following data in segment UNH,
+       composite S009:
+
+       Data element  0065 MEDPID
+                     0052 D
+                     0054 97A
+                     0051 UN
+
+0020   BGM, Beginning of message
+       A segment for specifying message name and function.
+
+0030   DTM, Date/time/period
+       This segment is used to specify the date and time for
+       generation of the message.
+
+0040   RFF, Reference
+       This segment contains references to other related messages or
+       documents concerning the whole message.
+
+0050   FTX, Free text
+       This segment is used to transfer textual information concerning
+       the message itself.
+
+
+0060   Segment group 1:  PNA-ADR-CTA-COM-RFF-LAN
+       This segment group is used to transfer information about the
+       parties involved in the actual data interchange. Also
+       information about parties to receive copies may be specified.
+
+0070      PNA, Party name
+          A segment identifying name and identification of a
+          communication party (i.e. sender and receiver), and other
+          parties associated with the message.
+
+0080      ADR, Address
+          A segment to specify the addresses of the actual
+          communication party.
+
+0090      CTA, Contact information
+          A segment identifying a contact person or department for the
+          actual communication party to whom communication should be
+          directed.
+
+0100      COM, Communication contact
+          A segment identifying communication type(s) and number(s) of
+          the actual communication party or contact person or
+          department.
+
+0110      RFF, Reference
+          A segment specifying other identification numbers of the
+          actual communication party.
+
+0120      LAN, Language
+          A segment specifying languages used by the actual
+          communication party.
+
+
+0130   Segment group 2:  GIS-PNA-ADR-RFF-DTM-IHC-NAT-FTX-LAN-HAN-LOC-
+                         FII-CTA-SG3-SG4-SG5
+       This segment group contains information about a person.
+
+0140      GIS, General indicator
+          The segment is used to specify the type of data transferred
+          and the subsequent action assumed to be taken by the
+          receiver such as: 
+          - new data to be added (i.e. birth) 
+          - old data to be deleted (i.e. death) 
+          - modified data (i.e. marriage, address changes) 
+          - data to be verified.
+
+0150      PNA, Party name
+          A segment identifying a person.
+
+0160      ADR, Address
+          A segment specifying the addresses of the actual person. One
+          person may have more addresses.
+
+0170      RFF, Reference
+          A segment to specify alternate identification numbers of the
+          actual person.
+
+0180      DTM, Date/time/period
+          A segment identifying the date and time of birth and/or
+          death of the actual person as well as the date to perform
+          the requested action (add, delete, change, verify).
+
+0190      IHC, Person characteristic
+          A segment for specifying person inherited characteristics
+          such as ethnic origin, hair colour, etc. of the actual
+          person.
+
+0200      NAT, Nationality
+          A segment for specifying the nationality of the actual
+          person.
+
+0210      FTX, Free text
+          A segment for free text information concerning the actual
+          person such as further unstructured person information.
+
+0220      LAN, Language
+          A segment for specifying the languages used by the actual
+          person.
+
+0230      HAN, Handling instructions
+          A segment for specifying confidentiality constraints
+          concerning the data of the actual person.
+
+0240      LOC, Place/location identification
+          A segment specifying place of birth and/or death of the
+          actual person.
+
+0250      FII, Financial institution information
+          A segment identifying the financial institution(s) and bank
+          account number(s) associated with the actual person.
+
+0260      CTA, Contact information
+          A segment identifying a person that serves as a contact for
+          the actual person.
+
+
+0270      Segment group 3:  PDI-DTM
+          A segment group for specifying person demographic
+          information valid at a specific date/time/period.
+
+0280         PDI, Person demographic information
+             A segment to specify the sex, marital status and religion
+             of the actual person.
+
+0290         DTM, Date/time/period
+             A segment for specifying the valid date/time/period for
+             the person demographic information.
+
+
+0300      Segment group 4:  COM-CTA
+          A segment group for specifying communication numbers and
+          contacts of the actual person.
+
+0310         COM, Communication contact
+             A segment identifying communication type(s) and number(s)
+             of the actual person.
+
+0320         CTA, Contact information
+             A segment identifying a contact person or department at
+             the specified communication number.
+
+
+0330      Segment group 5:  REL-PNA-ADR-RFF-DTM-PDI-IHC-NAT-LAN
+          A segment group identifying any related person or additional
+          names of the actual person.
+
+0340         REL, Relationship
+             A segment identifying the type of relationship of the
+             related person or name to the actual person.
+
+0350         PNA, Party name
+             A segment identifying the related person or specifying
+             related name(s).
+
+0360         ADR, Address
+             A segment for specifying address information of the
+             related person.
+
+0370         RFF, Reference
+             A segment identifying additional identification numbers
+             of the related person.
+
+0380         DTM, Date/time/period
+             A segment identifying the time of birth and/or death of
+             the related person.
+
+0390         PDI, Person demographic information
+             A segment to specify the sex, marital status and religion
+             of the related person.
+
+0400         IHC, Person characteristic
+             A segment for specifying person inherited characteristics
+             such as ethnic origin, hair colour, etc. of the related
+             person.
+
+0410         NAT, Nationality
+             A segment for specifying the nationality of the related
+             person.
+
+0420         LAN, Language
+             A segment for specifying the languages used by the
+             related person.
+
+
+0430   Segment group 6:  AUT-DTM
+       A segment group specifying the authentication procedure
+       applied.
+
+0440      AUT, Authentication result
+          A segment specifying details of any authentication
+          (validation) procedure applied to the message.
+
+0450      DTM, Date/time/period
+          A segment for specifying the date/time of an authentication
+          procedure.
+
+0460   UNT, Message trailer
+       A service segment ending a message, giving the total number of
+       segments in the message and the control reference number of the
+       message.
+
+4.2    Data segment index (Alphabetical sequence by tag)
+
+          ADR Address
+          AUT Authentication result
+          BGM Beginning of message
+          COM Communication contact
+          CTA Contact information
+          DTM Date/time/period
+          FII Financial institution information
+          FTX Free text
+          GIS General indicator
+          HAN Handling instructions
+          IHC Person characteristic
+          LAN Language
+          LOC Place/location identification
+          NAT Nationality
+          PDI Person demographic information
+          PNA Party name
+          REL Relationship
+          RFF Reference
+          UNH Message header
+          UNT Message trailer
+
+4.3    Message structure
+
+4.3.1  Segment table
+
+Pos    Tag Name                                      S   R
+
+0010   UNH Message header                            M   1     
+0020   BGM Beginning of message                      M   1     
+0030   DTM Date/time/period                          C   9     
+0040   RFF Reference                                 C   9     
+0050   FTX Free text                                 C   99    
+
+0060       ÄÄÄÄÄ Segment group 1  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   99ÄÄÄÄÄÄÄÄÄÄ¿
+0070   PNA Party name                                M   1           ³
+0080   ADR Address                                   C   9           ³
+0090   CTA Contact information                       C   9           ³
+0100   COM Communication contact                     C   9           ³
+0110   RFF Reference                                 C   99          ³
+0120   LAN Language                                  C   9ÄÄÄÄÄÄÄÄÄÄÄÙ
+
+0130       ÄÄÄÄÄ Segment group 2  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   9999ÄÄÄÄÄÄÄÄ¿
+0140   GIS General indicator                         M   1           ³
+0150   PNA Party name                                C   1           ³
+0160   ADR Address                                   C   9           ³
+0170   RFF Reference                                 C   99          ³
+0180   DTM Date/time/period                          C   9           ³
+0190   IHC Person characteristic                     C   9           ³
+0200   NAT Nationality                               C   9           ³
+0210   FTX Free text                                 C   9           ³
+0220   LAN Language                                  C   9           ³
+0230   HAN Handling instructions                     C   9           ³
+0240   LOC Place/location identification             C   9           ³
+0250   FII Financial institution information         C   9           ³
+0260   CTA Contact information                       C   9           ³
+                                                                     ³
+0270       ÄÄÄÄÄ Segment group 3  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄÄÄ¿³
+0280   PDI Person demographic information            M   1          ³³
+0290   DTM Date/time/period                          C   9ÄÄÄÄÄÄÄÄÄÄÙ³
+                                                                     ³
+0300       ÄÄÄÄÄ Segment group 4  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄÄÄ¿³
+0310   COM Communication contact                     M   1          ³³
+0320   CTA Contact information                       C   9ÄÄÄÄÄÄÄÄÄÄÙ³
+                                                                     ³
+0330       ÄÄÄÄÄ Segment group 5  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99ÄÄÄÄÄÄÄÄÄ¿³
+0340   REL Relationship                              M   1          ³³
+0350   PNA Party name                                C   1          ³³
+0360   ADR Address                                   C   9          ³³
+0370   RFF Reference                                 C   9          ³³
+0380   DTM Date/time/period                          C   9          ³³
+0390   PDI Person demographic information            C   1          ³³
+0400   IHC Person characteristic                     C   9          ³³
+0410   NAT Nationality                               C   9          ³³
+0420   LAN Language                                  C   9ÄÄÄÄÄÄÄÄÄÄÁÙ
+
+0430       ÄÄÄÄÄ Segment group 6  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄÄÄÄ¿
+0440   AUT Authentication result                     M   1           ³
+0450   DTM Date/time/period                          C   9ÄÄÄÄÄÄÄÄÄÄÄÙ
+0460   UNT Message trailer                           M   1     

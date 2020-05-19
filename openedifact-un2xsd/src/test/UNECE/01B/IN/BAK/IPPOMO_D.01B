@@ -1,0 +1,1562 @@
+                              UN/EDIFACT
+
+                UNITED NATIONS STANDARD MESSAGE (UNSM)
+
+                    Motor insurance policy message
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                           Message Type : IPPOMO
+                                           Version      : D
+                                           Release      : 01B
+                                           Contr. Agency: UN
+
+                                           Revision     : 1
+                                           Date         : 2001-05-15
+
+
+
+
+
+
+SOURCE: D9 Insurance (SWG)
+
+
+
+                               CONTENTS
+
+                    Motor insurance policy message
+
+0.     INTRODUCTION
+
+1.     SCOPE
+
+       1.1   Functional definition
+
+       1.2   Field of application
+
+       1.3   Principles
+
+2.     REFERENCES
+
+3.     TERMS AND DEFINITIONS
+
+       3.1   Standard terms and definitions
+
+4.     MESSAGE DEFINITION
+
+       4.1   Segment clarification
+
+       4.2   Segment index (alphabetical sequence by tag)
+
+       4.3   Message structure
+             4.3.1 Segment table
+
+
+
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------
+For general information on UN standard message types see UN Trade Data
+Interchange Directory, UNTDID, Part 4, Section 2.3, UN/ECE UNSM
+General Introduction
+----------------------------------------------------------------------
+
+
+
+0.     INTRODUCTION
+
+       This specification provides the definition of the Motor
+       insurance policy message (IPPOMO) to be used in Electronic Data
+       Interchange (EDI) between trading partners involved in
+       administration, commerce and transport.
+
+1.     SCOPE
+
+1.1    Functional definition
+
+       A motor insurance policy message is exchanged between insurers,
+       intermediaries and clients to transfer details related to the
+       proposal, confirmation, adjustment and renewal of a motor
+       policy.
+
+1.2    Field of application
+
+       The Motor insurance policy message may be used for both
+       national and international applications. It is based on
+       universal practice related to administration, commerce and
+       transport, and is not dependent on the type of business or
+       industry.
+
+1.3    Principles
+
+       The IPPOMO message describes a single policy allowing for
+       multiple risks. It covers all classes of business pertaining to
+       motor insurance, private or commercial.
+
+2.     REFERENCES
+
+       See UNTDID, Part 4, Chapter 2.3 UN/ECE UNSM - General
+       Introduction, Section 1.
+
+3.     TERMS AND DEFINITIONS
+
+3.1    Standard terms and definitions
+
+       See UNTDID, Part 4, Chapter 2.3 UN/ECE UNSM - General
+       Introduction, Section 2.
+
+4.     MESSAGE DEFINITION
+
+4.1    Segment clarification
+
+       This section should be read in conjunction with the segment
+       table which indicates mandatory, conditional and repeating
+       requirements.
+
+0010   UNH, Message header
+       A service segment starting and uniquely identifying a message.
+       The message type code for the Motor insurance policy message is
+       IPPOMO.
+
+       Note: Motor insurance policy messages conforming to this
+       document must contain the following data in segment UNH,
+       composite S009:
+
+       Data element  0065 IPPOMO
+                     0052 D
+                     0054 01B
+                     0051 UN
+
+0020   BGM, Beginning of message
+       To specify the type of transaction contained within the
+       message.
+
+0030 X GIS, General indicator
+       To indicate whether the transaction should be processed as a
+       temporary or permanent change to the policy.
+
+0040   ATT, Attribute
+       To provide coded attributes that describe the type of business
+       transaction, such as 'Quotation Type'.
+
+0050   CTA, Contact information
+       To provide contact information for a party who provided
+       authorisation for the business transaction.
+
+0060   RFF, Reference
+       To provide references for the transaction, such as 'Quote
+       Authorisation Reference', 'Broker Transaction Reference',
+       'Insurer Transaction Reference' etc.
+
+0070   QTY, Quantity
+       To identify the total number of transactions in a set of
+       related transactions for one risk or policy.
+
+0080   SEQ, Sequence details
+       To identify the sequence number of this transaction in a set of
+       transactions for one risk or policy.
+
+0090   DTM, Date/time/period
+       To provide dates for the transaction, such as 'Response Date',
+       'Transaction Date', 'Transaction Expiry Date'.
+
+
+0100   Segment group 1:  PNA-QRS-SG2
+       A group of segments to identify the software which created the
+       business transaction contained within this message.
+
+0110      PNA, Party identification
+          To identify a software supplier that provided software used
+          in the creation of the business transaction as well as the
+          transaction originator and addressee.
+
+0120      QRS, Query and response
+          To provide declarations about the software supplier, such as
+          accreditation.
+
+
+0130      Segment group 2:  RFF-DTM
+          A group of segments that provide details of one particular
+          software component or product.
+
+0140         RFF, Reference
+             Contains a reference to identify a software component or
+             product.
+
+0150         DTM, Date/time/period
+             To specify dates for the software component, such as
+             'Date Installed' and 'Date Effective'.
+
+
+0160   Segment group 3:  ICD-RFF-DTM-ATT-PCD-MOA-QRS-QTY-FTX-SG4
+       A group of segments to identify and specify the policy package
+       and product.
+
+0170      ICD, Insurance cover description
+          Identifies an insurance package, product or scheme.
+
+0180      RFF, Reference
+          To specify identification numbers for the policy, such as
+          'Broker Risk Reference' and 'Insurer's Policy Number'.
+
+0190      DTM, Date/time/period
+          Contains dates relating to the insurance policy, such as
+          'Inception Date', 'Expiry Date', 'Renewal Date'.
+
+0200      ATT, Attribute
+          Contains coded attributes relating to the policy, such as
+          'Policy Accounting Type', 'Policy Status', 'Cancellation
+          Reason'.
+
+0210      PCD, Percentage details
+          To specify percentages relating to the policy, such as
+          'Brokerage Percent', 'Percentage of Co-insurance'.
+
+0220      MOA, Monetary amount
+          To specify monetary values relating to the policy, such as
+          'Maximum Value At Any One Location', 'Commission Amount'.
+
+0230      QRS, Query and response
+          To specify declarations for the policy, such as 'Is the
+          policy renewable?', 'Is the broker the holding broker?'.
+
+0240      QTY, Quantity
+          To specify quantities relating to the policy, such as
+          'Number Of Drivers Covered', 'Maximum Number Of Vehicles At
+          Any One Location'.
+
+0250      FTX, Free text
+          To specify policy endorsements and to convey text variables
+          with which to complete the endorsement text; and to provide
+          text descriptions.
+
+
+0260      Segment group 4:  DOC-ATT-FTX-SG5
+          A group giving details of documents that have been provided
+          in addition to the message to support the business
+          transaction; or requests for such documents.
+
+0270         DOC, Document/message details
+             Provides details of a document needed to support the
+             business transaction.
+
+0280         ATT, Attribute
+             To provide coded attributes that relate to the document,
+             such as whether the document is open or closed.
+
+0290         FTX, Free text
+             To provide a text description of the document.
+
+
+0300         Segment group 5:  PCC-GIS-MOA-PCD-QTY-DTM-FTX-SG6
+             To indicate premiums and excesses that apply at policy
+             level.
+
+0310            PCC, Premium calculation component details
+                To identify one premium or component that applies to
+                the policy, such as 'Gross Premium', 'Policy Excess'.
+
+0320 X          GIS, General indicator
+                Provides a coded indication of how the premium
+                component group is to be processed, such as 'Added',
+                'Deleted', 'Replaced'.
+
+0330            MOA, Monetary amount
+                Contains monetary values associated with the premium
+                component, such as 'Gross Premium', 'Base Premium',
+                'Loading or Discount Amount'.
+
+0340            PCD, Percentage details
+                Contains percentages associated with the premium
+                component, such as 'Loading or Discount Percentage'.
+
+0350            QTY, Quantity
+                Contains quantities associated with the premium
+                component, such as 'Loading or Discount Points'.
+
+0360            DTM, Date/time/period
+                Contains dates associated with the premium component,
+                such as 'Review Date'.
+
+0370            FTX, Free text
+                To specify policy endorsements and to convey text
+                variables with which to complete the endorsement text.
+
+
+0380            Segment group 6:  ATT-PCD-MOA-FTX
+                To specify excesses that apply to the policy.
+
+0390               ATT, Attribute
+                   To identify the type of excess, such as
+                   'Compulsory', 'Voluntary'.
+
+0400               PCD, Percentage details
+                   To specify the amount of excess as a percentage.
+
+0410               MOA, Monetary amount
+                   Contains monetary values associated with the
+                   excess, such as 'Excess Amount', 'Maximum Excess
+                   Amount', 'Minimum Excess Amount'.
+
+0420               FTX, Free text
+                   To describe the reason for the excess.
+
+
+0430   Segment group 7:  PNA-GIS-ATT-PCD-RFF-EMP-DTM-MEM-QTY-REL-LOC-
+                         QRS-FTX-SG8-SG9-SG10-SG12
+       To provide information relating to the parties involved in the
+       insurance policy.
+
+0440      PNA, Party identification
+          To provide the name details of one party related to the
+          policy, such as 'Insurer', 'Broker', 'Insured' and 'Driver'.
+
+0450 X    GIS, General indicator
+          Contains a coded indication of how the party is to be
+          processed if the message is being used to update a policy,
+          such as 'Added', 'Deleted' or 'Changed'.
+
+0460      ATT, Attribute
+          To specify coded attributes for the party, such as 'Gender',
+          'Marital Status', 'Legal Status', 'VAT Status'.
+
+0470      PCD, Percentage details
+          To specify the percentage of liability for Value Added Tax
+          (VAT or TVA).
+
+0480      RFF, Reference
+          To specify references associated with the party, such as
+          'VAT registration number', 'SIRENE code'.
+
+0490      EMP, Employment details
+          To specify occupations or trades for the party.
+
+0500      DTM, Date/time/period
+          Contains dates associated with the party, such as 'Birth
+          date', 'Date of national residency', 'Registered disabled
+          date'.
+
+0510      MEM, Membership details
+          To specify details of professional bodies to which the party
+          belongs, such as motoring organisations.
+
+0520      QTY, Quantity
+          Contains quantities associated with the party, such as
+          'Number of children', 'Number of vehicles owned', 'Number of
+          vehicles accessible'.
+
+0530      REL, Relationship
+          To specify the relationship of the party to the proposer.
+
+0540      LOC, Place/location identification
+          To specify the place of birth of the party.
+
+0550      QRS, Query and response
+          Contains declarations made by the party, such as 'Any
+          convictions?', 'Any claims?', 'Any disabilities?'.
+
+0560      FTX, Free text
+          To provide a text description where any of the party's coded
+          attributes indicate that text will be provided.
+
+
+0570      Segment group 8:  ADR-DTM
+          To provide addresses for the party and associated dates.
+
+0580         ADR, Address
+             To specify details of one address for the party.
+
+0590         DTM, Date/time/period
+             Contains the date that the party was established at the
+             address.
+
+
+0600      Segment group 9:  CTA-COM
+          Contains details of contacts for the party.
+
+0610         CTA, Contact information
+             To identify one contact for a party.
+
+0620         COM, Communication contact
+             To provide details of communication numbers for a
+             contact.
+
+
+0630      Segment group 10: EVT-GIS-QRS-RFF-ATT-ICD-MOA-DTM-QTY-PCD-
+                            FTX-SG11
+          A group of segments that provides details of historical
+          events related to the party, such as claims and convictions.
+
+0640 X       EVT, Event
+             To identify one event that has relevance to a party's
+             insurance history.
+
+0650 X       GIS, General indicator
+             Contains a coded indication of how the historical event
+             is to be processed if the message is being used to update
+             a policy, such as 'Added', 'Deleted' or 'Changed'.
+
+0660         QRS, Query and response
+             Contains declarations about the historical event, such as
+             'Claim made for loss?' and 'Was no claims bonus
+             affected?'.
+
+0670         RFF, Reference
+             Contains references related to the historical event, such
+             as 'Claim number', 'Broker loss reference'.
+
+0680         ATT, Attribute
+             Contains coded attributes related to the historical
+             event, such as 'Cause Code', 'Consequence Code'.
+
+0690         ICD, Insurance cover description
+             To specify the cover that applied at the time of the
+             historical event.
+
+0700         MOA, Monetary amount
+             To provide details of monetary amounts relating to the
+             historical event, such as 'Claim Amount', 'Fine Amount'.
+
+0710         DTM, Date/time/period
+             To specify dates related to the historical event, such as
+             'Loss Date', 'Conviction Date'.
+
+0720         QTY, Quantity
+             To specify quantities related to the historical event,
+             such as 'Conviction Penalty Points', 'Total Licence
+             Penalty Points'.
+
+0730         PCD, Percentage details
+             To provide percentages related to the historical event,
+             such as 'Percentage of Responsibility', 'Percentage of
+             Disability'.
+
+0740         FTX, Free text
+             To provide text descriptions relating to the historical
+             event.
+
+
+0750         Segment group 11: PNA-ADR-RFF-CTA-COM
+             A group giving details of the insurer and broker for the
+             party's historical claim.
+
+0760            PNA, Party identification
+                To identify one party that played a role in a
+                historical claim, such as insurer and broker.
+
+0770            ADR, Address
+                To provide an address for a party related to the
+                historical claim.
+
+0780            RFF, Reference
+                To provide references for the party and the historical
+                claim.
+
+0790            CTA, Contact information
+                To specify a contact at the party who handles the
+                historical claim.
+
+0800            COM, Communication contact
+                To provide communication numbers for the historical
+                claim party.
+
+
+0810      Segment group 12: DOC-DTM-ATT-LOC-FTX
+          To provide details of licences held by a party.
+
+0820         DOC, Document/message details
+             To identify one licence held by a party.
+
+0830         DTM, Date/time/period
+             Contains dates related to the licence, such as 'Issue
+             Date', 'Expiry Date'.
+
+0840         ATT, Attribute
+             To specify coded restrictions that apply to a licence.
+
+0850         LOC, Place/location identification
+             To indicate the location of the authority that issued the
+             licence.
+
+0860         FTX, Free text
+             To provide a text description of the licence.
+
+
+0870   Segment group 13: PAT-DTM-ATT-FII-RFF-PCD-SG14-SG15
+       To provide details of total premiums and total amounts to be
+       paid.
+
+0880 X    PAT, Payment terms basis
+          To specify one payment plan.
+
+0890      DTM, Date/time/period
+          Contains dates related to the payment plan, such as
+          'Instalment Start Date', 'Instalment Payment day-of-month'.
+
+0900      ATT, Attribute
+          Contains coded attributes related to the payment, such as
+          'Payment method', 'Collection Responsibility'.
+
+0910      FII, Financial institution information
+          To identify the financial account from which payment is
+          being made.
+
+0920      RFF, Reference
+          Contains references related to the payment plan, such as
+          'Instalment Agreement Number'.
+
+0930      PCD, Percentage details
+          To specify percentages related to the payment, such as
+          'Interest Rate', 'Early Payment Discount'.
+
+
+0940      Segment group 14: PNA-ADR
+          To identify parties involved in the payment.
+
+0950         PNA, Party identification
+             Identifies one party making payments.
+
+0960         ADR, Address
+             Contains the address of the party making payment, or the
+             address of the payer's bank.
+
+
+0970      Segment group 15: MOA-DTM-ATT-SG16
+          Contains details of payments to be made under the payment
+          plan.
+
+0980         MOA, Monetary amount
+             The monetary value of a payment.
+
+0990         DTM, Date/time/period
+             Contains the date or dates when the payment or
+             instalments are due.
+
+1000         ATT, Attribute
+             Contains the payment method for a particular payment, if
+             different from the main payment method for the payment
+             plan, as may occur with the first payment.
+
+
+1010         Segment group 16: TAX-MOA-LOC-PCD
+             To provide details of additions and deductions (taxes) to
+             the premium.
+
+1020            TAX, Duty/tax/fee details
+                To identify one premium tax, fee or commission.
+
+1030            MOA, Monetary amount
+                To provide monetary values for the premium addition or
+                deduction as well as the base premium.
+
+1040            LOC, Place/location identification
+                To specify the location of the tax authority.
+
+1050            PCD, Percentage details
+                To specify the premium addition or deduction as a
+                percentage.
+
+
+1060   Segment group 17: ROD-GIS-RFF-DTM-ATT-QTY-MOA-MEA-ADR-PCD-QRS-
+                         FTX-SG18-SG19-SG20-SG21-SG23
+       To provide information relating to vehicles involved in the
+       insurance contract and the insurance cover they have or are
+       applying for.
+
+1070      ROD, Risk object type
+          To specify one vehicle or a category of vehicles (for
+          fleets).
+
+1080 X    GIS, General indicator
+          Contains a coded indication of how the vehicle is to be
+          processed if the message is being used to update a policy,
+          such as 'Added', 'Deleted' or 'Changed'.
+
+1090      RFF, Reference
+          To specify reference numbers related to the vehicle, such as
+          'Registration Number', 'VIN Number', 'Engine Number'.
+
+1100      DTM, Date/time/period
+          To specify dates related to the vehicle, such as 'First
+          Registered Date', 'Date Purchased'.
+
+1110      ATT, Attribute
+          To specify coded attributes relating to the vehicle, such as
+          'Fuel Type', 'Body Type', 'Owner Code', 'Colour Code'.
+
+1120      QTY, Quantity
+          To specify quantities related to the vehicle, such as
+          'Number of Seats', 'Odometer Reading', 'Engine Power'.
+
+1130      MOA, Monetary amount
+          To specify monetary values relating to the vehicle, such as
+          'Market Value', 'Paid Value', 'Agreed Value'.
+
+1140      MEA, Measurements
+          To specify measurements relating to the vehicle, such as
+          'Maximum Movement Height and Depth'.
+
+1150      ADR, Address
+          To specify addresses or locations where the vehicle is
+          garaged, kept and used.
+
+1160      PCD, Percentage details
+          To specify percentages relating to the vehicle, such as
+          'Premium Rate per Vehicle'.
+
+1170      QRS, Query and response
+          To provide declarations about the vehicle, such as
+          'Hazardous Goods Carried?', 'Vehicle Used For Transportation
+          of Employees Only?'.
+
+1180      FTX, Free text
+          To provide additional textual information relating to the
+          vehicle where it has been inadequately described by code.
+
+
+1190      Segment group 18: PNA-GIS-ADR-FTX
+          A group to provide information about parties that have an
+          interest in the vehicle, such as owner, leasing company,
+          keeper.
+
+1200         PNA, Party identification
+             To identify one party that has an interest in a vehicle.
+
+1210 X       GIS, General indicator
+             Coded indication of how the interested party should be
+             processed if the message is being used to update a
+             policy, such as 'Added', 'Deleted' or 'Changed'.
+
+1220         ADR, Address
+             To specify the address of the interested party.
+
+1230         FTX, Free text
+             Contains a description of the interest.
+
+
+1240      Segment group 19: EQD-GIS-ATT-DTM-PNA-QRS-RFF-FTX
+          A group to specify details of security devices fitted to the
+          vehicle.
+
+1250         EQD, Equipment details
+             To identify one security device.
+
+1260 X       GIS, General indicator
+             Coded indication of how the security device is to be
+             processed if the message is being used to update a
+             policy, such as 'Added', 'Deleted' or 'Changed'.
+
+1270         ATT, Attribute
+             To specify coded attributes relating to the security
+             device, such as 'Accreditation Code', 'Installer Status'.
+
+1280         DTM, Date/time/period
+             To specify the installation date.
+
+1290         PNA, Party identification
+             To identify parties that manufactured and installed the
+             security device.
+
+1300         QRS, Query and response
+             To provide coded declarations relating to the security
+             device, such as 'Security Device Certificate Seen by
+             Broker?'.
+
+1310         RFF, Reference
+             To specify references relating to the security device,
+             such 'Certificate Reference'.
+
+1320         FTX, Free text
+             To provide additional textual information about the
+             security device.
+
+
+1330      Segment group 20: DOC-ATT-DTM-PCD-FTX
+          To provide details of insurance certificates and
+          declarations.
+
+1340         DOC, Document/message details
+             To identify one type of insurance certificate or
+             declaration.
+
+1350         ATT, Attribute
+             To specify the reason for issue of an insurance
+             certificate or declaration.
+
+1360         DTM, Date/time/period
+             To specify start and end dates for the certificate and
+             dates upon which the declaration must be made.
+
+1370         PCD, Percentage details
+             To specify a percentage for the certificate.
+
+1380         FTX, Free text
+             To provide textual information about the certificate or
+             declaration.
+
+
+1390      Segment group 21: EVT-GIS-QRS-RFF-ATT-ICD-MOA-DTM-QTY-PCD-
+                            FTX-SG22
+          A group that provides claims history for the vehicle.
+
+1400 X       EVT, Event
+             To identify one previous claim that has relevance to the
+             vehicle's insurance cover.
+
+1410 X       GIS, General indicator
+             Contains a coded indication of how the claim group is to
+             be processed if the message is being used to update a
+             policy, such as 'Added', 'Deleted' or 'Changed'.
+
+1420         QRS, Query and response
+             Contains coded declarations about the previous claim,
+             such as 'Claim made for loss?' and 'Was No Claims Bonus
+             affected?'.
+
+1430         RFF, Reference
+             Contains references related to the vehicle's claim, such
+             as 'Claim Number', 'Broker Loss Reference'.
+
+1440         ATT, Attribute
+             Contains coded attributes related to the vehicle's claim,
+             such as 'Cause Code', 'Consequence Code'.
+
+1450         ICD, Insurance cover description
+             To specify the cover that applied to the vehicle at the
+             time of the claim.
+
+1460         MOA, Monetary amount
+             To provide details of monetary amounts relating to the
+             vehicle's claim, such as 'Loss Amount', 'Claim Amount'.
+
+1470         DTM, Date/time/period
+             To specify dates related to the vehicle's claim, such as
+             'Incident date', 'Claim Paid Date'.
+
+1480         QTY, Quantity
+             To specify quantities related to the vehicle's claim.
+
+1490         PCD, Percentage details
+             To provide percentages related to the vehicle's claim,
+             such as 'Percentage of Responsibility'.
+
+1500         FTX, Free text
+             To provide additional text description relating to the
+             vehicle's claim.
+
+
+1510         Segment group 22: PNA-ADR-RFF-CTA-COM
+             A group giving details of the handling insurer and broker
+             at the time of the previous claim.
+
+1520            PNA, Party identification
+                To identify one party that played a role in the
+                vehicle's claim, such as insurer and broker.
+
+1530            ADR, Address
+                To provide an address for a party related to the
+                previous claim.
+
+1540            RFF, Reference
+                To provide references for the party and the previous
+                claim.
+
+1550            CTA, Contact information
+                To specify a contact at the party who handles the
+                claim.
+
+1560            COM, Communication contact
+                To provide communication numbers for the previous
+                claim party.
+
+
+1570      Segment group 23: ICD-GIS-DTM-RFF-ATT-QRS-QTY-FTX-SG24-SG25-
+                            SG26-SG30-SG31
+          A group of segments used to proved details of cover that
+          applies to the vehicle.
+
+1580         ICD, Insurance cover description
+             To identify one insurance cover that applies to a
+             vehicle.
+
+1590 X       GIS, General indicator
+             Contains a coded indication of how this cover is to be
+             processed if the message is being used to update a
+             policy, such as 'Added', 'Deleted' or 'Changed'.
+
+1600         DTM, Date/time/period
+             To specify dates for the cover, such as 'Commencement
+             Date', 'Expiry Date'.
+
+1610         RFF, Reference
+             To specify references for the cover, such as 'Cover
+             Reference', 'Add-On Policy Number'.
+
+1620         ATT, Attribute
+             To specify coded attributes of the cover, such as 'Class
+             of Use'.
+
+1630         QRS, Query and response
+             To specify coded declarations about the cover, such as
+             'Foreign Use Included?', 'Cover Excluded?'.
+
+1640         QTY, Quantity
+             To specify limits of cover by quantity, such as 'Number
+             Of Seats', 'Maximum Number Of Drivers'.
+
+1650         FTX, Free text
+             To provide descriptions and wordings for the cover.
+
+
+1660         Segment group 24: MOA-PCD-LOC
+             To provide monetary values related to the insurance
+             cover, such as premium, commission, tax.
+
+1670            MOA, Monetary amount
+                To identify and specify one monetary value related to
+                the insurance cover.
+
+1680            PCD, Percentage details
+                To specify the percentage related to the previous MOA
+                segment if it was used to indicate commission or tax.
+
+1690            LOC, Place/location identification
+                To indicate the country in which tax is payable.
+
+
+1700         Segment group 25: ROD-GIS-MOA
+             A group of segments used to indicate additional or add-on
+             risks to the standard cover, such as personal belongings
+             and in-car entertainment.
+
+1710            ROD, Risk object type
+                To identify one additional or add-on risk.
+
+1720 X          GIS, General indicator
+                Contains a coded indication of how this additional
+                risk is to be processed if the message is being used
+                to update a policy, such as 'Added', 'Deleted' or
+                'Changed'.
+
+1730            MOA, Monetary amount
+                To specify monetary values relating to the additional
+                risk, such as 'Value', 'Sum Insured'.
+
+
+1740         Segment group 26: COD-GIS-SG27
+             A group that contains the premium calculation components
+             that are used to derive the premium for the cover.
+
+1750            COD, Component details
+                To identify a set of premium calculation components.
+
+1760 X          GIS, General indicator
+                Contains a coded indication of how the set of premium
+                calculation components should be processed, such as
+                'Replace Set', 'Add Set' or 'Delete Set'.
+
+
+1770            Segment group 27: PCC-GIS-MOA-PCD-QRS-QTY-DTM-FTX-
+                                  SG28-SG29
+                A group of segments to describe how the premium for
+                the cover was derived and conditions that relate to
+                it. It is used for the base premium and all other
+                premium components, such as additions, deductions,
+                loadings and discounts.
+
+1780               PCC, Premium calculation component details
+                   To identify one premium calculation component.
+
+1790 X             GIS, General indicator
+                   A coded indication of how the premium calculation
+                   component is to be processed.
+
+1800               MOA, Monetary amount
+                   To specify monetary values related to the premium
+                   component, such as 'Base Premium', 'Premium
+                   Component Value'.
+
+1810               PCD, Percentage details
+                   To specify a premium component as a percentage.
+
+1820               QRS, Query and response
+                   To specify declarations about the premium component
+                   when it is a condition or endorsement, such as 'Has
+                   Condition Been Met?', 'Brokers Wording Used?'.
+
+1830               QTY, Quantity
+                   To specify the premium components as a number of
+                   units.
+
+1840               DTM, Date/time/period
+                   To specify dates related to the premium component
+                   or condition, such as start and end date.
+
+1850               FTX, Free text
+                   To specify endorsements to the cover and to convey
+                   text variables with which to complete the
+                   endorsement text.
+
+
+1860               Segment group 28: PNA-ICD
+                   A group that provides details of non-standard or
+                   amended cover for drivers.
+
+1870                  PNA, Party identification
+                      To identify one driver for which amended cover
+                      applies.
+
+1880                  ICD, Insurance cover description
+                      To specify details of the amended cover for the
+                      driver identified by the previous PNA segment.
+
+
+1890               Segment group 29: ATT-PCD-MOA-FTX
+                   To specify excesses that apply to the cover for a
+                   vehicle.
+
+1900                  ATT, Attribute
+                      To identify one type of excess.
+
+1910                  PCD, Percentage details
+                      Contains details of the excess when expressed as
+                      a percentage.
+
+1920                  MOA, Monetary amount
+                      Contains monetary amounts related to the excess,
+                      such as 'Excess Value', 'Minimum Excess Amount',
+                      'Maximum Excess Amount'.
+
+1930                  FTX, Free text
+                      To provide free format or coded text for the
+                      excess.
+
+
+1940         Segment group 30: PNA-GIS-RFF-DTM-MOA-PCD-QTY-QRS-REL
+             A group that provides information about additional
+             insurers for a cover, assistance companies, passengers
+             named under personal accident insurance and previous
+             insurers for this cover.
+
+1950            PNA, Party identification
+                To identify one party associated with the cover.
+
+1960 X          GIS, General indicator
+                Contains a coded indication of how the party
+                associated with the cover is to be processed if the
+                message is being used to update a policy, such as
+                'Added', 'Deleted' or 'Changed'.
+
+1970            RFF, Reference
+                To specify references related to the party, such as
+                'Policy Number', 'Assistance Contract Number',
+                'Previous Policy Number'.
+
+1980            DTM, Date/time/period
+                To specify dates related to the party associated to
+                the cover, such as 'Start Date', 'End Date'.
+
+1990            MOA, Monetary amount
+                To specify monetary values related to the party
+                associated with the cover, such as 'Premium Amount',
+                'Cover Limit'.
+
+2000            PCD, Percentage details
+                To specify percentages related to the party associated
+                with the cover, such as 'Percentage of Driving Time'.
+
+2010            QTY, Quantity
+                To specify quantities related to the party associated
+                with the cover, such as 'Number of Previous Claims'.
+
+2020            QRS, Query and response
+                To specify declarations about the party associated
+                with the cover, such as 'Party is main Driver under
+                this cover?', 'Party Is Excluded from this cover?'.
+
+2030            REL, Relationship
+                To specify the relationship that this party has with
+                the proposer.
+
+
+2040         Segment group 31: EVT-GIS-ATT-DTM-MOA-PCD-QRS-QTY-RFF-
+                               PCC-LOC-FTX-SG32
+             A group that provides the history details for claims
+             against one insurance cover.
+
+2050 X          EVT, Event
+                To identify one claim that has been made against the
+                insurance cover.
+
+2060 X          GIS, General indicator
+                Contains a coded indication of how the claim is to be
+                processed if the message is being used to update a
+                policy, such as 'Added', 'Deleted' or 'Changed'.
+
+2070            ATT, Attribute
+                Contains coded attributed relating to the claim, such
+                as 'Cause Code', 'Consequence Code'.
+
+2080            DTM, Date/time/period
+                To specify dates related to the date, such as
+                'Incident Date', 'Claim Date'.
+
+2090            MOA, Monetary amount
+                To specify monetary amounts relating to the claim,
+                such as 'Claim Value', 'Amount Paid'.
+
+2100            PCD, Percentage details
+                To specify percentages related to the claim, such as
+                'Percentage of Responsibility'.
+
+2110            QRS, Query and response
+                To specify declarations about the claim, such as
+                'Bonus/Malus Affected?', 'Claim Fully Settled?'.
+
+2120            QTY, Quantity
+                To specify quantities relating to the claim.
+
+2130            RFF, Reference
+                To provide references relating to the claim, such as
+                'Claim Number'.
+
+2140            PCC, Premium calculation component details
+                To specify premium components that this claim gave
+                rise to.
+
+2150            LOC, Place/location identification
+                To specify the location of the incident.
+
+2160            FTX, Free text
+                To provide additional text information about the
+                claim.
+
+
+2170            Segment group 32: PNA-ADR-RFF-CTA-COM
+                To provide information about the holding insurer and
+                broker at the time of the claim.
+
+2180               PNA, Party identification
+                   To identify one party for the claim, such as broker
+                   and insurer.
+
+2190               ADR, Address
+                   To provide the address for the party associated
+                   with the claim.
+
+2200               RFF, Reference
+                   To specify references for the party and the claim.
+
+2210               CTA, Contact information
+                   To specify a contact at the party who handles the
+                   claim.
+
+2220               COM, Communication contact
+                   To provide communication numbers for the claim
+                   party.
+
+2230   UNS, Section control
+       A mandatory service segment placed before the first user
+       segment in the detail section to avoid segment collision.
+
+
+2240   Segment group 33: DTM-RFF-QRS-FTX-SG34-SG35-SG37
+       A group that provides details of previous fleet claims
+       experience. This section is only used for commercial fleet
+       insurance.
+
+2250      DTM, Date/time/period
+          To specify the duration of one period of fleet experience.
+
+2260      RFF, Reference
+          To specify references related to the fleet experience, such
+          as 'Insurer's Policy Number', 'Broker's Risk Reference'.
+
+2270      QRS, Query and response
+          To specify declarations for the fleet experience, such as
+          'Is claims history confirmed?', 'Is foreign use included?'.
+
+2280      FTX, Free text
+          To provide text details of why the claims history is
+          unconfirmed (if appropriate).
+
+
+2290      Segment group 34: PNA-ADR-CTA-COM
+          To provide details for the holding insurer and broker at the
+          time of the fleet experience.
+
+2300         PNA, Party identification
+             To identify one party relating to the fleet experience,
+             such as insurer and broker.
+
+2310         ADR, Address
+             To provide address details for the party.
+
+2320         CTA, Contact information
+             To provide a contact name for the party that handles the
+             fleet experience.
+
+2330         COM, Communication contact
+             To provide communication numbers for the party.
+
+
+2340      Segment group 35: GIS-DTM-QTY-MOA-SG36
+          A group that provides a breakdown of figures for the fleet
+          experience.
+
+2350 X       GIS, General indicator
+             Coded indication of whether the breakdown figures should
+             be processed as being the same as at the date of the
+             previous fleet experience or as being updated.
+
+2360         DTM, Date/time/period
+             To specify dates relating to the fleet experience, such
+             as 'Calculated To Date', 'Event Date of Last Claim
+             Included'.
+
+2370         QTY, Quantity
+             To specify quantities relating to the fleet experience,
+             such as 'Total Claims Reported', 'Claims Reported
+             Outstanding Number'.
+
+2380         MOA, Monetary amount
+             To specify monetary amounts relating to the fleet
+             experience, such as 'Claims Paid and Outstanding Cost',
+             'Claims Outstanding Cost'.
+
+
+2390         Segment group 36: ICD-ATT-MOA-QTY-FTX
+             To provide a breakdown by cover for the fleet experience
+             figures.
+
+2400            ICD, Insurance cover description
+                To identify one type of insurance cover.
+
+2410            ATT, Attribute
+                To specify coded attributes relating to the fleet
+                experience cover breakdown, such as 'Type of Excess
+                Applying', 'Excess Application Code'.
+
+2420            MOA, Monetary amount
+                To specify monetary amounts relating to the cover
+                breakdown, such as 'Excess Value', 'Claims Cost Paid'.
+
+2430            QTY, Quantity
+                To specify quantities relating to the cover breakdown,
+                such as 'Number of Claims', 'Number of Claims
+                Outstanding'.
+
+2440            FTX, Free text
+                To provide additional description of the cover.
+
+
+2450      Segment group 37: EVT-GIS-ATT-DTM-ICD-MOA-RFF-QRS-FTX
+          To specify individual claim details that occurred during the
+          fleet experience.
+
+2460 X       EVT, Event
+             To identify one claim.
+
+2470 X       GIS, General indicator
+             Coded indication of how this claim is to be processed if
+             the message is being used to update a policy.
+
+2480         ATT, Attribute
+             Coded attributes relating to the claim, such as 'Cause
+             Code', 'Consequence Code'.
+
+2490         DTM, Date/time/period
+             To specify dates relating to the claim, such as 'Incident
+             Date', 'Claim Date'.
+
+2500         ICD, Insurance cover description
+             To specify the cover against which this claim was made.
+
+2510         MOA, Monetary amount
+             To specify monetary amounts relating to the claim, such
+             as 'Claim Value', 'Paid Amount'.
+
+2520         RFF, Reference
+             To specify references for the claim, such as 'Insurer
+             Claim Number', 'Broker Claim Reference'.
+
+2530         QRS, Query and response
+             To specify declarations about the claim, such as
+             'Bonus/Malus Affected?'.
+
+2540         FTX, Free text
+             To provide additional text details about the claim.
+
+2550   UNT, Message trailer
+       A service segment ending a message, giving the total number of
+       segments in the message (including the UNH & UNT) and the
+       control reference number of the message.
+
+4.2    Segment index (alphabetical sequence by tag)
+
+          ADR Address
+          ATT Attribute
+          BGM Beginning of message
+          COD Component details
+          COM Communication contact
+          CTA Contact information
+          DOC Document/message details
+          DTM Date/time/period
+          EMP Employment details
+          EQD Equipment details
+       X  EVT Event
+          FII Financial institution information
+          FTX Free text
+       X  GIS General indicator
+          ICD Insurance cover description
+          LOC Place/location identification
+          MEA Measurements
+          MEM Membership details
+          MOA Monetary amount
+       X  PAT Payment terms basis
+          PCC Premium calculation component details
+          PCD Percentage details
+          PNA Party identification
+          QRS Query and response
+          QTY Quantity
+          REL Relationship
+          RFF Reference
+          ROD Risk object type
+          SEQ Sequence details
+          TAX Duty/tax/fee details
+          UNH Message header
+          UNS Section control
+          UNT Message trailer
+
+4.3    Message structure
+
+4.3.1  Segment table
+
+Pos    Tag Name                                      S   R
+
+0010   UNH Message header                            M   1     
+0020   BGM Beginning of message                      M   1     
+0030 X GIS General indicator                         C   1     
+0040   ATT Attribute                                 C   9     
+0050   CTA Contact information                       C   1     
+0060   RFF Reference                                 C   99    
+0070   QTY Quantity                                  C   1     
+0080   SEQ Sequence details                          C   1     
+0090   DTM Date/time/period                          C   9     
+
+0100       ÄÄÄÄÄ Segment group 1  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄÄÄÄ¿
+0110   PNA Party identification                      M   1           ³
+0120   QRS Query and response                        C   9           ³
+                                                                     ³
+0130       ÄÄÄÄÄ Segment group 2  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄÄÄ¿³
+0140   RFF Reference                                 M   1          ³³
+0150   DTM Date/time/period                          C   9ÄÄÄÄÄÄÄÄÄÄÁÙ
+
+0160       ÄÄÄÄÄ Segment group 3  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   9ÄÄÄÄÄÄÄÄÄÄÄ¿
+0170   ICD Insurance cover description               M   1           ³
+0180   RFF Reference                                 C   9           ³
+0190   DTM Date/time/period                          C   99          ³
+0200   ATT Attribute                                 C   9           ³
+0210   PCD Percentage details                        C   9           ³
+0220   MOA Monetary amount                           C   9           ³
+0230   QRS Query and response                        C   99          ³
+0240   QTY Quantity                                  C   9           ³
+0250   FTX Free text                                 C   99          ³
+                                                                     ³
+0260       ÄÄÄÄÄ Segment group 4  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99ÄÄÄÄÄÄÄÄÄ¿³
+0270   DOC Document/message details                  M   1          ³³
+0280   ATT Attribute                                 C   9          ³³
+0290   FTX Free text                                 C   1          ³³
+                                                                    ³³
+0300       ÄÄÄÄÄ Segment group 5  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99ÄÄÄÄÄÄÄÄ¿³³
+0310   PCC Premium calculation component details     M   1         ³³³
+0320 X GIS General indicator                         C   1         ³³³
+0330   MOA Monetary amount                           C   9         ³³³
+0340   PCD Percentage details                        C   9         ³³³
+0350   QTY Quantity                                  C   9         ³³³
+0360   DTM Date/time/period                          C   9         ³³³
+0370   FTX Free text                                 C   99        ³³³
+                                                                   ³³³
+0380       ÄÄÄÄÄ Segment group 6  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄ¿³³³
+0390   ATT Attribute                                 M   1        ³³³³
+0400   PCD Percentage details                        C   1        ³³³³
+0410   MOA Monetary amount                           C   9        ³³³³
+0420   FTX Free text                                 C   9ÄÄÄÄÄÄÄÄÁÁÁÙ
+
+0430       ÄÄÄÄÄ Segment group 7  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   999ÄÄÄÄÄÄÄÄÄ¿
+0440   PNA Party identification                      M   1           ³
+0450 X GIS General indicator                         C   1           ³
+0460   ATT Attribute                                 C   9           ³
+0470   PCD Percentage details                        C   1           ³
+0480   RFF Reference                                 C   9           ³
+0490   EMP Employment details                        C   99          ³
+0500   DTM Date/time/period                          C   9           ³
+0510   MEM Membership details                        C   9           ³
+0520   QTY Quantity                                  C   9           ³
+0530   REL Relationship                              C   1           ³
+0540   LOC Place/location identification             C   1           ³
+0550   QRS Query and response                        C   99          ³
+0560   FTX Free text                                 C   99          ³
+                                                                     ³
+0570       ÄÄÄÄÄ Segment group 8  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄÄÄ¿³
+0580   ADR Address                                   M   1          ³³
+0590   DTM Date/time/period                          C   1ÄÄÄÄÄÄÄÄÄÄÙ³
+                                                                     ³
+0600       ÄÄÄÄÄ Segment group 9  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄÄÄ¿³
+0610   CTA Contact information                       M   1          ³³
+0620   COM Communication contact                     C   9ÄÄÄÄÄÄÄÄÄÄÙ³
+                                                                     ³
+0630       ÄÄÄÄÄ Segment group 10 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99ÄÄÄÄÄÄÄÄÄ¿³
+0640 X EVT Event                                     M   1          ³³
+0650 X GIS General indicator                         C   1          ³³
+0660   QRS Query and response                        C   9          ³³
+0670   RFF Reference                                 C   9          ³³
+0680   ATT Attribute                                 C   9          ³³
+0690   ICD Insurance cover description               C   9          ³³
+0700   MOA Monetary amount                           C   9          ³³
+0710   DTM Date/time/period                          C   9          ³³
+0720   QTY Quantity                                  C   9          ³³
+0730   PCD Percentage details                        C   9          ³³
+0740   FTX Free text                                 C   99         ³³
+                                                                    ³³
+0750       ÄÄÄÄÄ Segment group 11 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄÄ¿³³
+0760   PNA Party identification                      M   1         ³³³
+0770   ADR Address                                   C   1         ³³³
+0780   RFF Reference                                 C   9         ³³³
+0790   CTA Contact information                       C   1         ³³³
+0800   COM Communication contact                     C   9ÄÄÄÄÄÄÄÄÄÁÙ³
+                                                                     ³
+0810       ÄÄÄÄÄ Segment group 12 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   9ÄÄÄÄÄÄÄÄÄÄ¿³
+0820   DOC Document/message details                  M   1          ³³
+0830   DTM Date/time/period                          C   9          ³³
+0840   ATT Attribute                                 C   9          ³³
+0850   LOC Place/location identification             C   1          ³³
+0860   FTX Free text                                 C   1ÄÄÄÄÄÄÄÄÄÄÁÙ
+
+0870       ÄÄÄÄÄ Segment group 13 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄÄÄÄ¿
+0880 X PAT Payment terms basis                       M   1           ³
+0890   DTM Date/time/period                          C   9           ³
+0900   ATT Attribute                                 C   9           ³
+0910   FII Financial institution information         C   1           ³
+0920   RFF Reference                                 C   9           ³
+0930   PCD Percentage details                        C   9           ³
+                                                                     ³
+0940       ÄÄÄÄÄ Segment group 14 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄÄÄ¿³
+0950   PNA Party identification                      M   1          ³³
+0960   ADR Address                                   C   1ÄÄÄÄÄÄÄÄÄÄÙ³
+                                                                     ³
+0970       ÄÄÄÄÄ Segment group 15 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99ÄÄÄÄÄÄÄÄÄ¿³
+0980   MOA Monetary amount                           M   1          ³³
+0990   DTM Date/time/period                          C   99         ³³
+1000   ATT Attribute                                 C   1          ³³
+                                                                    ³³
+1010       ÄÄÄÄÄ Segment group 16 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99ÄÄÄÄÄÄÄÄ¿³³
+1020   TAX Duty/tax/fee details                      M   1         ³³³
+1030   MOA Monetary amount                           C   9         ³³³
+1040   LOC Place/location identification             C   1         ³³³
+1050   PCD Percentage details                        M   1ÄÄÄÄÄÄÄÄÄÁÁÙ
+
+1060       ÄÄÄÄÄ Segment group 17 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9999ÄÄÄÄÄÄÄÄ¿
+1070   ROD Risk object type                          M   1           ³
+1080 X GIS General indicator                         C   1           ³
+1090   RFF Reference                                 C   9           ³
+1100   DTM Date/time/period                          C   9           ³
+1110   ATT Attribute                                 C   99          ³
+1120   QTY Quantity                                  C   99          ³
+1130   MOA Monetary amount                           C   9           ³
+1140   MEA Measurements                              C   9           ³
+1150   ADR Address                                   C   99          ³
+1160   PCD Percentage details                        C   9           ³
+1170   QRS Query and response                        C   9           ³
+1180   FTX Free text                                 C   99          ³
+                                                                     ³
+1190       ÄÄÄÄÄ Segment group 18 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄÄÄ¿³
+1200   PNA Party identification                      M   1          ³³
+1210 X GIS General indicator                         C   1          ³³
+1220   ADR Address                                   C   1          ³³
+1230   FTX Free text                                 C   9ÄÄÄÄÄÄÄÄÄÄÙ³
+                                                                     ³
+1240       ÄÄÄÄÄ Segment group 19 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄÄÄ¿³
+1250   EQD Equipment details                         M   1          ³³
+1260 X GIS General indicator                         C   1          ³³
+1270   ATT Attribute                                 C   9          ³³
+1280   DTM Date/time/period                          C   1          ³³
+1290   PNA Party identification                      C   9          ³³
+1300   QRS Query and response                        C   9          ³³
+1310   RFF Reference                                 C   9          ³³
+1320   FTX Free text                                 C   9ÄÄÄÄÄÄÄÄÄÄÙ³
+                                                                     ³
+1330       ÄÄÄÄÄ Segment group 20 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99ÄÄÄÄÄÄÄÄÄ¿³
+1340   DOC Document/message details                  M   1          ³³
+1350   ATT Attribute                                 C   1          ³³
+1360   DTM Date/time/period                          C   99         ³³
+1370   PCD Percentage details                        C   1          ³³
+1380   FTX Free text                                 C   9ÄÄÄÄÄÄÄÄÄÄÙ³
+                                                                     ³
+1390       ÄÄÄÄÄ Segment group 21 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99ÄÄÄÄÄÄÄÄÄ¿³
+1400 X EVT Event                                     M   1          ³³
+1410 X GIS General indicator                         C   1          ³³
+1420   QRS Query and response                        C   9          ³³
+1430   RFF Reference                                 C   9          ³³
+1440   ATT Attribute                                 C   9          ³³
+1450   ICD Insurance cover description               C   1          ³³
+1460   MOA Monetary amount                           M   9          ³³
+1470   DTM Date/time/period                          C   9          ³³
+1480   QTY Quantity                                  C   9          ³³
+1490   PCD Percentage details                        C   9          ³³
+1500   FTX Free text                                 C   99         ³³
+                                                                    ³³
+1510       ÄÄÄÄÄ Segment group 22 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄÄ¿³³
+1520   PNA Party identification                      M   1         ³³³
+1530   ADR Address                                   C   1         ³³³
+1540   RFF Reference                                 C   9         ³³³
+1550   CTA Contact information                       C   1         ³³³
+1560   COM Communication contact                     C   9ÄÄÄÄÄÄÄÄÄÁÙ³
+                                                                     ³
+1570       ÄÄÄÄÄ Segment group 23 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   99ÄÄÄÄÄÄÄÄÄ¿³
+1580   ICD Insurance cover description               M   1          ³³
+1590 X GIS General indicator                         C   1          ³³
+1600   DTM Date/time/period                          C   9          ³³
+1610   RFF Reference                                 C   9          ³³
+1620   ATT Attribute                                 C   9          ³³
+1630   QRS Query and response                        C   9          ³³
+1640   QTY Quantity                                  C   9          ³³
+1650   FTX Free text                                 C   9          ³³
+                                                                    ³³
+1660       ÄÄÄÄÄ Segment group 24 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99ÄÄÄÄÄÄÄÄ¿³³
+1670   MOA Monetary amount                           M   1         ³³³
+1680   PCD Percentage details                        C   1         ³³³
+1690   LOC Place/location identification             C   1ÄÄÄÄÄÄÄÄÄÙ³³
+                                                                    ³³
+1700       ÄÄÄÄÄ Segment group 25 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄÄ¿³³
+1710   ROD Risk object type                          M   1         ³³³
+1720 X GIS General indicator                         C   1         ³³³
+1730   MOA Monetary amount                           C   9ÄÄÄÄÄÄÄÄÄÙ³³
+                                                                    ³³
+1740       ÄÄÄÄÄ Segment group 26 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   1ÄÄÄÄÄÄÄÄÄ¿³³
+1750   COD Component details                         M   1         ³³³
+1760 X GIS General indicator                         C   1         ³³³
+                                                                   ³³³
+1770       ÄÄÄÄÄ Segment group 27 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99ÄÄÄÄÄÄÄ¿³³³
+1780   PCC Premium calculation component details     M   1        ³³³³
+1790 X GIS General indicator                         C   1        ³³³³
+1800   MOA Monetary amount                           C   9        ³³³³
+1810   PCD Percentage details                        C   9        ³³³³
+1820   QRS Query and response                        C   9        ³³³³
+1830   QTY Quantity                                  C   9        ³³³³
+1840   DTM Date/time/period                          C   9        ³³³³
+1850   FTX Free text                                 C   9        ³³³³
+                                                                  ³³³³
+1860       ÄÄÄÄÄ Segment group 28 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99ÄÄÄÄÄÄ¿³³³³
+1870   PNA Party identification                      M   1       ³³³³³
+1880   ICD Insurance cover description               C   9ÄÄÄÄÄÄÄÙ³³³³
+                                                                  ³³³³
+1890       ÄÄÄÄÄ Segment group 29 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   9ÄÄÄÄÄÄÄ¿³³³³
+1900   ATT Attribute                                 M   1       ³³³³³
+1910   PCD Percentage details                        C   1       ³³³³³
+1920   MOA Monetary amount                           C   9       ³³³³³
+1930   FTX Free text                                 C   9ÄÄÄÄÄÄÄÁÁÙ³³
+                                                                    ³³
+1940       ÄÄÄÄÄ Segment group 30 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   999ÄÄÄÄÄÄÄ¿³³
+1950   PNA Party identification                      M   1         ³³³
+1960 X GIS General indicator                         C   1         ³³³
+1970   RFF Reference                                 C   9         ³³³
+1980   DTM Date/time/period                          C   9         ³³³
+1990   MOA Monetary amount                           C   9         ³³³
+2000   PCD Percentage details                        C   9         ³³³
+2010   QTY Quantity                                  C   9         ³³³
+2020   QRS Query and response                        C   9         ³³³
+2030   REL Relationship                              C   1ÄÄÄÄÄÄÄÄÄÙ³³
+                                                                    ³³
+2040       ÄÄÄÄÄ Segment group 31 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄÄ¿³³
+2050 X EVT Event                                     M   1         ³³³
+2060 X GIS General indicator                         C   1         ³³³
+2070   ATT Attribute                                 C   9         ³³³
+2080   DTM Date/time/period                          C   9         ³³³
+2090   MOA Monetary amount                           C   9         ³³³
+2100   PCD Percentage details                        C   9         ³³³
+2110   QRS Query and response                        C   9         ³³³
+2120   QTY Quantity                                  C   9         ³³³
+2130   RFF Reference                                 C   9         ³³³
+2140   PCC Premium calculation component details     C   9         ³³³
+2150   LOC Place/location identification             C   9         ³³³
+2160   FTX Free text                                 C   9         ³³³
+                                                                   ³³³
+2170       ÄÄÄÄÄ Segment group 32 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄ¿³³³
+2180   PNA Party identification                      M   1        ³³³³
+2190   ADR Address                                   C   1        ³³³³
+2200   RFF Reference                                 C   9        ³³³³
+2210   CTA Contact information                       C   1        ³³³³
+2220   COM Communication contact                     C   9ÄÄÄÄÄÄÄÄÁÁÁÙ
+2230   UNS Section control                           M   1     
+
+2240       ÄÄÄÄÄ Segment group 33 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99ÄÄÄÄÄÄÄÄÄÄ¿
+2250   DTM Date/time/period                          M   1           ³
+2260   RFF Reference                                 C   9           ³
+2270   QRS Query and response                        C   9           ³
+2280   FTX Free text                                 C   9           ³
+                                                                     ³
+2290       ÄÄÄÄÄ Segment group 34 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄÄÄ¿³
+2300   PNA Party identification                      M   1          ³³
+2310   ADR Address                                   C   1          ³³
+2320   CTA Contact information                       C   1          ³³
+2330   COM Communication contact                     C   9ÄÄÄÄÄÄÄÄÄÄÙ³
+                                                                     ³
+2340       ÄÄÄÄÄ Segment group 35 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99ÄÄÄÄÄÄÄÄÄ¿³
+2350 X GIS General indicator                         M   1          ³³
+2360   DTM Date/time/period                          M   9          ³³
+2370   QTY Quantity                                  M   9          ³³
+2380   MOA Monetary amount                           C   9          ³³
+                                                                    ³³
+2390       ÄÄÄÄÄ Segment group 36 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   99ÄÄÄÄÄÄÄÄ¿³³
+2400   ICD Insurance cover description               M   1         ³³³
+2410   ATT Attribute                                 C   9         ³³³
+2420   MOA Monetary amount                           M   9         ³³³
+2430   QTY Quantity                                  C   9         ³³³
+2440   FTX Free text                                 C   1ÄÄÄÄÄÄÄÄÄÁÙ³
+                                                                     ³
+2450       ÄÄÄÄÄ Segment group 37 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99ÄÄÄÄÄÄÄÄÄ¿³
+2460 X EVT Event                                     M   1          ³³
+2470 X GIS General indicator                         C   1          ³³
+2480   ATT Attribute                                 C   9          ³³
+2490   DTM Date/time/period                          C   9          ³³
+2500   ICD Insurance cover description               M   1          ³³
+2510   MOA Monetary amount                           C   9          ³³
+2520   RFF Reference                                 C   9          ³³
+2530   QRS Query and response                        C   9          ³³
+2540   FTX Free text                                 C   9ÄÄÄÄÄÄÄÄÄÄÁÙ
+2550   UNT Message trailer                           M   1     

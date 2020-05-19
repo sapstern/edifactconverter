@@ -1,0 +1,418 @@
+                              UN/EDIFACT
+
+                         DRAFT RECOMMENDATION
+
+                      Stowage instruction message
+
+
+
+
+
+----------------------------------------------------------------------
+This message is available for formal trial for at least six months
+from the date of approval by UN/ECE/TRADE/WP.4.
+ 
+Organisations are invited to trial this message. Comments on the
+results from the trial should be forwarded to their Rapporteur's Team
+Secretariat as soon as they are available. Based on the results of the
+trials, a UNSM may be issued.
+ 
+The segments, composite data elements, data elements and codes for
+use in the trial of this message are contained in the Draft directory.
+However, this information may differ from that in the Standard
+directory (UNTDID), even for material having the same identifying
+tags.
+----------------------------------------------------------------------
+
+
+
+
+
+
+
+
+                                            Message Type : MOVINS
+                                            Version      : D
+                                            Release      : 96A
+                                            Contr. Agency: UN
+                                            Status       : 1
+                                            Revision     : 2
+                                            Date         : 95-11-23
+
+
+
+
+
+
+SOURCE: Joint Transport Group (JM4)
+
+
+
+                               CONTENTS
+
+                      Stowage instruction message
+
+
+
+0.   INTRODUCTION
+
+
+1.   SCOPE
+
+     1.1   Functional definition
+
+     1.2   Field of application
+
+     1.3   Principles
+
+2.   REFERENCES
+
+3.   TERMS AND DEFINITIONS
+
+4.   MESSAGE DEFINITION
+
+     4.1   Data segment clarification
+
+     4.2   Data segment index (alphabetical sequence)
+
+     4.3   Message structure
+
+           4.3.1 Segment table
+
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------
+For general information on UN standard message types see UN Trade Data
+Interchange Directory, UNTDID, Part 4, Section 2.6, UN/ECE UNSM
+General Introduction
+----------------------------------------------------------------------
+
+
+
+0.     INTRODUCTION
+
+       This specification provides the definition of the Stowage
+       instruction message (MOVINS) to be used in Electronic Data
+       Interchange (EDI) between trading partners involved in
+       administration, commerce and transport.
+
+1.     SCOPE
+
+1.1    Functional Definition
+
+       A Stowage instruction message contains details of one means of
+       transport vehicle, giving instructions regarding the loading,
+       discharging and restowage of equipment and/or cargoes and the
+       location on the means of transport where the operation must
+       take place.
+
+1.2    Field of Application
+
+       The Stowage instruction message may be used for both national
+       and international trade. It is based on universal commercial
+       practice and is not dependent on the type of business or
+       industry.
+
+1.3    Principles
+
+       In the shipping industry the Stowage instruction message can be
+       used between partners involved in the loading and discharging
+       of vessels and other means of transport, like stevedores,
+       shipping lines, tonnage centres, etc..
+
+2.     REFERENCES
+
+       See UNTDID, Part 4, Chapter 2.6 UN/ECE UNSM - General
+       Introduction, Section 1.
+
+3.     TERMS AND DEFINITIONS
+
+       See UNTDID, Part 4, Chapter 2.6 UN/ECE UNSM - General
+       Introduction, Section 2.
+
+4.     MESSAGE DEFINITION
+
+4.1    Data Segment Clarification
+
+       This section should be read in conjunction with the Branching
+       Diagram and the Segment Table which indicate mandatory,
+       conditional and repeating requirements.
+
+0010 | UNH, Message header
+       A service segment starting and uniquely identifying a message.
+       The message type code for the Stowage instruction message is
+       MOVINS.
+       
+       Note: Stowage instruction messages conforming to this document
+       must contain the following data in segment UNH, composite S009:
+
+       Data element  0065 MOVINS
+                     0052 D
+                     0054 96A
+                     0051 UN
+
+0020   BGM, Beginning of message
+       A segment to indicate the beginning of the message and to
+       transmit identifying number and type of the message.
+
+0030   DTM, Date/time/period
+       A segment to indicate the date of the preparation of the
+       message.
+
+
+0040 + Segment group 1:  RFF-DTM
+       A group of segments to specify the document or message to which
+       the current message relates, and related date and time.
+
+0050 |    RFF, Reference
+          A segment to identify a reference which applies to the
+          entire message, e.g. reference to previous message.
+
+0060 +    DTM, Date/time/period
+          A segment to indicate date and time relating to the
+          reference.
+
+0070   NAD, Name and address
+       A segment to identify liner service, carrier, consortium,
+       container terminal or other party.
+
+
+0080   Segment group 2:  TDT-LOC-DTM-RFF-FTX
+       A group of segments identifying the means of transport and
+       related details.
+
+0090      TDT, Details of transport
+          A segment to identify the means of transport and discharge
+          voyage number.
+
+0100      LOC, Place/location identification
+          A segment to identify the locations to which the following
+          information applies.
+
+0110      DTM, Date/time/period
+          A segment to indicate date and time of events in local time,
+          else the time zone must be indicated.
+
+0120      RFF, Reference
+          A segment to identify the loading voyage number.
+
+0130      FTX, Free text
+          A segment to transmit general information.
+
+
+0140   Segment group 3:  HAN-SG4
+       A group of segments containing information about the equipment
+       and/or goods to be discharged or to be loaded and its
+       (intended) stowage location on board a means of transport.
+
+0150      HAN, Handling instructions
+          A segment to specify the type of handling, e.g. discharging
+          or loading.
+
+
+0160      Segment group 4:  LOC-RFF-FTX-MEA-DIM-LOC-NAD-SG5-SG6-SG7-
+                            SG8-SG9
+          A group of segments containing information about the
+          location, the identification and the type of equipment and
+          other details regarding equipment and/or goods to be
+          handled.
+
+0170         LOC, Place/location identification
+             A segment to identify a stowage location relevant to the
+             equipment or goods carried.
+
+0180         RFF, Reference
+             A segment to give reference numbers on equipment or goods
+             carried (i.e. reference numbers allocated by the carrier
+             for special goods and/or equipment).
+
+0190         FTX, Free text
+             A segment to transmit the goods description, additional
+             equipment details or other relevant free text.
+
+0200         MEA, Measurements
+             A segment specifying physical weights related to an
+             equipment detail or a goods item detail.
+
+0210         DIM, Dimensions
+             A segment to identify off-standard measurements (e.g.
+             overheight, overlength, overwidth, etc.).
+
+0220         LOC, Place/location identification
+             A segment to identify the locations (ports) to which the
+             given information applies.
+
+0230         NAD, Name and address
+             A segment to identify the owner/operator of a particular
+             piece of equipment.
+
+
+0240         Segment group 5:  TMP-RNG
+             A group of segments to specify a temperature (and range).
+
+0250            TMP, Temperature
+                A segment which identifies the temperature setting in
+                relation to an equipment detail.
+
+0260            RNG, Range details
+                A segment to indicate a minimum and maximum range of
+                temperatures in relation to an equipment detail.
+
+
+0270         Segment group 6:  EQD-EQN
+             A group of segments containing information about the
+             number and type of equipment or the identification of the
+             equipment to be loaded or discharged.
+
+0280            EQD, Equipment details
+                A segment to identify a single piece of equipment or
+                the type and number of equipment to which the
+                following details apply.
+                Only transport equipment size/type coded or plain
+                language is used here to further identify the
+                equipment.
+
+0290            EQN, Number of units
+                A segment to identify the number of units.
+
+
+0300         Segment group 7:  EQA-EQN
+             A group of segments containing information about the
+             number or the identification of attached equipment.
+
+0310            EQA, Attached equipment
+                A segment to identify the type and/or identification
+                of equipment attached to the main piece of equipment.
+
+0320            EQN, Number of units
+                A segment to identify the number of units of attached
+                equipment.
+
+
+0330         Segment group 8:  GID-GDS
+             A group of segments containing information about the
+             number of packages and kind of goods.
+
+0340            GID, Goods item details
+                A segment to identify the number of packages of the
+                goods.
+
+0350            GDS, Nature of cargo
+                A segment to describe the nature of the cargo.
+
+
+0360         Segment group 9:  RFF-SG10
+             A group of segments containing information about
+             dangerous cargo.
+
+0370            RFF, Reference
+                A segment to indicate a reference number allocated by
+                the carrier to a piece of equipment containing
+                dangerous cargo.
+
+
+0380            Segment group 10: DGS-FTX
+                A group of segments to specify dangerous goods and
+                additional information.
+
+0390               DGS, Dangerous goods
+                   A segment which identifies dangerous goods related
+                   to an equipment or goods detail.
+
+0400               FTX, Free text
+                   A segment which gives additional information
+                   concerning dangerous goods.
+
+0410   UNT, Message trailer
+       A service segment ending a message, giving the total number of
+       segments in the message and the control reference number of the
+       message.
+
+4.2    Data segment index (Alphabetical sequence by tag)
+
+          BGM Beginning of message
+          DGS Dangerous goods
+          DIM Dimensions
+          DTM Date/time/period
+          EQA Attached equipment
+          EQD Equipment details
+          EQN Number of units
+          FTX Free text
+          GDS Nature of cargo
+          GID Goods item details
+          HAN Handling instructions
+          LOC Place/location identification
+          MEA Measurements
+          NAD Name and address
+          RFF Reference
+          RNG Range details
+          TDT Details of transport
+          TMP Temperature
+          UNH Message header
+          UNT Message trailer
+
+4.3    Message structure
+
+4.3.1  Segment table
+
+Pos    Tag Name                                      S   R
+
+0010   UNH Message header                            M   1     
+0020   BGM Beginning of message                      M   1     
+0030   DTM Date/time/period                          M   1     
+
+0040 +     ÄÄÄÄÄ Segment group 1  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄÄÄÄ¿
+0050 * RFF Reference                                 M   1           ³
+0060 + DTM Date/time/period                          C   9ÄÄÄÄÄÄÄÄÄÄÄÙ
+0070   NAD Name and address                          C   3     
+
+0080       ÄÄÄÄÄ Segment group 2  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   3ÄÄÄÄÄÄÄÄÄÄÄ¿
+0090   TDT Details of transport                      M   1           ³
+0100   LOC Place/location identification             M   1           ³
+0110   DTM Date/time/period                          M   99          ³
+0120   RFF Reference                                 C   1           ³
+0130   FTX Free text                                 C   1ÄÄÄÄÄÄÄÄÄÄÄÙ
+
+0140       ÄÄÄÄÄ Segment group 3  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   9999ÄÄÄÄÄÄÄÄ¿
+0150   HAN Handling instructions                     M   1           ³
+                                                                     ³
+0160       ÄÄÄÄÄ Segment group 4  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   9999ÄÄÄÄÄÄÄ¿³
+0170   LOC Place/location identification             M   1          ³³
+0180   RFF Reference                                 M   99         ³³
+0190   FTX Free text                                 C   9          ³³
+0200   MEA Measurements                              C   9          ³³
+0210   DIM Dimensions                                C   9          ³³
+0220   LOC Place/location identification             C   9          ³³
+0230   NAD Name and address                          M   99         ³³
+                                                                    ³³
+0240       ÄÄÄÄÄ Segment group 5  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   1ÄÄÄÄÄÄÄÄÄ¿³³
+0250   TMP Temperature                               M   1         ³³³
+0260   RNG Range details                             C   1ÄÄÄÄÄÄÄÄÄÙ³³
+                                                                    ³³
+0270       ÄÄÄÄÄ Segment group 6  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99ÄÄÄÄÄÄÄÄ¿³³
+0280   EQD Equipment details                         M   1         ³³³
+0290   EQN Number of units                           C   1ÄÄÄÄÄÄÄÄÄÙ³³
+                                                                    ³³
+0300       ÄÄÄÄÄ Segment group 7  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99ÄÄÄÄÄÄÄÄ¿³³
+0310   EQA Attached equipment                        M   1         ³³³
+0320   EQN Number of units                           C   1ÄÄÄÄÄÄÄÄÄÙ³³
+                                                                    ³³
+0330       ÄÄÄÄÄ Segment group 8  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9999ÄÄÄÄÄÄ¿³³
+0340   GID Goods item details                        M   1         ³³³
+0350   GDS Nature of cargo                           C   1ÄÄÄÄÄÄÄÄÄÙ³³
+                                                                    ³³
+0360       ÄÄÄÄÄ Segment group 9  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   999ÄÄÄÄÄÄÄ¿³³
+0370   RFF Reference                                 M   1         ³³³
+                                                                   ³³³
+0380       ÄÄÄÄÄ Segment group 10 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   99ÄÄÄÄÄÄÄ¿³³³
+0390   DGS Dangerous goods                           M   1        ³³³³
+0400   FTX Free text                                 C   1ÄÄÄÄÄÄÄÄÁÁÁÙ
+0410   UNT Message trailer                           M   1     

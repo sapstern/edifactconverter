@@ -1,0 +1,576 @@
+                              UN/EDIFACT
+
+                UNITED NATIONS STANDARD MESSAGE (UNSM)
+
+                    Utilities time series message
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                           Message Type : UTILTS
+                                           Version      : D
+                                           Release      : 01B
+                                           Contr. Agency: UN
+
+                                           Revision     : 1
+                                           Date         : 2001-05-15
+
+
+
+
+
+
+SOURCE: D2 Purchasing (SWG)
+
+
+
+                               CONTENTS
+
+                    Utilities time series message
+
+0.     INTRODUCTION
+
+1.     SCOPE
+
+       1.1   Functional definition
+
+       1.2   Field of application
+
+       1.3   Principles
+
+2.     REFERENCES
+
+3.     TERMS AND DEFINITIONS
+
+       3.1   Standard terms and definitions
+
+       3.2   Message terms and definitions
+
+4.     MESSAGE DEFINITION
+
+       4.1   Segment clarification
+
+       4.2   Segment index (alphabetical sequence by tag)
+
+       4.3   Message structure
+             4.3.1 Segment table
+
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------
+For general information on UN standard message types see UN Trade Data
+Interchange Directory, UNTDID, Part 4, Section 2.3, UN/ECE UNSM
+General Introduction
+----------------------------------------------------------------------
+
+
+
+0.     INTRODUCTION
+
+       This specification provides the definition of the Utilities
+       time series message (UTILTS) to be used in Electronic Data
+       Interchange (EDI) between trading partners involved in
+       administration, commerce and transport.
+
+1.     SCOPE
+
+1.1    Functional definition
+
+       The Utilities time series message is sent between responsible
+       parties in a utilities infrastructure for the purpose of
+       reporting time series and connected technical and/or
+       administrative information.
+
+1.2    Field of application
+
+       The Utilities time series message may be used for both national
+       and international applications. It is based on universal
+       practice related to administration, commerce and transport, and
+       is not dependent on the type of business or industry.
+
+1.3    Principles
+
+       The Utilities time series message may contain time series for
+       metered values, forecasts, estimates, prices, etc. Connected to
+       each time series there may be technical and administrative
+       information, such as characteristics of a meter, exchange
+       rates, etc. Each time series will be identified by the
+       companies and/or locations that are reported, the product and
+       the validity time period. The message may be an initial message
+       and does not require a response.
+
+2.     REFERENCES
+
+       See UNTDID, Part 4, Chapter 2.3 UN/ECE UNSM - General
+       Introduction, Section 1.
+
+3.     TERMS AND DEFINITIONS
+
+3.1    Standard terms and definitions
+
+       See UNTDID, Part 4, Chapter 2.3 UN/ECE UNSM - General
+       Introduction, Section 2.
+
+3.2    Message terms and definitions
+
+       TIME SERIES: A sequence of observations of a single process
+       often taken at equal time intervals.
+
+4.     MESSAGE DEFINITION
+
+4.1    Segment clarification
+
+       This section should be read in conjunction with the segment
+       table which indicates mandatory, conditional and repeating
+       requirements.
+
+0010   UNH, Message header
+       A service segment starting and uniquely identifying a message.
+       The message type code for the Utilities time series message is
+       UTILTS.
+
+       Note: Utilities time series messages conforming to this
+       document must contain the following data in segment UNH,
+       composite S009:
+
+       Data element  0065 UTILTS
+                     0052 D
+                     0054 01B
+                     0051 UN
+
+0020   BGM, Beginning of message
+       A segment by which the sender uniquely identifies the Utilities
+       time series message by means of its name and number and when
+       necessary its function.
+
+0030   DTM, Date/time/period
+       A segment specifying general dates and, when relevant, times
+       related to the whole message. The segment must be specified at
+       least once to specify the message date as allocated by the
+       sender.
+
+0040   MKS, Market/sales channel information
+       A segment to specify to which market and/or through which sales
+       distribution channel and/or for which end-use the time series
+       relates.
+
+
+0050   Segment group 1:  RFF-DTM
+       A group of segments giving references and, where necessary,
+       their dates relating to the whole message.
+
+0060      RFF, Reference
+          A segment identifying a reference by its type and number.
+
+0070      DTM, Date/time/period
+          A segment specifying the date/time related to the referenced
+          information.
+
+
+0080   Segment group 2:  NAD-RFF-SG3
+       A group of segments identifying the parties with associated
+       information relevant to the whole message.
+
+0090      NAD, Name and address
+          A segment identifying names and addresses of the parties, in
+          coded or clear form, and their functions relevant to the
+          message. It is recommended that, if possible, only the coded
+          form of the party ID should be specified.
+
+0100      RFF, Reference
+          A segment for inclusion of any references related to the
+          current party, e.g. fiscal number, government reference
+          number, etc.
+
+
+0110      Segment group 3:  CTA-COM
+          A group of segments giving contact details of a specific
+          person and/or department within the party identified.
+
+0120         CTA, Contact information
+             A segment to identify a person and/or department, and
+             their function, to whom communications should be
+             directed.
+
+0130         COM, Communication contact
+             A segment to identify a communication type and number for
+             the contact specified.
+
+
+0140   Segment group 4:  CUX-DTM-STS
+       A group of segments specifying the currencies, related
+       dates/periods and status for the rate of exchange valid for the
+       whole message.
+
+0150      CUX, Currencies
+          A segment identifying the currencies specified in the
+          message, such as the currency in which the prices are
+          expressed. A rate of exchange may be given to convert a
+          reference currency into a target currency.
+
+0160      DTM, Date/time/period
+          A segment specifying the date/time/period related to the
+          rate of exchange.
+
+0170      STS, Status
+          A segment giving a status for the range of exchange, such as
+          if the exchange rate is preliminary or accurate.
+
+
+0180   Segment group 5:  IDE-LOC-NAD-ALI-PIA-IMD-DTM-PRC-STS-FTX-SG6-
+                         SG7-SG8-SG10-SG11-SG12-SG13-SG14
+       A group of segments providing details of the time series and
+       connected technical and/or administrative information. In
+       addition to the time series itself, this includes
+       identification of the time series, associated dates,
+       references, characteristics, etc.
+
+0190      IDE, Identity
+          A segment identifying a time series, the type of object and
+          the product or service being reported in the time series
+          (e.g. electrical energy, electrical power, water, gas).
+
+0200      LOC, Place/location identification
+          A segment to identify location(s) related to the time
+          series.
+
+0210      NAD, Name and address
+          A segment to identify a premise or a party related to the
+          time series.
+
+0220      ALI, Additional information
+          A segment indicating that special condition due to the
+          origin, customs preference, fiscal or commercial factors are
+          applicable.
+
+0230      PIA, Additional product id
+          A segment providing additional identification to the product
+          or service specified.
+
+0240      IMD, Item description
+          A segment to describe the product or service being reported.
+          The segment may be used for specification of the use of the
+          product (e.g. if the product is consumed, produced etc.).
+
+0250      DTM, Date/time/period
+          A segment to specify dates associated with the time series.
+
+0260      PRC, Process identification
+          A segment to specify to which business activity phase the
+          time series relates.
+
+0270      STS, Status
+          A segment giving the status for the time series being
+          reported, such as metered, estimated or corrected.
+
+0280      FTX, Free text
+          A segment with free text information, in coded or clear
+          form, used when additional information is needed but cannot
+          be accommodated within other segments. In computer to
+          computer exchanges such text will normally require the
+          receiver to process this segment manually.
+
+
+0290      Segment group 6:  RFF-DTM
+          A group of segments for specifying any references and
+          associated dates valid for the current time series.
+
+0300         RFF, Reference
+             A segment identifying any references related to the
+             current time series.
+
+0310         DTM, Date/time/period
+             A segment to specify any dates associated with the
+             current reference.
+
+
+0320      Segment group 7:  CCI-CAV
+          A group of segments providing characteristics and
+          characteristic details connected to the current time series.
+
+0330         CCI, Characteristic/class id
+             A segment to identify characteristic and/or the
+             characteristic name and characteristic relevance for the
+             time series.
+
+0340         CAV, Characteristic value
+             A segment to specify the value of the characteristic
+             previously defined in either coded form or in free
+             format.
+
+
+0350      Segment group 8:  QTY-DTM-STS-SG9
+          A group of segments providing details of time series
+          defining quantities, such as consumption, production,
+          corrected quantities, etc. and associated dates or periods.
+
+0360         QTY, Quantity
+             A segment identifying the quantity details.
+
+0370         DTM, Date/time/period
+             A segment to specify dates or periods related to the
+             previously specified quantity information.
+
+0380         STS, Status
+             A segment giving the status for the quantity, e.g.
+             metered, estimated or corrected.
+
+
+0390         Segment group 9:  CCI-CAV
+             A group of segments providing characteristics and
+             characteristic details connected to the current quantity,
+             such as the number of digits and the constant of a meter.
+
+0400            CCI, Characteristic/class id
+                A segment to identify characteristic and/or the
+                characteristic name and characteristic relevance for
+                the quantity, such as the number of digits and the
+                constant of a meter.
+
+0410            CAV, Characteristic value
+                A segment to specify the value of the characteristic
+                previously defined in either coded form or in free
+                format.
+
+
+0420      Segment group 10: CUX-DTM-STS
+          A group of segments providing details of time series
+          defining rate of exchange and related dates/periods.
+
+0430         CUX, Currencies
+             A segment identifying the currency details and rate of
+             exchange.
+
+0440         DTM, Date/time/period
+             A segment specifying the date/time/period related to the
+             rate of exchange.
+
+0450         STS, Status
+             A segment giving the status for the rate of exchange,
+             such as if the exchange rate is preliminary or accurate.
+
+
+0460      Segment group 11: PRI-CUX-DTM-STS
+          A group of segments providing details of time series
+          defining prices and associated dates or periods and
+          currencies.
+
+0470         PRI, Price details
+             A segment identifying the price details.
+
+0480         CUX, Currencies
+             A segment identifying the currency applicable for the
+             price. A rate of exchange may be given to convert a
+             reference currency into a target currency.
+
+0490         DTM, Date/time/period
+             A segment to specify dates or periods related to the
+             previously specified price information or to the rate of
+             exchange.
+
+0500         STS, Status
+             A segment giving the status for the price or the rate of
+             exchange, such as estimated, corrected or preliminary.
+
+
+0510      Segment group 12: MOA-DTM-STS
+          A group of segments providing details of time series
+          defining monetary amounts and associated dates or periods.
+
+0520         MOA, Monetary amount
+             A segment identifying the monetary amount.
+
+0530         DTM, Date/time/period
+             A segment to specify dates or periods related to the
+             previously specified monetary amount.
+
+0540         STS, Status
+             A segment giving the status for the monetary amount, such
+             as accurate, estimated or corrected.
+
+
+0550      Segment group 13: PCD-DTM-STS
+          A group of segments providing details of time series
+          defining percentages and associated dates or periods.
+
+0560         PCD, Percentage details
+             A segment identifying the percentage details.
+
+0570         DTM, Date/time/period
+             A segment to specify dates or periods related to the
+             previously specified percentage information.
+
+0580         STS, Status
+             A segment giving the status for the percentage, such as
+             estimated or corrected.
+
+
+0590      Segment group 14: RNG-DTM-STS
+          A group of segments providing details of time series
+          defining ranges, i.e. maximum and minimum values and
+          associated dates or periods.
+
+0600         RNG, Range details
+             A segment identifying the range details.
+
+0610         DTM, Date/time/period
+             A segment to specify dates or periods related to the
+             previously specified range information.
+
+0620         STS, Status
+             A segment giving the status for the range details, such
+             as estimated or corrected.
+
+0630   CNT, Control total
+       A segment to provide message control totals.
+
+0640   UNT, Message trailer
+       A service segment ending a message, giving the total number of
+       segments in the message (including the UNH & UNT) and the
+       control reference number of the message.
+
+4.2    Segment index (alphabetical sequence by tag)
+
+          ALI Additional information
+          BGM Beginning of message
+          CAV Characteristic value
+          CCI Characteristic/class id
+          CNT Control total
+          COM Communication contact
+          CTA Contact information
+          CUX Currencies
+          DTM Date/time/period
+          FTX Free text
+          IDE Identity
+          IMD Item description
+          LOC Place/location identification
+          MKS Market/sales channel information
+          MOA Monetary amount
+          NAD Name and address
+          PCD Percentage details
+          PIA Additional product id
+          PRC Process identification
+          PRI Price details
+          QTY Quantity
+          RFF Reference
+          RNG Range details
+          STS Status
+          UNH Message header
+          UNT Message trailer
+
+4.3    Message structure
+
+4.3.1  Segment table
+
+Pos    Tag Name                                      S   R
+
+0010   UNH Message header                            M   1     
+0020   BGM Beginning of message                      M   1     
+0030   DTM Date/time/period                          M   9     
+0040   MKS Market/sales channel information          C   9     
+
+0050       ÄÄÄÄÄ Segment group 1  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄÄÄÄ¿
+0060   RFF Reference                                 M   1           ³
+0070   DTM Date/time/period                          C   9ÄÄÄÄÄÄÄÄÄÄÄÙ
+
+0080       ÄÄÄÄÄ Segment group 2  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99ÄÄÄÄÄÄÄÄÄÄ¿
+0090   NAD Name and address                          M   1           ³
+0100   RFF Reference                                 C   1           ³
+                                                                     ³
+0110       ÄÄÄÄÄ Segment group 3  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄÄÄ¿³
+0120   CTA Contact information                       M   1          ³³
+0130   COM Communication contact                     M   1ÄÄÄÄÄÄÄÄÄÄÁÙ
+
+0140       ÄÄÄÄÄ Segment group 4  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99ÄÄÄÄÄÄÄÄÄÄ¿
+0150   CUX Currencies                                M   1           ³
+0160   DTM Date/time/period                          C   9           ³
+0170   STS Status                                    C   9ÄÄÄÄÄÄÄÄÄÄÄÙ
+
+0180       ÄÄÄÄÄ Segment group 5  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   99999ÄÄÄÄÄÄÄ¿
+0190   IDE Identity                                  M   1           ³
+0200   LOC Place/location identification             C   9           ³
+0210   NAD Name and address                          C   9           ³
+0220   ALI Additional information                    C   9           ³
+0230   PIA Additional product id                     C   9           ³
+0240   IMD Item description                          C   9           ³
+0250   DTM Date/time/period                          C   9           ³
+0260   PRC Process identification                    C   9           ³
+0270   STS Status                                    C   9           ³
+0280   FTX Free text                                 C   9           ³
+                                                                     ³
+0290       ÄÄÄÄÄ Segment group 6  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99ÄÄÄÄÄÄÄÄÄ¿³
+0300   RFF Reference                                 M   1          ³³
+0310   DTM Date/time/period                          C   9ÄÄÄÄÄÄÄÄÄÄÙ³
+                                                                     ³
+0320       ÄÄÄÄÄ Segment group 7  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99ÄÄÄÄÄÄÄÄÄ¿³
+0330   CCI Characteristic/class id                   M   1          ³³
+0340   CAV Characteristic value                      C   99ÄÄÄÄÄÄÄÄÄÙ³
+                                                                     ³
+0350       ÄÄÄÄÄ Segment group 8  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99999ÄÄÄÄÄÄ¿³
+0360   QTY Quantity                                  M   1          ³³
+0370   DTM Date/time/period                          C   9          ³³
+0380   STS Status                                    C   9          ³³
+                                                                    ³³
+0390       ÄÄÄÄÄ Segment group 9  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99ÄÄÄÄÄÄÄÄ¿³³
+0400   CCI Characteristic/class id                   M   1         ³³³
+0410   CAV Characteristic value                      C   99ÄÄÄÄÄÄÄÄÁÙ³
+                                                                     ³
+0420       ÄÄÄÄÄ Segment group 10 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99999ÄÄÄÄÄÄ¿³
+0430   CUX Currencies                                M   1          ³³
+0440   DTM Date/time/period                          C   9          ³³
+0450   STS Status                                    C   9ÄÄÄÄÄÄÄÄÄÄÙ³
+                                                                     ³
+0460       ÄÄÄÄÄ Segment group 11 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99999ÄÄÄÄÄÄ¿³
+0470   PRI Price details                             M   1          ³³
+0480   CUX Currencies                                C   1          ³³
+0490   DTM Date/time/period                          C   9          ³³
+0500   STS Status                                    C   9ÄÄÄÄÄÄÄÄÄÄÙ³
+                                                                     ³
+0510       ÄÄÄÄÄ Segment group 12 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99999ÄÄÄÄÄÄ¿³
+0520   MOA Monetary amount                           M   1          ³³
+0530   DTM Date/time/period                          C   9          ³³
+0540   STS Status                                    C   9ÄÄÄÄÄÄÄÄÄÄÙ³
+                                                                     ³
+0550       ÄÄÄÄÄ Segment group 13 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99999ÄÄÄÄÄÄ¿³
+0560   PCD Percentage details                        M   1          ³³
+0570   DTM Date/time/period                          C   9          ³³
+0580   STS Status                                    C   9ÄÄÄÄÄÄÄÄÄÄÙ³
+                                                                     ³
+0590       ÄÄÄÄÄ Segment group 14 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99999ÄÄÄÄÄÄ¿³
+0600   RNG Range details                             M   1          ³³
+0610   DTM Date/time/period                          C   9          ³³
+0620   STS Status                                    C   9ÄÄÄÄÄÄÄÄÄÄÁÙ
+0630   CNT Control total                             C   9     
+0640   UNT Message trailer                           M   1     

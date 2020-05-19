@@ -1,0 +1,413 @@
+                              UN/EDIFACT
+
+                         DRAFT RECOMMENDATION
+
+                       Customs response message
+
+
+
+
+
+----------------------------------------------------------------------
+This message is available for formal trial for at least six months
+from the date of approval by UN/ECE/TRADE/WP.4.
+ 
+Organisations are invited to trial this message. Comments on the
+results from the trial should be forwarded to their Rapporteur's Team
+Secretariat as soon as they are available. Based on the results of the
+trials, a UNSM may be issued.
+ 
+The segments, composite data elements, data elements and codes for
+use in the trial of this message are contained in the Draft directory.
+However, this information may differ from that in the Standard
+directory (UNTDID), even for material having the same identifying
+tags.
+----------------------------------------------------------------------
+
+
+
+
+
+
+
+
+                                            Message Type : CUSRES
+                                            Version      : D
+                                            Release      : 96A
+                                            Contr. Agency: UN
+                                            Status       : 2
+                                            Revision     : 2
+                                            Date         : 95-11-23
+
+
+
+
+
+
+SOURCE: Joint development by the Pan American EDIFACT Board and the
+       Western European EDIFACT Board.
+
+
+
+                               CONTENTS
+
+                       Customs response message
+
+
+
+0.   INTRODUCTION
+
+
+1.   SCOPE
+
+     1.1   Functional definition
+
+     1.2   Field of application
+
+     1.3   Principles
+
+2.   REFERENCES
+
+3.   TERMS AND DEFINITIONS
+
+4.   MESSAGE DEFINITION
+
+     4.1   Data segment clarification
+
+     4.2   Data segment index (alphabetical sequence)
+
+     4.3   Message structure
+
+           4.3.1 Segment table
+
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------
+For general information on UN standard message types see UN Trade Data
+Interchange Directory, UNTDID, Part 4, Section 2.6, UN/ECE UNSM
+General Introduction
+----------------------------------------------------------------------
+
+
+
+0.     INTRODUCTION
+
+       This specification provides the definition of the Customs
+       response message (CUSRES) to be used in Electronic Data
+       Interchange (EDI) between trading partners involved in
+       administration, commerce and transport.
+
+1.     SCOPE
+
+1.1    Functional Definition
+
+       This Customs Response Message (CUSRES) permits the transfer of
+       data from a customs administration to the sender of customs
+       data. It may also be used by Customs to transmit electronic
+       customs clearance of goods.
+
+1.2    Field of Application
+
+       This Message may be applied for both national and international
+       trade. It is based on universal practice and is not dependent
+       on the type of business or industry.
+
+1.3    Principles
+
+       It is envisaged that this message will allow a customs
+       administration to respond to single or batched customs messages
+       or give information to approved part(y)s; for example, errors
+       in data, release/clearance notifications, etc. It is recognized
+       that this message may be used by other parties to respond to
+       customs messages.
+
+2.     REFERENCES
+
+       See UNTDID, Part 4, Chapter 2.6 UN/ECE UNSM - General
+       Introduction, Section 1.
+
+3.     TERMS AND DEFINITIONS
+
+       See UNTDID, Part 4, Chapter 2.6 UN/ECE UNSM - General
+       Introduction, Section 2.
+
+4.     MESSAGE DEFINITION
+
+4.1    Data Segment Clarification
+
+       This section should be read in conjunction with the Branching
+       Diagram and the Segment Table which indicate mandatory,
+       conditional and repeating requirements.
+
+0010 | UNH, Message header
+       A service segment starting and uniquely identifying a message.
+       The message type code for the Customs response message is
+       CUSRES.
+       
+       Note: Customs response messages conforming to this document
+       must contain the following data in segment UNH, composite S009:
+
+       Data element  0065 CUSRES
+                     0052 D
+                     0054 96A
+                     0051 UN
+
+0020   BGM, Beginning of message
+       A segment identifying the message type, its reference, date and
+       the identification of a reference to which the CUSRES is a
+       response.
+
+0030   NAD, Name and address
+       A segment identifying the parties relevant to the message.
+       For example, agent, importer, etc.
+
+0040   LOC, Place/location identification
+       A segment identifying the places relevant to the message. For
+       example, port of entry, location of goods, etc.
+
+0050   DTM, Date/time/period
+       A segment identifying the relevant dates and times in the
+       message. For example, payment date, date of arrival.
+
+0060   GIS, General indicator
+       A segment identifying the various customs processing
+       indicators. For example, cargo released, cargo held,
+       examination required, earlier message accepted or rejected,
+       etc.
+
+0070   FTX, Free text
+       A segment stating information in unsolicited clear text.
+
+0080   EQD, Equipment details
+       A segment identifying equipment initials and numbers required
+       to identify a shipment, covering the whole message.
+
+
+0090   Segment group 1:  ERP-ERC
+       A group of segments identifying the location and specifics of
+       an application error condition within a message to which the
+       CUSRES is a response.
+
+0100      ERP, Error point details
+          A segment identifying the location of an application error
+          within another message.
+
+0110      ERC, Application error information
+          A segment identifying the type of application errors within
+          a message.
+
+
+0120   Segment group 2:  PAC-SG3
+       A group of segments identifying particular shipping or packing
+       units reported in an earlier declaration which are now subject
+       to customs action (examination, release, etc).
+
+0130      PAC, Package
+          A segment identifying the number and type of manifested
+          units that are being referenced.
+
+
+0140      Segment group 3:  PCI-FTX
+          A group of segments identifying markings and labels, and
+          describing the goods related to PCI.
+
+0150         PCI, Package identification
+             A segment identifying markings and labels on individual
+             shipping or packing units.
+
+0160         FTX, Free text
+             A segment identifying packages, related to PCI, in
+             narrative form.
+
+
+0170   Segment group 4:  TAX-MOA-GIS
+       A segment identifying totals for tax, fees, and duties declared
+       and due for payment, following the computation by customs.
+
+0180      TAX, Duty/tax/fee details
+          A segment identifying tax/duty/fee type, base and rate due
+          for payment.
+
+0190      MOA, Monetary amount
+          A segment identifying tax/duty/fee amounts due for payment
+          (e.g. total tax amount).
+
+0200      GIS, General indicator
+          A segment identifying an indicator related to the preceding
+          TAX (e.g. method of payment indicator).
+
+
+0210   Segment group 5:  RFF-DTM-MEA-EQD-SG6-SG7
+       A group of segments identifying a reference and/or the item
+       taxes, fees and duties (with the associated details), following
+       their computation by customs based on data provided by the
+       declarant.
+
+0220      RFF, Reference
+          A segment identifying a particular reference.
+
+0230      DTM, Date/time/period
+          A segment identifying a date related to the preceding RFF.
+
+0240      MEA, Measurements
+          Segment identifying various measurement values where these
+          are required for the computation of duties/taxes/fees due.
+
+0250      EQD, Equipment details
+          A segment identifying equipment initials and numbers
+          required to identify a shipment related to a declaration
+          identified in the preceding RFF.
+
+
+0260      Segment group 6:  MOA-CUX
+          A group of segments identifying the monetary amount,
+          currencies and the rate of exchange against which duties,
+          taxes or fees are being computed.
+
+0270         MOA, Monetary amount
+             A segment identifying the monetary amount against which
+             any duty, tax, or fee is being computed.
+
+0280         CUX, Currencies
+             A segment identifying currencies and the rate of exchange
+             for a monetary amount identified within this group.
+
+
+0290      Segment group 7:  TAX-MOA-GIS
+          A group of segments identifying the customs amounts for
+          duties, taxes and fees, following computation by customs.
+
+0300         TAX, Duty/tax/fee details
+             A segment identifying the tax/duty/fee type, rate and
+             base for customs item amounts.
+
+0310         MOA, Monetary amount
+             A segment identifying a tax/duty/fee amount related to
+             the TAX.
+
+0320         GIS, General indicator
+             A segment identifying an indicator related to the
+             preceding TAX (e.g. method of payment indicator).
+
+
+0330   Segment group 8:  DOC-DTM-LOC
+       A group of segments identifying documentary requirements where
+       they are needed as supporting information for customs
+       processing.
+
+0340      DOC, Document/message details
+          A segment identifying a document required as supporting
+          information by customs.
+
+0350      DTM, Date/time/period
+          A segment identifying a date related to the preceding DOC.
+
+0360      LOC, Place/location identification
+          A segment identifying a location related to the preceding
+          DOC.
+
+
+0370   Segment group 9:  AUT-DTM
+       A segment permitting the verification of the authenticity of
+       the sender and the integrity of the data.
+
+0380      AUT, Authentication result
+          A segment containing the result of the algorithm permitting
+          the verification of the authenticity of the sender and the
+          integrity of the data.
+
+0390      DTM, Date/time/period
+          A segment identifying a date associated with the preceding
+          AUT.
+
+0400   UNT, Message trailer
+       A service segment ending a message, giving the total number of
+       segments in the message and the control reference number of the
+       message.
+
+4.2    Data segment index (Alphabetical sequence by tag)
+
+          AUT Authentication result
+          BGM Beginning of message
+          CUX Currencies
+          DOC Document/message details
+          DTM Date/time/period
+          EQD Equipment details
+          ERC Application error information
+          ERP Error point details
+          FTX Free text
+          GIS General indicator
+          LOC Place/location identification
+          MEA Measurements
+          MOA Monetary amount
+          NAD Name and address
+          PAC Package
+          PCI Package identification
+          RFF Reference
+          TAX Duty/tax/fee details
+          UNH Message header
+          UNT Message trailer
+
+4.3    Message structure
+
+4.3.1  Segment table
+
+Pos    Tag Name                                      S   R
+
+0010   UNH Message header                            M   1     
+0020   BGM Beginning of message                      M   1     
+0030   NAD Name and address                          C   5     
+0040   LOC Place/location identification             C   5     
+0050   DTM Date/time/period                          C   7     
+0060   GIS General indicator                         C   10    
+0070   FTX Free text                                 C   5     
+0080   EQD Equipment details                         C   999   
+
+0090       ÄÄÄÄÄ Segment group 1  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   50ÄÄÄÄÄÄÄÄÄÄ¿
+0100   ERP Error point details                       M   1           ³
+0110   ERC Application error information             C   50ÄÄÄÄÄÄÄÄÄÄÙ
+
+0120       ÄÄÄÄÄ Segment group 2  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   999ÄÄÄÄÄÄÄÄÄ¿
+0130   PAC Package                                   M   1           ³
+                                                                     ³
+0140       ÄÄÄÄÄ Segment group 3  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   1ÄÄÄÄÄÄÄÄÄÄ¿³
+0150   PCI Package identification                    M   1          ³³
+0160   FTX Free text                                 C   1ÄÄÄÄÄÄÄÄÄÄÁÙ
+
+0170       ÄÄÄÄÄ Segment group 4  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   50ÄÄÄÄÄÄÄÄÄÄ¿
+0180   TAX Duty/tax/fee details                      M   1           ³
+0190   MOA Monetary amount                           C   2           ³
+0200   GIS General indicator                         C   1ÄÄÄÄÄÄÄÄÄÄÄÙ
+
+0210       ÄÄÄÄÄ Segment group 5  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   9999ÄÄÄÄÄÄÄÄ¿
+0220   RFF Reference                                 M   1           ³
+0230   DTM Date/time/period                          C   1           ³
+0240   MEA Measurements                              C   20          ³
+0250   EQD Equipment details                         C   99          ³
+                                                                     ³
+0260       ÄÄÄÄÄ Segment group 6  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   10ÄÄÄÄÄÄÄÄÄ¿³
+0270   MOA Monetary amount                           M   1          ³³
+0280   CUX Currencies                                C   1ÄÄÄÄÄÄÄÄÄÄÙ³
+                                                                     ³
+0290       ÄÄÄÄÄ Segment group 7  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   20ÄÄÄÄÄÄÄÄÄ¿³
+0300   TAX Duty/tax/fee details                      M   1          ³³
+0310   MOA Monetary amount                           C   2          ³³
+0320   GIS General indicator                         C   1ÄÄÄÄÄÄÄÄÄÄÁÙ
+
+0330       ÄÄÄÄÄ Segment group 8  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   5ÄÄÄÄÄÄÄÄÄÄÄ¿
+0340   DOC Document/message details                  M   1           ³
+0350   DTM Date/time/period                          C   2           ³
+0360   LOC Place/location identification             C   1ÄÄÄÄÄÄÄÄÄÄÄÙ
+
+0370       ÄÄÄÄÄ Segment group 9  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   1ÄÄÄÄÄÄÄÄÄÄÄ¿
+0380   AUT Authentication result                     M   1           ³
+0390   DTM Date/time/period                          C   1ÄÄÄÄÄÄÄÄÄÄÄÙ
+0400   UNT Message trailer                           M   1     

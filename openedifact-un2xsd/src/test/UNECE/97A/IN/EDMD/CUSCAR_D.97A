@@ -1,0 +1,679 @@
+                              UN/EDIFACT
+
+                UNITED NATIONS STANDARD MESSAGE (UNSM)
+
+                     Customs cargo report message
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                            Message Type : CUSCAR
+                                            Version      : D
+                                            Release      : 97A
+                                            Contr. Agency: UN
+
+                                            Revision     : 6
+                                            Date         : 96-12-13
+
+
+
+
+
+
+SOURCE: Development of the Customs Co-operation Council
+
+
+
+                               CONTENTS
+
+                     Customs cargo report message
+
+0.   INTRODUCTION
+
+1.   SCOPE
+
+     1.1   Functional definition
+
+     1.2   Field of application
+
+     1.3   Principles
+
+2.   REFERENCES
+
+3.   TERMS AND DEFINITIONS
+
+     3.1   Standard terms and definitions
+
+4.   MESSAGE DEFINITION
+
+     4.1   Data segment clarification
+
+     4.2   Data segment index (alphabetical sequence)
+
+     4.3   Message structure
+
+           4.3.1 Segment table
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------
+For general information on UN standard message types see UN Trade Data
+Interchange Directory, UNTDID, Part 4, Section 2.6, UN/ECE UNSM
+General Introduction
+----------------------------------------------------------------------
+
+
+
+0.     INTRODUCTION
+
+       This specification provides the definition of the Customs cargo
+       report message (CUSCAR) to be used in Electronic Data
+       Interchange (EDI) between trading partners involved in
+       administration, commerce and transport.
+
+1.     SCOPE
+
+1.1    Functional Definition
+
+       This message permits the transfer of data from a carrier to a
+       Customs administration for the purpose of meeting Customs cargo
+       reporting requirements.
+
+1.2    Field of Application
+
+       This message may be applied for both national and international
+       trade. It is based on universal practice and is not independent
+       on the type of business or industry.
+
+1.3    Principles
+
+       It is envisaged that the Customs Cargo Inventory Report Message
+       may be initiated by the carrier to report single or multiple
+       consignments to a Customs administration. The message is
+       transmitted upon arrival of the goods, or where national
+       legislation permits, prior to arrival. The data provides
+       Customs with a means of "writing off" or acquitting the cargo
+       report against Goods declarations. It also allows Customs to
+       undertake selectivity processing in order to select high risk
+       shipments requiring examination.
+       
+       The message may be used for reporting:
+       
+       (a) onward transit/transhipment;
+       (b) short and part shipped goods;
+       (c) empty containers;
+       (d) import/export cargo;
+       (e) house and masterbill relationships.
+
+2.     REFERENCES
+
+       See UNTDID, Part 4, Chapter 2.6 UN/ECE UNSM - General
+       Introduction, Section 1.
+
+3.     TERMS AND DEFINITIONS
+
+3.1    Standard terms and definitions
+
+       See UNTDID, Part 4, Chapter 2.6 UN/ECE UNSM - General
+       Introduction, Section 2.
+
+4.     MESSAGE DEFINITION
+
+4.1    Data Segment Clarification
+
+       This section should be read in conjunction with the Segment
+       Table which indicate mandatory, conditional and repeating
+       requirements.
+
+0010   UNH, Message header
+       A service segment starting and uniquely identifying a message.
+       The message type code for the Customs cargo report message is
+       CUSCAR.
+       
+       Note: Customs cargo report messages conforming to this document
+       must contain the following data in segment UNH, composite S009:
+
+       Data element  0065 CUSCAR
+                     0052 D
+                     0054 97A
+                     0051 UN
+
+0020   BGM, Beginning of message
+       A segment to indicate the message name, type, number and
+       functionality.
+
+0030   DTM, Date/time/period
+       A segment to indicate the date/time of message creation and the
+       date and time of cargo report to Customs.
+
+
+0040   Segment group 1:  RFF-DTM
+       A group of segments to identify the unique reference number and
+       date time details for the whole message.
+
+0050      RFF, Reference
+          A segment to provide the unique reference number for the
+          message, e.g. manifest number.
+
+0060      DTM, Date/time/period
+          A segment to indicate the date/time of the reference number
+          for the message.
+
+
+0070   Segment group 2:  NAD-SG3
+       A group of segments to identify contact and communication
+       contact information related to the person responsible for the
+       cargo reporting.
+
+0080      NAD, Name and address
+          A segment to identify the person or party reporting the
+          cargo.
+
+
+0090      Segment group 3:  CTA-COM
+          A group of segments to identify a contact and its
+          communication related party.
+
+0100         CTA, Contact information
+             A segment to identify a person or department within a
+             party.
+
+0110         COM, Communication contact
+             A segment to identify the communication numbers of
+             persons or department to whom communication should be
+             directed.
+
+0120   FTX, Free text
+       A segment to provide reason for change in report.
+
+
+0130   Segment group 4:  TDT-LOC-DTM
+       A group of segments to identify details of transport, locations
+       and associated dates/times.
+
+0140      TDT, Details of transport
+          A segment to identify the primary identity of the conveyance
+          e.g. voyage/flight number, vehicle number, railway car
+          initials and numbers and name of vessel reference number.
+
+0150      LOC, Place/location identification
+          A segment to indicate locations relevant to the details of
+          transport, such as port/place of loading, port/place of
+          discharge and port/place of initial arrival.
+
+0160      DTM, Date/time/period
+          A segment to specify dates/times related to details of
+          transport.
+
+0170   GIS, General indicator
+       A segment to specify the various customs processing indicators
+       for the whole message.
+
+
+0180   Segment group 5:  EQD-TSR-MEA-DIM-SEL-NAD-GIS-SG6
+       A group of segments to specify details of the equipment
+       including information related to measurement, dimensions,
+       seals, empty container responsible party, container quarantine
+       indicator, as well as temperature/range and use indicator.
+
+0190      EQD, Equipment details
+          A segment to specify the type of equipment, empty container
+          indicator, and container number.
+
+0200      TSR, Transport service requirements
+          A segment to specify the contract, carriage conditions,
+          service and priority requirements for the transport.
+
+0210      MEA, Measurements
+          A segment to specify the measurements details for the
+          equipment.
+
+0220      DIM, Dimensions
+          A segment to specify the dimensions.
+
+0230      SEL, Seal number
+          A segment to specify the seal number.
+
+0240      NAD, Name and address
+          A segment to specify the name and address of the empty
+          container responsible party.
+
+0250      GIS, General indicator
+          A segment to specify the container quarantine indicator.
+
+
+0260      Segment group 6:  TMP-RNG
+          A group of segments to indicate temperature information.
+
+0270         TMP, Temperature
+             A segment to specify temperature settings and indicator
+             that refrigeration is in use.
+
+0280         RNG, Range details
+             A segment to specify a range of temperatures to be
+             maintained on refrigeration equipment.
+
+0290   CNT, Control total
+       A segment to specify the total number of masters bills in the
+       message.
+
+
+0300   Segment group 7:  CNI-CNT-SG8
+       A group of segments to provide details of the consignment(s).
+
+0310      CNI, Consignment information
+          A segment to sequentially number master bills reported in a
+          multi-consignment message. For a single consignment message,
+          this sequence number will always be 1.
+
+0320      CNT, Control total
+          A segment to specify the total number of house bills
+          reported under one master bill.
+
+
+0330      Segment group 8:  RFF-CNT-MOA-LOC-GIS-CUX-CPI-SG9-SG11-SG13-
+                            SG14
+          A group of segments specifying the details of each
+          consignment.
+
+0340         RFF, Reference
+             A segment to identify the bill number referring to the
+             appropriate type of bill (e.g. master bill of lading,
+             house bill of lading, straight air waybill).
+
+0350         CNT, Control total
+             A segment to specify total consignment quantity and
+             weight.
+
+0360         MOA, Monetary amount
+             A segment to specify the onward carriage shipment value,
+             amount of insurance, value of Customs in-bond movement,
+             declared value for Customs, declared value for carriage,
+             no Customs value, transport charge amount, freight
+             payment amount.
+
+0370         LOC, Place/location identification
+             A segment to specify the Customs clearance office/place,
+             place of origin of carriage, place of acceptance by
+             importing carrier, place of ultimate destination of
+             goods, place of transhipment, place of departure, place
+             of customs examination and place/port of discharge.
+
+0380         GIS, General indicator
+             A segment to specify processing indicators such as
+             import/export/transit indicator, container quarantine
+             indicator, onward movement type indicator and status of
+             the goods.
+
+0390         CUX, Currencies
+             A segment to specify the default currency for the
+             consignment, e.g. air waybill currency.
+
+0400         CPI, Charge payment instructions
+             A segment to specify the cargo category type, e.g. weight
+             valuation, prepaid/collect and method of payment.
+
+
+0410         Segment group 9:  TDT-LOC-DTM-MEA-SG10
+             A group of segments to identify details of onward
+             carriage for each consignment.
+
+0420            TDT, Details of transport
+                A segment to specify the identity of the onward
+                conveyance.
+
+0430            LOC, Place/location identification
+                A segment to indicate locations relevant to the onward
+                transport of the goods.
+
+0440            DTM, Date/time/period
+                A segment to specify dates/times related to details of
+                onward transport.
+
+0450            MEA, Measurements
+                A segment to specify physical measurements, including
+                dimension tolerances, weights and counts (e.g. vehicle
+                weight details).
+
+
+0460            Segment group 10: RFF-TSR
+                A group of segments to provide booking details
+                (reference and type).
+
+0470               RFF, Reference
+                   A segment to specify onward carriage control
+                   number, onward carriage bond number and secondary
+                   conveyance identification numbers.
+
+0480               TSR, Transport service requirements
+                   A segment to specify the contract and carriage
+                   conditions and service and priority requirements
+                   for the transport.
+
+
+0490         Segment group 11: NAD-DTM-RFF-SG12
+             A group of segments to identify the parties, contacts and
+             related references and dates.
+
+0500            NAD, Name and address
+                A segment specifying the name and address of the
+                consignor, shipper, notifier, consignee, empty
+                container responsible party, nominated reporting
+                agent, railway issuing waybill, and reporting party.
+
+0510            DTM, Date/time/period
+                A segment to specify date and/or time or period
+                related to the party(s) identified in the NAD segment
+                (e.g. date of birth).
+
+0520            RFF, Reference
+                A segment to identify a reference used by a party e.g.
+                reporting party's reference number.
+
+
+0530            Segment group 12: CTA-COM
+                A group of segments identifying a contact and its
+                communication related to the party.
+
+0540               CTA, Contact information
+                   A segment to identify a person or department within
+                   a party.
+
+0550               COM, Communication contact
+                   A segment to identify the communication numbers of
+                   persons or department to whom communication should
+                   be directed.
+
+
+0560         Segment group 13: QTY-FTX
+             A group of segments to specify, at the consignment level,
+             the quantity manifested, quantity landed and reason for
+             change.
+
+0570            QTY, Quantity
+                A segment identifying quantity manifested and quantity
+                landed.
+
+0580            FTX, Free text
+                A segment to indicate the reason for change e.g.
+                part/short/overshipped cargo.
+
+
+0590 |       Segment group 14: GID-PAC-HAN-FTX-MEA-MOA-SGP-DGS-PCI-
+                               CST-TMD-SG15-SG16
+             A group of segments specifying goods item details
+             including number and type of packages, handling
+             instructions, quantity variances, package identification,
+             goods description, monetary amounts, measurements,
+             indicators for split goods placement, indicator for
+             dangerous goods, status of the goods, documents.
+
+0600            GID, Goods item details
+                A segment identifying the line item number, as well as
+                number and type of packages.
+
+0610            PAC, Package
+                A segment identifying the level of packaging.
+
+0620            HAN, Handling instructions
+                A segment identifying handling instructions.
+
+0630            FTX, Free text
+                A segment to identify the description of goods.
+
+0640            MEA, Measurements
+                A segment to identify the goods item gross/net weight.
+
+0650            MOA, Monetary amount
+                Values per item.
+
+0660            SGP, Split goods placement
+                A segment to indicate the placement of goods in one or
+                more containers.
+
+0670            DGS, Dangerous goods
+                A segment to identify dangerous goods.
+
+0680            PCI, Package identification
+                A segment identifying shipping marks.
+
+0690            CST, Customs status of goods
+                A segment to identify Harmonized System codes related
+                to each goods item.
+
+0700 +          TMD, Transport movement details
+                A segment used to describe specific transport movement
+                details for goods related to the transportation
+                information identified in segment group 14.
+
+
+0710            Segment group 15: GIS-DTM-DOC
+                A group of segments specifying general indicators,
+                associated date/time details and documentary
+                requirements.
+
+0720               GIS, General indicator
+                   A segment to indicate other government requirements
+                   (e.g. government quarantine indicator) to be met
+                   prior to onward movement and status of the goods.
+
+0730               DTM, Date/time/period
+                   A segment to specify a date/time related to the
+                   whole group.
+
+0740               DOC, Document/message details
+                   A segment to indicate other government agency
+                   documentary requirements which must be met prior to
+                   onward movement.
+
+
+0750            Segment group 16: QTY-FTX
+                A group of segments to specify, at goods item level,
+                the quantity manifested, quantity landed and reason
+                for change.
+
+0760               QTY, Quantity
+                   A segment identifying quantity manifested and
+                   quantity landed.
+
+0770               FTX, Free text
+                   A segment to indicate the reason for change e.g.
+                   part/short/overshipped cargo.
+
+
+0780   Segment group 17: AUT-DTM-RFF
+       A group of segments to specify the authentication of the
+       message.
+
+0790      AUT, Authentication result
+          A segment to specify the results of the application of an
+          authentication procedure, including the authenticity of
+          sender to ensure integrity of data.
+
+0800      DTM, Date/time/period
+          A segment to specify the date/time/period when a message is
+          authenticated.
+
+0810      RFF, Reference
+          A segment to indicate any references to the authentication
+          process.
+
+0820   UNT, Message trailer
+       A service segment ending a message, giving the total number of
+       segments in the message and the control reference number of the
+       message.
+
+4.2    Data segment index (Alphabetical sequence by tag)
+
+          AUT Authentication result
+          BGM Beginning of message
+          CNI Consignment information
+          CNT Control total
+          COM Communication contact
+          CPI Charge payment instructions
+          CST Customs status of goods
+          CTA Contact information
+          CUX Currencies
+          DGS Dangerous goods
+          DIM Dimensions
+          DOC Document/message details
+          DTM Date/time/period
+          EQD Equipment details
+          FTX Free text
+          GID Goods item details
+          GIS General indicator
+          HAN Handling instructions
+          LOC Place/location identification
+          MEA Measurements
+          MOA Monetary amount
+          NAD Name and address
+          PAC Package
+          PCI Package identification
+          QTY Quantity
+          RFF Reference
+          RNG Range details
+          SEL Seal number
+          SGP Split goods placement
+          TDT Details of transport
+       +  TMD Transport movement details
+          TMP Temperature
+          TSR Transport service requirements
+          UNH Message header
+          UNT Message trailer
+
+4.3    Message structure
+
+4.3.1  Segment table
+
+Pos    Tag Name                                      S   R
+
+0010   UNH Message header                            M   1     
+0020   BGM Beginning of message                      M   1     
+0030   DTM Date/time/period                          C   9     
+
+0040       ÄÄÄÄÄ Segment group 1  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99ÄÄÄÄÄÄÄÄÄÄ¿
+0050   RFF Reference                                 M   1           ³
+0060   DTM Date/time/period                          C   9ÄÄÄÄÄÄÄÄÄÄÄÙ
+
+0070       ÄÄÄÄÄ Segment group 2  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99ÄÄÄÄÄÄÄÄÄÄ¿
+0080   NAD Name and address                          M   1           ³
+                                                                     ³
+0090       ÄÄÄÄÄ Segment group 3  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄÄÄ¿³
+0100   CTA Contact information                       M   1          ³³
+0110   COM Communication contact                     C   9ÄÄÄÄÄÄÄÄÄÄÁÙ
+0120   FTX Free text                                 C   9     
+
+0130       ÄÄÄÄÄ Segment group 4  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄÄÄÄ¿
+0140   TDT Details of transport                      M   1           ³
+0150   LOC Place/location identification             C   99          ³
+0160   DTM Date/time/period                          C   99ÄÄÄÄÄÄÄÄÄÄÙ
+0170   GIS General indicator                         C   9     
+
+0180       ÄÄÄÄÄ Segment group 5  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9999ÄÄÄÄÄÄÄÄ¿
+0190   EQD Equipment details                         M   1           ³
+0200   TSR Transport service requirements            C   9           ³
+0210   MEA Measurements                              C   9           ³
+0220   DIM Dimensions                                C   9           ³
+0230   SEL Seal number                               C   9           ³
+0240   NAD Name and address                          C   9           ³
+0250   GIS General indicator                         C   9           ³
+                                                                     ³
+0260       ÄÄÄÄÄ Segment group 6  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄÄÄ¿³
+0270   TMP Temperature                               M   1          ³³
+0280   RNG Range details                             C   1ÄÄÄÄÄÄÄÄÄÄÁÙ
+0290   CNT Control total                             C   9     
+
+0300       ÄÄÄÄÄ Segment group 7  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9999ÄÄÄÄÄÄÄÄ¿
+0310   CNI Consignment information                   M   1           ³
+0320   CNT Control total                             C   9           ³
+                                                                     ³
+0330       ÄÄÄÄÄ Segment group 8  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9999ÄÄÄÄÄÄÄ¿³
+0340   RFF Reference                                 M   1          ³³
+0350   CNT Control total                             C   9          ³³
+0360   MOA Monetary amount                           C   9          ³³
+0370   LOC Place/location identification             C   99         ³³
+0380   GIS General indicator                         C   9          ³³
+0390   CUX Currencies                                C   9          ³³
+0400   CPI Charge payment instructions               C   9          ³³
+                                                                    ³³
+0410       ÄÄÄÄÄ Segment group 9  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄÄ¿³³
+0420   TDT Details of transport                      M   1         ³³³
+0430   LOC Place/location identification             C   9         ³³³
+0440   DTM Date/time/period                          C   9         ³³³
+0450   MEA Measurements                              C   9         ³³³
+                                                                   ³³³
+0460       ÄÄÄÄÄ Segment group 10 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄ¿³³³
+0470   RFF Reference                                 M   1        ³³³³
+0480   TSR Transport service requirements            C   9ÄÄÄÄÄÄÄÄÁÙ³³
+                                                                    ³³
+0490       ÄÄÄÄÄ Segment group 11 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99ÄÄÄÄÄÄÄÄ¿³³
+0500   NAD Name and address                          M   1         ³³³
+0510   DTM Date/time/period                          C   9         ³³³
+0520   RFF Reference                                 C   9         ³³³
+                                                                   ³³³
+0530       ÄÄÄÄÄ Segment group 12 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄ¿³³³
+0540   CTA Contact information                       M   1        ³³³³
+0550   COM Communication contact                     C   9ÄÄÄÄÄÄÄÄÁÙ³³
+                                                                    ³³
+0560       ÄÄÄÄÄ Segment group 13 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄÄ¿³³
+0570   QTY Quantity                                  M   1         ³³³
+0580   FTX Free text                                 C   9ÄÄÄÄÄÄÄÄÄÙ³³
+                                                                    ³³
+0590       ÄÄÄÄÄ Segment group 14 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   9999ÄÄÄÄÄÄ¿³³
+0600   GID Goods item details                        M   1         ³³³
+0610   PAC Package                                   C   9         ³³³
+0620   HAN Handling instructions                     C   9         ³³³
+0630   FTX Free text                                 C   99        ³³³
+0640   MEA Measurements                              C   99        ³³³
+0650   MOA Monetary amount                           C   9         ³³³
+0660 * SGP Split goods placement                     C   9999      ³³³
+0670   DGS Dangerous goods                           C   9         ³³³
+0680   PCI Package identification                    C   9         ³³³
+0690   CST Customs status of goods                   C   1         ³³³
+0700 + TMD Transport movement details                C   9         ³³³
+                                                                   ³³³
+0710       ÄÄÄÄÄ Segment group 15 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄ¿³³³
+0720   GIS General indicator                         M   1        ³³³³
+0730   DTM Date/time/period                          C   9        ³³³³
+0740   DOC Document/message details                  C   9ÄÄÄÄÄÄÄÄÙ³³³
+                                                                   ³³³
+0750       ÄÄÄÄÄ Segment group 16 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄ¿³³³
+0760   QTY Quantity                                  M   1        ³³³³
+0770   FTX Free text                                 C   1ÄÄÄÄÄÄÄÄÁÁÁÙ
+
+0780       ÄÄÄÄÄ Segment group 17 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   1ÄÄÄÄÄÄÄÄÄÄÄ¿
+0790   AUT Authentication result                     M   1           ³
+0800   DTM Date/time/period                          C   9           ³
+0810   RFF Reference                                 C   9ÄÄÄÄÄÄÄÄÄÄÄÙ
+0820   UNT Message trailer                           M   1     

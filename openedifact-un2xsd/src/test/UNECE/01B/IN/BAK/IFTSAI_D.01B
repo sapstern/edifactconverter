@@ -1,0 +1,515 @@
+                              UN/EDIFACT
+
+                UNITED NATIONS STANDARD MESSAGE (UNSM)
+
+Forwarding and transport schedule and availability information message
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                           Message Type : IFTSAI
+                                           Version      : D
+                                           Release      : 01B
+                                           Contr. Agency: UN
+
+                                           Revision     : 6
+                                           Date         : 2001-05-15
+
+
+
+
+
+
+SOURCE: D4 Transport (SWG)
+
+
+
+                               CONTENTS
+
+Forwarding and transport schedule and availability information message
+
+0.     INTRODUCTION
+
+1.     SCOPE
+
+       1.1   Functional definition
+
+       1.2   Field of application
+
+       1.3   Principles
+
+2.     REFERENCES
+
+3.     TERMS AND DEFINITIONS
+
+       3.1   Standard terms and definitions
+
+4.     MESSAGE DEFINITION
+
+       4.1   Segment clarification
+
+       4.2   Segment index (alphabetical sequence by tag)
+
+       4.3   Message structure
+             4.3.1 Segment table
+
+
+
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------
+For general information on UN standard message types see UN Trade Data
+Interchange Directory, UNTDID, Part 4, Section 2.3, UN/ECE UNSM
+General Introduction
+----------------------------------------------------------------------
+
+
+
+0.     INTRODUCTION
+
+       This specification provides the definition of the Forwarding
+       and transport schedule and availability information message
+       (IFTSAI) to be used in Electronic Data Interchange (EDI)
+       between trading partners involved in administration, commerce
+       and transport.
+
+1.     SCOPE
+
+1.1    Functional definition
+
+       The function of this message is to request transport schedule
+       or availability information and to answer to such a request.
+
+1.2    Field of application
+
+       The Forwarding and transport schedule and availability
+       information message may be used for both national and
+       international applications. It is based on universal practice
+       related to administration, commerce and transport, and is not
+       dependent on the type of business or industry.
+
+1.3    Principles
+
+       This message may be used:
+       
+       a) to request operating means of transportation for a specific
+       routing. Certain specific research criteria such as date/time
+       of operation and type of transport desired may be precised to
+       limit the volume of information requested.
+       
+       b) to answer to such a request furnishing a list of operating
+       means of transport in accordance with the selection criteria.
+       Such answer may comprise direct and/or combinations of means of
+       transport.
+       
+       c) to request means of transport on which space is available
+       for a specific routing. Certain specific research criteria like
+       date/time of operation, type of transport and space desired may
+       be precised to limit the volume of information requested.
+       
+       d) to answer to such request furnishing a list of available
+       means of transport in accordance with the selection criteria.
+       Such an answer may comprise direct and/or combinations of means
+       of transport.
+       
+       The transport sub-working group (D4) has developed
+       recommendations for a harmonised implementation of this message
+       through its subgroup ITIGG (International Transport
+       Implementation Guidelines Group).
+       Users implementing the message are strongly advised to apply
+       these recommendations, which may be obtained from the D4
+       secretariat.
+
+2.     REFERENCES
+
+       See UNTDID, Part 4, Chapter 2.3 UN/ECE UNSM - General
+       Introduction, Section 1.
+
+3.     TERMS AND DEFINITIONS
+
+3.1    Standard terms and definitions
+
+       See UNTDID, Part 4, Chapter 2.3 UN/ECE UNSM - General
+       Introduction, Section 2.
+
+4.     MESSAGE DEFINITION
+
+4.1    Segment clarification
+
+       This section should be read in conjunction with the segment
+       table which indicates mandatory, conditional and repeating
+       requirements.
+
+0010   UNH, Message header
+       A service segment starting and uniquely identifying a message.
+       The message type code for the Forwarding and transport schedule
+       and availability information message is IFTSAI.
+
+       Note: Forwarding and transport schedule and availability
+       information messages conforming to this document must contain
+       the following data in segment UNH, composite S009:
+
+       Data element  0065 IFTSAI
+                     0052 D
+                     0054 01B
+                     0051 UN
+
+0020   BGM, Beginning of message
+       A segment to indicate the type and function of the message and
+       to transmit the identifying number.
+
+0030   DTM, Date/time/period
+       A segment to indicate date(s) and time(s) applying to the whole
+       message.
+
+0040   FTX, Free text
+       A segment to specify free form or processable supplementary
+       information. In computer-to-computer exchanges free form text
+       will normally require the receiver to process this segment
+       manually.
+
+0050 X GIS, General indicator
+       A segment to provide a general indicator relating to the whole
+       message, such as urgency.
+
+
+0060   Segment group 1:  RFF-DTM
+       A group of segments to specify the document or message to which
+       the current message relates, and related date and time.
+
+0070      RFF, Reference
+          A segment to identify a reference which applies to the
+          entire message, e.g. reference to previous message.
+
+0080      DTM, Date/time/period
+          A segment to indicate date and time relating to the
+          reference.
+
+
+0090   Segment group 2:  LOC-DTM
+       A group of segments to identify the routing and date of the
+       schedule or availability information.
+
+0100      LOC, Place/location identification
+          A segment to identify a location, e.g. place of
+          departure/arrival.
+
+0110      DTM, Date/time/period
+          A segment to indicate date(s) and time(s) related to the
+          location.
+
+
+0120   Segment group 3:  EQD-EQN-MEA-DIM-FTX-RFF-TPL
+       A group of segments to define requested or available equipment.
+
+0130      EQD, Equipment details
+          A segment to specify requested or available equipment and
+          equipment size and type.
+
+0140      EQN, Number of units
+          A segment to specify the number of requested or available
+          pieces of equipment.
+
+0150      MEA, Measurements
+          A segment to specify measurements, other than dimensions,
+          associated with equipment, in terms of capacity.
+
+0160      DIM, Dimensions
+          A segment to specify dimensions applicable to equipment.
+
+0170      FTX, Free text
+          A segment to specify free form or processable supplementary
+          information associated with the equipment.
+
+0180      RFF, Reference
+          A segment to specify a reference number to equipment.
+
+0190      TPL, Transport placement
+          Segment to specify the link between the means of transport
+          and the equipment.
+
+
+0200   Segment group 4:  TDT-DTM-TSR-RFF-FTX-EQD-QTY-MEA-SG5
+       A group of segments to specify the schedule or availability
+       selection criteria and to detail the schedule or availability
+       information being provided.
+
+0210      TDT, Details of transport
+          A segment to indicate information related to the mode and
+          means of transport, eg. specific conveyance/carrier.
+
+0220      DTM, Date/time/period
+          A segment to indicate date(s) and time(s), e.g. earliest
+          departure date/time, latest arrival date/time.
+
+0230      TSR, Transport service requirements
+          A segment to identify contract, conditions of carriage,
+          services and priority requirements.
+
+0240      RFF, Reference
+          A segment to provide a reference related to the transport
+          details, such as the published line or route number.
+
+0250      FTX, Free text
+          A segment to specify free form or processable supplementary
+          information related to the means of transport.
+
+0260      EQD, Equipment details
+          A segment to identify the equipment requested/available.
+
+0270      QTY, Quantity
+          A segment to indicate a quantity, e.g. number of
+          intermediate stops.
+
+0280      MEA, Measurements
+          A segment to indicate weight and/or volume selection
+          criteria, e.g. minimum weight.
+
+
+0290      Segment group 5:  LOC-DTM-RFF
+          A group of segments to identify the routing(s) and indicate
+          corresponding date(s) and time(s).
+
+0300         LOC, Place/location identification
+             A segment to identify a location, e.g. place of
+             departure/arrival.
+
+0310         DTM, Date/time/period
+             A segment to indicate date(s) and time(s) related to the
+             location, e.g. date/time of scheduled departure/arrival.
+
+0320         RFF, Reference
+             A segment to provide a reference related to the location,
+             such as the platform number at the place of departure.
+
+
+0330   Segment group 6:  NAD-LOC-SG7
+       A group of segments to indicate all parties involved in the
+       transaction and relevant locations, contacts and communication
+       channels.
+
+0340      NAD, Name and address
+          A segment to identify the party's name, address and
+          function.
+
+0350      LOC, Place/location identification
+          A segment to identify a place/location/sub-location and
+          where relevant the function. The present location must be
+          associated with the relevant party.
+
+
+0360      Segment group 7:  CTA-COM
+          A group of segments to identify a contact and its
+          communication channels, related to the party.
+
+0370         CTA, Contact information
+             A segment to identify a person or department within a
+             party.
+
+0380         COM, Communication contact
+             A segment to identify the communication numbers of person
+             or department to whom communication should be directed.
+
+
+0390   Segment group 8:  GID-HAN-FTX-SG9-SG10-SG11-SG12
+       A group of segments to describe the goods items for which
+       schedule or availability is requested/provided.
+
+0400      GID, Goods item details
+          A segment to identify the goods item. A goods item can be
+          identified by up to three levels of packaging within this
+          segment.
+
+0410      HAN, Handling instructions
+          A segment to specify handling instructions relating to the
+          goods item.
+
+0420      FTX, Free text
+          A segment to specify free form or processable information
+          relating to the goods item.
+
+
+0430      Segment group 9:  GDS-FTX
+          A group of segments to identify and describe the goods.
+
+0440         GDS, Nature of cargo
+             A segment to describe the nature of cargo.
+
+0450         FTX, Free text
+             A segment to describe the goods in free form.
+
+
+0460      Segment group 10: MEA-EQN
+          A group of segments to specify measurements applicable to
+          the goods item.
+
+0470         MEA, Measurements
+             A segment to specify measurements, other than dimensions,
+             applicable to the goods item.
+
+0480         EQN, Number of units
+             A segment to specify the number of equipment units to
+             which the measurement applies.
+
+
+0490      Segment group 11: DIM-EQN
+          A group of segments to specify dimensions applicable to the
+          goods item.
+
+0500         DIM, Dimensions
+             A segment to specify dimensions applicable to the goods
+             item.
+
+0510         EQN, Number of units
+             A segment to specify the number of equipment units to
+             which the given dimensions apply.
+
+
+0520      Segment group 12: DGS-FTX
+          A group of segments to specify dangerous goods details
+          related to the goods item.
+
+0530         DGS, Dangerous goods
+             A segment to specify the class of dangerous goods,
+             packing group, etc.
+
+0540         FTX, Free text
+             A segment to specify the dangerous goods technical name
+             and any other additional dangerous goods information.
+
+0550   UNT, Message trailer
+       A service segment ending a message, giving the total number of
+       segments in the message (including the UNH & UNT) and the
+       control reference number of the message.
+
+4.2    Segment index (alphabetical sequence by tag)
+
+          BGM Beginning of message
+          COM Communication contact
+          CTA Contact information
+          DGS Dangerous goods
+          DIM Dimensions
+          DTM Date/time/period
+          EQD Equipment details
+          EQN Number of units
+          FTX Free text
+          GDS Nature of cargo
+          GID Goods item details
+       X  GIS General indicator
+          HAN Handling instructions
+          LOC Place/location identification
+          MEA Measurements
+          NAD Name and address
+          QTY Quantity
+          RFF Reference
+          TDT Details of transport
+          TPL Transport placement
+          TSR Transport service requirements
+          UNH Message header
+          UNT Message trailer
+
+4.3    Message structure
+
+4.3.1  Segment table
+
+Pos    Tag Name                                      S   R
+
+0010   UNH Message header                            M   1     
+0020   BGM Beginning of message                      M   1     
+0030   DTM Date/time/period                          C   9     
+0040   FTX Free text                                 C   99    
+0050 X GIS General indicator                         C   1     
+
+0060       ÄÄÄÄÄ Segment group 1  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄÄÄÄ¿
+0070   RFF Reference                                 M   1           ³
+0080   DTM Date/time/period                          C   9ÄÄÄÄÄÄÄÄÄÄÄÙ
+
+0090       ÄÄÄÄÄ Segment group 2  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄÄÄÄ¿
+0100   LOC Place/location identification             M   1           ³
+0110   DTM Date/time/period                          C   9ÄÄÄÄÄÄÄÄÄÄÄÙ
+
+0120       ÄÄÄÄÄ Segment group 3  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   999ÄÄÄÄÄÄÄÄÄ¿
+0130   EQD Equipment details                         M   1           ³
+0140   EQN Number of units                           C   9           ³
+0150   MEA Measurements                              C   9           ³
+0160   DIM Dimensions                                C   9           ³
+0170   FTX Free text                                 C   9           ³
+0180   RFF Reference                                 C   9           ³
+0190   TPL Transport placement                       C   1ÄÄÄÄÄÄÄÄÄÄÄÙ
+
+0200       ÄÄÄÄÄ Segment group 4  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   999ÄÄÄÄÄÄÄÄÄ¿
+0210   TDT Details of transport                      M   1           ³
+0220   DTM Date/time/period                          C   9           ³
+0230   TSR Transport service requirements            C   9           ³
+0240   RFF Reference                                 C   9           ³
+0250   FTX Free text                                 C   9           ³
+0260   EQD Equipment details                         C   99          ³
+0270   QTY Quantity                                  C   9           ³
+0280   MEA Measurements                              C   9           ³
+                                                                     ³
+0290       ÄÄÄÄÄ Segment group 5  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99ÄÄÄÄÄÄÄÄÄ¿³
+0300   LOC Place/location identification             M   1          ³³
+0310   DTM Date/time/period                          C   9          ³³
+0320   RFF Reference                                 C   9ÄÄÄÄÄÄÄÄÄÄÁÙ
+
+0330       ÄÄÄÄÄ Segment group 6  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄÄÄÄ¿
+0340   NAD Name and address                          M   1           ³
+0350   LOC Place/location identification             C   9           ³
+                                                                     ³
+0360       ÄÄÄÄÄ Segment group 7  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄÄÄ¿³
+0370   CTA Contact information                       M   1          ³³
+0380   COM Communication contact                     C   9ÄÄÄÄÄÄÄÄÄÄÁÙ
+
+0390       ÄÄÄÄÄ Segment group 8  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄÄÄÄ¿
+0400   GID Goods item details                        M   1           ³
+0410   HAN Handling instructions                     C   9           ³
+0420   FTX Free text                                 C   9           ³
+                                                                     ³
+0430       ÄÄÄÄÄ Segment group 9  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄÄÄ¿³
+0440   GDS Nature of cargo                           M   1          ³³
+0450   FTX Free text                                 C   9ÄÄÄÄÄÄÄÄÄÄÙ³
+                                                                     ³
+0460       ÄÄÄÄÄ Segment group 10 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄÄÄ¿³
+0470   MEA Measurements                              M   1          ³³
+0480   EQN Number of units                           C   9ÄÄÄÄÄÄÄÄÄÄÙ³
+                                                                     ³
+0490       ÄÄÄÄÄ Segment group 11 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄÄÄ¿³
+0500   DIM Dimensions                                M   1          ³³
+0510   EQN Number of units                           C   9ÄÄÄÄÄÄÄÄÄÄÙ³
+                                                                     ³
+0520       ÄÄÄÄÄ Segment group 12 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄÄÄ¿³
+0530   DGS Dangerous goods                           M   1          ³³
+0540   FTX Free text                                 C   9ÄÄÄÄÄÄÄÄÄÄÁÙ
+0550   UNT Message trailer                           M   1     

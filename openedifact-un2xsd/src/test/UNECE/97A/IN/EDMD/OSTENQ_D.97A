@@ -1,0 +1,386 @@
+                              UN/EDIFACT
+
+                UNITED NATIONS STANDARD MESSAGE (UNSM)
+
+                     Order status enquiry message
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                            Message Type : OSTENQ
+                                            Version      : D
+                                            Release      : 97A
+                                            Contr. Agency: UN
+
+                                            Revision     : 1
+                                            Date         : 96-12-13
+
+
+
+
+
+
+SOURCE: Western European EDIFACT Board - MD1
+
+
+
+                               CONTENTS
+
+                     Order status enquiry message
+
+0.   INTRODUCTION
+
+1.   SCOPE
+
+     1.1   Functional definition
+
+     1.2   Field of application
+
+     1.3   Principles
+
+2.   REFERENCES
+
+3.   TERMS AND DEFINITIONS
+
+     3.1   Standard terms and definitions
+
+4.   MESSAGE DEFINITION
+
+     4.1   Data segment clarification
+
+           4.1.1 Header section
+           4.1.2 Detail section
+
+     4.2   Data segment index (alphabetical sequence)
+
+     4.3   Message structure
+
+           4.3.1 Segment table
+
+
+
+
+
+
+
+----------------------------------------------------------------------
+For general information on UN standard message types see UN Trade Data
+Interchange Directory, UNTDID, Part 4, Section 2.6, UN/ECE UNSM
+General Introduction
+----------------------------------------------------------------------
+
+
+
+0.     INTRODUCTION
+
+       This specification provides the definition of the Order status
+       enquiry message (OSTENQ) to be used in Electronic Data
+       Interchange (EDI) between trading partners involved in
+       administration, commerce and transport.
+
+1.     SCOPE
+
+1.1    Functional Definition
+
+       A message between a buyer or buyer's agent and a seller or
+       seller's agent for information on the current status of a
+       previously sent order(s).
+
+1.2    Field of Application
+
+       The Order status enquiry message may be used for both national
+       and international applications. It is based on universal
+       practice related to administration, commerce and transport, and
+       is not dependent on the type of business or industry.
+
+1.3    Principles
+
+       This message may relate to:
+       
+       - one type of enquiry
+       
+       - one or more orders
+       
+       - specific lines within orders
+       
+       The order status enquiry can be sent as 'non-specific
+       enquiries', i.e. asking for all outstanding orders, or as
+       'specific enquiries', i.e. asking for specific orders or order
+       lines.
+
+2.     REFERENCES
+
+       See UNTDID, Part 4, Chapter 2.6 UN/ECE UNSM - General
+       Introduction, Section 1.
+
+3.     TERMS AND DEFINITIONS
+
+3.1    Standard terms and definitions
+
+       See UNTDID, Part 4, Chapter 2.6 UN/ECE UNSM - General
+       Introduction, Section 2.
+
+4.     MESSAGE DEFINITION
+
+       This section is provided to give clarification and further
+       explanation to the usage of segments within the message
+       structure.
+
+4.1    Data Segment Clarification
+
+       This section should be read in conjunction with the Segment
+       Table which indicate mandatory, conditional and repeating
+       requirements.
+       
+       The following guidelines and principles apply to the whole
+       message and are intended to facilitate the understanding and
+       implementation of the message:
+       
+       - All specified dates/times should be in the format
+       'yymmdd'/'hhmm' unless all parties involved in the transaction
+       agree that there is a functional requirement for an alternative
+       format. Periods should be specified as whole numbers
+       representing the required period as indicated in the format
+       qualifier (weeks, months, etc.)
+       
+       - Where a choice of code or text is given only the code element
+       should be used wherever possible. 
+       
+       - Data that is not necessary to meet the functional
+       requirements of the message should not be included.
+       
+       - Care must be taken that the segment qualifier in dependent
+       segments do not conflict with the segment qualifier of the
+       trigger segment.
+       
+       - Free text information within the message should be avoided as
+       this inhibits automatic processing.
+
+4.1.1  Header section
+
+       Information to be provided in the Header section:
+
+0010   UNH, Message header
+       A service segment starting and uniquely identifying a message.
+       The message type code for the Order status enquiry message is
+       OSTENQ.
+       
+       Note: Order status enquiry messages conforming to this document
+       must contain the following data in segment UNH, composite S009:
+
+       Data element  0065 OSTENQ
+                     0052 D
+                     0054 97A
+                     0051 UN
+
+0020   BGM, Beginning of message
+       A segment by which the sender must uniquely identify the order
+       status enquiry by means of its type and number and when
+       necessary it's function.
+
+0030   DTM, Date/time/period
+       A segment specifying general dates and, when relevant, times
+       related to the whole message. The segment must be specified at
+       least once to identify the request date. The Date/Time/Period
+       segment within other Segment group should be used whenever the
+       date/time/period requires to be logically related to another
+       specified data item e.g. Reference issue date is specified
+       within the RFF Segment group.
+
+0040   FTX, Free text
+       A segment with free text information, in coded or clear form,
+       used when additional information is needed but cannot be
+       accommodated within other segments. In computer exchanges such
+       text will normally require the receiver to process this segment
+       manually.
+
+
+0050   Segment group 1:  NAD-SG2
+       A group of segments identifying the parties with associated
+       information.
+
+0060      NAD, Name and address
+          A segment identifying names and addresses of the parties, in
+          coded or clear form, and their functions relevant to the
+          proposed order. Identification of the sender (normally the
+          buyer) is mandatory for the enquiry. It is recommended that
+          where possible only the coded form of the party ID should be
+          specified.
+
+
+0070      Segment group 2:  CTA-COM
+          A group of segments giving contact details of the specific
+          person or department within the party identified in the NAD
+          segment.
+
+0080         CTA, Contact information
+             A segment to identify a person or department, and their
+             function, to whom communications should be directed.
+
+0090         COM, Communication contact
+             A segment to identify a communications type and number
+             for the contact specified in the CTA segment.
+
+4.1.2  Detail section
+
+       Information to be provided in the Detail section:
+
+
+0100   Segment group 3:  DOC-DTM-SG4
+       A group of segments providing details of the individual
+       requested order(s).
+
+0110      DOC, Document/message details
+          A segment giving references to the purchase order(s)
+          enquired. Other references may also be given, e.g. sellers
+          reference number.
+
+0120      DTM, Date/time/period
+          A segment specifying the date/time related to the reference.
+
+
+0130      Segment group 4:  LIN-PIA-IMD-MEA-SG5-SG6
+          A group of segments providing details of the individual
+          requested order(s) lines.
+
+0140         LIN, Line item
+             A segment used to identify a line item.
+
+0150         PIA, Additional product id
+             A segment providing additional identification on the
+             product specified in the LIN segment. E.g. To give
+             seller's item number, EAN number, technical specification
+             number.
+
+0160         IMD, Item description
+             A segment for describing the product as well as product
+             characteristic. This segment should be used for products
+             and services that cannot be fully identified by a product
+             code or article number.
+
+0170         MEA, Measurements
+             A segment enabling the physical measurements of the
+             ordered item to be specified where this is required for
+             full identification of the product. Any measurements must
+             refer to the product in its unpacked form e.g. thickness
+             of plastic film, length, weight, etc.
+
+
+0180         Segment group 5:  RFF-DTM
+             A group of segments giving references related to the
+             order line(s) and, where relevant, its dates.
+
+0190            RFF, Reference
+                A segment giving references to sellers reference
+                number, contract numbers, etc.
+
+0200            DTM, Date/time/period
+                A segment specifying the date/time related to the
+                reference.
+
+
+0210         Segment group 6:  LOC-DTM-QTY
+             A group of segments used to request the status of only
+             certain delivery of an order line.
+
+0220            LOC, Place/location identification
+                A segment indicating the location to which goods are
+                to be delivered. This segment will only be used for
+                multi destination deliveries.
+
+0230            DTM, Date/time/period
+                A segment specifying the date/time related to the
+                product quantities.
+
+0240            QTY, Quantity
+                A segment identifying the product quantities.
+
+0250   UNT, Message trailer
+       A service segment ending a message, giving the total number of
+       segments in the message and the control reference number of the
+       message.
+
+4.2    Data segment index (Alphabetical sequence by tag)
+
+          BGM Beginning of message
+          COM Communication contact
+          CTA Contact information
+          DOC Document/message details
+          DTM Date/time/period
+          FTX Free text
+          IMD Item description
+          LIN Line item
+          LOC Place/location identification
+          MEA Measurements
+          NAD Name and address
+          PIA Additional product id
+          QTY Quantity
+          RFF Reference
+          UNH Message header
+          UNT Message trailer
+
+4.3    Message structure
+
+4.3.1  Segment table
+
+Pos    Tag Name                                      S   R
+
+           HEADER SECTION
+
+0010   UNH Message header                            M   1     
+0020   BGM Beginning of message                      M   1     
+0030   DTM Date/time/period                          M   5     
+0040   FTX Free text                                 C   20    
+
+0050       ÄÄÄÄÄ Segment group 1  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   25ÄÄÄÄÄÄÄÄÄÄ¿
+0060   NAD Name and address                          M   1           ³
+                                                                     ³
+0070       ÄÄÄÄÄ Segment group 2  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   5ÄÄÄÄÄÄÄÄÄÄ¿³
+0080   CTA Contact information                       M   1          ³³
+0090   COM Communication contact                     C   5ÄÄÄÄÄÄÄÄÄÄÁÙ
+
+           DETAIL SECTION
+
+0100       ÄÄÄÄÄ Segment group 3  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   999ÄÄÄÄÄÄÄÄÄ¿
+0110   DOC Document/message details                  M   1           ³
+0120   DTM Date/time/period                          C   5           ³
+                                                                     ³
+0130       ÄÄÄÄÄ Segment group 4  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   200000ÄÄÄÄÄ¿³
+0140   LIN Line item                                 M   1          ³³
+0150   PIA Additional product id                     C   25         ³³
+0160   IMD Item description                          C   10         ³³
+0170   MEA Measurements                              C   5          ³³
+                                                                    ³³
+0180       ÄÄÄÄÄ Segment group 5  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99ÄÄÄÄÄÄÄÄ¿³³
+0190   RFF Reference                                 M   1         ³³³
+0200   DTM Date/time/period                          C   1ÄÄÄÄÄÄÄÄÄÙ³³
+                                                                    ³³
+0210       ÄÄÄÄÄ Segment group 6  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99ÄÄÄÄÄÄÄÄ¿³³
+0220   LOC Place/location identification             M   1         ³³³
+0230   DTM Date/time/period                          C   5         ³³³
+0240   QTY Quantity                                  C   1ÄÄÄÄÄÄÄÄÄÁÁÙ
+0250   UNT Message trailer                           M   1     

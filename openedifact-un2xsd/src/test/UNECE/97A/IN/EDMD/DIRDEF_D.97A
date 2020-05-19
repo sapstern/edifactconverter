@@ -1,0 +1,407 @@
+                              UN/EDIFACT
+
+                UNITED NATIONS STANDARD MESSAGE (UNSM)
+
+                     Directory definition message
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                            Message Type : DIRDEF
+                                            Version      : D
+                                            Release      : 97A
+                                            Contr. Agency: UN
+
+                                            Revision     : 2
+                                            Date         : 96-12-13
+
+
+
+
+
+
+SOURCE: UN/ECE Secretariat
+
+
+
+                               CONTENTS
+
+                     Directory definition message
+
+0.   INTRODUCTION
+
+1.   SCOPE
+
+     1.1   Functional definition
+
+     1.2   Field of application
+
+     1.3   Principles
+
+2.   REFERENCES
+
+3.   TERMS AND DEFINITIONS
+
+     3.1   Standard terms and definitions
+
+4.   MESSAGE DEFINITION
+
+     4.1   Data segment clarification
+
+     4.2   Data segment index (alphabetical sequence)
+
+     4.3   Message structure
+
+           4.3.1 Segment table
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------
+For general information on UN standard message types see UN Trade Data
+Interchange Directory, UNTDID, Part 4, Section 2.6, UN/ECE UNSM
+General Introduction
+----------------------------------------------------------------------
+
+
+
+0.     INTRODUCTION
+
+       This specification provides the definition of the Directory
+       definition message (DIRDEF) to be used in Electronic Data
+       Interchange (EDI) between trading partners involved in
+       administration, commerce and transport.
+
+1.     SCOPE
+
+1.1    Functional Definition
+
+       This Directory definition message (DIRDEF) permits the transfer
+       of the contents of a UN/EDIFACT Directory set or parts thereof.
+
+1.2    Field of Application
+
+       The Directory definition message may be used for both national
+       and international applications. It is based on universal
+       practice related to administration, commerce and transport, and
+       is not dependent on the type of business or industry.
+
+1.3    Principles
+
+       The Message allows the transmission of a UN/EDIFACT Directory
+       set or parts thereof. A UN/EDIFACT Directory Set comprises:
+       
+       -Message type directory 
+       -Segment directory 
+       -Composite data element directory 
+       -Simple data element directory 
+       -Code list directory
+       
+       One occurrence of the message can contain only one version of a
+       UN/EDIFACT Directory set or parts thereof.
+
+2.     REFERENCES
+
+       See UNTDID, Part 4, Chapter 2.6 UN/ECE UNSM - General
+       Introduction, Section 1.
+
+3.     TERMS AND DEFINITIONS
+
+3.1    Standard terms and definitions
+
+       See UNTDID, Part 4, Chapter 2.6 UN/ECE UNSM - General
+       Introduction, Section 2.
+
+4.     MESSAGE DEFINITION
+
+4.1    Data Segment Clarification
+
+       This section should be read in conjunction with the Segment
+       Table which indicate mandatory, conditional and repeating
+       requirements.
+
+0010   UNH, Message header
+       A service segment starting and uniquely identifying a message.
+       The message type code for the Directory definition message is
+       DIRDEF.
+       
+       Note: Directory definition messages conforming to this document
+       must contain the following data in segment UNH, composite S009:
+
+       Data element  0065 DIRDEF
+                     0052 D
+                     0054 97A
+                     0051 UN
+
+0020   BGM, Beginning of message
+       A segment to indicate the beginning of the message and to
+       transmit function, type and number of the message.
+
+0030   DII, Directory identification
+       A segment specifying the identity of the directory set and
+       giving its language and maintenance operation.
+
+0040   DTM, Date/time/period
+       A segment specifying dates related to the directory set, such
+       as date of approval, date of submission or WP.4 acceptance
+       date.
+
+0050   FTX, Free text
+       A segment providing free text information related to the
+       directory set.
+
+
+0060   Segment group 1:  NAD-SG2
+       A group of segments identifying the parties involved in the
+       transaction with associated information.
+
+0070      NAD, Name and address
+          A segment identifying the parties involved in the
+          transaction, e.g. originator, requestor or secretariat.
+
+
+0080      Segment group 2:  CTA-COM
+          A group of segments identifying a person or a department and
+          identifying communication type(s) and number(s).
+
+0090         CTA, Contact information
+             A segment identifying a person or a department for the
+             party specified in the leading NAD segment to whom the
+             communication should be directed.
+
+0100         COM, Communication contact
+             A segment identifying communication type(s) and number(s)
+             of person(s) or department(s) specified in the associated
+             CTA segment.
+
+
+0110 | Segment group 3:  MSG-FTX-DTM-SG4
+       A group of segments providing a message type directory.
+
+0120      MSG, Message type identification
+          A segment identifying a message type to be specified.
+
+0130      FTX, Free text
+          A segment providing textual information related to the
+          message type, namely: message type name, Introduction,
+          Scope, Functional definition, Principles, References and
+          Terms and definitions.
+
+0140 +    DTM, Date/time/period
+          This segment is used to indicate the release date of a
+          message, as indicated on the cover page of the boilerplate.
+
+
+0150      Segment group 4:  SGU-FTX-SG5
+          A group of segments specifying a message type structure and
+          its related functional definition.
+
+0160         SGU, Segment usage details
+             A segment specifying the usage of a segment in a message
+             type structure.
+
+0170         FTX, Free text
+             A segment providing textual information about segment
+             usage. This information comprises part of the 'Data
+             segment clarification' section.
+
+
+0180         Segment group 5:  GRU-FTX
+             A group of segments identifying a segment group and
+             providing details about segment group usage.
+
+0190            GRU, Segment group usage details
+                A segment specifying the usage of a segment group in a
+                message type structure.
+
+0200            FTX, Free text
+                A segment providing the textual information about
+                segment group usage. This information comprises part
+                of the 'Data Segment Clarification' section.
+
+
+0210 | Segment group 6:  SEG-FTX-ELU-REL
+       A group of segments providing a segment directory.
+
+0220      SEG, Segment identification
+          A segment identifying a segment type and specifying its
+          class and maintenance operation.
+
+0230      FTX, Free text
+          A segment specifying the name and functional definition of a
+          segment type.
+
+0240      ELU, Data element usage details
+          A segment specifying the contents of data elements in a
+          segment type.
+
+0250 +    REL, Relationship
+          To identify the direct relationship between the data and/or
+          information contained in one segment and the data and/or
+          information contained in one or more other segments.
+
+
+0260   Segment group 7:  CMP-FTX-ELU
+       A group of segments providing a composite data element
+       directory.
+
+0270      CMP, Composite data element identification
+          A segment identifying a composite data element and
+          specifying its class and maintenance operation.
+
+0280      FTX, Free text
+          A segment specifying the name and functional definition of a
+          composite data element type.
+
+0290      ELU, Data element usage details
+          A segment specifying component data elements in a composite
+          data element and its related information.
+
+
+0300   Segment group 8:  ELM-FTX
+       A group of segments providing a data element directory.
+
+0310      ELM, Simple data element details
+          A segment identifying a simple data element and giving
+          related information.
+
+0320      FTX, Free text
+          A segment specifying the name and functional definition of a
+          simple data element.
+
+
+0330   Segment group 9:  CDS-FTX-SG10
+       A group of segments providing a code list directory.
+
+0340      CDS, Code set identification
+          A segment specifying a code set. In DIRDEF data element 9434
+          shall not be used.
+
+0350      FTX, Free text
+          A segment providing textual information related to the code
+          list.
+
+
+0360      Segment group 10: CDV-FTX
+          A group of segments specifying a code value and its
+          functional definition.
+
+0370         CDV, Code value definition
+             A segment specifying a code value.
+
+0380         FTX, Free text
+             A segment specifying the name and functional definition
+             of a code value.
+
+0390   UNT, Message trailer
+       A service segment ending a message, giving the total number of
+       segments in the message and the control reference number of the
+       message.
+
+4.2    Data segment index (Alphabetical sequence by tag)
+
+          BGM Beginning of message
+          CDS Code set identification
+          CDV Code value definition
+          CMP Composite data element identification
+          COM Communication contact
+          CTA Contact information
+          DII Directory identification
+          DTM Date/time/period
+          ELM Simple data element details
+          ELU Data element usage details
+          FTX Free text
+          GRU Segment group usage details
+          MSG Message type identification
+          NAD Name and address
+       +  REL Relationship
+          SEG Segment identification
+          SGU Segment usage details
+          UNH Message header
+          UNT Message trailer
+
+4.3    Message structure
+
+4.3.1  Segment table
+
+Pos    Tag Name                                      S   R
+
+0010   UNH Message header                            M   1     
+0020   BGM Beginning of message                      C   1     
+0030   DII Directory identification                  M   1     
+0040   DTM Date/time/period                          C   9     
+0050   FTX Free text                                 C   9     
+
+0060       ÄÄÄÄÄ Segment group 1  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄÄÄÄ¿
+0070   NAD Name and address                          M   1           ³
+                                                                     ³
+0080       ÄÄÄÄÄ Segment group 2  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄÄÄ¿³
+0090   CTA Contact information                       M   1          ³³
+0100   COM Communication contact                     C   9ÄÄÄÄÄÄÄÄÄÄÁÙ
+
+0110       ÄÄÄÄÄ Segment group 3  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9999ÄÄÄÄÄÄÄÄ¿
+0120   MSG Message type identification               M   1           ³
+0130   FTX Free text                                 C   999         ³
+0140 + DTM Date/time/period                          M   1           ³
+                                                                     ³
+0150       ÄÄÄÄÄ Segment group 4  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   999ÄÄÄÄÄÄÄÄ¿³
+0160   SGU Segment usage details                     M   1          ³³
+0170   FTX Free text                                 C   99         ³³
+                                                                    ³³
+0180       ÄÄÄÄÄ Segment group 5  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   1ÄÄÄÄÄÄÄÄÄ¿³³
+0190   GRU Segment group usage details               M   1         ³³³
+0200   FTX Free text                                 C   99ÄÄÄÄÄÄÄÄÁÁÙ
+
+0210       ÄÄÄÄÄ Segment group 6  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9999ÄÄÄÄÄÄÄÄ¿
+0220   SEG Segment identification                    M   1           ³
+0230   FTX Free text                                 C   9           ³
+0240   ELU Data element usage details                C   99          ³
+0250 + REL Relationship                              C   99ÄÄÄÄÄÄÄÄÄÄÙ
+
+0260       ÄÄÄÄÄ Segment group 7  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9999ÄÄÄÄÄÄÄÄ¿
+0270   CMP Composite data element identification     M   1           ³
+0280   FTX Free text                                 C   9           ³
+0290   ELU Data element usage details                C   99ÄÄÄÄÄÄÄÄÄÄÙ
+
+0300       ÄÄÄÄÄ Segment group 8  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9999ÄÄÄÄÄÄÄÄ¿
+0310   ELM Simple data element details               M   1           ³
+0320   FTX Free text                                 C   9ÄÄÄÄÄÄÄÄÄÄÄÙ
+
+0330       ÄÄÄÄÄ Segment group 9  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9999ÄÄÄÄÄÄÄÄ¿
+0340   CDS Code set identification                   M   1           ³
+0350   FTX Free text                                 C   9           ³
+                                                                     ³
+0360       ÄÄÄÄÄ Segment group 10 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9999ÄÄÄÄÄÄÄ¿³
+0370   CDV Code value definition                     M   1          ³³
+0380   FTX Free text                                 C   9ÄÄÄÄÄÄÄÄÄÄÁÙ
+0390   UNT Message trailer                           M   1     

@@ -1,0 +1,584 @@
+                              UN/EDIFACT
+
+                UNITED NATIONS STANDARD MESSAGE (UNSM)
+
+                    Utilities master data message
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                           Message Type : UTILMD
+                                           Version      : D
+                                           Release      : 01B
+                                           Contr. Agency: UN
+
+                                           Revision     : 1
+                                           Date         : 2001-05-15
+
+
+
+
+
+
+SOURCE: D2 Purchasing (SWG)
+
+
+
+                               CONTENTS
+
+                    Utilities master data message
+
+0.     INTRODUCTION
+
+1.     SCOPE
+
+       1.1   Functional definition
+
+       1.2   Field of application
+
+       1.3   Principles
+
+2.     REFERENCES
+
+3.     TERMS AND DEFINITIONS
+
+       3.1   Standard terms and definitions
+
+       3.2   Message terms and definitions
+
+4.     MESSAGE DEFINITION
+
+       4.1   Segment clarification
+
+       4.2   Segment index (alphabetical sequence by tag)
+
+       4.3   Message structure
+             4.3.1 Segment table
+
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------
+For general information on UN standard message types see UN Trade Data
+Interchange Directory, UNTDID, Part 4, Section 2.3, UN/ECE UNSM
+General Introduction
+----------------------------------------------------------------------
+
+
+
+0.     INTRODUCTION
+
+       This specification provides the definition of the Utilities
+       master data message (UTILMD) to be used in Electronic Data
+       Interchange (EDI) between trading partners involved in
+       administration, commerce and transport.
+
+1.     SCOPE
+
+1.1    Functional definition
+
+       The Utilities master data message is sent between responsible
+       parties in a utilities infrastructure for the purpose of
+       exchanging characteristics of objects and services. In addition
+       the Utilities master data message may be used to request
+       information.
+       
+       A party in a utilities infrastructure can for example be a net
+       owner, a supplier, a balance responsible or a transmission
+       system operator.
+
+1.2    Field of application
+
+       The Utilities master data message may be used for both national
+       and international applications. It is based on universal
+       practice related to administration, commerce and transport, and
+       is not dependent on the type of business or industry.
+
+1.3    Principles
+
+       The Utilities master data message is used for exchanging
+       characteristics of objects and services in the specified field,
+       normally used for updating data bases with administrative and
+       technical information of long validity, such as information
+       concerning customers, partners and installations. The
+       information may be of technical or administrative character,
+       such as characteristics of a meter, tariffs, suppliers etc.
+       
+       In addition the Utilities master data message may be used to
+       request information.
+        
+       Each set of master data can be identified according to its
+       nature, e.g. by a metering point identification or a location
+       identification. The message may be an initial message and does
+       not require a response.
+       
+       Examples of use are:
+        Information regarding change of supplier, such as:
+        Request for end user information.
+        Information regarding the characteristics of an end user. 
+        Information about change of supplier.
+        Information of contract termination from an end user.
+        Exchange of changes in characteristics of objects or services
+       between parties in a utilities infrastructure.
+        Change of identity of an object.
+        Change of components or characteristics of components, such as
+       change of a meter.
+
+2.     REFERENCES
+
+       See UNTDID, Part 4, Chapter 2.3 UN/ECE UNSM - General
+       Introduction, Section 1.
+
+3.     TERMS AND DEFINITIONS
+
+3.1    Standard terms and definitions
+
+       See UNTDID, Part 4, Chapter 2.3 UN/ECE UNSM - General
+       Introduction, Section 2.
+
+3.2    Message terms and definitions
+
+       MASTER DATA:
+       Data used as a reference when routine transactions are being
+       processed. Master data will normally be exchanged or updated
+       infrequently relative to the transaction data depending upon
+       it. It will normally contain information of long validity. 
+       
+       OBJECT:
+       The entity (component or logical entity) that is being reported
+       in the detailed section of the message.
+       
+       TIME SERIES:
+       A sequence of observations of a single process often taken at
+       equal time intervals.
+
+4.     MESSAGE DEFINITION
+
+4.1    Segment clarification
+
+       This section should be read in conjunction with the segment
+       table which indicates mandatory, conditional and repeating
+       requirements.
+
+0010   UNH, Message header
+       A service segment starting and uniquely identifying a message.
+       The message type code for the Utilities master data message is
+       UTILMD.
+
+       Note: Utilities master data messages conforming to this
+       document must contain the following data in segment UNH,
+       composite S009:
+
+       Data element  0065 UTILMD
+                     0052 D
+                     0054 01B
+                     0051 UN
+
+0020   BGM, Beginning of message
+       A segment by which the sender uniquely identifies the Utilities
+       master data message by means of its name and number and its
+       function.
+
+0030   DTM, Date/time/period
+       A segment specifying general dates related to the whole message
+       and the time zone used in the message. The segment must be
+       specified at least once to specify the message date as
+       allocated by the sender.
+
+0040   MKS, Market/sales channel information
+       A segment to specify to which market the object relates.
+
+0050   FTX, Free text
+       A segment with free text information, in coded or clear form,
+       used when additional information is needed but cannot be
+       accommodated within other segments. In computer to computer
+       exchanges such text will normally require the receiver to
+       process this segment manually.
+
+
+0060   Segment group 1:  RFF-DTM
+       A group of segments giving references and, where necessary,
+       their dates relating to the whole message.
+
+0070      RFF, Reference
+          A segment identifying a reference by its type and number,
+          such as references to an earlier sent messages or a contract
+          number.
+
+0080      DTM, Date/time/period
+          A segment specifying the date/time related to the referenced
+          information.
+
+
+0090   Segment group 2:  NAD-RFF-FII-SG3
+       A group of segments identifying the parties with associated
+       information relevant to the whole message, such as the sender
+       and the receiver of the message.
+
+0100      NAD, Name and address
+          A segment for specifying the identification and/or the name
+          and the address of the party, in coded or clear form, and
+          the function relevant to the message. It is recommended
+          that, if possible, only the coded form of the party ID
+          should be specified.
+
+0110      RFF, Reference
+          A segment for inclusion of any references related to the
+          current party, such as fiscal number or government reference
+          number.
+
+0120      FII, Financial institution information
+          A segment to identify an account and a related financial
+          institution connected to the current party.
+
+
+0130      Segment group 3:  CTA-COM
+          A group of segments giving contact details of a specific
+          person and/or department within the party identified.
+
+0140         CTA, Contact information
+             A segment to identify a person and/or department, and
+             their function, to whom communications should be
+             directed.
+
+0150         COM, Communication contact
+             A segment to identify a communication type and number for
+             the contact specified.
+
+
+0160   Segment group 4:  IDE-LOC-PIA-IMD-DTM-PRC-STS-TAX-PTY-FTX-SG5-
+                         SG6-SG7-SG10-SG11
+       A group of segments providing details and characteristics of an
+       object, such as a metering point.
+
+0170      IDE, Identity
+          A segment starting a new set of master data for an object,
+          and identifying the type of object, such as a metering
+          point.
+
+0180      LOC, Place/location identification
+          A segment to identify locations connected to the object,
+          such as a net area or a connecting point to the central
+          grid.
+
+0190      PIA, Additional product id
+          A segment providing additional identification to the object
+          specified.
+
+0200      IMD, Item description
+          A segment for describing the object being reported. The
+          segment may be used for specification of the use of the
+          object (e.g. the type of consumption or production in the
+          object).
+
+0210      DTM, Date/time/period
+          A segment to specify dates associated with the object.
+
+0220      PRC, Process identification
+          A segment to specify to which business activity phase the
+          object relates.
+
+0230      STS, Status
+          A segment giving a status for the object, such as active or
+          closed.
+
+0240      TAX, Duty/tax/fee details
+          A segment to specify relevant duty/tax/fee information, such
+          as value added tax percentage.
+
+0250      PTY, Priority
+          A segment for communication of priority information, such as
+          if an installation is disconnectable or not.
+
+0260      FTX, Free text
+          A segment with free text information, in coded or clear
+          form, used when additional information is needed but cannot
+          be accommodated within other segments. In computer to
+          computer exchanges such text will normally require the
+          receiver to process this segment manually.
+
+
+0270      Segment group 5:  RFF-DTM
+          A group of segments for specifying any references and
+          associated dates valid for the object.
+
+0280         RFF, Reference
+             A segment identifying any references related to the
+             object, such as a transaction reference number or a
+             reference to a time series.
+
+0290         DTM, Date/time/period
+             A segment to specify any dates associated with the
+             current reference.
+
+
+0300      Segment group 6:  CCI-CAV
+          A group of segments providing characteristics and
+          characteristic details connected to the object.
+
+0310         CCI, Characteristic/class id
+             A segment to identify characteristic and/or the
+             characteristic name and characteristic relevance for the
+             object, such as method for balance settlement or
+             measurement method, number of digits of a meter etc.
+
+0320         CAV, Characteristic value
+             A segment to specify the value of the characteristic
+             previously defined in either coded form or in free
+             format.
+
+
+0330      Segment group 7:  SEQ-RFF-PIA-SG8-SG9
+          A group of segments to specify quantities, characteristics
+          and references of lower-level objects related to the current
+          object, such as meters and/or registers of a meter.
+
+0340         SEQ, Sequence details
+             A segment to provide a sequence number of the lower-level
+             objects, such as the register number within a meter.
+
+0350         RFF, Reference
+             A segment identifying any references related to the
+             lower-level object, such as a register number or a
+             reference to a contract.
+
+0360         PIA, Additional product id
+             A segment providing additional product identification
+             connected to the lower-level object, such as a register
+             of a meter.
+
+
+0370         Segment group 8:  QTY-DTM-STS
+              group of segments providing quantities connected to the
+             lower-level object.
+
+0380            QTY, Quantity
+                A segment identifying the quantity details, such as
+                estimated annual consumption or production.
+
+0390            DTM, Date/time/period
+                A segment to specify dates or periods related to the
+                previously specified quantity information.
+
+0400            STS, Status
+                A segment giving the status for the quantity, such as
+                metered, estimated or corrected.
+
+
+0410         Segment group 9:  CCI-CAV
+             A group of segments providing characteristics and
+             characteristic details connected to the lower-level
+             object.
+
+0420            CCI, Characteristic/class id
+                A segment to identify a characteristic and/or the
+                characteristic name and characteristic relevance for
+                the lower-level object, such as number of digits of a
+                meter etc.
+
+0430            CAV, Characteristic value
+                A segment to specify the value of the characteristic
+                previously defined in either coded form or in free
+                format.
+
+
+0440      Segment group 10: MOA-RFF-DTM
+          A group of segments for specifying monetary amounts related
+          to the object and connected references and dates, such as
+          grid access fee.
+
+0450         MOA, Monetary amount
+             A segment for specifying monetary amounts related to the
+             object.
+
+0460         RFF, Reference
+             A segment for identifying a reference to the amount.
+
+0470         DTM, Date/time/period
+             A segment specifying the date/time related to the
+             referenced information.
+
+
+0480      Segment group 11: NAD-RFF-DTM-FII-SG12
+          A group of segments identifying parties related to the
+          object or service, with associated information, such as end
+          user, installation, invoicee, etc.
+
+0490         NAD, Name and address
+             A segment for specifying the identification and/or the
+             name and address of the party, in coded or clear form,
+             and the functions relevant to the object or service. It
+             is recommended that, if possible, only the coded form of
+             the party identification should be specified.
+
+0500         RFF, Reference
+             A segment for inclusion of any references related to the
+             current party, such as fiscal number or government
+             reference number.
+
+0510         DTM, Date/time/period
+             A segment specifying the date and/or the time related to
+             the referenced information, such as the date of birth for
+             the end user.
+
+0520         FII, Financial institution information
+             A segment to identify an account and a related financial
+             institution connected to the current party.
+
+
+0530         Segment group 12: CTA-COM
+             A group of segments giving contact details of a specific
+             person and/or department within the party identified.
+
+0540            CTA, Contact information
+                A segment to identify a person and/or department, and
+                their function, to whom communications should be
+                directed.
+
+0550            COM, Communication contact
+                A segment to identify a communication type and number
+                for the contact specified.
+
+0560   CNT, Control total
+       A segment by which control totals may be sent by the sender for
+       checking by the receiver.
+
+0570   UNT, Message trailer
+       A service segment ending a message, giving the total number of
+       segments in the message (including the UNH & UNT) and the
+       control reference number of the message.
+
+4.2    Segment index (alphabetical sequence by tag)
+
+          BGM Beginning of message
+          CAV Characteristic value
+          CCI Characteristic/class id
+          CNT Control total
+          COM Communication contact
+          CTA Contact information
+          DTM Date/time/period
+          FII Financial institution information
+          FTX Free text
+          IDE Identity
+          IMD Item description
+          LOC Place/location identification
+          MKS Market/sales channel information
+          MOA Monetary amount
+          NAD Name and address
+          PIA Additional product id
+          PRC Process identification
+          PTY Priority
+          QTY Quantity
+          RFF Reference
+          SEQ Sequence details
+          STS Status
+          TAX Duty/tax/fee details
+          UNH Message header
+          UNT Message trailer
+
+4.3    Message structure
+
+4.3.1  Segment table
+
+Pos    Tag Name                                      S   R
+
+0010   UNH Message header                            M   1     
+0020   BGM Beginning of message                      M   1     
+0030   DTM Date/time/period                          M   9     
+0040   MKS Market/sales channel information          C   9     
+0050   FTX Free text                                 C   9     
+
+0060       ÄÄÄÄÄ Segment group 1  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄÄÄÄ¿
+0070   RFF Reference                                 M   1           ³
+0080   DTM Date/time/period                          C   9ÄÄÄÄÄÄÄÄÄÄÄÙ
+
+0090       ÄÄÄÄÄ Segment group 2  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99ÄÄÄÄÄÄÄÄÄÄ¿
+0100   NAD Name and address                          M   1           ³
+0110   RFF Reference                                 C   1           ³
+0120   FII Financial institution information         C   1           ³
+                                                                     ³
+0130       ÄÄÄÄÄ Segment group 3  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄÄÄ¿³
+0140   CTA Contact information                       M   1          ³³
+0150   COM Communication contact                     C   9ÄÄÄÄÄÄÄÄÄÄÁÙ
+
+0160       ÄÄÄÄÄ Segment group 4  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99999ÄÄÄÄÄÄÄ¿
+0170   IDE Identity                                  M   1           ³
+0180   LOC Place/location identification             C   9           ³
+0190   PIA Additional product id                     C   9           ³
+0200   IMD Item description                          C   9           ³
+0210   DTM Date/time/period                          C   9           ³
+0220   PRC Process identification                    C   9           ³
+0230   STS Status                                    C   9           ³
+0240   TAX Duty/tax/fee details                      C   9           ³
+0250   PTY Priority                                  C   9           ³
+0260   FTX Free text                                 C   9           ³
+                                                                     ³
+0270       ÄÄÄÄÄ Segment group 5  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99ÄÄÄÄÄÄÄÄÄ¿³
+0280   RFF Reference                                 M   1          ³³
+0290   DTM Date/time/period                          C   9ÄÄÄÄÄÄÄÄÄÄÙ³
+                                                                     ³
+0300       ÄÄÄÄÄ Segment group 6  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99ÄÄÄÄÄÄÄÄÄ¿³
+0310   CCI Characteristic/class id                   M   1          ³³
+0320   CAV Characteristic value                      C   99ÄÄÄÄÄÄÄÄÄÙ³
+                                                                     ³
+0330       ÄÄÄÄÄ Segment group 7  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99ÄÄÄÄÄÄÄÄÄ¿³
+0340   SEQ Sequence details                          M   1          ³³
+0350   RFF Reference                                 C   9          ³³
+0360   PIA Additional product id                     C   9          ³³
+                                                                    ³³
+0370       ÄÄÄÄÄ Segment group 8  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99ÄÄÄÄÄÄÄÄ¿³³
+0380   QTY Quantity                                  M   1         ³³³
+0390   DTM Date/time/period                          C   9         ³³³
+0400   STS Status                                    C   9ÄÄÄÄÄÄÄÄÄÙ³³
+                                                                    ³³
+0410       ÄÄÄÄÄ Segment group 9  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99ÄÄÄÄÄÄÄÄ¿³³
+0420   CCI Characteristic/class id                   M   1         ³³³
+0430   CAV Characteristic value                      C   99ÄÄÄÄÄÄÄÄÁÙ³
+                                                                     ³
+0440       ÄÄÄÄÄ Segment group 10 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99ÄÄÄÄÄÄÄÄÄ¿³
+0450   MOA Monetary amount                           M   1          ³³
+0460   RFF Reference                                 C   9          ³³
+0470   DTM Date/time/period                          C   9ÄÄÄÄÄÄÄÄÄÄÙ³
+                                                                     ³
+0480       ÄÄÄÄÄ Segment group 11 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99ÄÄÄÄÄÄÄÄÄ¿³
+0490   NAD Name and address                          M   1          ³³
+0500   RFF Reference                                 C   9          ³³
+0510   DTM Date/time/period                          C   9          ³³
+0520   FII Financial institution information         C   1          ³³
+                                                                    ³³
+0530       ÄÄÄÄÄ Segment group 12 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄÄ¿³³
+0540   CTA Contact information                       M   1         ³³³
+0550   COM Communication contact                     C   9ÄÄÄÄÄÄÄÄÄÁÁÙ
+0560   CNT Control total                             C   9     
+0570   UNT Message trailer                           M   1     

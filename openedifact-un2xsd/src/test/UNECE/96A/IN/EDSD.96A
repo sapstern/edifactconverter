@@ -1,0 +1,2685 @@
+2.   Segment specifications
+
+     Change indicators
+
+     a plus sign (+)    for an addition
+     an asterisk (*)    for an amendment to structure
+     a hash sign (#)    for changes to names
+     a vertical bar (|) for changes to text for descriptions,
+                        notes and functions
+     a minus sign (-)   for a deletion
+     a X sign (X)       for marked for deletion
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      ADR    ADDRESS
+
+      Function: To specify an address.
+
+010   C817  ADDRESS USAGE                                  C  
+      3299   Address purpose, coded                        C  an..3
+      3131   Address type, coded                           C  an..3
+      3475   Address status, coded                         C  an..3
+
+020   C090  ADDRESS DETAILS                                C  
+      3477   Address format, coded                         M  an..3
+      3286   Address component                             M  an..70
+      3286   Address component                             C  an..70
+      3286   Address component                             C  an..70
+      3286   Address component                             C  an..70
+      3286   Address component                             C  an..70
+
+030   3164  CITY NAME                                      C  an..35
+
+040   3251  POSTCODE IDENTIFICATION                        C  an..9
+
+050   3207  COUNTRY, CODED                                 C  an..3
+
+060   C819  COUNTRY SUB-ENTITY DETAILS                     C  
+      3229   Country sub-entity identification             C  an..9
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      3228   Country sub-entity                            C  an..35
+
+070   C517  LOCATION IDENTIFICATION                        C  
+      3225   Place/location identification                 C  an..25
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      3224   Place/location                                C  an..70
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      AGR    AGREEMENT IDENTIFICATION
+
+      Function: To specify the agreement details.
+
+010   C543  AGREEMENT TYPE IDENTIFICATION                  C  
+      7431   Agreement type qualifier                      M  an..3
+      7433   Agreement type, coded                         C  an..3
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      7434   Agreement type description                    C  an..70
+
+020   9419  SERVICE LAYER, CODED                           C  an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      AJT    ADJUSTMENT DETAILS
+
+      Function: To identify the reason for an adjustment.
+
+010   4465  ADJUSTMENT REASON, CODED                       M  an..3
+
+020   1082  LINE ITEM NUMBER                               C  n..6
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      ALC    ALLOWANCE OR CHARGE
+
+      Function: To identify allowance or charge details.
+
+010   5463  ALLOWANCE OR CHARGE QUALIFIER                  M  an..3
+
+020   C552  ALLOWANCE/CHARGE INFORMATION                   C  
+      1230   Allowance or charge number                    C  an..35
+      5189   Charge/allowance description, coded           C  an..3
+
+030   4471  SETTLEMENT, CODED                              C  an..3
+
+040   1227  CALCULATION SEQUENCE INDICATOR, CODED          C  an..3
+
+050   C214  SPECIAL SERVICES IDENTIFICATION                C  
+      7161   Special services, coded                       C  an..3
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      7160   Special service                               C  an..35
+      7160   Special service                               C  an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      ALI    ADDITIONAL INFORMATION
+
+      Function: To indicate that special conditions due to the origin,
+                customs preference, fiscal or commercial factors are
+                applicable.
+
+010   3239  COUNTRY OF ORIGIN, CODED                       C  an..3
+
+020   9213  TYPE OF DUTY REGIME, CODED                     C  an..3
+
+030   4183  SPECIAL CONDITIONS, CODED                      C  an..3
+
+040   4183  SPECIAL CONDITIONS, CODED                      C  an..3
+
+050   4183  SPECIAL CONDITIONS, CODED                      C  an..3
+
+060   4183  SPECIAL CONDITIONS, CODED                      C  an..3
+
+070   4183  SPECIAL CONDITIONS, CODED                      C  an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      APR    ADDITIONAL PRICE INFORMATION
+
+      Function: To provide information concerning pricing related to
+                class of trade, price multiplier, and reason for
+                change.
+
+010   4043  CLASS OF TRADE, CODED                          C  an..3
+
+020   C138  PRICE MULTIPLIER INFORMATION                   C  
+      5394   Price multiplier                              M  n..12
+      5393   Price multiplier qualifier                    C  an..3
+
+030   C960  REASON FOR CHANGE                              C  
+      4295   Change reason, coded                          C  an..3
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      4294   Change reason                                 C  an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      ARD    AMOUNTS RELATIONSHIP DETAILS
+
+      Function: To provide details of the function of a monetary
+                amount.
+
+010   C549  MONETARY FUNCTION                              C  
+      5007   Monetary function, coded                      M  an..3
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      ARR    ARRAY INFORMATION
+
+      Function: To contain the data in a array.
+
+          Note: The composite C770 - array cell details - occurs 100
+                times in the segment.
+                
+                The component 9424 - array cell information - occurs
+                100 times in the composite C770.
+
+010   C778  POSITION IDENTIFICATION                        C  
+      7164   Hierarchical id. number                       C  an..12
+      1050   Sequence number                               C  an..6
+
+020   C770  ARRAY CELL DETAILS                             C  
+      9424   Array cell information                        C  an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      ASI    ARRAY STRUCTURE IDENTIFICATION
+
+      Function: To identify the structure of an array.
+
+010   C779  ARRAY STRUCTURE IDENTIFICATION                 M  
+      9428   Array structure identifier                    M  an..35
+      7405   Identity number qualifier                     C  an..3
+
+020   C082  PARTY IDENTIFICATION DETAILS                   C  
+      3039   Party id. identification                      M  an..35
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+
+030   4405  STATUS, CODED                                  C  an..3
+
+040   4513  MAINTENANCE OPERATION, CODED                   C  an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      ATT    ATTRIBUTE
+
+      Function: To identify a specific attribute.
+
+010   9017  ATTRIBUTE FUNCTION QUALIFIER                   M  an..3
+
+020   C955  ATTRIBUTE TYPE                                 C  
+      9021   Attribute type, coded                         M  an..3
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+
+030   C956  ATTRIBUTE DETAILS                              C  
+      9019   Attribute, coded                              C  an..3
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      9018   Attribute                                     C  an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      AUT    AUTHENTICATION RESULT
+
+      Function: To specify results of the application of an
+                authentification procedure.
+
+010   9280  VALIDATION RESULT                              M  an..35
+
+020   9282  VALIDATION KEY IDENTIFICATION                  C  an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      BGM    BEGINNING OF MESSAGE
+
+      Function: To indicate the type and function of a message and to
+                transmit the identifying number.
+
+010   C002  DOCUMENT/MESSAGE NAME                          C  
+      1001   Document/message name, coded                  C  an..3
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      1000   Document/message name                         C  an..35
+
+020   1004  DOCUMENT/MESSAGE NUMBER                        C  an..35
+
+030   1225  MESSAGE FUNCTION, CODED                        C  an..3
+
+040   4343  RESPONSE TYPE, CODED                           C  an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      BII    STRUCTURE IDENTIFICATION
+
+      Function: A segment used to convey an indexing structure
+                mechanism which identifies the positioning of a group
+                or item.
+
+010   7429  INDEXING STRUCTURE QUALIFIER                   M  an..3
+
+020   C045  BILL LEVEL IDENTIFICATION                      M  
+      7436   Level one id.                                 C  an..17
+      7438   Level two id.                                 C  an..17
+      7440   Level three id.                               C  an..17
+      7442   Level four id.                                C  an..17
+      7444   Level five id.                                C  an..17
+      7446   Level six id.                                 C  an..17
+
+030   7140  ITEM NUMBER                                    C  an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      BUS    BUSINESS FUNCTION
+
+      Function: To provide information related to the processing and
+                purpose of a financial message.
+
+010   C521  BUSINESS FUNCTION                              C  
+      4027   Business function qualifier                   M  an..3
+      4025   Business function, coded                      M  an..3
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      4022   Business description                          C  an..70
+
+020   3279  GEOGRAPHIC ENVIRONMENT, CODED                  C  an..3
+
+030   4487  TYPE OF FINANCIAL TRANSACTION, CODED           C  an..3
+
+040   C551  BANK OPERATION                                 C  
+      4383   Bank operation, coded                         M  an..3
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+
+050   4463  INTRA-COMPANY PAYMENT, CODED                   C  an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      CAV    CHARACTERISTIC VALUE
+
+      Function: To provide the value of a characteristic.
+
+010   C889  CHARACTERISTIC VALUE                           M  
+      7111   Characteristic value, coded                   C  an..3
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      7110   Characteristic value                          C  an..35
+      7110   Characteristic value                          C  an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      CCD    CREDIT COVER DETAILS
+
+      Function: To request a credit cover, reply to that request and
+                disclose the reason for the reply.
+
+010   4505  CREDIT COVER REQUEST, CODED                    C  an..3
+
+020   4507  CREDIT COVER RESPONSE, CODED                   C  an..3
+
+030   4509  CREDIT COVER REASON, CODED                     C  an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      CCI    CHARACTERISTIC/CLASS ID
+
+      Function: To identify and describe a specific characteristic.
+
+010   7059  PROPERTY CLASS, CODED                          C  an..3
+
+020   C502  MEASUREMENT DETAILS                            C  
+      6313   Measurement dimension, coded                  C  an..3
+      6321   Measurement significance, coded               C  an..3
+      6155   Measurement attribute, coded                  C  an..3
+      6154   Measurement attribute                         C  an..70
+
+030   C240  PRODUCT CHARACTERISTIC                         C  
+      7037   Characteristic identification                 M  an..17
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      7036   Characteristic                                C  an..35
+      7036   Characteristic                                C  an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+    + CDI    PHYSICAL OR LOGICAL STATE
+
+      Function: To describe a physical or logical state.
+
+010   7001  PHYSICAL OR LOGICAL STATE QUALIFIER            M  an..3
+
+020   C564  PHYSICAL OR LOGICAL STATE INFORMATION          M  
+      7007   Physical or logical state, coded              C  an..3
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      7006   Physical or logical state                     C  an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      CDS    CODE SET IDENTIFICATION
+
+      Function: To identify a code set and to give its class and
+                maintenance operation.
+
+010   C702  CODE SET IDENTIFICATION                        M  
+      9150   Simple data element tag                       C  an..4
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+
+020   1507  CLASS DESIGNATOR, CODED                        C  an..3
+
+030   4513  MAINTENANCE OPERATION, CODED                   C  an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      CDV    CODE VALUE DEFINITION
+
+      Function: To provide information related to a code value.
+
+010   9426  CODE VALUE                                     M  an..35
+
+020   9434  CODE NAME                                      C  an..70
+
+030   4513  MAINTENANCE OPERATION, CODED                   C  an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      CED    COMPUTER ENVIRONMENT DETAILS
+
+      Function: To give a precise definition of all necessary elements
+                belonging to the configuration of a computer system
+                like hardware, firmware, operating system,
+                communication (VANS, network type, protocol, format)
+                and application software.
+
+010   1501  COMPUTER ENVIRONMENT DETAILS QUALIFIER         M  an..3
+
+020   C079  COMPUTER ENVIRONMENT IDENTIFICATION            M  
+      1511   Computer environment, coded                   C  an..3
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      1510   Computer environment                          C  an..35
+      1056   Version                                       C  an..9
+      1058   Release                                       C  an..9
+      7402   Identity number                               C  an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      CMP    COMPOSITE DATA ELEMENT IDENTIFICATION
+
+      Function: To identify a composite data element and to give its
+                class and maintenance operation.
+
+010   9146  COMPOSITE DATA ELEMENT TAG                     M  an..4
+
+020   1507  CLASS DESIGNATOR, CODED                        C  an..3
+
+030   4513  MAINTENANCE OPERATION, CODED                   C  an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      CNI    CONSIGNMENT INFORMATION
+
+      Function: To identify one consignment.
+
+010   1490  CONSOLIDATION ITEM NUMBER                      C  n..4
+
+020   C503  DOCUMENT/MESSAGE DETAILS                       C  
+      1004   Document/message number                       C  an..35
+      1373   Document/message status, coded                C  an..3
+      1366   Document/message source                       C  an..35
+      3453   Language, coded                               C  an..3
+
+030   1312  CONSIGNMENT LOAD SEQUENCE NUMBER               C  n..4
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      CNT    CONTROL TOTAL
+
+      Function: To provide control total.
+
+010   C270  CONTROL                                        M  
+      6069   Control qualifier                             M  an..3
+      6066   Control value                                 M  n..18
+      6411   Measure unit qualifier                        C  an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      COD    COMPONENT DETAILS
+
+      Function: To provide component details of an object (e.g.
+                product, container) such as its type and the material
+                of which it is composed.
+
+010   C823  TYPE OF UNIT/COMPONENT                         C  
+      7505   Type of unit/component, coded                 C  an..3
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      7504   Type of unit/component                        C  an..35
+
+020   C824  COMPONENT MATERIAL                             C  
+      7507   Component material, coded                     C  an..3
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      7506   Component material                            C  an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      COM    COMMUNICATION CONTACT
+
+      Function: To identify a communication number of a department or
+                a person to whom communication should be directed.
+
+010   C076  COMMUNICATION CONTACT                          M  
+      3148   Communication number                          M  an..512
+      3155   Communication channel qualifier               M  an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      COT    CONTRIBUTION DETAILS
+
+      Function: To specify details about membership contributions.
+
+010   5047  CONTRIBUTION QUALIFIER                         M  an..3
+
+020   C953  CONTRIBUTION TYPE                              C  
+      5049   Contribution type, coded                      M  an..3
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      5048   Contribution type                             C  an..35
+
+030   C522  INSTRUCTION                                    C  
+      4403   Instruction qualifier                         M  an..3
+      4401   Instruction, coded                            C  an..3
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      4400   Instruction                                   C  an..35
+
+040   C203  RATE/TARIFF CLASS                              C  
+      5243   Rate/tariff class identification              M  an..9
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      5242   Rate/tariff class                             C  an..35
+      5275   Supplementary rate/tariff basis               C  an..6
+             identification
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      5275   Supplementary rate/tariff basis               C  an..6
+             identification
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+
+050   C960  REASON FOR CHANGE                              C  
+      4295   Change reason, coded                          C  an..3
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      4294   Change reason                                 C  an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      CPI    CHARGE PAYMENT INSTRUCTIONS
+
+      Function: To identify a charge.
+
+010   C229  CHARGE CATEGORY                                C  
+      5237   Charge category, coded                        M  an..3
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+
+020   C231  METHOD OF PAYMENT                              C  
+      4215   Transport charges method of payment, coded    M  an..3
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+
+030   4237  PREPAID/COLLECT INDICATOR, CODED               C  an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      CPS    CONSIGNMENT PACKING SEQUENCE
+
+      Function: To identify the sequence in which physical packing is
+                presented in the consignment, and optionally to
+                identify the hierarchical relationship between packing
+                layers.
+
+010   7164  HIERARCHICAL ID. NUMBER                        M  an..12
+
+020   7166  HIERARCHICAL PARENT ID.                        C  an..12
+
+030   7075  PACKAGING LEVEL, CODED                         C  an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      CST    CUSTOMS STATUS OF GOODS
+
+      Function: To specify goods in terms of customs identities,
+                status and intended use.
+
+010   1496  GOODS ITEM NUMBER                              C  n..5
+
+020   C246  CUSTOMS IDENTITY CODES                         C  
+      7361   Customs code identification                   M  an..18
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+
+030   C246  CUSTOMS IDENTITY CODES                         C  
+      7361   Customs code identification                   M  an..18
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+
+040   C246  CUSTOMS IDENTITY CODES                         C  
+      7361   Customs code identification                   M  an..18
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+
+050   C246  CUSTOMS IDENTITY CODES                         C  
+      7361   Customs code identification                   M  an..18
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+
+060   C246  CUSTOMS IDENTITY CODES                         C  
+      7361   Customs code identification                   M  an..18
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      CTA    CONTACT INFORMATION
+
+      Function: To identify a person or a department to whom
+                communication should be directed.
+
+010   3139  CONTACT FUNCTION, CODED                        C  an..3
+
+020   C056  DEPARTMENT OR EMPLOYEE DETAILS                 C  
+      3413   Department or employee identification         C  an..17
+      3412   Department or employee                        C  an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      CUX    CURRENCIES
+
+      Function: To specify currencies used in the transaction and
+                relevant details for the rate of exchange.
+
+010   C504  CURRENCY DETAILS                               C  
+      6347   Currency details qualifier                    M  an..3
+      6345   Currency, coded                               C  an..3
+      6343   Currency qualifier                            C  an..3
+      6348   Currency rate base                            C  n..4
+
+020   C504  CURRENCY DETAILS                               C  
+      6347   Currency details qualifier                    M  an..3
+      6345   Currency, coded                               C  an..3
+      6343   Currency qualifier                            C  an..3
+      6348   Currency rate base                            C  n..4
+
+030   5402  RATE OF EXCHANGE                               C  n..12
+
+040   6341  CURRENCY MARKET EXCHANGE, CODED                C  an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      DAM    DAMAGE
+
+      Function: To specify damage including action taken.
+
+010   7493  DAMAGE DETAILS QUALIFIER                       M  an..3
+
+020   C821  TYPE OF DAMAGE                                 C  
+      7501   Type of damage, coded                         C  an..3
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      7500   Type of damage                                C  an..35
+
+030   C822  DAMAGE AREA                                    C  
+      7503   Damage area identification                    C  an..4
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      7502   Damage area                                   C  an..35
+
+040   C825  DAMAGE SEVERITY                                C  
+      7509   Damage severity, coded                        C  an..3
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      7508   Damage severity                               C  an..35
+
+050   C826  ACTION                                         C  
+      1229   Action request/notification, coded            C  an..3
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      1228   Action request/notification                   C  an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      DGS    DANGEROUS GOODS
+
+      Function: To identify dangerous goods.
+
+010   8273  DANGEROUS GOODS REGULATIONS, CODED             C  an..3
+
+020   C205  HAZARD CODE                                    C  
+      8351   Hazard code identification                    M  an..7
+      8078   Hazard substance/item/page number             C  an..7
+      8092   Hazard code version number                    C  an..10
+
+030   C234  UNDG INFORMATION                               C  
+      7124   UNDG number                                   C  n4
+      7088   Dangerous goods flashpoint                    C  an..8
+
+040   C223  DANGEROUS GOODS SHIPMENT FLASHPOINT            C  
+      7106   Shipment flashpoint                           C  n3
+      6411   Measure unit qualifier                        C  an..3
+
+050   8339  PACKING GROUP, CODED                           C  an..3
+
+060   8364  EMS NUMBER                                     C  an..6
+
+070   8410  MFAG                                           C  an..4
+
+080   8126  TREM CARD NUMBER                               C  an..10
+
+090   C235  HAZARD IDENTIFICATION                          C  
+      8158   Hazard identification number, upper part      C  an..4
+      8186   Substance identification number, lower part   C  an4
+
+100   C236  DANGEROUS GOODS LABEL                          C  
+      8246   Dangerous goods label marking                 C  an..4
+      8246   Dangerous goods label marking                 C  an..4
+      8246   Dangerous goods label marking                 C  an..4
+
+110   8255  PACKING INSTRUCTION, CODED                     C  an..3
+
+120   8325  CATEGORY OF MEANS OF TRANSPORT, CODED          C  an..3
+
+130   8211  PERMISSION FOR TRANSPORT, CODED                C  an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      DII    DIRECTORY IDENTIFICATION
+
+      Function: To identify a directory and to give its release,
+                status, controlling agency, language and maintenance
+                operation.
+
+010   1056  VERSION                                        M  an..9
+
+020   1058  RELEASE                                        M  an..9
+
+030   9148  DIRECTORY STATUS                               C  an..3
+
+040   1476  CONTROL AGENCY                                 C  an..2
+
+050   3453  LANGUAGE, CODED                                C  an..3
+
+060   4513  MAINTENANCE OPERATION, CODED                   C  an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      DIM    DIMENSIONS
+
+      Function: To specify dimensions.
+
+010   6145  DIMENSION QUALIFIER                            M  an..3
+
+020   C211  DIMENSIONS                                     M  
+      6411   Measure unit qualifier                        M  an..3
+      6168   Length dimension                              C  n..15
+      6140   Width dimension                               C  n..15
+      6008   Height dimension                              C  n..15
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      DLI    DOCUMENT LINE IDENTIFICATION
+
+      Function: To specify the processing mode of a specific line
+                within a referenced document.
+
+010   1073  DOCUMENT LINE INDICATOR, CODED                 M  an..3
+
+020   1082  LINE ITEM NUMBER                               M  n..6
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      DLM    DELIVERY LIMITATIONS
+
+      Function: To specify limitations on deliveries.
+
+010   4455  BACK ORDER, CODED                              C  an..3
+
+020   C522  INSTRUCTION                                    C  
+      4403   Instruction qualifier                         M  an..3
+      4401   Instruction, coded                            C  an..3
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      4400   Instruction                                   C  an..35
+
+030   C214  SPECIAL SERVICES IDENTIFICATION                C  
+      7161   Special services, coded                       C  an..3
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      7160   Special service                               C  an..35
+      7160   Special service                               C  an..35
+
+040   4457  PRODUCT/SERVICE SUBSTITUTION, CODED            C  an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      DMS    DOCUMENT/MESSAGE SUMMARY
+
+      Function: To specify summary information relating to the
+                document/message.
+
+010   1004  DOCUMENT/MESSAGE NUMBER                        C  an..35
+
+020   1001  DOCUMENT/MESSAGE NAME, CODED                   C  an..3
+
+030   7240  TOTAL NUMBER OF ITEMS                          C  n..15
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      DOC    DOCUMENT/MESSAGE DETAILS
+
+      Function: To identify documents, either printed, electronically
+                transferred, or referenced as specified in message
+                description, including, where relevant, the
+                identification of the type of transaction that will
+                result from this message.
+
+010   C002  DOCUMENT/MESSAGE NAME                          M  
+      1001   Document/message name, coded                  C  an..3
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      1000   Document/message name                         C  an..35
+
+020   C503  DOCUMENT/MESSAGE DETAILS                       C  
+      1004   Document/message number                       C  an..35
+      1373   Document/message status, coded                C  an..3
+      1366   Document/message source                       C  an..35
+      3453   Language, coded                               C  an..3
+
+030   3153  COMMUNICATION CHANNEL IDENTIFIER, CODED        C  an..3
+
+040   1220  NUMBER OF COPIES OF DOCUMENT REQUIRED          C  n..2
+
+050   1218  NUMBER OF ORIGINALS OF DOCUMENT REQUIRED       C  n..2
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      DSI    DATA SET IDENTIFICATION
+
+      Function: To identify a data set.
+
+010   C782  DATA SET IDENTIFICATION                        M  
+      1520   Data set identifier                           M  an..35
+      7405   Identity number qualifier                     C  an..3
+
+020   C082  PARTY IDENTIFICATION DETAILS                   C  
+      3039   Party id. identification                      M  an..35
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+
+030   4405  STATUS, CODED                                  C  an..3
+
+040   C286  SEQUENCE INFORMATION                           C  
+      1050   Sequence number                               M  an..6
+      1159   Sequence number source, coded                 C  an..3
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+
+050   1060  REVISION NUMBER                                C  an..6
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      DTM    DATE/TIME/PERIOD
+
+      Function: To specify date, and/or time, or period.
+
+010   C507  DATE/TIME/PERIOD                               M  
+      2005   Date/time/period qualifier                    M  an..3
+      2380   Date/time/period                              C  an..35
+      2379   Date/time/period format qualifier             C  an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      EFI    EXTERNAL FILE LINK IDENTIFICATION
+
+      Function: To specify the link of one non-EDIFACT external file
+                to an EDIFACT message.
+
+010   C077  FILE IDENTIFICATION                            M  
+      1508   File name                                     C  an..35
+      7008   Item description                              C  an..35
+
+020   C099  FILE DETAILS                                   C  
+      1516   File format                                   M  an..17
+      1056   Version                                       C  an..9
+      1503   Data format, coded                            C  an..3
+      1502   Data format                                   C  an..35
+
+030   1050  SEQUENCE NUMBER                                C  an..6
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      ELM    SIMPLE DATA ELEMENT DETAILS
+
+      Function: To identify a simple data element and give related
+                details.
+
+010   9150  SIMPLE DATA ELEMENT TAG                        M  an..4
+
+020   9153  SIMPLE DATA ELEMENT CHARACTER REPRESENTATION,  C  an..3
+            CODED
+
+030   9155  SIMPLE DATA ELEMENT LENGTH TYPE, CODED         C  an..3
+
+040   9156  SIMPLE DATA ELEMENT MAXIMUM LENGTH             C  n..3
+
+050   9158  SIMPLE DATA ELEMENT MINIMUM LENGTH             C  n..3
+
+060   9161  CODE SET INDICATOR, CODED                      C  an..3
+
+070   1507  CLASS DESIGNATOR, CODED                        C  an..3
+
+080   4513  MAINTENANCE OPERATION, CODED                   C  an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      ELU    DATA ELEMENT USAGE DETAILS
+
+      Function: To specify the usage of a data element.
+
+010   9162  DATA ELEMENT TAG                               M  an..4
+
+020   7299  REQUIREMENT DESIGNATOR, CODED                  C  an..3
+
+030   1050  SEQUENCE NUMBER                                C  an..6
+
+040   4513  MAINTENANCE OPERATION, CODED                   C  an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      EMP    EMPLOYMENT DETAILS
+
+      Function: To specify employment details.
+
+010   9003  EMPLOYMENT QUALIFIER                           M  an..3
+
+020   C948  EMPLOYMENT CATEGORY                            C  
+      9005   Employment category, coded                    C  an..3
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      9004   Employment category                           C  an..35
+
+030   C951  OCCUPATION                                     C  
+      9009   Occupation, coded                             C  an..3
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      9008   Occupation                                    C  an..35
+      9008   Occupation                                    C  an..35
+
+040   C950  QUALIFICATION CLASSIFICATION                   C  
+      9007   Qualification classification, coded           C  an..3
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      9006   Qualification classification                  C  an..35
+      9006   Qualification classification                  C  an..35
+
+050   3494  JOB TITLE                                      C  an..35
+
+060   9035  QUALIFICATION AREA, CODED                      C  an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      EQA    ATTACHED EQUIPMENT
+
+      Function: To specify attached or related equipment.
+
+010   8053  EQUIPMENT QUALIFIER                            M  an..3
+
+020   C237  EQUIPMENT IDENTIFICATION                       C  
+      8260   Equipment identification number               C  an..17
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      3207   Country, coded                                C  an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      EQD    EQUIPMENT DETAILS
+
+      Function: To identify a unit of equipment.
+
+010   8053  EQUIPMENT QUALIFIER                            M  an..3
+
+020   C237  EQUIPMENT IDENTIFICATION                       C  
+      8260   Equipment identification number               C  an..17
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      3207   Country, coded                                C  an..3
+
+030   C224  EQUIPMENT SIZE AND TYPE                        C  
+      8155   Equipment size and type identification        C  an..10
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      8154   Equipment size and type                       C  an..35
+
+040   8077  EQUIPMENT SUPPLIER, CODED                      C  an..3
+
+050   8249  EQUIPMENT STATUS, CODED                        C  an..3
+
+060   8169  FULL/EMPTY INDICATOR, CODED                    C  an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      EQN    NUMBER OF UNITS
+
+      Function: To specify the number of units.
+
+010   C523  NUMBER OF UNIT DETAILS                         M  
+      6350   Number of units                               C  n..15
+      6353   Number of units qualifier                     C  an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      ERC    APPLICATION ERROR INFORMATION
+
+      Function: To identify the type of application error within a
+                message.
+
+010   C901  APPLICATION ERROR DETAIL                       M  
+      9321   Application error identification              M  an..8
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      ERP    ERROR POINT DETAILS
+
+      Function: To identify the location and type of application error
+                within a message.
+
+010   C701  ERROR POINT DETAILS                            M  
+      1049   Message section, coded                        M  an..3
+      1052   Message item number                           C  an..35
+      1054   Message sub-item number                       C  n..6
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      FCA    FINANCIAL CHARGES ALLOCATION
+
+      Function: Description of allocation of charges.
+
+010   4471  SETTLEMENT, CODED                              M  an..3
+
+020   C878  CHARGE/ALLOWANCE ACCOUNT                       C  
+      3434   Institution branch number                     M  an..17
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      3194   Account holder number                         C  an..35
+      6345   Currency, coded                               C  an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      FII    FINANCIAL INSTITUTION INFORMATION
+
+      Function: To identify an account and a related financial
+                institution.
+
+010   3035  PARTY QUALIFIER                                M  an..3
+
+020   C078  ACCOUNT IDENTIFICATION                         C  
+      3194   Account holder number                         C  an..35
+      3192   Account holder name                           C  an..35
+      3192   Account holder name                           C  an..35
+      6345   Currency, coded                               C  an..3
+
+030   C088  INSTITUTION IDENTIFICATION                     C  
+      3433   Institution name identification               C  an..11
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      3434   Institution branch number                     C  an..17
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      3432   Institution name                              C  an..70
+      3436   Institution branch place                      C  an..70
+
+040   3207  COUNTRY, CODED                                 C  an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      FNS    FOOTNOTE SET
+
+      Function: To identify a set of footnotes.
+
+010   C783  FOOTNOTE SET IDENTIFICATION                    M  
+      9430   Footnote set identifier                       M  an..35
+      7405   Identity number qualifier                     C  an..3
+
+020   C082  PARTY IDENTIFICATION DETAILS                   C  
+      3039   Party id. identification                      M  an..35
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+
+030   4405  STATUS, CODED                                  C  an..3
+
+040   4513  MAINTENANCE OPERATION, CODED                   C  an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      FNT    FOOTNOTE
+
+      Function: To identify a footnote.
+
+010   C784  FOOTNOTE IDENTIFICATION                        M  
+      9432   Footnote identifier                           M  an..35
+      7405   Identity number qualifier                     C  an..3
+
+020   C082  PARTY IDENTIFICATION DETAILS                   C  
+      3039   Party id. identification                      M  an..35
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+
+030   4405  STATUS, CODED                                  C  an..3
+
+040   4513  MAINTENANCE OPERATION, CODED                   C  an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      FTX    FREE TEXT
+
+      Function: To provide free form or coded text information.
+
+010   4451  TEXT SUBJECT QUALIFIER                         M  an..3
+
+020   4453  TEXT FUNCTION, CODED                           C  an..3
+
+030   C107  TEXT REFERENCE                                 C  
+      4441   Free text, coded                              M  an..3
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+
+040   C108  TEXT LITERAL                                   C  
+      4440   Free text                                     M  an..70
+      4440   Free text                                     C  an..70
+      4440   Free text                                     C  an..70
+      4440   Free text                                     C  an..70
+      4440   Free text                                     C  an..70
+
+050   3453  LANGUAGE, CODED                                C  an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      GDS    NATURE OF CARGO
+
+      Function: To indicate the type of cargo as a general
+                classification.
+
+010   C703  NATURE OF CARGO                                C  
+      7085   Nature of cargo, coded                        M  an..3
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      GID    GOODS ITEM DETAILS
+
+      Function: To indicate totals of a goods item.
+
+010   1496  GOODS ITEM NUMBER                              C  n..5
+
+020   C213  NUMBER AND TYPE OF PACKAGES                    C  
+      7224   Number of packages                            C  n..8
+      7065   Type of packages identification               C  an..17
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      7064   Type of packages                              C  an..35
+
+030   C213  NUMBER AND TYPE OF PACKAGES                    C  
+      7224   Number of packages                            C  n..8
+      7065   Type of packages identification               C  an..17
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      7064   Type of packages                              C  an..35
+
+040   C213  NUMBER AND TYPE OF PACKAGES                    C  
+      7224   Number of packages                            C  n..8
+      7065   Type of packages identification               C  an..17
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      7064   Type of packages                              C  an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      GIN    GOODS IDENTITY NUMBER
+
+      Function: To give specific identification numbers, either as
+                single numbers or ranges.
+
+010   7405  IDENTITY NUMBER QUALIFIER                      M  an..3
+
+020   C208  IDENTITY NUMBER RANGE                          M  
+      7402   Identity number                               M  an..35
+      7402   Identity number                               C  an..35
+
+030   C208  IDENTITY NUMBER RANGE                          C  
+      7402   Identity number                               M  an..35
+      7402   Identity number                               C  an..35
+
+040   C208  IDENTITY NUMBER RANGE                          C  
+      7402   Identity number                               M  an..35
+      7402   Identity number                               C  an..35
+
+050   C208  IDENTITY NUMBER RANGE                          C  
+      7402   Identity number                               M  an..35
+      7402   Identity number                               C  an..35
+
+060   C208  IDENTITY NUMBER RANGE                          C  
+      7402   Identity number                               M  an..35
+      7402   Identity number                               C  an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      GIR    RELATED IDENTIFICATION NUMBERS
+
+      Function: To specify a related set of identification numbers.
+
+010   7297  SET IDENTIFICATION QUALIFIER                   M  an..3
+
+020   C206  IDENTIFICATION NUMBER                          M  
+      7402   Identity number                               M  an..35
+      7405   Identity number qualifier                     C  an..3
+      4405   Status, coded                                 C  an..3
+
+030   C206  IDENTIFICATION NUMBER                          C  
+      7402   Identity number                               M  an..35
+      7405   Identity number qualifier                     C  an..3
+      4405   Status, coded                                 C  an..3
+
+040   C206  IDENTIFICATION NUMBER                          C  
+      7402   Identity number                               M  an..35
+      7405   Identity number qualifier                     C  an..3
+      4405   Status, coded                                 C  an..3
+
+050   C206  IDENTIFICATION NUMBER                          C  
+      7402   Identity number                               M  an..35
+      7405   Identity number qualifier                     C  an..3
+      4405   Status, coded                                 C  an..3
+
+060   C206  IDENTIFICATION NUMBER                          C  
+      7402   Identity number                               M  an..35
+      7405   Identity number qualifier                     C  an..3
+      4405   Status, coded                                 C  an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      GIS    GENERAL INDICATOR
+
+      Function: To transmit a processing indicator.
+
+010   C529  PROCESSING INDICATOR                           M  
+      7365   Processing indicator, coded                   M  an..3
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      7187   Process type identification                   C  an..17
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      GOR    GOVERNMENTAL REQUIREMENTS
+
+      Function: To indicate the requirement for a specific govermental
+                action and/or procedure or which specific procedure is
+                valid for a specific part of the transport.
+
+010   8323  TRANSPORT MOVEMENT, CODED                      C  an..3
+
+020   C232  GOVERNMENT ACTION                              C  
+      9415   Government agency, coded                      C  an..3
+      9411   Government involvement, coded                 C  an..3
+      9417   Government action, coded                      C  an..3
+      9353   Government procedure, coded                   C  an..3
+
+030   C232  GOVERNMENT ACTION                              C  
+      9415   Government agency, coded                      C  an..3
+      9411   Government involvement, coded                 C  an..3
+      9417   Government action, coded                      C  an..3
+      9353   Government procedure, coded                   C  an..3
+
+040   C232  GOVERNMENT ACTION                              C  
+      9415   Government agency, coded                      C  an..3
+      9411   Government involvement, coded                 C  an..3
+      9417   Government action, coded                      C  an..3
+      9353   Government procedure, coded                   C  an..3
+
+050   C232  GOVERNMENT ACTION                              C  
+      9415   Government agency, coded                      C  an..3
+      9411   Government involvement, coded                 C  an..3
+      9417   Government action, coded                      C  an..3
+      9353   Government procedure, coded                   C  an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      GRU    SEGMENT GROUP USAGE DETAILS
+
+      Function: To specify the usage of a segment group within a
+                message type structure and its maintenance operation.
+
+010   9164  GROUP IDENTIFICATION                           M  an..4
+
+020   7299  REQUIREMENT DESIGNATOR, CODED                  C  an..3
+
+030   6176  MAXIMUM NUMBER OF OCCURRENCES                  C  n..7
+
+040   4513  MAINTENANCE OPERATION, CODED                   C  an..3
+
+050   1050  SEQUENCE NUMBER                                C  an..6
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      HAN    HANDLING INSTRUCTIONS
+
+      Function: To specify handling and where necessary, notify
+                hazards.
+
+010   C524  HANDLING INSTRUCTIONS                          C  
+      4079   Handling instructions, coded                  C  an..3
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      4078   Handling instructions                         C  an..70
+
+020   C218  HAZARDOUS MATERIAL                             C  
+      7419   Hazardous material class code, identification C  an..4
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      ICD    INSURANCE COVER DESCRIPTION
+
+      Function: To describe the insurance cover.
+
+010   C330  INSURANCE COVER TYPE                           M  
+      4497   Insurance cover type, coded                   M  an..3
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+
+020   C331  INSURANCE COVER DETAILS                        M  
+      4495   Insurance cover identification                C  an..17
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      4494   Insurance cover                               C  an..35
+      4494   Insurance cover                               C  an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      IDE    IDENTITY
+
+      Function: To identify an object.
+
+010   7495  IDENTIFICATION QUALIFIER                       M  an..3
+
+020   C206  IDENTIFICATION NUMBER                          M  
+      7402   Identity number                               M  an..35
+      7405   Identity number qualifier                     C  an..3
+      4405   Status, coded                                 C  an..3
+
+030   C082  PARTY IDENTIFICATION DETAILS                   C  
+      3039   Party id. identification                      M  an..35
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+
+040   4405  STATUS, CODED                                  C  an..3
+
+050   1222  CONFIGURATION LEVEL                            C  n..2
+
+060   C778  POSITION IDENTIFICATION                        C  
+      7164   Hierarchical id. number                       C  an..12
+      1050   Sequence number                               C  an..6
+
+070   C240  PRODUCT CHARACTERISTIC                         C  
+      7037   Characteristic identification                 M  an..17
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      7036   Characteristic                                C  an..35
+      7036   Characteristic                                C  an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      IHC    PERSON CHARACTERISTIC
+
+      Function: To specify characteristics of a person such as ethnic
+                origin.
+
+010   3289  PERSON CHARACTERISTIC QUALIFIER                M  an..3
+
+020   C818  PERSON INHERITED CHARACTERISTIC DETAILS        C  
+      3311   Person inherited characteristic               C  an..8
+             identification
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      3310   Person inherited characteristic               C  an..70
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      IMD    ITEM DESCRIPTION
+
+      Function: To describe an item in either an industry or free
+                format.
+
+010   7077  ITEM DESCRIPTION TYPE, CODED                   C  an..3
+
+020   7081  ITEM CHARACTERISTIC, CODED                     C  an..3
+
+030   C273  ITEM DESCRIPTION                               C  
+      7009   Item description identification               C  an..17
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      7008   Item description                              C  an..35
+      7008   Item description                              C  an..35
+      3453   Language, coded                               C  an..3
+
+040   7383  SURFACE/LAYER INDICATOR, CODED                 C  an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      IND    INDEX DETAILS
+
+      Function: To specify an index.
+
+010   C545  INDEX IDENTIFICATION                           C  
+      5013   Index qualifier                               M  an..3
+      5027   Index type, coded                             C  an..3
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+
+020   C546  INDEX VALUE                                    C  
+      5030   Index value                                   M  n..6
+      5039   Index value representation, coded             C  an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      INP    PARTIES TO INSTRUCTION
+
+      Function: To specify parties to an instruction and where
+                relevant, the instruction.
+
+010   C849  PARTIES TO INSTRUCTION                         C  
+      3301   Party enacting instruction identification     M  an..17
+      3285   Recipient of the instruction identification   C  an..17
+
+020   C522  INSTRUCTION                                    C  
+      4403   Instruction qualifier                         M  an..3
+      4401   Instruction, coded                            C  an..3
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      4400   Instruction                                   C  an..35
+
+030   C850  STATUS OF INSTRUCTION                          C  
+      4405   Status, coded                                 M  an..3
+      3036   Party name                                    C  an..35
+
+040   1229  ACTION REQUEST/NOTIFICATION, CODED             C  an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      INV    INVENTORY MANAGEMENT RELATED DETAILS
+
+      Function: To provide the different information related to the
+                inventory management functions and needed to process
+                properly the inventory movements and the inventory
+                balances.
+
+010   4501  INVENTORY MOVEMENT DIRECTION, CODED            C  an..3
+
+020   7491  TYPE OF INVENTORY AFFECTED, CODED              C  an..3
+
+030   4499  REASON FOR INVENTORY MOVEMENT, CODED           C  an..3
+
+040   4503  INVENTORY BALANCE METHOD, CODED                C  an..3
+
+050   C522  INSTRUCTION                                    C  
+      4403   Instruction qualifier                         M  an..3
+      4401   Instruction, coded                            C  an..3
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      4400   Instruction                                   C  an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      IRQ    INFORMATION REQUIRED
+
+      Function: To indicate which information is requested in a
+                responding message.
+
+010   C333  INFORMATION REQUEST                            M  
+      4511   Requested information, coded                  C  an..3
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      4510   Requested information                         C  an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      LAN    LANGUAGE
+
+      Function: To specify a language.
+
+010   3455  LANGUAGE QUALIFIER                             M  an..3
+
+020   C508  LANGUAGE DETAILS                               C  
+      3453   Language, coded                               C  an..3
+      3452   Language                                      C  an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      LIN    LINE ITEM
+
+      Function: To identify a line item and configuration.
+
+010   1082  LINE ITEM NUMBER                               C  n..6
+
+020   1229  ACTION REQUEST/NOTIFICATION, CODED             C  an..3
+
+030   C212  ITEM NUMBER IDENTIFICATION                     C  
+      7140   Item number                                   C  an..35
+      7143   Item number type, coded                       C  an..3
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+
+040   C829  SUB-LINE INFORMATION                           C  
+      5495   Sub-line indicator, coded                     C  an..3
+      1082   Line item number                              C  n..6
+
+050   1222  CONFIGURATION LEVEL                            C  n..2
+
+060   7083  CONFIGURATION, CODED                           C  an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      LOC    PLACE/LOCATION IDENTIFICATION
+
+      Function: To identify a country/place/location/related location
+                one/related location two.
+
+010   3227  PLACE/LOCATION QUALIFIER                       M  an..3
+
+020   C517  LOCATION IDENTIFICATION                        C  
+      3225   Place/location identification                 C  an..25
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      3224   Place/location                                C  an..70
+
+030   C519  RELATED LOCATION ONE IDENTIFICATION            C  
+      3223   Related place/location one identification     C  an..25
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      3222   Related place/location one                    C  an..70
+
+040   C553  RELATED LOCATION TWO IDENTIFICATION            C  
+      3233   Related place/location two identification     C  an..25
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      3232   Related place/location two                    C  an..70
+
+050   5479  RELATION, CODED                                C  an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      MEA    MEASUREMENTS
+
+      Function: To specify physical measurements, including dimension
+                tolerances, weights and counts.
+
+010   6311  MEASUREMENT APPLICATION QUALIFIER              M  an..3
+
+020   C502  MEASUREMENT DETAILS                            C  
+      6313   Measurement dimension, coded                  C  an..3
+      6321   Measurement significance, coded               C  an..3
+      6155   Measurement attribute, coded                  C  an..3
+      6154   Measurement attribute                         C  an..70
+
+030   C174  VALUE/RANGE                                    C  
+      6411   Measure unit qualifier                        M  an..3
+      6314   Measurement value                             C  n..18
+      6162   Range minimum                                 C  n..18
+      6152   Range maximum                                 C  n..18
+      6432   Significant digits                            C  n..2
+
+040   7383  SURFACE/LAYER INDICATOR, CODED                 C  an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      MEM    MEMBERSHIP DETAILS
+
+      Function: To specify details about membership.
+
+010   7449  MEMBERSHIP QUALIFIER                           M  an..3
+
+020   C942  MEMBERSHIP CATEGORY                            C  
+      7451   Membership category identification            M  an..4
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      7450   Membership category                           C  an..35
+
+030   C944  MEMBERSHIP STATUS                              C  
+      7453   Membership status, coded                      C  an..3
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      7452   Membership status                             C  an..35
+
+040   C945  MEMBERSHIP LEVEL                               C  
+      7455   Membership level qualifier                    M  an..3
+      7457   Membership level identification               C  an..9
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      7456   Membership level                              C  an..35
+
+050   C203  RATE/TARIFF CLASS                              C  
+      5243   Rate/tariff class identification              M  an..9
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      5242   Rate/tariff class                             C  an..35
+      5275   Supplementary rate/tariff basis               C  an..6
+             identification
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      5275   Supplementary rate/tariff basis               C  an..6
+             identification
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+
+060   C960  REASON FOR CHANGE                              C  
+      4295   Change reason, coded                          C  an..3
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      4294   Change reason                                 C  an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      MKS    MARKET/SALES CHANNEL INFORMATION
+
+      Function: To specify to which market and/or through which sales
+                distribution channel and/or for which end-use the
+                sales of product/service have been made or are given
+                as forecast.
+
+010   7293  SECTOR/SUBJECT IDENTIFICATION QUALIFIER        M  an..3
+
+020   C332  SALES CHANNEL IDENTIFICATION                   M  
+      3496   Sales channel identifier                      M  an..17
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+
+030   1229  ACTION REQUEST/NOTIFICATION, CODED             C  an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      MOA    MONETARY AMOUNT
+
+      Function: To specify a monetary amount.
+
+010   C516  MONETARY AMOUNT                                M  
+      5025   Monetary amount type qualifier                M  an..3
+      5004   Monetary amount                               C  n..18
+      6345   Currency, coded                               C  an..3
+      6343   Currency qualifier                            C  an..3
+      4405   Status, coded                                 C  an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      MSG    MESSAGE TYPE IDENTIFICATION
+
+      Function: To identify a message type and to give its class and
+                maintenance operation.
+
+010   C709  MESSAGE IDENTIFIER                             M  
+      1475   Message type identifier                       M  an..6
+      1056   Version                                       M  an..9
+      1058   Release                                       M  an..9
+      1476   Control agency                                M  an..2
+      1523   Association assigned identification           C  an..6
+      1060   Revision number                               C  an..6
+
+020   1507  CLASS DESIGNATOR, CODED                        C  an..3
+
+030   4513  MAINTENANCE OPERATION, CODED                   C  an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      NAD    NAME AND ADDRESS
+
+      Function: To specify the name/address and their related
+                function, either by CO82 only and/or unstructured by
+                CO58 or structured by CO80 thru 3207.
+
+010   3035  PARTY QUALIFIER                                M  an..3
+
+020   C082  PARTY IDENTIFICATION DETAILS                   C  
+      3039   Party id. identification                      M  an..35
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+
+030   C058  NAME AND ADDRESS                               C  
+      3124   Name and address line                         M  an..35
+      3124   Name and address line                         C  an..35
+      3124   Name and address line                         C  an..35
+      3124   Name and address line                         C  an..35
+      3124   Name and address line                         C  an..35
+
+040   C080  PARTY NAME                                     C  
+      3036   Party name                                    M  an..35
+      3036   Party name                                    C  an..35
+      3036   Party name                                    C  an..35
+      3036   Party name                                    C  an..35
+      3036   Party name                                    C  an..35
+      3045   Party name format, coded                      C  an..3
+
+050   C059  STREET                                         C  
+      3042   Street and number/p.o. box                    M  an..35
+      3042   Street and number/p.o. box                    C  an..35
+      3042   Street and number/p.o. box                    C  an..35
+      3042   Street and number/p.o. box                    C  an..35
+
+060   3164  CITY NAME                                      C  an..35
+
+070   3229  COUNTRY SUB-ENTITY IDENTIFICATION              C  an..9
+
+080   3251  POSTCODE IDENTIFICATION                        C  an..9
+
+090   3207  COUNTRY, CODED                                 C  an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      NAT    NATIONALITY
+
+      Function: To specify a nationality.
+
+010   3493  NATIONALITY QUALIFIER                          M  an..3
+
+020   C042  NATIONALITY DETAILS                            C  
+      3293   Nationality, coded                            C  an..3
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      3292   Nationality                                   C  a..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      PAC    PACKAGE
+
+      Function: To describe the number and type of packages/physical
+                units.
+
+010   7224  NUMBER OF PACKAGES                             C  n..8
+
+020   C531  PACKAGING DETAILS                              C  
+      7075   Packaging level, coded                        C  an..3
+      7233   Packaging related information, coded          C  an..3
+      7073   Packaging terms and conditions, coded         C  an..3
+
+030   C202  PACKAGE TYPE                                   C  
+      7065   Type of packages identification               C  an..17
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      7064   Type of packages                              C  an..35
+
+040   C402  PACKAGE TYPE IDENTIFICATION                    C  
+      7077   Item description type, coded                  M  an..3
+      7064   Type of packages                              M  an..35
+      7143   Item number type, coded                       C  an..3
+      7064   Type of packages                              C  an..35
+      7143   Item number type, coded                       C  an..3
+
+050   C532  RETURNABLE PACKAGE DETAILS                     C  
+      8395   Returnable package freight payment            C  an..3
+             responsibility, coded
+      8393   Returnable package load contents, coded       C  an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      PAI    PAYMENT INSTRUCTIONS
+
+      Function: To specify the instructions for payment.
+
+010   C534  PAYMENT INSTRUCTION DETAILS                    M  
+      4439   Payment conditions, coded                     C  an..3
+      4431   Payment guarantee, coded                      C  an..3
+      4461   Payment means, coded                          C  an..3
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      4435   Payment channel, coded                        C  an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      PAT    PAYMENT TERMS BASIS
+
+      Function: To specify the payment terms basis.
+
+010   4279  PAYMENT TERMS TYPE QUALIFIER                   M  an..3
+
+020   C110  PAYMENT TERMS                                  C  
+      4277   Terms of payment identification               M  an..17
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      4276   Terms of payment                              C  an..35
+      4276   Terms of payment                              C  an..35
+
+030   C112  TERMS/TIME INFORMATION                         C  
+      2475   Payment time reference, coded                 M  an..3
+      2009   Time relation, coded                          C  an..3
+      2151   Type of period, coded                         C  an..3
+      2152   Number of periods                             C  n..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      PCD    PERCENTAGE DETAILS
+
+      Function: To specify percentage information.
+
+010   C501  PERCENTAGE DETAILS                             M  
+      5245   Percentage qualifier                          M  an..3
+      5482   Percentage                                    C  n..10
+      5249   Percentage basis, coded                       C  an..3
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      PCI    PACKAGE IDENTIFICATION
+
+      Function: To specify markings and labels on individual packages
+                or physical units.
+
+010   4233  MARKING INSTRUCTIONS, CODED                    C  an..3
+
+020   C210  MARKS & LABELS                                 C  
+      7102   Shipping marks                                M  an..35
+      7102   Shipping marks                                C  an..35
+      7102   Shipping marks                                C  an..35
+      7102   Shipping marks                                C  an..35
+      7102   Shipping marks                                C  an..35
+      7102   Shipping marks                                C  an..35
+      7102   Shipping marks                                C  an..35
+      7102   Shipping marks                                C  an..35
+      7102   Shipping marks                                C  an..35
+      7102   Shipping marks                                C  an..35
+
+030   8275  CONTAINER/PACKAGE STATUS, CODED                C  an..3
+
+040   C827  TYPE OF MARKING                                C  
+      7511   Type of marking, coded                        M  an..3
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      PDI    PERSON DEMOGRAPHIC INFORMATION
+
+      Function: To specify items of person demographic information.
+
+010   3499  SEX, CODED                                     C  an..3
+
+020   C085  MARITAL STATUS DETAILS                         C  
+      3479   Marital status, coded                         C  an..3
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      3478   Marital status                                C  an..35
+
+030   C101  RELIGION DETAILS                               C  
+      3483   Religion, coded                               C  an..3
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      3482   Religion                                      C  an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      PGI    PRODUCT GROUP INFORMATION
+
+      Function: To indicate the group in which a product belongs.
+
+010   5379  PRODUCT GROUP TYPE, CODED                      M  an..3
+
+020   C288  PRODUCT GROUP                                  C  
+      5389   Product group, coded                          C  an..3
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      5388   Product group                                 C  an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      PIA    ADDITIONAL PRODUCT ID
+
+      Function: To specify additional or substitutional item
+                identification codes.
+
+010   4347  PRODUCT ID. FUNCTION QUALIFIER                 M  an..3
+
+020   C212  ITEM NUMBER IDENTIFICATION                     M  
+      7140   Item number                                   C  an..35
+      7143   Item number type, coded                       C  an..3
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+
+030   C212  ITEM NUMBER IDENTIFICATION                     C  
+      7140   Item number                                   C  an..35
+      7143   Item number type, coded                       C  an..3
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+
+040   C212  ITEM NUMBER IDENTIFICATION                     C  
+      7140   Item number                                   C  an..35
+      7143   Item number type, coded                       C  an..3
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+
+050   C212  ITEM NUMBER IDENTIFICATION                     C  
+      7140   Item number                                   C  an..35
+      7143   Item number type, coded                       C  an..3
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+
+060   C212  ITEM NUMBER IDENTIFICATION                     C  
+      7140   Item number                                   C  an..35
+      7143   Item number type, coded                       C  an..3
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+    X PIT    PRICE ITEM LINE
+
+      Function: To specify details relating to pricing of a product.
+
+          Note: Segment marked for deletion in D.98A directory.
+                Segment no longer used by any message in the current
+                draft directory.
+
+010   1082  LINE ITEM NUMBER                               C  n..6
+
+020   1229  ACTION REQUEST/NOTIFICATION, CODED             C  an..3
+
+030   C292  PRICE CHANGE INFORMATION                       C  
+      5377   Price change indicator, coded                 M  an..3
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+
+040   7011  ARTICLE AVAILABILITY, CODED                    C  an..3
+
+050   5495  SUB-LINE INDICATOR, CODED                      C  an..3
+
+060   1222  CONFIGURATION LEVEL                            C  n..2
+
+070   7083  CONFIGURATION, CODED                           C  an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      PNA    PARTY NAME
+
+      Function: To specify information necessary to establish the
+                identity of a party.
+
+010   3035  PARTY QUALIFIER                                M  an..3
+
+020   C206  IDENTIFICATION NUMBER                          C  
+      7402   Identity number                               M  an..35
+      7405   Identity number qualifier                     C  an..3
+      4405   Status, coded                                 C  an..3
+
+030   C082  PARTY IDENTIFICATION DETAILS                   C  
+      3039   Party id. identification                      M  an..35
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+
+040   3403  NAME TYPE, CODED                               C  an..3
+
+050   3397  NAME STATUS, CODED                             C  an..3
+
+060   C816  NAME COMPONENT DETAILS                         C  
+      3405   Name component qualifier                      M  an..3
+      3398   Name component                                C  an..70
+      3401   Name component status, coded                  C  an..3
+      3295   Name component original representation, coded C  an..3
+
+070   C816  NAME COMPONENT DETAILS                         C  
+      3405   Name component qualifier                      M  an..3
+      3398   Name component                                C  an..70
+      3401   Name component status, coded                  C  an..3
+      3295   Name component original representation, coded C  an..3
+
+080   C816  NAME COMPONENT DETAILS                         C  
+      3405   Name component qualifier                      M  an..3
+      3398   Name component                                C  an..70
+      3401   Name component status, coded                  C  an..3
+      3295   Name component original representation, coded C  an..3
+
+090   C816  NAME COMPONENT DETAILS                         C  
+      3405   Name component qualifier                      M  an..3
+      3398   Name component                                C  an..70
+      3401   Name component status, coded                  C  an..3
+      3295   Name component original representation, coded C  an..3
+
+100   C816  NAME COMPONENT DETAILS                         C  
+      3405   Name component qualifier                      M  an..3
+      3398   Name component                                C  an..70
+      3401   Name component status, coded                  C  an..3
+      3295   Name component original representation, coded C  an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      PRC    PROCESS IDENTIFICATION
+
+      Function: To identify a process.
+
+010   C242  PROCESS TYPE AND DESCRIPTION                   M  
+      7187   Process type identification                   M  an..17
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      7186   Process type                                  C  an..35
+      7186   Process type                                  C  an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      PRI    PRICE DETAILS
+
+      Function: To specify price information.
+
+010   C509  PRICE INFORMATION                              C  
+      5125   Price qualifier                               M  an..3
+      5118   Price                                         C  n..15
+      5375   Price type, coded                             C  an..3
+      5387   Price type qualifier                          C  an..3
+      5284   Unit price basis                              C  n..9
+      6411   Measure unit qualifier                        C  an..3
+
+020   5213  SUB-LINE PRICE CHANGE, CODED                   C  an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+    * PSD    PHYSICAL SAMPLE DESCRIPTION
+
+      Function: To define the physical sample parameters associated
+                with a test, resulting in discrete measurements.
+
+010   4407  SAMPLE PROCESS STATUS, CODED                   C  an..3
+
+020   7039  SAMPLE SELECTION METHOD, CODED                 C  an..3
+
+030   C526  FREQUENCY DETAILS                              C  
+      6071   Frequency qualifier                           M  an..3
+      6072   Frequency value                               C  n..9
+      6411   Measure unit qualifier                        C  an..3
+
+040   7045  SAMPLE DESCRIPTION, CODED                      C  an..3
+
+050   7047  SAMPLE DIRECTION, CODED                        C  an..3
+
+060   C514  SAMPLE LOCATION DETAILS                        C  
+      3237   Sample location, coded                        C  an..3
+      3236   Sample location                               C  an..35
+
+070 + C514  SAMPLE LOCATION DETAILS                        C  
+      3237   Sample location, coded                        C  an..3
+      3236   Sample location                               C  an..35
+
+080 + C514  SAMPLE LOCATION DETAILS                        C  
+      3237   Sample location, coded                        C  an..3
+      3236   Sample location                               C  an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      PTY    PRIORITY
+
+      Function: The segment is used to communicate priority
+                information.
+
+010   4035  PRIORITY QUALIFIER                             M  an..3
+
+020   C585  PRIORITY DETAILS                               C  
+      4037   Priority, coded                               C  an..3
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      4036   Priority                                      C  an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      QTY    QUANTITY
+
+      Function: To specify a pertinent quantity.
+
+010   C186  QUANTITY DETAILS                               M  
+      6063   Quantity qualifier                            M  an..3
+      6060   Quantity                                      M  n..15
+      6411   Measure unit qualifier                        C  an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      QVR    QUANTITY VARIANCES
+
+      Function: To specify item details relating to quantity
+                variances.
+
+          Note: This segment replaces segment QVA (which has been
+                deleted in this directory).
+
+010   C279  QUANTITY DIFFERENCE INFORMATION                C  
+      6064   Quantity difference                           M  n..15
+      6063   Quantity qualifier                            C  an..3
+
+020   4221  DISCREPANCY, CODED                             C  an..3
+
+030   C960  REASON FOR CHANGE                              C  
+      4295   Change reason, coded                          C  an..3
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      4294   Change reason                                 C  an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      RCS    REQUIREMENTS AND CONDITIONS
+
+      Function: To specify sector/subject requirements and conditions.
+
+010   7293  SECTOR/SUBJECT IDENTIFICATION QUALIFIER        M  an..3
+
+020   C550  REQUIREMENT/CONDITION IDENTIFICATION           C  
+      7295   Requirement/condition identification          M  an..17
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      7294   Requirement or condition                      C  an..35
+
+030   1229  ACTION REQUEST/NOTIFICATION, CODED             C  an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      REL    RELATIONSHIP
+
+      Function: To identify the direct relationship between the
+                data/information contained in one segment and the
+                data/information contained in one or more other
+                segments.
+
+010   9141  RELATIONSHIP QUALIFIER                         M  an..3
+
+020   C941  RELATIONSHIP                                   C  
+      9143   Relationship, coded                           C  an..3
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      9142   Relationship                                  C  an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      RFF    REFERENCE
+
+      Function: To specify a reference.
+
+010   C506  REFERENCE                                      M  
+      1153   Reference qualifier                           M  an..3
+      1154   Reference number                              C  an..35
+      1156   Line number                                   C  an..6
+      4000   Reference version number                      C  an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      RNG    RANGE DETAILS
+
+      Function: To identify a range.
+
+010   6167  RANGE TYPE QUALIFIER                           M  an..3
+
+020   C280  RANGE                                          C  
+      6411   Measure unit qualifier                        M  an..3
+      6162   Range minimum                                 C  n..18
+      6152   Range maximum                                 C  n..18
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      RTE    RATE DETAILS
+
+      Function: To specify rate information.
+
+010   C128  RATE DETAILS                                   M  
+      5419   Rate type qualifier                           M  an..3
+      5420   Rate per unit                                 M  n..15
+      5284   Unit price basis                              C  n..9
+      6411   Measure unit qualifier                        C  an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      SAL    REMUNERATION TYPE IDENTIFICATION
+
+      Function: Identification of a remuneration type.
+
+010   C049  REMUNERATION TYPE IDENTIFICATION               C  
+      5315   Remuneration type, coded                      C  an..3
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      5314   Remuneration type                             C  an..35
+      5314   Remuneration type                             C  an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      SCC    SCHEDULING CONDITIONS
+
+      Function: To specify scheduling conditions.
+
+010   4017  DELIVERY PLAN STATUS INDICATOR, CODED          M  an..3
+
+020   4493  DELIVERY REQUIREMENTS, CODED                   C  an..3
+
+030   C329  PATTERN DESCRIPTION                            C  
+      2013   Frequency, coded                              C  an..3
+      2015   Despatch pattern, coded                       C  an..3
+      2017   Despatch pattern timing, coded                C  an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      SCD    STRUCTURE COMPONENT DEFINITION
+
+      Function: To specify a component of a data structure (e.g. an
+                array or table).
+
+010   7497  COMPONENT FUNCTION QUALIFIER                   M  an..3
+
+020   C786  STRUCTURE COMPONENT IDENTIFICATION             C  
+      7512   Structure component identifier                M  an..35
+      7405   Identity number qualifier                     C  an..3
+
+030   C082  PARTY IDENTIFICATION DETAILS                   C  
+      3039   Party id. identification                      M  an..35
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+
+040   4405  STATUS, CODED                                  C  an..3
+
+050   1222  CONFIGURATION LEVEL                            C  n..2
+
+060   C778  POSITION IDENTIFICATION                        C  
+      7164   Hierarchical id. number                       C  an..12
+      1050   Sequence number                               C  an..6
+
+070   C240  PRODUCT CHARACTERISTIC                         C  
+      7037   Characteristic identification                 M  an..17
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      7036   Characteristic                                C  an..35
+      7036   Characteristic                                C  an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      SEG    SEGMENT IDENTIFICATION
+
+      Function: To identify a segment and give its class and
+                maintenance operation.
+
+010   9166  SEGMENT TAG                                    M  an..3
+
+020   1507  CLASS DESIGNATOR, CODED                        C  an..3
+
+030   4513  MAINTENANCE OPERATION, CODED                   C  an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      SEL    SEAL NUMBER
+
+      Function: To specify a seal number related to equipment.
+
+010   9308  SEAL NUMBER                                    M  an..10
+
+020   C215  SEAL ISSUER                                    C  
+      9303   Sealing party, coded                          C  an..3
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      9302   Sealing party                                 C  an..35
+
+030   4517  SEAL CONDITION, CODED                          C  an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      SEQ    SEQUENCE DETAILS
+
+      Function: To provide specific details related to the delivery
+                sequence.
+
+010   1245  STATUS INDICATOR, CODED                        C  an..3
+
+020   C286  SEQUENCE INFORMATION                           C  
+      1050   Sequence number                               M  an..6
+      1159   Sequence number source, coded                 C  an..3
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      SFI    SAFETY INFORMATION
+
+      Function: To identify regulatory safety information.
+
+010   7164  HIERARCHICAL ID. NUMBER                        M  an..12
+
+020   C814  SAFETY SECTION                                 C  
+      4046   Safety section                                M  n..2
+      4044   Safety section name                           C  an..70
+
+030   C815  ADDITIONAL SAFETY INFORMATION                  C  
+      4039   Additional safety information, coded          M  an..3
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      4038   Additional safety information                 C  an..35
+
+040   4513  MAINTENANCE OPERATION, CODED                   C  an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      SGP    SPLIT GOODS PLACEMENT
+
+      Function: To specify the placement of goods in relation to
+                equipment.
+
+010   C237  EQUIPMENT IDENTIFICATION                       M  
+      8260   Equipment identification number               C  an..17
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      3207   Country, coded                                C  an..3
+
+020   7224  NUMBER OF PACKAGES                             C  n..8
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      SGU    SEGMENT USAGE DETAILS
+
+      Function: To specify the details of the usage of a segment
+                within a message type structure.
+
+010   9166  SEGMENT TAG                                    M  an..3
+
+020   7299  REQUIREMENT DESIGNATOR, CODED                  C  an..3
+
+030   6176  MAXIMUM NUMBER OF OCCURRENCES                  C  n..7
+
+040   7168  LEVEL NUMBER                                   C  n1
+
+050   1050  SEQUENCE NUMBER                                C  an..6
+
+060   1049  MESSAGE SECTION, CODED                         C  an..3
+
+070   4513  MAINTENANCE OPERATION, CODED                   C  an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      SPS    SAMPLING PARAMETERS FOR SUMMARY STATISTICS
+
+      Function: To define the sampling parameters associated with
+                summary statistics reported.
+
+010   C526  FREQUENCY DETAILS                              C  
+      6071   Frequency qualifier                           M  an..3
+      6072   Frequency value                               C  n..9
+      6411   Measure unit qualifier                        C  an..3
+
+020   6074  CONFIDENCE LIMIT                               C  n..6
+
+030   C512  SIZE DETAILS                                   C  
+      6173   Size qualifier                                C  an..3
+      6174   Size                                          C  n..15
+
+040   C512  SIZE DETAILS                                   C  
+      6173   Size qualifier                                C  an..3
+      6174   Size                                          C  n..15
+
+050   C512  SIZE DETAILS                                   C  
+      6173   Size qualifier                                C  an..3
+      6174   Size                                          C  n..15
+
+060   C512  SIZE DETAILS                                   C  
+      6173   Size qualifier                                C  an..3
+      6174   Size                                          C  n..15
+
+070   C512  SIZE DETAILS                                   C  
+      6173   Size qualifier                                C  an..3
+      6174   Size                                          C  n..15
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      STA    STATISTICS
+
+      Function: To transmit summary statistics related to a specified
+                collection of test result values.
+
+010   6331  STATISTIC TYPE, CODED                          M  an..3
+
+020   C527  STATISTICAL DETAILS                            C  
+      6314   Measurement value                             C  n..18
+      6411   Measure unit qualifier                        C  an..3
+      6313   Measurement dimension, coded                  C  an..3
+      6321   Measurement significance, coded               C  an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      STC    STATISTICAL CONCEPT
+
+      Function: To specify a statistical concept.
+
+010   C785  STATISTICAL CONCEPT IDENTIFICATION             M  
+      6434   Statistical concept identifier                M  an..35
+      7405   Identity number qualifier                     C  an..3
+
+020   C082  PARTY IDENTIFICATION DETAILS                   C  
+      3039   Party id. identification                      M  an..35
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+
+030   4405  STATUS, CODED                                  C  an..3
+
+040   4513  MAINTENANCE OPERATION, CODED                   C  an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      STG    STAGES
+
+      Function: To provide information related to the kind of stage in
+                a process, the number of stages and the actual stage.
+
+010   9421  STAGES QUALIFIER                               M  an..3
+
+020   6426  NUMBER OF STAGES                               C  n..2
+
+030   6428  ACTUAL STAGE COUNT                             C  n..2
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      STS    STATUS
+
+      Function: To specify the type of industry sector/application to
+                which this segment refers, giving the status and
+                status reason relevant to conducting business and/or
+                services.
+
+010   C601  STATUS TYPE                                    C  
+      9015   Status type, coded                            M  an..3
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+
+020   C555  STATUS EVENT                                   C  
+      9011   Status event, coded                           M  an..3
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      9010   Status event                                  C  an..35
+
+030   C556  STATUS REASON                                  C  
+      9013   Status reason, coded                          M  an..3
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      9012   Status reason                                 C  an..35
+
+040   C556  STATUS REASON                                  C  
+      9013   Status reason, coded                          M  an..3
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      9012   Status reason                                 C  an..35
+
+050   C556  STATUS REASON                                  C  
+      9013   Status reason, coded                          M  an..3
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      9012   Status reason                                 C  an..35
+
+060   C556  STATUS REASON                                  C  
+      9013   Status reason, coded                          M  an..3
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      9012   Status reason                                 C  an..35
+
+070   C556  STATUS REASON                                  C  
+      9013   Status reason, coded                          M  an..3
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      9012   Status reason                                 C  an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      TAX    DUTY/TAX/FEE DETAILS
+
+      Function: To specify relevant duty/tax/fee information.
+
+010   5283  DUTY/TAX/FEE FUNCTION QUALIFIER                M  an..3
+
+020   C241  DUTY/TAX/FEE TYPE                              C  
+      5153   Duty/tax/fee type, coded                      C  an..3
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      5152   Duty/tax/fee type                             C  an..35
+
+030   C533  DUTY/TAX/FEE ACCOUNT DETAIL                    C  
+      5289   Duty/tax/fee account identification           M  an..6
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+
+040   5286  DUTY/TAX/FEE ASSESSMENT BASIS                  C  an..15
+
+050   C243  DUTY/TAX/FEE DETAIL                            C  
+      5279   Duty/tax/fee rate identification              C  an..7
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      5278   Duty/tax/fee rate                             C  an..17
+      5273   Duty/tax/fee rate basis identification        C  an..12
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+
+060   5305  DUTY/TAX/FEE CATEGORY, CODED                   C  an..3
+
+070   3446  PARTY TAX IDENTIFICATION NUMBER                C  an..20
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      TCC    TRANSPORT CHARGE/RATE CALCULATIONS
+
+      Function: To specify charges.
+
+010   C200  CHARGE                                         C  
+      8023   Freight and charges identification            C  an..17
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      8022   Freight and charges                           C  an..26
+      4237   Prepaid/collect indicator, coded              C  an..3
+      7140   Item number                                   C  an..35
+
+020   C203  RATE/TARIFF CLASS                              C  
+      5243   Rate/tariff class identification              M  an..9
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      5242   Rate/tariff class                             C  an..35
+      5275   Supplementary rate/tariff basis               C  an..6
+             identification
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      5275   Supplementary rate/tariff basis               C  an..6
+             identification
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+
+030   C528  COMMODITY/RATE DETAIL                          C  
+      7357   Commodity/rate identification                 C  an..18
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+
+040   C554  RATE/TARIFF CLASS DETAIL                       C  
+      5243   Rate/tariff class identification              C  an..9
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      TDT    DETAILS OF TRANSPORT
+
+      Function: To specify the transport details such as mode of
+                transport, means of transport, its conveyance
+                reference number and the identification of the means
+                of transport.
+                The segment may be pointed to by the TPL segment.
+
+010   8051  TRANSPORT STAGE QUALIFIER                      M  an..3
+
+020   8028  CONVEYANCE REFERENCE NUMBER                    C  an..17
+
+030   C220  MODE OF TRANSPORT                              C  
+      8067   Mode of transport, coded                      C  an..3
+      8066   Mode of transport                             C  an..17
+
+040   C228  TRANSPORT MEANS                                C  
+      8179   Type of means of transport identification     C  an..8
+      8178   Type of means of transport                    C  an..17
+
+050   C040  CARRIER                                        C  
+      3127   Carrier identification                        C  an..17
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      3128   Carrier name                                  C  an..35
+
+060   8101  TRANSIT DIRECTION, CODED                       C  an..3
+
+070   C401  EXCESS TRANSPORTATION INFORMATION              C  
+      8457   Excess transportation reason, coded           M  an..3
+      8459   Excess transportation responsibility, coded   M  an..3
+      7130   Customer authorization number                 C  an..17
+
+080   C222  TRANSPORT IDENTIFICATION                       C  
+      8213   Id. of means of transport identification      C  an..9
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      8212   Id. of the means of transport                 C  an..35
+      8453   Nationality of means of transport, coded      C  an..3
+
+090   8281  TRANSPORT OWNERSHIP, CODED                     C  an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      TEM    TEST METHOD
+
+      Function: To describe the nature of the test performed.
+
+010   C244  TEST METHOD                                    C  
+      4415   Test method identification                    C  an..17
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      4416   Test description                              C  an..70
+
+020   4419  TEST ROUTE OF ADMINISTERING, CODED             C  an..3
+
+030   3077  TEST MEDIA, CODED                              C  an..3
+
+040   6311  MEASUREMENT APPLICATION QUALIFIER              C  an..3
+
+050   7188  TEST REVISION NUMBER                           C  an..30
+
+060   C515  TEST REASON                                    C  
+      4425   Test reason identification                    C  an..17
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      4424   Test reason                                   C  an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+    | TMD    TRANSPORT MOVEMENT DETAILS
+
+    | Function: To specify operational transport movement details for
+                a goods item or equipment (which may differ from the
+                contractual conditions).
+
+010   C219  MOVEMENT TYPE                                  C  
+      8335   Movement type, coded                          C  an..3
+      8334   Movement type                                 C  an..35
+
+020   8332  EQUIPMENT PLAN                                 C  an..26
+
+030   8341  HAULAGE ARRANGEMENTS, CODED                    C  an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      TMP    TEMPERATURE
+
+      Function: To specify the temperature setting.
+
+010   6245  TEMPERATURE QUALIFIER                          M  an..3
+
+020   C239  TEMPERATURE SETTING                            C  
+      6246   Temperature setting                           C  n3
+      6411   Measure unit qualifier                        C  an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      TOD    TERMS OF DELIVERY OR TRANSPORT
+
+      Function: To specify terms of delivery or transport.
+
+010   4055  TERMS OF DELIVERY OR TRANSPORT FUNCTION, CODED C  an..3
+
+020   4215  TRANSPORT CHARGES METHOD OF PAYMENT, CODED     C  an..3
+
+030   C100  TERMS OF DELIVERY OR TRANSPORT                 C  
+      4053   Terms of delivery or transport, coded         C  an..3
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      4052   Terms of delivery or transport                C  an..70
+      4052   Terms of delivery or transport                C  an..70
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      TPL    TRANSPORT PLACEMENT
+
+      Function: To specify placement of goods or equipment in relation
+                to the transport used. The segment serves as a pointer
+                to the TDT segment group.
+
+010   C222  TRANSPORT IDENTIFICATION                       M  
+      8213   Id. of means of transport identification      C  an..9
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      8212   Id. of the means of transport                 C  an..35
+      8453   Nationality of means of transport, coded      C  an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      TSR    TRANSPORT SERVICE REQUIREMENTS
+
+      Function: To specify the contract and carriage conditions and
+                service and priority requirements for the transport.
+
+010   C536  CONTRACT AND CARRIAGE CONDITION                C  
+      4065   Contract and carriage condition, coded        M  an..3
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+
+020   C233  SERVICE                                        C  
+      7273   Service requirement, coded                    M  an..3
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      7273   Service requirement, coded                    C  an..3
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+
+030   C537  TRANSPORT PRIORITY                             C  
+      4219   Transport priority, coded                     M  an..3
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+
+040   C703  NATURE OF CARGO                                C  
+      7085   Nature of cargo, coded                        M  an..3
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+      VLI    VALUE LIST IDENTIFICATION
+
+      Function: To identify a coded or non coded value list.
+
+010   C780  VALUE LIST IDENTIFICATION                      M  
+      1518   Value list identifier                         M  an..35
+      7405   Identity number qualifier                     C  an..3
+
+020   C082  PARTY IDENTIFICATION DETAILS                   C  
+      3039   Party id. identification                      M  an..35
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+
+030   4405  STATUS, CODED                                  C  an..3
+
+040   1514  VALUE LIST NAME                                C  an..70
+
+050   1507  CLASS DESIGNATOR, CODED                        C  an..3
+
+060   1505  VALUE LIST TYPE, CODED                         C  an..3
+
+070   C240  PRODUCT CHARACTERISTIC                         C  
+      7037   Characteristic identification                 M  an..17
+      1131   Code list qualifier                           C  an..3
+      3055   Code list responsible agency, coded           C  an..3
+      7036   Characteristic                                C  an..35
+      7036   Characteristic                                C  an..35
+
+080   4513  MAINTENANCE OPERATION, CODED                   C  an..3

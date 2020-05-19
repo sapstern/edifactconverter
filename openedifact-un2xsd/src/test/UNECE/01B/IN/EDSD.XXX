@@ -1,0 +1,96 @@
+
+       UNH  Message Header
+
+       Function: Message Header
+
+010    0062 Message Reference                          M    1
+
+020    S009 Message Identification                     M    1
+       0065                                            M    an..35
+       0052                                            M    an..17
+       0054                                            M    an..3
+       0051                                            M    an..3
+
+
+       UNT  Message Trailer
+
+       Function: Message Trailer
+
+010    0074 Message Reference                          M    1
+
+020    0062 Message Reference                          M    1
+
+
+       UNS  Service Segment
+
+       Function: Service Segment
+
+010    0081 Section identification                     M    1
+
+
+       UNB  INTERCHANGE HEADER
+
+       Function:	To identify an interchange.
+
+010    S001 SYNTAX IDENTIFIER                          M    1
+       0001 Syntax identifier                          M    a..4
+       0002 Syntax version number                      M    an..1
+       0080 Service code list directory version number C    an..6
+       0133 Character encoding, coded                  C    an..3
+
+020    S002 INTERCHANGE SENDER                         M    1
+       0004 Sender identification - level one          M    an..35
+       0007 Level one identification code qualifier    C    an..4
+       0008 Sender identification - level two          C    an..35
+       0040 Sender identification - level three        C    an..35
+
+030    S003 INTERCHANGE RECIPIENT                      M    1
+       0010 Recipient identification - level one       M    an..35
+       0007 Level one identification code qualifier    C    an..4
+       0014 Recipient identification - level two       C    an..35
+       0044 Recipient identification - level three     C    an..35
+
+040    S004 DATE AND TIME OF PREPARATION               M    1
+       0017 Date                                       M    n..6
+       0019 Time                                       M    n..4
+
+050    0020 INTERCHANGE CONTROL REFERENCE              M    an..14
+
+060    S005 RECIPIENT REFERENCE/PASSWORD DETAILS       C    1
+       0022 Recipient reference/password               M    an..14
+       0025 Recipient reference/password qualifier     C    an..2
+
+070    0026 APPLICATION REFERENCE                      C    an..14
+
+080    0029 PROCESSING PRIORITY CODE                   C    an..1
+
+090    0031 ACKNOWLEDGEMENT REQUEST                    C    n..1
+
+100    0032 INTERCHANGE AGREEMENT IDENTIFIER           C    an..35
+
+110    0035 TEST INDICATOR                             C    n..1
+
+
+       UNZ  INTERCHANGE TRAILER
+
+       Function:	To end and check the completeness of an interchange.
+
+010    0036  INTERCHANGE CONTROL COUNT                 M    n..6
+
+020    0020  INTERCHANGE CONTROL REFERENCE             M    an..14
+
+       UNA  Service string advice
+
+       Function:	To end and check the completeness of an interchange.
+
+010    UNA1  COMPONENT DATA ELEMENT SEPARATOR          M    an..1
+
+020    UNA2  DATA ELEMENT SEPARATOR                    M    an..1
+
+010    UNA3  DECIMAL NOTATION                          M    an..1
+
+020    UNA4  RELEASE CHARACTER                         M    an..1
+
+010    UNA5  RESERVE                                   M    an..1
+
+020    UNA6  SEGMENT TERMINATOR                        M    an..1

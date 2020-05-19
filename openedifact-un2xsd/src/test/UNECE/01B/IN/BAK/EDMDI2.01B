@@ -1,0 +1,226 @@
+1.2  Index of message types by name
+
+     Change indicators
+
+     a plus sign (+)    for an addition
+     an asterisk (*)    for an amendment to structure
+     a vertical bar (|) for changes to text for descriptions,
+                        notes and functions
+     a letter X (X)     for marked for deletion
+     a letter R (R)     for a message whose structure has been
+                        completely recast. No other change symbols
+                        shall be used with these messages
+
+   Code   Name                                             Rev Recast
+
+   ENTREC Accounting entries message                       2      
+   DOCAMA Advice of an amendment of a documentary credit
+          message                                          2      
+   CONAPW Advice on pending works message                  1      
+   RETANN Announcement for returns message                 3      
+   APERAK Application error and acknowledgement message    4      
+   IFTMAN Arrival notice message                           9      
+   AUTHOR Authorization message                            2      
+*  BALANC Balance message                                  2      
+   BOPCUS Balance of payment customer transaction report
+          message                                          2      
+   BOPINF Balance of payment information from customer
+          message                                          3      
+   BOPBNK Bank transactions and portfolio transactions
+          report message                                   3      
+   BANSTA Banking status message                           3      
+   BAPLIE Bayplan/stowage plan occupied and empty
+          locations message                                5      
+X  BAPLTE Bayplan/stowage plan total numbers message       5      
+*| BERMAN Berth management message                         2      
+   IFTMBC Booking confirmation message                     8      
+   BMISRM Bulk marine inspection summary report message    2      
+   BUSCRD Business credit report message                   2      
+   IFTICL Cargo insurance claims message                   1      
+   HANMOV Cargo/goods handling and movement message        6      
+   CHACCO Chart of accounts message                        2      
+   CLASET Classification information set message           1      
+*  COACSU Commercial account summary message               3      
+   COMDIS Commercial dispute message                       2      
+   IFTMCA Consignment advice message                       1      
+   COPARN Container announcement message                   8      
+   COPRAR Container discharge/loading order message        7      
+   COARRI Container discharge/loading report message       8      
+   CODECO Container gate-in/gate-out report message        8      
+   COPINO Container pre-notification message               8      
+*  COREOR Container release order message                  10     
+   COHAOR Container special handling order message         8      
+   COEDOR Container stock report message                   8      
+   COSTCO Container stuffing/stripping confirmation
+          message                                          7      
+   COSTOR Container stuffing/stripping order message       7      
+   CNTCND Contractual conditions message                   2      
+   COPAYM Contributions for payment                        1      
+   CREADV Credit advice message                            2      
+   RECECO Credit risk cover message                        1      
+   CUSCAR Customs cargo report message                     9      
+   CUSREP Customs conveyance report message                6      
+   CUSDEC Customs declaration message                      8      
+   CUSEXP Customs express consignment declaration message  2      
+   CUSRES Customs response message                         6      
+X  IFTIAG Dangerous cargo list message                     4      
+   IFTDGN Dangerous goods notification message             5      
+   DGRECA Dangerous goods recapitulation message           1      
+   DMRDEF Data maintenance request definition message      2      
+   DMSTAT Data maintenance status report/query message     2      
+   DEBADV Debit advice message                             2      
+   DEBREC Debts recovery message                           1      
+   DELJIT Delivery just in time message                    6      
+   DELFOR Delivery schedule message                        6      
+   DESADV Despatch advice message                          10     
+   BOPDIR Direct balance of payment declaration message    3      
+   DIRDEB Direct debit message                             5      
+   CONDPV Direct payment valuation message                 2      
+*  DIRDEF Directory definition message                     6      
+   DOCADV Documentary credit advice message                3      
+   DOCAMI Documentary credit amendment information message 2      
+   DOCAPP Documentary credit application message           3      
+   DOCINF Documentary credit issuance information message  3      
+   CONDRA Drawing administration message                   3      
+   CONDRO Drawing organisation message                     1      
+   IMPDEF EDI implementation guide definition message      1      
+   INFENT Enterprise accounting information message        2      
+   DESTIM Equipment damage and repair estimate message     4      
+   CONEST Establishment of contract message                4      
+   CREEXT Extended credit advice message                   2      
+   PAYEXT Extended payment order message                   2      
+   FINCAN Financial cancellation message                   1      
+   FINSTA Financial statement of an account message        1      
+   IFTMBF Firm booking message                             10     
+   IFCSUM Forwarding and consolidation summary message     12     
+   IFTRIN Forwarding and transport rate information
+          message                                          4      
+   IFTSAI Forwarding and transport schedule and
+          availability information message                 6      
+   IFTCCA Forwarding and transport shipment charge
+          calculation message                              4      
+   GENRAL General purpose message                          3      
+   GESMES Generic statistical message                      2      
+   ITRRPT In transit report detail message                 2      
+   INFCON Infrastructure condition message                 1      
+   INSRPT Inspection report message                        2      
+   INSREQ Inspection request message                       2      
+   IFTMCS Instruction contract status message              10     
+   RETINS Instruction for returns message                  2      
+   IFTMIN Instruction message                              12     
+   INSDES Instruction to despatch message                  3      
+   ICASRP Insurance claim assessment and reporting message 1      
+   ICSOLI Insurance claim solicitor’s instruction message  1      
+   IPPOAD Insurance policy administration message          1      
+   INSPRE Insurance premium message                        1      
+   PRPAID Insurance premium payment message                2      
+   ISENDS Intermediary system enablement or disablement
+          message                                          1      
+   SANCRT International movement of goods governmental
+          regulatory message                               5      
+   IFTSTA International multimodal status report message   11     
+   IFTSTQ International multimodal status request message  4      
+   IFTFCC International transport freight costs and other
+          charges message                                  2      
+   INVRPT Inventory report message                         9      
+   CONITT Invitation to tender message                     4      
+   INVOIC Invoice message                                  13     
+   JOBAPP Job application proposal message                 1      
+   JAPRES Job application result message                   1      
+   JINFDE Job information demand message                   1      
+   JOBCON Job order confirmation message                   1      
+   JOBOFF Job order message                                1      
+   JOBMOD Job order modification message                   1      
+   JUPREQ Justified payment request message                2      
+   LEDGER Ledger message                                   1      
+   CASRES Legal administration response in civil
+          proceedings message                              1      
+   LREACT Life reinsurance activity message                1      
+   LRECLM Life reinsurance claims message                  1      
+   MEQPOS Means of transport and equipment position
+          message                                          3      
+   MEDPRE Medical prescription message                     1      
+   MEDRUC Medical resource usage and cost message          2      
+   MEDRPT Medical service report message                   1      
+   MEDREQ Medical service request message                  1      
+   MSCONS Metered services consumption report message      2      
+   SSIMOD Modification of identity details message         1      
+   IPPOMO Motor insurance policy message                   1      
+   CREMUL Multiple credit advice message                   2      
+   DEBMUL Multiple debit advice message                    2      
+   FINPAY Multiple interbank funds transfer message        1      
+   PAYMUL Multiple payment order message                   4      
+   SSREGW Notification of registration of a worker message 1      
+   OSTENQ Order status enquiry message                     3      
+   OSTRPT Order status report message                      4      
+   PARTIN Party information message                        6      
+   PAXLST Passenger list message                           5      
+   PAYORD Payment order message                            2      
+   CONPVA Payment valuation message                        3      
+   PAYDUC Payroll deductions advice message                3      
+   CUSPED Periodic customs declaration message             1      
+   CODENO Permit expiration/clearance ready notice message 6      
+   MEDPID Person identification message                    1      
+   PRICAT Price/sales catalogue message                    11     
+   PRIHIS Pricing history message                          2      
+   PRODAT Product data message                             7      
+   PRODEX Product exchange reconciliation message          3      
+   PROINQ Product inquiry message                          2      
+   PROSRV Product service message                          1      
+   PROCST Project cost reporting message                   1      
+   PROTAP Project tasks planning message                   1      
+   IFTMBP Provisional booking message                      8      
+   ORDCHG Purchase order change request message            13     
+   ORDERS Purchase order message                           12     
+   ORDRSP Purchase order response message                  12     
+   QALITY Quality data message                             4      
+   CONQVA Quantity valuation message                       1      
+   QUOTES Quote message                                    9      
+   RDRMES Raw data reporting message                       2      
+   RECADV Receiving advice message                         6      
+   REGENT Registration of enterprise message               1      
+   REBORD Reinsurance bordereau message                    2      
+   RECALC Reinsurance calculation message                  1      
+   RECLAM Reinsurance claims message                       2      
+   RECORD Reinsurance core data message                    1      
+   REPREM Reinsurance premium message                      1      
+   RESETT Reinsurance settlement message                   2      
+   RETACC Reinsurance technical account message            2      
+   RELIST Reinsured objects list message                   1      
+*  REMADV Remittance advice message                        12     
+   RPCALL Repair call message                              1      
+   COLREQ Request for a documentary collection message     1      
+   DOCAMR Request for an amendment of a documentary credit
+          message                                          2      
+   REQDOC Request for document message                     3      
+   CASINT Request for legal administration action in civil
+          proceedings message                              1      
+   REQOTE Request for quote message                        8      
+   RESMSG Reservation message                              1      
+   CONRPW Response of pending works message                1      
+   DOCARE Response to an amendment of a documentary credit
+          message                                          2      
+   SAFHAZ Safety and hazard data message                   3      
+   SLSRPT Sales data report message                        8      
+   SLSFCT Sales forecast message                           2      
+   STLRPT Settlement transaction reporting message         1      
+   SOCADE Social administration message                    1      
+   STATAC Statement of account message                     4      
+   MOVINS Stowage instruction message                      3      
+   SUPCOT Superannuation contributions advice message      1      
+   SUPMAN Superannuation maintenance message               1      
+   SUPRES Supplier response message                        1      
+   TANSTA Tank status report message                       1      
+   TAXCON Tax control message                              1      
+   CONTEN Tender message                                   4      
+   TPFREP Terminal performance message                     1      
+   UTILMD Utilities master data message                    1      
+   UTILTS Utilities time series message                    1      
+   VATDEC Value added tax message                          2      
+   CALINF Vessel call information message                  4      
+   VESDEP Vessel departure message                         4      
+   WASDIS Waste disposal information message               1      
+   WKGRDC Work grant decision message                      1      
+   WKGRRE Work grant request message                       1      
+   CONWQD Work item quantity determination message         1      
+   SSRECH Worker's insurance history message               1      

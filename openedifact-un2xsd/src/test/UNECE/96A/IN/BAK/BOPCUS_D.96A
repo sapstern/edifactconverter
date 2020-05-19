@@ -1,0 +1,404 @@
+                              UN/EDIFACT
+
+                         DRAFT RECOMMENDATION
+
+        Balance of payment customer transaction report message
+
+
+
+
+
+----------------------------------------------------------------------
+This message is available for formal trial for at least six months
+from the date of approval by UN/ECE/TRADE/WP.4.
+ 
+Organisations are invited to trial this message. Comments on the
+results from the trial should be forwarded to their Rapporteur's Team
+Secretariat as soon as they are available. Based on the results of the
+trials, a UNSM may be issued.
+ 
+The segments, composite data elements, data elements and codes for
+use in the trial of this message are contained in the Draft directory.
+However, this information may differ from that in the Standard
+directory (UNTDID), even for material having the same identifying
+tags.
+----------------------------------------------------------------------
+
+
+
+
+
+
+
+
+                                            Message Type : BOPCUS
+                                            Version      : D
+                                            Release      : 96A
+                                            Contr. Agency: UN
+                                            Status       : 1
+                                            Revision     : 1
+                                            Date         : 95-11-23
+
+
+
+
+
+
+SOURCE: Joint Statistics Group (JM8)
+
+
+
+                               CONTENTS
+
+        Balance of payment customer transaction report message
+
+
+
+0.   INTRODUCTION
+
+
+1.   SCOPE
+
+     1.1   Functional definition
+
+     1.2   Field of application
+
+     1.3   Principles
+
+2.   REFERENCES
+
+3.   TERMS AND DEFINITIONS
+
+4.   MESSAGE DEFINITION
+
+     4.1   Data segment clarification
+
+     4.2   Data segment index (alphabetical sequence)
+
+     4.3   Message structure
+
+           4.3.1 Segment table
+
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------
+For general information on UN standard message types see UN Trade Data
+Interchange Directory, UNTDID, Part 4, Section 2.6, UN/ECE UNSM
+General Introduction
+----------------------------------------------------------------------
+
+
+
+0.     INTRODUCTION
+
+       This specification provides the definition of the Balance of
+       payment customer transaction report message (BOPCUS) to be used
+       in Electronic Data Interchange (EDI) between trading partners
+       involved in administration, commerce and transport.
+
+1.     SCOPE
+
+1.1    Functional Definition
+
+       Message sent by banks to the Balance of payment (BOP) compiler
+       for reporting - one by one - individual customer transactions
+       (debit and credit) processed during a specific time period.
+       Actually, this transaction information can be distilled - one
+       by one- from PAYORD / PAYMUL / PAYEXT and BOPINF messages
+       respectively.
+
+1.2    Field of Application
+
+       This message is to be applied in the framework of the data
+       collection for the Balance of Payment compilation.
+
+1.3    Principles
+
+       The content of BOPCUS is extracted from the PAYORD messages and
+       the related messages (PAYMUL / PAYEXT) by the banks.
+       
+       Sometimes the BOPCUS message could also contain a copy of the
+       relevant segments of the corresponding BOPINF - CREADV
+       messages.
+       
+       The message contains a main loop introduced by a LIN segment
+       which is used to accommodate the reporting of a large number of
+       transactions without repeating identical information of the
+       reporting bank.
+       
+       Each loop contains all the information related to one
+       transaction processed via the reporting bank.
+       
+       Note : If the explanation below is refers to a payment order,
+       please read it as a payment or a receipt.
+
+2.     REFERENCES
+
+       See UNTDID, Part 4, Chapter 2.6 UN/ECE UNSM - General
+       Introduction, Section 1.
+
+3.     TERMS AND DEFINITIONS
+
+       See UNTDID, Part 4, Chapter 2.6 UN/ECE UNSM - General
+       Introduction, Section 2.
+
+4.     MESSAGE DEFINITION
+
+4.1    Data Segment Clarification
+
+       This section should be read in conjunction with the Branching
+       Diagram and the Segment Table which indicate mandatory,
+       conditional and repeating requirements.
+
+0010 | UNH, Message header
+       A service segment starting and uniquely identifying a message.
+       The message type code for the Balance of payment customer
+       transaction report message is BOPCUS.
+       
+       Note: Balance of payment customer transaction report messages
+       conforming to this document must contain the following data in
+       segment UNH, composite S009:
+
+       Data element  0065 BOPCUS
+                     0052 D
+                     0054 96A
+                     0051 UN
+
+0020   BGM, Beginning of message
+       A segment to indicate the type and function of the message and
+       to transmit its identifying number.
+
+0030   DTM, Date/time/period
+       A segment to specify the date and, when required, the time at
+       which the message has been created as well as other dates and
+       times relevant to the financial transaction (day, month, year).
+
+
+0040   Segment group 1:  RFF-DTM
+       A group of segments to give auxiliary references and the
+       relevant dates for the message itself.
+
+0050      RFF, Reference
+          A segment to give another reference for the message.
+
+0060      DTM, Date/time/period
+          A segment to give the period reported in the message.
+
+
+0070   Segment group 2:  NAD-CTA-COM
+       A group of segments to give the identification of the reporting
+       agent (generally the bank) or, possibly with a second
+       occurrence, the identification of the bank on behalf of which
+       the declaration is made.
+
+0080      NAD, Name and address
+          A segment to identify the resident party.
+
+0090      CTA, Contact information
+          A segment to identify a person or a department for the party
+          specified in the NAD segment and to whom communication
+          should be directed.
+
+0100      COM, Communication contact
+          A segment to give communication number for the party
+          identified in the NAD segment.
+
+
+0110   Segment group 3:  LIN-FII-DTM-SG4-SG5-SG6-SG7-SG8
+       A group of segments to accommodate the details corresponding
+       with one payment ordered via a PAYORD / PAYMUL / PAYEXT message
+       or with BOPINF message received during the relevant period.
+
+0120      LIN, Line item
+          A segment identifying the line item by a current line
+          number.
+
+0130      FII, Financial institution information
+          A segment giving the identification of the other financial
+          institution abroad involved in the transaction and possibly
+          the account number.
+
+0140      DTM, Date/time/period
+          A segment to give the processing date of the transaction.
+
+
+0150      Segment group 4:  RFF-DTM
+          A segment group to give references and dates of the
+          corresponding PAYORD message or the payment order. A second
+          optional occurrence allows the specification of another
+          reference to the same information.
+
+0160         RFF, Reference
+             A segment to give the serial number of the PAYORD related
+             message or the bank reference of the payment order.
+
+0170         DTM, Date/time/period
+             A segment to give the day, month & year when the related
+             PAYORD message was emitted or when the payment order was
+             performed.
+
+
+0180      Segment group 5:  NAD-CTA-COM
+          A group of segments giving the identification (and possible
+          details) of the Payee and the Payor and, for declaration on
+          behalf of somebody else, their "declaring agent" .
+
+0190         NAD, Name and address
+             A segment to identify the resident party.
+
+0200         CTA, Contact information
+             A segment to identify a person or a department for the
+             party specified in the NAD segment and to whom
+             communication should be directed.
+
+0210         COM, Communication contact
+             A segment to give a communication number for the party
+             identified in the NAD segment.
+
+
+0220      Segment group 6:  MOA-CUX
+          A group of segments to give the total amount of the payment
+          and the relevant currencies.
+
+0230         MOA, Monetary amount
+             A segment to give the total amount of the payment and the
+             relevant currency.
+
+0240         CUX, Currencies
+             A segment to give the reference currency (e.g. the
+             currency of the account) and the target currency (e.g.
+             the currency of the transfer) of the payment when they
+             are different.
+
+
+0250      Segment group 7:  DOC-DTM
+          A group of segments providing brief structured cross
+          references to transactions to which the Payment Order
+          relates.
+
+0260         DOC, Document/message details
+             A segment providing brief structured cross reference to
+             transaction to which the Payment Order relates.
+
+0270         DTM, Date/time/period
+             A segment identifying the date of issue of the document
+             described in the preceding DOC segment group 7.
+
+
+0280      Segment group 8:  RCS-FTX-MOA-LOC
+          A group of segments to give the nature of the transaction,
+          the amount and geographical detail. If the payment relates
+          to different transactions or consists of composite payments
+          each transaction has to be specified by its nature, its
+          amount and, if necessary its geographical detail.
+
+0290         RCS, Requirements and conditions
+             A segment to give the nature of transaction.
+
+0300         FTX, Free text
+             A segment to give information in clear and free form
+             about the nature of transaction.
+
+0310         MOA, Monetary amount
+             A segment to give the amount and the currency of the
+             transaction.
+
+0320         LOC, Place/location identification
+             A segment to indicate one of the different countries
+             involved in the transaction.
+
+
+0330   Segment group 9:  AUT-DTM
+       A group of segments to specify the details of authentication.
+
+0340      AUT, Authentication result
+          A segment to specify the details of any authentication
+          (validation) procedure applied to the BOPCUS message.
+
+0350      DTM, Date/time/period
+          A segment identifying the validation date/time.
+
+0360   UNT, Message trailer
+       A service segment ending a message, giving the total number of
+       segments in the message and the control reference number of the
+       message.
+
+4.2    Data segment index (Alphabetical sequence by tag)
+
+          AUT Authentication result
+          BGM Beginning of message
+          COM Communication contact
+          CTA Contact information
+          CUX Currencies
+          DOC Document/message details
+          DTM Date/time/period
+          FII Financial institution information
+          FTX Free text
+          LIN Line item
+          LOC Place/location identification
+          MOA Monetary amount
+          NAD Name and address
+          RCS Requirements and conditions
+          RFF Reference
+          UNH Message header
+          UNT Message trailer
+
+4.3    Message structure
+
+4.3.1  Segment table
+
+Pos    Tag Name                                      S   R
+
+0010   UNH Message header                            M   1     
+0020   BGM Beginning of message                      M   1     
+0030   DTM Date/time/period                          M   3     
+
+0040       ÄÄÄÄÄ Segment group 1  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   2ÄÄÄÄÄÄÄÄÄÄÄ¿
+0050   RFF Reference                                 M   1           ³
+0060   DTM Date/time/period                          C   1ÄÄÄÄÄÄÄÄÄÄÄÙ
+
+0070       ÄÄÄÄÄ Segment group 2  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   2ÄÄÄÄÄÄÄÄÄÄÄ¿
+0080   NAD Name and address                          M   1           ³
+0090   CTA Contact information                       C   1           ³
+0100   COM Communication contact                     C   5ÄÄÄÄÄÄÄÄÄÄÄÙ
+
+0110       ÄÄÄÄÄ Segment group 3  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   9999ÄÄÄÄÄÄÄÄ¿
+0120   LIN Line item                                 M   1           ³
+0130   FII Financial institution information         C   1           ³
+0140   DTM Date/time/period                          C   1           ³
+                                                                     ³
+0150       ÄÄÄÄÄ Segment group 4  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   2ÄÄÄÄÄÄÄÄÄÄ¿³
+0160   RFF Reference                                 M   1          ³³
+0170   DTM Date/time/period                          C   1ÄÄÄÄÄÄÄÄÄÄÙ³
+                                                                     ³
+0180       ÄÄÄÄÄ Segment group 5  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   4ÄÄÄÄÄÄÄÄÄÄ¿³
+0190   NAD Name and address                          M   1          ³³
+0200   CTA Contact information                       C   1          ³³
+0210   COM Communication contact                     C   5ÄÄÄÄÄÄÄÄÄÄÙ³
+                                                                     ³
+0220       ÄÄÄÄÄ Segment group 6  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   1ÄÄÄÄÄÄÄÄÄÄ¿³
+0230   MOA Monetary amount                           M   1          ³³
+0240   CUX Currencies                                C   1ÄÄÄÄÄÄÄÄÄÄÙ³
+                                                                     ³
+0250       ÄÄÄÄÄ Segment group 7  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   10ÄÄÄÄÄÄÄÄÄ¿³
+0260   DOC Document/message details                  M   1          ³³
+0270   DTM Date/time/period                          C   1ÄÄÄÄÄÄÄÄÄÄÙ³
+                                                                     ³
+0280       ÄÄÄÄÄ Segment group 8  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   10ÄÄÄÄÄÄÄÄÄ¿³
+0290   RCS Requirements and conditions               M   1          ³³
+0300   FTX Free text                                 C   10         ³³
+0310   MOA Monetary amount                           C   1          ³³
+0320   LOC Place/location identification             C   4ÄÄÄÄÄÄÄÄÄÄÁÙ
+
+0330       ÄÄÄÄÄ Segment group 9  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   1ÄÄÄÄÄÄÄÄÄÄÄ¿
+0340   AUT Authentication result                     M   1           ³
+0350   DTM Date/time/period                          C   1ÄÄÄÄÄÄÄÄÄÄÄÙ
+0360   UNT Message trailer                           M   1     

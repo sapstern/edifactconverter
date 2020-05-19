@@ -1,0 +1,460 @@
+                              UN/EDIFACT
+
+                UNITED NATIONS STANDARD MESSAGE (UNSM)
+
+                  Payroll deductions advice message
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                            Message Type : PAYDUC
+                                            Version      : D
+                                            Release      : 97A
+                                            Contr. Agency: UN
+
+                                            Revision     : 1
+                                            Date         : 96-12-13
+
+
+
+
+
+
+SOURCE: To be provided
+
+
+
+                               CONTENTS
+
+                  Payroll deductions advice message
+
+0.   INTRODUCTION
+
+1.   SCOPE
+
+     1.1   Functional definition
+
+     1.2   Field of application
+
+     1.3   Principles
+
+2.   REFERENCES
+
+3.   TERMS AND DEFINITIONS
+
+     3.1   Standard terms and definitions
+
+4.   MESSAGE DEFINITION
+
+     4.1   Data segment clarification
+
+           4.1.1 Header section
+           4.1.2 Detail section
+           4.1.3 Summary section
+
+     4.2   Data segment index (alphabetical sequence)
+
+     4.3   Message structure
+
+           4.3.1 Segment table
+
+
+
+
+
+
+----------------------------------------------------------------------
+For general information on UN standard message types see UN Trade Data
+Interchange Directory, UNTDID, Part 4, Section 2.6, UN/ECE UNSM
+General Introduction
+----------------------------------------------------------------------
+
+
+
+0.     INTRODUCTION
+
+       This specification provides the definition of the Payroll
+       deductions advice message (PAYDUC) to be used in Electronic
+       Data Interchange (EDI) between trading partners involved in
+       administration, commerce and transport.
+
+1.     SCOPE
+
+1.1    Functional Definition
+
+       The Payroll Deductions Advice is sent by a party (usually an
+       employer or its representative) to a service providing
+       organisation, to detail payments by payroll deductions, on
+       behalf of employees, made to the service providing
+       organisation.
+
+1.2    Field of Application
+
+       This message may be applied for both national and international
+       payment advices where payment is through payroll deductions. It
+       is based on general commercial practice and is not dependent on
+       the type of business or industry.
+
+1.3    Principles
+
+       - a Payroll Deductions Advice gives detailed information about
+       a payment.
+       
+       - the payment is on behalf of one or more employees.
+       
+       - the payment may be for multiple services.
+       
+       - the payment may refer to multiple dates.
+       
+       - commission amounts may be deducted from gross payments.
+       
+       - a Payroll Deductions Advice is based on agreements between
+       the parties.
+       
+       - the message allows for the transmission in the details
+       section of either complete information of individual employee
+       payments, or only the information regarding changes from
+       nominated regular payments.
+
+2.     REFERENCES
+
+       See UNTDID, Part 4, Chapter 2.6 UN/ECE UNSM - General
+       Introduction, Section 1.
+
+3.     TERMS AND DEFINITIONS
+
+3.1    Standard terms and definitions
+
+       See UNTDID, Part 4, Chapter 2.6 UN/ECE UNSM - General
+       Introduction, Section 2.
+
+4.     MESSAGE DEFINITION
+
+4.1    Data Segment Clarification
+
+       This section should be read in conjunction with the Segment
+       Table which indicate mandatory, conditional and repeating
+       requirements.
+
+4.1.1  Header section
+
+       Information to be provided in the Header section:
+
+0010   UNH, Message header
+       A service segment starting and uniquely identifying a message.
+       The message type code for the Payroll deductions advice message
+       is PAYDUC.
+       
+       Note: Payroll deductions advice messages conforming to this
+       document must contain the following data in segment UNH,
+       composite S009:
+
+       Data element  0065 PAYDUC
+                     0052 D
+                     0054 97A
+                     0051 UN
+
+0020   BGM, Beginning of message
+       A segment for unique identification of the Payroll Deductions
+       Advice message, the type of Payroll Deductions Advice and its
+       function.
+
+0030   PAI, Payment instructions
+       A segment specifying the payment means (e.g. cheque or direct
+       bank transfer) and, if required, the payment channel for the
+       Payroll Deductions Advice. The payment conditions may also be
+       specified.
+
+0040   FII, Financial institution information
+       A segment identifying the financial institution (e.g. bank) and
+       account number of the issuing party, and, where required, the
+       receiving party.
+
+0050   DTM, Date/time/period
+       A segment specifying the date, and if required the time, that
+       the payment associated with this Payroll Deductions Advice
+       message has been sent. If needed, repeating segments may
+       include the message date, the date and time associated with any
+       validation keys and other dates relevant to the whole of the
+       message.
+
+0060   CUX, Currencies
+       A segment giving the currency and the associated exchange rate
+       of the total amount paid to the service organisation in
+       relation to this advice.
+
+0070   PAT, Payment terms basis
+       A segment to indicate payment terms applicable to the whole
+       message, such as the number of periods covered by the payroll
+       deductions advice.
+
+0080   FTX, Free text
+       A segment for free text information in coded or clear form, to
+       give further clarification when required to the Payroll
+       Deductions Advice message. It should be noted that the use of
+       clear text may require special processing of this segment.
+
+
+0090   Segment group 1:  RFF-DTM
+       A group of segments specifying references and issue dates of
+       payment instruments associated with this message. Examples are
+       check payments or bank transfers.
+
+0100      RFF, Reference
+          A segment for referencing payment instruments, e.g. a
+          reference to a check payment or bank transfer.
+
+0110      DTM, Date/time/period
+          A segment specifying the issue date of a payment instrument
+          associated with this message, e.g. the date of a cheque.
+
+
+0120   Segment group 2:  NAD-SG3
+       A group of segments identifying names and addresses relevant to
+       the Payroll Deductions Advice.
+
+0130      NAD, Name and address
+          A segment identifying the name and address of the parties
+          associated with the Payroll Deductions Advice and their
+          functions. Examples are: the employer, the recipient system
+          and the name and address of the payer's financial
+          institution if required.
+
+
+0140      Segment group 3:  CTA-COM
+          A group of segments identifying contact persons or
+          department and their communication number.
+
+0150         CTA, Contact information
+             A segment giving additional contact information of a
+             person or department specified in the NAD segment and to
+             whom communication should be directed.
+
+0160         COM, Communication contact
+             A segment specifying communication contact number.
+
+4.1.2  Detail section
+
+       Information to be provided in the Detail section:
+
+
+0170   Segment group 4:  GIS-RFF-MOA-BUS-CUX-SG5
+       A group of segments identifying individual service groups, and
+       the monetary amounts for each service group included in the
+       total payment. If necessary, the amounts for each individual
+       service group may be calculated in an agreed currency.
+
+0180      GIS, General indicator
+          A segment relevant to the processing of segment group 6, to
+          indicate whether all individual employee payment details, or
+          only changes from a nominated standard payment are provided.
+
+0190      RFF, Reference
+          A segment identifying each individual service group.
+
+0200      MOA, Monetary amount
+          A segment giving the monetary amounts for standard payments
+          (if applicable, both the previous and the new standard) for
+          a service group, the commission amounts if any, and the
+          (net) total payment amount for a service group included in
+          the total payment. If required, other monetary amounts
+          relevant to a service group may also be given.
+
+0210      BUS, Business function
+          A segment to provide additional identification for each
+          individual service group.
+
+0220      CUX, Currencies
+          A segment identifying the currency and associated exchange
+          rate of the monetary amounts calculated for a service group.
+
+
+0230      Segment group 5:  DTM-SG6
+          A group of segments specifying dates when payments were
+          deducted from the payroll.
+
+0240         DTM, Date/time/period
+             A segment specifying the date when a payment was deducted
+             from the payroll.
+
+
+0250         Segment group 6:  NAD-RFF-MOA-AJT-PAT-FTX
+             A group of segments providing the details of individual
+             pay deductions made on behalf of each employee (service
+             group member) for payment to a service group. Either
+             complete details, or only changes from a standard amount
+             may be specified. For changes, either the actual amount
+             remitted for an employee or the variation from the
+             previous standard may be provided. Variations may be of a
+             temporary or permanent type.
+
+0260            NAD, Name and address
+                A segment identifying the name of the employee
+                (service group member) for whom payments are made by
+                pay deduction.
+
+0270            RFF, Reference
+                A repeating segment providing the reference
+                identification of the employee as referred to by the
+                originating party (e.g. the employer) and by the
+                service group (these references may differ).
+
+0280            MOA, Monetary amount
+                A segment giving the monetary amount deducted for an
+                employee to pay the service group. When changes only
+                are specified in the GIS segment of segment group 4,
+                the previous standard amount needs to be stated
+                together with either the actual payment included in
+                the total remittance, or the variation from the
+                standard amount. The status data element needs to be
+                used to indicate a permanent or temporary variation.
+                If required, the current standard amount may also be
+                given.
+
+0290            AJT, Adjustment details
+                A segment indicating the reason for an adjustment to
+                the standard payment amount.
+
+0300            PAT, Payment terms basis
+                A segment giving the number of pay periods and, if
+                required, the pay frequency (as part of the type of
+                period).
+
+0310            FTX, Free text
+                A segment for free text information in coded or clear
+                form, to give further information at the employee
+                level if required. This may be used, for example, to
+                further specify the reason for a variation from the
+                standard monetary amount. It should be noted that the
+                use of clear text may require special processing of
+                the FTX segment information.
+
+4.1.3  Summary section
+
+       Information to be provided in the Summary section:
+
+0320   UNS, Section control
+       A service segment placed at the start of the summary section to
+       avoid segment collision.
+
+0330   MOA, Monetary amount
+       A segment giving the total amount paid to the service
+       organisation in relation to this advice.
+
+0340   CNT, Control total
+       A segment to provide message control totals as required. It
+       should be noted that a balancing monetary total is always
+       provided by the total amount paid to the service organisation.
+
+0350   AUT, Authentication result
+       A segment to specify the results of the application of an
+       authentication procedure, enabling to check the authenticity of
+       the sender and the integrity of the data.
+
+0360   UNT, Message trailer
+       A service segment ending a message, giving the total number of
+       segments in the message and the control reference number of the
+       message.
+
+4.2    Data segment index (Alphabetical sequence by tag)
+
+          AJT Adjustment details
+          AUT Authentication result
+          BGM Beginning of message
+          BUS Business function
+          CNT Control total
+          COM Communication contact
+          CTA Contact information
+          CUX Currencies
+          DTM Date/time/period
+          FII Financial institution information
+          FTX Free text
+          GIS General indicator
+          MOA Monetary amount
+          NAD Name and address
+          PAI Payment instructions
+          PAT Payment terms basis
+          RFF Reference
+          UNH Message header
+          UNS Section control
+          UNT Message trailer
+
+4.3    Message structure
+
+4.3.1  Segment table
+
+Pos    Tag Name                                      S   R
+
+           HEADER SECTION
+
+0010   UNH Message header                            M   1     
+0020   BGM Beginning of message                      M   1     
+0030   PAI Payment instructions                      M   1     
+0040   FII Financial institution information         M   2     
+0050   DTM Date/time/period                          M   4     
+0060   CUX Currencies                                C   1     
+0070   PAT Payment terms basis                       C   1     
+0080   FTX Free text                                 C   5     
+
+0090       ÄÄÄÄÄ Segment group 1  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99ÄÄÄÄÄÄÄÄÄÄ¿
+0100   RFF Reference                                 M   1           ³
+0110   DTM Date/time/period                          C   1ÄÄÄÄÄÄÄÄÄÄÄÙ
+
+0120       ÄÄÄÄÄ Segment group 2  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   6ÄÄÄÄÄÄÄÄÄÄÄ¿
+0130   NAD Name and address                          M   1           ³
+                                                                     ³
+0140       ÄÄÄÄÄ Segment group 3  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   5ÄÄÄÄÄÄÄÄÄÄ¿³
+0150   CTA Contact information                       M   1          ³³
+0160   COM Communication contact                     C   1ÄÄÄÄÄÄÄÄÄÄÁÙ
+
+           DETAIL SECTION
+
+0170       ÄÄÄÄÄ Segment group 4  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   9ÄÄÄÄÄÄÄÄÄÄÄ¿
+0180   GIS General indicator                         M   1           ³
+0190   RFF Reference                                 M   1           ³
+0200   MOA Monetary amount                           M   9           ³
+0210   BUS Business function                         C   1           ³
+0220   CUX Currencies                                C   1           ³
+                                                                     ³
+0230       ÄÄÄÄÄ Segment group 5  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   99ÄÄÄÄÄÄÄÄÄ¿³
+0240   DTM Date/time/period                          M   1          ³³
+                                                                    ³³
+0250       ÄÄÄÄÄ Segment group 6  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   999999ÄÄÄÄ¿³³
+0260   NAD Name and address                          M   1         ³³³
+0270   RFF Reference                                 M   9         ³³³
+0280   MOA Monetary amount                           M   9         ³³³
+0290   AJT Adjustment details                        C   1         ³³³
+0300   PAT Payment terms basis                       C   1         ³³³
+0310   FTX Free text                                 C   3ÄÄÄÄÄÄÄÄÄÁÁÙ
+
+           SUMMARY SECTION
+
+0320   UNS Section control                           M   1     
+0330   MOA Monetary amount                           M   1     
+0340   CNT Control total                             C   9     
+0350   AUT Authentication result                     C   1     
+0360   UNT Message trailer                           M   1     

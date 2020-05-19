@@ -1,0 +1,55 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.sapstern.openedifact</groupId>
+		<artifactId>openedifact</artifactId>
+		<version>2.2-SNAPSHOT</version>
+	</parent>
+	<artifactId>openedifact-xsd-libs-01A</artifactId>
+	<version>1.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+	<name>openedifact-xsd-libs-${unece.version}</name>
+	<url>http://maven.apache.org</url>
+	<properties>
+		<unece.version.lower>01a</unece.version.lower>
+		<unece.version>01A</unece.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.sapstern.openedifact</groupId>
+			<artifactId>openedifact-un2xsd</artifactId>
+			<version>2.2-SNAPSHOT</version>
+		</dependency>		
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>ant-magic</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>run</goal>
+						</goals>
+						<configuration>
+							<tasks>								
+								<ant antfile="UNECE/build.xml" target="build">
+									<property name="version.lower" value="${unece.version.lower}"/>
+									<property name="version.uppercase" value="${unece.version}" />
+								</ant>
+							</tasks>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>		
+	</build>
+</project>

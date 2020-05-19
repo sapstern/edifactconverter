@@ -1,0 +1,431 @@
+                              UN/EDIFACT
+
+                UNITED NATIONS STANDARD MESSAGE (UNSM)
+
+                    Reinsurance settlement message
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                           Message Type : RESETT
+                                           Version      : D
+                                           Release      : 01B
+                                           Contr. Agency: UN
+
+                                           Revision     : 2
+                                           Date         : 2001-05-15
+
+
+
+
+
+
+SOURCE: D9 Insurance (SWG)
+
+
+
+                               CONTENTS
+
+                    Reinsurance settlement message
+
+0.     INTRODUCTION
+
+1.     SCOPE
+
+       1.1   Functional definition
+
+       1.2   Field of application
+
+       1.3   Principles
+
+2.     REFERENCES
+
+3.     TERMS AND DEFINITIONS
+
+       3.1   Standard terms and definitions
+
+4.     MESSAGE DEFINITION
+
+       4.1   Segment clarification
+             4.1.1 Header section
+             4.1.2 Detail section
+             4.1.3 Summary section
+
+       4.2   Segment index (alphabetical sequence by tag)
+
+       4.3   Message structure
+             4.3.1 Segment table
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------
+For general information on UN standard message types see UN Trade Data
+Interchange Directory, UNTDID, Part 4, Section 2.3, UN/ECE UNSM
+General Introduction
+----------------------------------------------------------------------
+
+
+
+0.     INTRODUCTION
+
+       This specification provides the definition of the Reinsurance
+       settlement message (RESETT) to be used in Electronic Data
+       Interchange (EDI) between trading partners involved in
+       administration, commerce and transport.
+
+1.     SCOPE
+
+1.1    Functional definition
+
+       A reinsurance settlement message is exchanged by insurers,
+       reinsurers, bureaux, brokers and professional reinsurance
+       intermediaries to send all information that enables to
+       identify, reconcile and set-off technical accounts.
+
+1.2    Field of application
+
+       The Reinsurance settlement message may be used for both
+       national and international applications. It is based on
+       universal practice related to administration, commerce and
+       transport, and is not dependent on the type of business or
+       industry.
+
+1.3    Principles
+
+       The RESETT message is a multi-contract message, it can refer to
+       one or multiple RETACC(s) (Reinsurance technical account
+       message).
+       It covers all classes of business and can be used in relation
+       with both proportional and non-proportional business for both
+       treaty and facultative agreements.
+       Multiple currencies are handled through a currency conversion
+       facility, several financial settlement currencies are allowed.
+
+2.     REFERENCES
+
+       See UNTDID, Part 4, Chapter 2.3 UN/ECE UNSM - General
+       Introduction, Section 1.
+
+3.     TERMS AND DEFINITIONS
+
+3.1    Standard terms and definitions
+
+       See UNTDID, Part 4, Chapter 2.3 UN/ECE UNSM - General
+       Introduction, Section 2.
+
+4.     MESSAGE DEFINITION
+
+4.1    Segment clarification
+
+       This section should be read in conjunction with the segment
+       table which indicates mandatory, conditional and repeating
+       requirements.
+
+4.1.1  Header section
+
+
+       Information to be provided in the Header section:
+
+0010   UNH, Message header
+       A service segment starting and uniquely identifying a message.
+       The message type code for the Reinsurance settlement message is
+       RESETT.
+
+       Note: Reinsurance settlement messages conforming to this
+       document must contain the following data in segment UNH,
+       composite S009:
+
+       Data element  0065 RESETT
+                     0052 D
+                     0054 01B
+                     0051 UN
+
+0020 X GIS, General indicator
+       A segment to give a processing indicator relating to the whole
+       message.
+
+
+0030   Segment group 1:  NAD-CTA-COM-RFF
+       A group of segments to specify the name and address, contact
+       information, communication contact and reference of the message
+       sender, message receiver and/or parties receiving a courtesy
+       copy.
+
+0040      NAD, Name and address
+          A segment to specify the name and address and the related
+          function of the party involved.
+
+0050      CTA, Contact information
+          A segment to identify a person or department to whom
+          communication should be directed.
+
+0060      COM, Communication contact
+          A segment to identify a communication number of a department
+          or a person to whom communication should be directed as
+          identified in the CTA segment.
+
+0070      RFF, Reference
+          A segment to specify identifying numbers associated with the
+          named party.
+
+0080   DTM, Date/time/period
+       A segment to specify the message transaction date, date as at,
+       statement period, preparation date.
+
+0090   FTX, Free text
+       A segment to provide general message information.
+
+4.1.2  Detail section
+
+       Information to be provided in the Detail section:
+
+
+0100   Segment group 2:  RFF-SG3
+       A group of segments to allow a breakdown for each permanent
+       financial account to which the underlying items are pertaining
+       to.
+
+0110      RFF, Reference
+          A segment to specify the permanent financial account to
+          which the underlying items are pertaining to.
+
+
+0120      Segment group 3:  GIS-PAI-NAD-DTM-SG4-GIS-MOA-CUX-FTX-SG5
+          A group of segments to allow a breakdown for each reporting
+          level to which the underlying items are pertaining to.
+
+0130 X       GIS, General indicator
+             A segment to give a processing indicator relating to the
+             reporting level of breakdown.
+
+0140         PAI, Payment instructions
+             A segment to specify the conditions for payment or the
+             requested conditions for payment.
+
+0150         NAD, Name and address
+             A segment to specify the name and address and their
+             related function for the parties taking part in the
+             financial transaction.
+
+0160         DTM, Date/time/period
+             A segment to specify pertinent date, time and period
+             relating to the entry.
+
+
+0170         Segment group 4:  RFF-COM-DTM-FTX
+             A group of segments to specify and identify sub-total
+             references and the transaction references.
+
+0180            RFF, Reference
+                A segment to specify identifying numbers associated
+                with the named transaction.
+
+0190            COM, Communication contact
+                A segment to identify the means by which the
+                referenced document was transmitted.
+
+0200            DTM, Date/time/period
+                A segment to specify the transaction date relating to
+                the reference given.
+
+0210            FTX, Free text
+                A segment to give an additional description to the
+                transaction or document referenced.
+
+0220 X       GIS, General indicator
+             A segment to give a processing indicator relating to the
+             settlement.
+
+0230         MOA, Monetary amount
+             A segment to specify a monetary amount, e.g. permanent
+             financial account amount, sub-total amount, technical
+             transaction amount.
+
+0240         CUX, Currencies
+             A segment to specify currencies used in the transaction
+             and relevant details for the rate of exchange.
+
+0250         FTX, Free text
+             A segment to specify text information regarding the
+             permanent financial account description, the sub-total
+             description, the contract description, the loss or risk
+             details.
+
+
+0260         Segment group 5:  NAD-CTA-COM-PCD-RFF-GIS-MOA
+             A group of segments to report the market to the technical
+             transaction.
+
+0270            NAD, Name and address
+                A segment to identify the insurance company, bureau,
+                original insurer, original policy holder, ceding
+                company or broker.
+
+0280            CTA, Contact information
+                A segment to identify a person or department to whom
+                communication should be directed.
+
+0290            COM, Communication contact
+                A segment to identify a communication number of a
+                department or a person to whom communication should be
+                directed as identified in the CTA segment.
+
+0300            PCD, Percentage details
+                A segment to specify the party's share in the
+                contract.
+
+0310            RFF, Reference
+                A segment to specify references of the party named in
+                NAD.
+
+0320 X          GIS, General indicator
+                A segment to give a processing indicator relating to
+                the settlement by specific parties involved in the
+                transaction.
+
+0330            MOA, Monetary amount
+                A segment to specify the share amount of the party
+                named in NAD.
+
+0340   UNS, Section control
+       A segment used to prevent collisions between the detail and the
+       summary sections of the message.
+
+4.1.3  Summary section
+
+       Information to be provided in the Summary section:
+
+
+0350   Segment group 6:  MOA-NAD-PAI-RFF-DTM
+       A segment group to summarize the message and/or specify the
+       settlement instruction.
+
+0360      MOA, Monetary amount
+          A segment to specify the settlement amounts or hash-total.
+
+0370      NAD, Name and address
+          A segment to identify the issuing bank, paying or receiving
+          financial institution, payer, payee.
+
+0380      PAI, Payment instructions
+          A segment to specify the conditions for payment or the
+          requested conditions for payment.
+
+0390      RFF, Reference
+          A segment to specify references of the party named in NAD.
+
+0400      DTM, Date/time/period
+          A segment to specify the dates relating to the settlement.
+
+0410   UNT, Message trailer
+       A service segment ending a message, giving the total number of
+       segments in the message (including the UNH & UNT) and the
+       control reference number of the message.
+
+4.2    Segment index (alphabetical sequence by tag)
+
+          COM Communication contact
+          CTA Contact information
+          CUX Currencies
+          DTM Date/time/period
+          FTX Free text
+       X  GIS General indicator
+          MOA Monetary amount
+          NAD Name and address
+          PAI Payment instructions
+          PCD Percentage details
+          RFF Reference
+          UNH Message header
+          UNS Section control
+          UNT Message trailer
+
+4.3    Message structure
+
+4.3.1  Segment table
+
+Pos    Tag Name                                      S   R
+
+           HEADER SECTION
+
+0010   UNH Message header                            M   1     
+0020 X GIS General indicator                         M   2     
+
+0030       ÄÄÄÄÄ Segment group 1  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   99ÄÄÄÄÄÄÄÄÄÄ¿
+0040   NAD Name and address                          M   1           ³
+0050   CTA Contact information                       C   1           ³
+0060   COM Communication contact                     C   5           ³
+0070   RFF Reference                                 C   2ÄÄÄÄÄÄÄÄÄÄÄÙ
+0080   DTM Date/time/period                          M   4     
+0090   FTX Free text                                 C   5     
+
+           DETAIL SECTION
+
+0100       ÄÄÄÄÄ Segment group 2  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   99ÄÄÄÄÄÄÄÄÄÄ¿
+0110   RFF Reference                                 M   1           ³
+                                                                     ³
+0120       ÄÄÄÄÄ Segment group 3  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   9999ÄÄÄÄÄÄÄ¿³
+0130 X GIS General indicator                         M   1          ³³
+0140   PAI Payment instructions                      C   1          ³³
+0150   NAD Name and address                          C   4          ³³
+0160   DTM Date/time/period                          C   9          ³³
+                                                                    ³³
+0170       ÄÄÄÄÄ Segment group 4  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   20ÄÄÄÄÄÄÄÄ¿³³
+0180   RFF Reference                                 M   1         ³³³
+0190   COM Communication contact                     C   1         ³³³
+0200   DTM Date/time/period                          C   1         ³³³
+0210   FTX Free text                                 C   1ÄÄÄÄÄÄÄÄÄÙ³³
+0220 X GIS General indicator                         C   6          ³³
+0230   MOA Monetary amount                           M   6          ³³
+0240   CUX Currencies                                C   1          ³³
+0250   FTX Free text                                 C   2          ³³
+                                                                    ³³
+0260       ÄÄÄÄÄ Segment group 5  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9999ÄÄÄÄÄÄ¿³³
+0270   NAD Name and address                          M   1         ³³³
+0280   CTA Contact information                       C   1         ³³³
+0290   COM Communication contact                     C   5         ³³³
+0300   PCD Percentage details                        C   1         ³³³
+0310   RFF Reference                                 C   2         ³³³
+0320 X GIS General indicator                         C   1         ³³³
+0330   MOA Monetary amount                           M   1ÄÄÄÄÄÄÄÄÄÁÁÙ
+0340   UNS Section control                           M   1     
+
+           SUMMARY SECTION
+
+0350       ÄÄÄÄÄ Segment group 6  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99ÄÄÄÄÄÄÄÄÄÄ¿
+0360   MOA Monetary amount                           M   1           ³
+0370   NAD Name and address                          C   4           ³
+0380   PAI Payment instructions                      C   1           ³
+0390   RFF Reference                                 C   4           ³
+0400   DTM Date/time/period                          C   2ÄÄÄÄÄÄÄÄÄÄÄÙ
+0410   UNT Message trailer                           M   1     

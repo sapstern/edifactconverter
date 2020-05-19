@@ -1,0 +1,683 @@
+                              UN/EDIFACT
+
+                         DRAFT RECOMMENDATION
+
+                      Work grant request message
+
+
+
+
+
+----------------------------------------------------------------------
+This message is available for formal trial for at least six months
+from the date of approval by UN/ECE/TRADE/WP.4.
+ 
+Organisations are invited to trial this message. Comments on the
+results from the trial should be forwarded to their Rapporteur's Team
+Secretariat as soon as they are available. Based on the results of the
+trials, a UNSM may be issued.
+ 
+The segments, composite data elements, data elements and codes for
+use in the trial of this message are contained in the Draft directory.
+However, this information may differ from that in the Standard
+directory (UNTDID), even for material having the same identifying
+tags.
+----------------------------------------------------------------------
+
+
+
+
+
+
+
+
+                                            Message Type : WKGRRE
+                                            Version      : D
+                                            Release      : 96A
+                                            Contr. Agency: UN
+                                            Status       : 1
+                                            Revision     : 1
+                                            Date         : 95-11-23
+
+
+
+
+
+
+SOURCE: Western European EDIFACT Board,  MD10
+
+
+
+                               CONTENTS
+
+                      Work grant request message
+
+
+
+0.   INTRODUCTION
+
+
+1.   SCOPE
+
+     1.1   Functional definition
+
+     1.2   Field of application
+
+     1.3   Principles
+
+2.   REFERENCES
+
+3.   TERMS AND DEFINITIONS
+
+4.   MESSAGE DEFINITION
+
+     4.1   Data segment clarification
+
+           4.1.1 Header section
+           4.1.2 Detail section
+
+     4.2   Data segment index (alphabetical sequence)
+
+     4.3   Message structure
+
+           4.3.1 Segment table
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------
+For general information on UN standard message types see UN Trade Data
+Interchange Directory, UNTDID, Part 4, Section 2.6, UN/ECE UNSM
+General Introduction
+----------------------------------------------------------------------
+
+
+
+0.     INTRODUCTION
+
+       This specification provides the definition of the Work grant
+       request message (WKGRRE) to be used in Electronic Data
+       Interchange (EDI) between trading partners involved in
+       administration, commerce and transport.
+
+1.     SCOPE
+
+1.1    Functional Definition
+
+       A message specifying details of requests to a governmental
+       authority from an employer for workers who need a work grant or
+       permit.
+
+1.2    Field of Application
+
+       The Work grant request message may be used for both national
+       and international trade. It is based on universal commercial
+       practice and is not dependent on the type of business or
+       industry.
+
+1.3    Principles
+
+       The message is to provide detailed information of one or more
+       requests.
+       
+       A Work grant request message is transmitted from an employer to
+       a governmental agency.
+       
+       A Work grant request message may contain requested detailed
+       information about a person (i.e: the address, the profession,
+       the location of the job and the remuneration).
+       
+       A Work grant request message may also be used for a
+       modification or an extension of an existing work grant request.
+
+2.     REFERENCES
+
+       See UNTDID, Part 4, Chapter 2.6 UN/ECE UNSM - General
+       Introduction, Section 1.
+
+3.     TERMS AND DEFINITIONS
+
+       See UNTDID, Part 4, Chapter 2.6 UN/ECE UNSM - General
+       Introduction, Section 2.
+
+4.     MESSAGE DEFINITION
+
+4.1    Data Segment Clarification
+
+       This section should be read in conjunction with the Branching
+       Diagram and the Segment Table which indicate mandatory,
+       conditional and repeating requirements.
+       
+       The following guidelines and principles apply to the whole
+       message and are intended to facilitate the understanding and
+       implementation of the message:
+       
+       All specified dates and times should be in the format 'yymmdd'
+       or 'hhmm' unless all parties involved in the transaction agree
+       that there is a functional requirement for an alternative
+       format. Periods should be specified as whole numbers
+       representing the required period as indicated in the format
+       qualifier (weeks, months, etc.)
+       
+       Where a choice of code or text is given only the code element
+       should be used wherever possible.
+       
+       Conditional data that is not required in the message should not
+       be included.
+       
+       Care must be taken that the segment qualifier in dependent
+       segments do not conflict with the segment qualifier of the
+       trigger segment of a group.
+
+4.1.1  Header section
+
+       Information to be provided in the Header section:
+
+0010 | UNH, Message header
+       A service segment starting and uniquely identifying a message.
+       The message type code for the Work grant request message is
+       WKGRRE.
+       
+       Note: Work grant request messages conforming to this document
+       must contain the following data in segment UNH, composite S009:
+
+       Data element  0065 WKGRRE
+                     0052 D
+                     0054 96A
+                     0051 UN
+
+0020   BGM, Beginning of message
+       A segment by which the sender must uniquely identify the work
+       grant request by means of its type and number and, when
+       necessary, its function.
+
+0030   DTM, Date/time/period
+       A segment specifying general dates and, when relevant, times
+       related to the whole message. The segment must be specified at
+       least once to identify the document date.
+       The Date/time/period segment within other Segment groups should
+       be used whenever the date or time or period requires to be
+       logically related to another specified data item.
+
+0040   QTY, Quantity
+       A segment identifying the quantity of employees of an
+       enterprise, divided into workers and remunerated staff and each
+       group further divided into foreigners and natives.
+
+
+0050   Segment group 1:  PNA-ADR-LOC-DTM-SG2
+       A group of segments identifying the parties with associated
+       information.
+
+0060      PNA, Party name
+          A segment identifying names of the parties, in coded or
+          clear form, and their functions relevant to the Work Grant
+          Request Message. Identification of the enterprise and the
+          job administration parties is mandatory for the Work Grant
+          Request Message. It is recommended that, where possible,
+          only the coded form of the party identification should be
+          specified, e.g. where the enterprise and the job
+          administration are known to each other, thus only the coded
+          identification is required, but a job center or a job
+          application address (interview) may vary and would have to
+          be clearly specified, preferably in structured format.
+
+0070      ADR, Address
+          A segment specifying the address of the relevant party.
+
+0080      LOC, Place/location identification
+          A segment giving more specific location information of the
+          party specified in the ADR segment, e.g. internal site or
+          building number.
+
+0090      DTM, Date/time/period
+          A segment specifying the relevant date or time.
+
+
+0100      Segment group 2:  CTA-COM
+          A group of segments giving contact details of the specific
+          person or department within the party identified in the PNA
+          segment.
+
+0110         CTA, Contact information
+             A segment to identify a person or department and their
+             function, to whom communications should be directed.
+
+0120         COM, Communication contact
+             A segment to identify a communications type and number
+             for the contact specified in the CTA segment, e.g.
+             telephone-number, fax-number, telex-number.
+
+
+0130   Segment group 3:  RFF-DTM
+       A group of segments for giving references and, where necessary,
+       their dates, relating to the whole message.
+
+0140      RFF, Reference
+          A segment identifying the reference by its number related to
+          the whole message.
+
+0150      DTM, Date/time/period
+          A segment specifying the date or time related to the
+          reference.
+
+
+0160   Segment group 4:  GIS-FTX
+       A group of segments specifying general processing indicators
+       and, when necessary, additional textual information, relevant
+       for the whole message.
+
+0170      GIS, General indicator
+          A segment specifying general indicators for the whole
+          message.
+
+0180      FTX, Free text
+          A segment with free text information, in coded or clear
+          form, used when additional information is needed but cannot
+          be accommodated within other segments. In computer to
+          computer exchanges such text will normally require the
+          receiver to process this segment manually.
+
+4.1.2  Detail section
+
+       Information to be provided in the Detail section:
+
+0190   UNS, Section control
+       A mandatory service segment placed before the first user
+       segment in the detail section to avoid segment collision.
+
+
+0200   Segment group 5:  RFF-DTM-SG6-FTX-SG7-SG8-SG9-SG11-SG15
+       A group of segments providing details of the individual worker
+       and information related to the work grant request. There must
+       be at least one occurrence of Segment group 5 within a Work
+       Grant Request Message. This Segment group may be repeated to
+       give information about several other foreigners and work grant
+       requests. The Segment group 5 gives information about the
+       person, the profession, the location of the executed job and
+       may give additional information of the job, the remuneration
+       and, when necessary, the address of the related job center.
+
+0210      RFF, Reference
+          A segment identifying the administrative operation of the
+          work grant request by a number given by employment agency.
+
+0220      DTM, Date/time/period
+          A segment specifying date and, when relevant, time relating
+          to the work grant request.
+          Examples of the use of this DTM segment are: starting date
+          of social insurance.
+
+
+0230      Segment group 6:  PNA-ADR-DTM-LOC-NAT-PDI-DOC
+          A group of segments specifying identity and related
+          information regarding a person expected to be employed.
+
+0240         PNA, Party name
+             A segment giving the identity, in coded and/or clear
+             form, of the person expected to be employed.
+
+0250         ADR, Address
+             A segment identifying the address of a person and its
+             function relevant to the Work grant request message.
+
+0260         DTM, Date/time/period
+             A segment indicating the date of birth of the person
+             concerned by the work grant or permit.
+
+0270         LOC, Place/location identification
+             A segment giving more specific location information of
+             the party specified in the ADR segment, e.g.
+             administrative location of a person.
+
+0280         NAT, Nationality
+             A segment indicating nationality of the person expected
+             to be employed.
+
+0290         PDI, Person demographic information
+             A segment indicating some addition information relating
+             to the person expected for an employment i.e. gender,
+             marital status...
+
+0300         DOC, Document/message details
+             A segment giving the list of documents the person may
+             produce.
+
+0310      FTX, Free text
+          A segment giving, in coded or free format, any additional
+          information regarding the identity and status of the person:
+          i.e. new national administrative requirements not yet solved
+          by the message.
+
+
+0320      Segment group 7:  GIS-FTX
+          A group of segments specifying general processing indicators
+          and, when necessary, additional textual information,
+          relevant for a work grant request.
+
+0330         GIS, General indicator
+             A segment specifying general indicators related to a work
+             grant request, e.g. indicator for a new work grant
+             request, indicator for an extension of an existing work
+             grant request.
+
+0340         FTX, Free text
+             A segment with free text information, in coded or clear
+             form, used when additional information is needed but
+             cannot be accommodated within other segments. In computer
+             to computer exchanges such text will normally require the
+             receiver to process this segment manually.
+
+
+0350      Segment group 8:  RFF-DTM
+          A group of segments for giving references and, where
+          necessary, their dates, relevant to a work grant request.
+
+0360         RFF, Reference
+             A segment for specifying references relevant to a work
+             grant request, e.g. social insurance number of the
+             foreigner.
+
+0370         DTM, Date/time/period
+             A segment specifying the date or time related to the
+             reference.
+
+
+0380      Segment group 9:  EMP-LOC-SG10
+          A group of segments identifying the profession for a job and
+          attributes, such as education and experience for this job.
+
+0390         EMP, Employment details
+             A segment to identify the related area or sector of a
+             qualification and the qualification, in coded or clear
+             form, related to a job.
+
+0400         LOC, Place/location identification
+             A segment indicating the location, where the job should
+             be performed regarding work grant request.
+
+
+0410         Segment group 10: ATT-FTX
+             A group of segments giving coded information about the
+             requirements of a profession or job regarding educational
+             qualifications and experience and, when necessary,
+             additional textual information.
+
+0420            ATT, Attribute
+                A segment identifying the attributes of a job or
+                profession. The codes are related to education, job
+                experience, special knowledge and required
+                qualifications.
+
+0430            FTX, Free text
+                A segment with free text information, in coded or
+                clear form, used when additional information is needed
+                but cannot be accommodated within other segments. In
+                computer to computer exchanges such text will normally
+                require the receiver to process this segment manually.
+
+
+0440      Segment group 11: SAL-FTX-DTM-SG12-SG13-SG14
+          A group of segments giving information about the type of the
+          remuneration and the basic conditions of the remuneration.
+          It may contain the remuneration amount or a remuneration
+          range and additional remuneration benefits.
+
+0450         SAL, Remuneration type identification
+             A segment identifying the type of the remuneration and,
+             if required, the name of the remuneration type or
+             contract.
+
+0460         FTX, Free text
+             A segment with free text information for the remuneration
+             type or contract, in coded or clear form, used when
+             additional information is needed but cannot be
+             accommodated within other segments. In computer to
+             computer exchanges such text will normally require the
+             receiver to process this segment manually.
+
+0470         DTM, Date/time/period
+             A segment specifying the dates and/or times related to
+             the remuneration.
+
+
+0480         Segment group 12: ATT-FTX
+             A group of segments giving attribute information, in
+             coded form, for the remuneration and, where necessary,
+             additional textual information.
+
+0490            ATT, Attribute
+                A segment identifying in coded form additional
+                remuneration information and other benefits. The codes
+                are related working conditions, working time,
+                employment contract, piece of work and remuneration
+                benefits.
+
+0500            FTX, Free text
+                A segment with free text information for additional
+                remuneration benefits, in coded or clear form, used
+                when additional information is needed but cannot be
+                accommodated within other segments. In computer to
+                computer exchanges such text will normally require the
+                receiver to process this segment manually.
+
+
+0510         Segment group 13: GIS-FTX
+             A group of segments specifying general processing
+             indicators and, when necessary, additional textual
+             information, relevant for the remuneration.
+
+0520            GIS, General indicator
+                A segment specifying general indicators related to the
+                remuneration.
+
+0530            FTX, Free text
+                A segment with free text information, in coded or
+                clear form, used when additional information is needed
+                but cannot be accommodated within other segments. In
+                computer to computer exchanges such text will normally
+                require the receiver to process this segment manually.
+
+
+0540         Segment group 14: MOA-RNG-FTX
+             A group of segments specifying the type and the amount of
+             the remuneration or a remuneration range.
+
+0550            MOA, Monetary amount
+                A segment giving information about the type and the
+                amount of the remuneration.
+
+0560            RNG, Range details
+                A segment to identify a remuneration range, when an
+                exact remuneration amount in the MOA segment is not
+                available. The remuneration range is related to the
+                type of remuneration in the MOA segment.
+
+0570            FTX, Free text
+                A segment with free text information, in coded or
+                clear form, used when additional information is needed
+                but cannot be accommodated within other segments. In
+                computer to computer exchanges such text will normally
+                require the receiver to process this segment manually.
+
+
+0580      Segment group 15: PNA-ADR-LOC-DTM-FTX-SG16
+          A group of segments identifying the parties involved with
+          the work grant request with associated information.
+
+0590         PNA, Party name
+             A segment identifying names of the parties, in coded or
+             clear form, and their functions relevant to the work
+             grant request, e.g. a related job center involved with
+             the work grant request. It is recommended that, where
+             possible, only the coded form of the party identification
+             should be specified, e.g. where the enterprise and the
+             job administration are known to each other, only the
+             coded identification is required, but a job center or a
+             job application or interview address may vary and would
+             have to be clearly specified, preferably in structured
+             format.
+
+0600         ADR, Address
+             A segment giving the address of the relevant party.
+
+0610         LOC, Place/location identification
+             A segment giving more specific location information of
+             the party specified in the ADR segment, e.g. internal
+             site or building number.
+
+0620         DTM, Date/time/period
+             A segment specifying the date or time related to the
+             party given in the PNA segment.
+
+0630         FTX, Free text
+             A segment with free text information, in coded or clear
+             form, used when additional information is needed but
+             cannot be accommodated within other segments. In computer
+             to computer exchanges such text will normally require the
+             receiver to process this segment manually.
+
+
+0640         Segment group 16: CTA-COM
+             A group of segments giving contact details of the
+             specific person or department within the party identified
+             in the PNA segment, e.g. person in the job center
+             department.
+
+0650            CTA, Contact information
+                A segment to identify a person or department and their
+                function, to whom communications should be directed.
+
+0660            COM, Communication contact
+                A segment to identify a communications type and number
+                for the contact specified in the CTA segment, e.g.
+                telephone-number, fax-number, telex-number.
+
+0670   UNT, Message trailer
+       A service segment ending a message, giving the total number of
+       segments in the message and the control reference number of the
+       message.
+
+4.2    Data segment index (Alphabetical sequence by tag)
+
+          ADR Address
+          ATT Attribute
+          BGM Beginning of message
+          COM Communication contact
+          CTA Contact information
+          DOC Document/message details
+          DTM Date/time/period
+          EMP Employment details
+          FTX Free text
+          GIS General indicator
+          LOC Place/location identification
+          MOA Monetary amount
+          NAT Nationality
+          PDI Person demographic information
+          PNA Party name
+          QTY Quantity
+          RFF Reference
+          RNG Range details
+          SAL Remuneration type identification
+          UNH Message header
+          UNS Section control
+          UNT Message trailer
+
+4.3    Message structure
+
+4.3.1  Segment table
+
+Pos    Tag Name                                      S   R
+
+           HEADER SECTION
+
+0010   UNH Message header                            M   1     
+0020   BGM Beginning of message                      M   1     
+0030   DTM Date/time/period                          M   2     
+0040   QTY Quantity                                  C   5     
+
+0050       ÄÄÄÄÄ Segment group 1  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   3ÄÄÄÄÄÄÄÄÄÄÄ¿
+0060   PNA Party name                                M   1           ³
+0070   ADR Address                                   C   1           ³
+0080   LOC Place/location identification             C   5           ³
+0090   DTM Date/time/period                          C   5           ³
+                                                                     ³
+0100       ÄÄÄÄÄ Segment group 2  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   5ÄÄÄÄÄÄÄÄÄÄ¿³
+0110   CTA Contact information                       M   1          ³³
+0120   COM Communication contact                     C   5ÄÄÄÄÄÄÄÄÄÄÁÙ
+
+0130       ÄÄÄÄÄ Segment group 3  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   5ÄÄÄÄÄÄÄÄÄÄÄ¿
+0140   RFF Reference                                 M   1           ³
+0150   DTM Date/time/period                          C   5ÄÄÄÄÄÄÄÄÄÄÄÙ
+
+0160       ÄÄÄÄÄ Segment group 4  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   5ÄÄÄÄÄÄÄÄÄÄÄ¿
+0170   GIS General indicator                         M   1           ³
+0180   FTX Free text                                 C   1ÄÄÄÄÄÄÄÄÄÄÄÙ
+
+           DETAIL SECTION
+
+0190   UNS Section control                           M   1     
+
+0200       ÄÄÄÄÄ Segment group 5  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   200ÄÄÄÄÄÄÄÄÄ¿
+0210   RFF Reference                                 M   1           ³
+0220   DTM Date/time/period                          M   5           ³
+                                                                     ³
+0230       ÄÄÄÄÄ Segment group 6  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   1ÄÄÄÄÄÄÄÄÄÄ¿³
+0240   PNA Party name                                M   1          ³³
+0250   ADR Address                                   C   9          ³³
+0260   DTM Date/time/period                          C   1          ³³
+0270   LOC Place/location identification             C   1          ³³
+0280   NAT Nationality                               C   9          ³³
+0290   PDI Person demographic information            C   1          ³³
+0300   DOC Document/message details                  C   9ÄÄÄÄÄÄÄÄÄÄÙ³
+0310   FTX Free text                                 C   1           ³
+                                                                     ³
+0320       ÄÄÄÄÄ Segment group 7  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   5ÄÄÄÄÄÄÄÄÄÄ¿³
+0330   GIS General indicator                         M   1          ³³
+0340   FTX Free text                                 C   1ÄÄÄÄÄÄÄÄÄÄÙ³
+                                                                     ³
+0350       ÄÄÄÄÄ Segment group 8  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   5ÄÄÄÄÄÄÄÄÄÄ¿³
+0360   RFF Reference                                 M   1          ³³
+0370   DTM Date/time/period                          C   5ÄÄÄÄÄÄÄÄÄÄÙ³
+                                                                     ³
+0380       ÄÄÄÄÄ Segment group 9  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   1ÄÄÄÄÄÄÄÄÄÄ¿³
+0390   EMP Employment details                        M   1          ³³
+0400   LOC Place/location identification             M   10         ³³
+                                                                    ³³
+0410       ÄÄÄÄÄ Segment group 10 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   20ÄÄÄÄÄÄÄÄ¿³³
+0420   ATT Attribute                                 M   1         ³³³
+0430   FTX Free text                                 C   1ÄÄÄÄÄÄÄÄÄÁÙ³
+                                                                     ³
+0440       ÄÄÄÄÄ Segment group 11 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   10ÄÄÄÄÄÄÄÄÄ¿³
+0450   SAL Remuneration type identification          M   1          ³³
+0460   FTX Free text                                 C   1          ³³
+0470   DTM Date/time/period                          C   2          ³³
+                                                                    ³³
+0480       ÄÄÄÄÄ Segment group 12 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   10ÄÄÄÄÄÄÄÄ¿³³
+0490   ATT Attribute                                 M   1         ³³³
+0500   FTX Free text                                 C   1ÄÄÄÄÄÄÄÄÄÙ³³
+                                                                    ³³
+0510       ÄÄÄÄÄ Segment group 13 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   2ÄÄÄÄÄÄÄÄÄ¿³³
+0520   GIS General indicator                         M   1         ³³³
+0530   FTX Free text                                 C   1ÄÄÄÄÄÄÄÄÄÙ³³
+                                                                    ³³
+0540       ÄÄÄÄÄ Segment group 14 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   5ÄÄÄÄÄÄÄÄÄ¿³³
+0550   MOA Monetary amount                           M   1         ³³³
+0560   RNG Range details                             C   1         ³³³
+0570   FTX Free text                                 C   1ÄÄÄÄÄÄÄÄÄÁÙ³
+                                                                     ³
+0580       ÄÄÄÄÄ Segment group 15 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   3ÄÄÄÄÄÄÄÄÄÄ¿³
+0590   PNA Party name                                M   1          ³³
+0600   ADR Address                                   C   1          ³³
+0610   LOC Place/location identification             C   2          ³³
+0620   DTM Date/time/period                          C   5          ³³
+0630   FTX Free text                                 C   1          ³³
+                                                                    ³³
+0640       ÄÄÄÄÄ Segment group 16 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   5ÄÄÄÄÄÄÄÄÄ¿³³
+0650   CTA Contact information                       M   1         ³³³
+0660   COM Communication contact                     C   5ÄÄÄÄÄÄÄÄÄÁÁÙ
+0670   UNT Message trailer                           M   1     

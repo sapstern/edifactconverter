@@ -1,0 +1,311 @@
+                              UN/EDIFACT
+
+                         DRAFT RECOMMENDATION
+
+                      Credit risk cover message
+
+
+
+
+
+----------------------------------------------------------------------
+This message is available for formal trial for at least six months
+from the date of approval by UN/ECE/TRADE/WP.4.
+ 
+Organisations are invited to trial this message. Comments on the
+results from the trial should be forwarded to their Rapporteur's Team
+Secretariat as soon as they are available. Based on the results of the
+trials, a UNSM may be issued.
+ 
+The segments, composite data elements, data elements and codes for
+use in the trial of this message are contained in the Draft directory.
+However, this information may differ from that in the Standard
+directory (UNTDID), even for material having the same identifying
+tags.
+----------------------------------------------------------------------
+
+
+
+
+
+
+
+
+                                            Message Type : RECECO
+                                            Version      : D
+                                            Release      : 96A
+                                            Contr. Agency: UN
+                                            Status       : 2
+                                            Revision     : 1
+                                            Date         : 95-11-23
+
+
+
+
+
+
+SOURCE: Joint Banking Group (JM6)
+
+
+
+                               CONTENTS
+
+                      Credit risk cover message
+
+
+
+0.   INTRODUCTION
+
+
+1.   SCOPE
+
+     1.1   Functional definition
+
+     1.2   Field of application
+
+     1.3   Principles
+
+2.   REFERENCES
+
+3.   TERMS AND DEFINITIONS
+
+4.   MESSAGE DEFINITION
+
+     4.1   Data segment clarification
+
+     4.2   Data segment index (alphabetical sequence)
+
+     4.3   Message structure
+
+           4.3.1 Segment table
+
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------
+For general information on UN standard message types see UN Trade Data
+Interchange Directory, UNTDID, Part 4, Section 2.6, UN/ECE UNSM
+General Introduction
+----------------------------------------------------------------------
+
+
+
+0.     INTRODUCTION
+
+       This specification provides the definition of the Credit risk
+       cover message (RECECO) to be used in Electronic Data
+       Interchange (EDI) between trading partners involved in
+       administration, commerce and transport.
+
+1.     SCOPE
+
+1.1    Functional Definition
+
+       Factoring companies provide their clients (the seller)
+       protection against the risk of credit losses on sales to the
+       buyers. Credit protection is provided on each approved customer
+       (buyer) of the seller.
+       
+       The message will be used to apply for preliminary credit
+       assessment (used during negotiation with prospective clients);
+       apply for credit protection; reply to credit requests; revise
+       amount and expiry date of credit protection and terms; cancel
+       credit protection.
+       
+       The message will serve at the same time as the request for
+       credit risk cover and as the answer (approval or rejection to
+       that request).
+
+1.2    Field of Application
+
+       This message may be applied for both national and international
+       settlements. It is based on universal commercial practice and
+       is not dependent on the type of business or industry.
+
+1.3    Principles
+
+       The flow of communication is from Seller to Factor (request),
+       and from Factor to Seller (answer). The Seller must provide
+       information regarding the Buyers (name, address, etc.) and
+       information regarding the expected amount of sales to be risk
+       covered. The Factoring company will provide an answer, after
+       due credit investigation.
+       
+       The credit cover may be a 'line cover' or an 'order cover'. A
+       line cover relates to the sales of one seller to one buyer, up
+       to the agreed limit. An order cover relates to a specific order
+       (or shipment).
+       
+       - one credit cover may relate to one or more line covers; 
+       - one credit cover may relate to one or more order covers; 
+       - for each distinct period there is only one line cover; 
+       - one credit cover must relate to one buyer; 
+       - one credit cover must relate to one seller.
+
+2.     REFERENCES
+
+       See UNTDID, Part 4, Chapter 2.6 UN/ECE UNSM - General
+       Introduction, Section 1.
+
+3.     TERMS AND DEFINITIONS
+
+       See UNTDID, Part 4, Chapter 2.6 UN/ECE UNSM - General
+       Introduction, Section 2.
+
+4.     MESSAGE DEFINITION
+
+4.1    Data Segment Clarification
+
+       This section should be read in conjunction with the Branching
+       Diagram and the Segment Table which indicate mandatory,
+       conditional and repeating requirements.
+
+0010 | UNH, Message header
+       A service segment starting and uniquely identifying a message.
+       The message type code for the Credit risk cover message is
+       RECECO.
+       
+       Note: Credit risk cover messages conforming to this document
+       must contain the following data in segment UNH, composite S009:
+
+       Data element  0065 RECECO
+                     0052 D
+                     0054 96A
+                     0051 UN
+
+0020   BGM, Beginning of message
+       A segment specifying the function and status of the message.
+
+0030   RFF, Reference
+       A segment identifying the reference of another message or
+       transaction related to this message.
+
+0040   DTM, Date/time/period
+       A segment specifying the date and, when required, the time at
+       which the message has been created as well as other dates and
+       times relevant to the transactions, e.g. request date.
+
+
+0050   Segment group 1:  NAD-CTA-COM-FII
+       A group of segments identifying the name and address of the
+       parties involved in the transaction, their contacts and
+       financial institution information.
+
+0060      NAD, Name and address
+          A segment identifying the name and address of the parties
+          associated with the credit risk cover message.
+
+0070      CTA, Contact information
+          A segment identifying a person or a department for the party
+          specified in the NAD segment and to whom communication
+          should be directed.
+
+0080      COM, Communication contact
+          A segment providing a communication number for the party
+          identified in the NAD segment and optionally for the contact
+          identified in the associated CTA segment.
+
+0090      FII, Financial institution information
+          A segment identifying the financial institution (e.g. bank)
+          and relevant account numbers for the parties involved, where
+          necessary.
+
+
+0100   Segment group 2:  DOC-MOA-CUX-DTM-CCD-PCD-PAT-FTX-RFF
+       A group of segments identifying the amounts of the credit
+       covers, the currency, the date, the request, the payment terms
+       related to the credit cover.
+
+0110      DOC, Document/message details
+          A segment identifying the credit cover.
+
+0120      MOA, Monetary amount
+          A segment giving the monetary amounts of the current credit
+          cover and one or more new credit covers.
+
+0130      CUX, Currencies
+          A segment identifying the currency of the credit cover.
+
+0140      DTM, Date/time/period
+          A segment specifying the dates related to the credit cover,
+          such as expiration date, date valid from or the order date
+          (latest shipment date).
+
+0150      CCD, Credit cover details
+          A segment specifying a request for a credit cover, a reply
+          to that request and the reasons for the reply.
+
+0160      PCD, Percentage details
+          A segment specifying the percentage of the own risk, related
+          to the credit cover.
+
+0170      PAT, Payment terms basis
+          A segment specifying the payment terms, as agreed between
+          seller and buyer.
+
+0180      FTX, Free text
+          A segment specifying the response to the request, in coded
+          form.
+
+0190      RFF, Reference
+          A segment identifying the order number, when necessary.
+
+0200   UNT, Message trailer
+       A service segment ending a message, giving the total number of
+       segments in the message and the control reference number of the
+       message.
+
+4.2    Data segment index (Alphabetical sequence by tag)
+
+          BGM Beginning of message
+          CCD Credit cover details
+          COM Communication contact
+          CTA Contact information
+          CUX Currencies
+          DOC Document/message details
+          DTM Date/time/period
+          FII Financial institution information
+          FTX Free text
+          MOA Monetary amount
+          NAD Name and address
+          PAT Payment terms basis
+          PCD Percentage details
+          RFF Reference
+          UNH Message header
+          UNT Message trailer
+
+4.3    Message structure
+
+4.3.1  Segment table
+
+Pos    Tag Name                                      S   R
+
+0010   UNH Message header                            M   1     
+0020   BGM Beginning of message                      M   1     
+0030   RFF Reference                                 C   9     
+0040   DTM Date/time/period                          C   9     
+
+0050       ÄÄÄÄÄ Segment group 1  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99ÄÄÄÄÄÄÄÄÄÄ¿
+0060   NAD Name and address                          M   1           ³
+0070   CTA Contact information                       C   1           ³
+0080   COM Communication contact                     C   5           ³
+0090   FII Financial institution information         C   1ÄÄÄÄÄÄÄÄÄÄÄÙ
+
+0100       ÄÄÄÄÄ Segment group 2  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99ÄÄÄÄÄÄÄÄÄÄ¿
+0110   DOC Document/message details                  M   1           ³
+0120   MOA Monetary amount                           C   1           ³
+0130   CUX Currencies                                C   1           ³
+0140   DTM Date/time/period                          C   5           ³
+0150   CCD Credit cover details                      C   1           ³
+0160   PCD Percentage details                        C   1           ³
+0170   PAT Payment terms basis                       C   1           ³
+0180   FTX Free text                                 C   1           ³
+0190   RFF Reference                                 C   1ÄÄÄÄÄÄÄÄÄÄÄÙ
+0200   UNT Message trailer                           M   1     

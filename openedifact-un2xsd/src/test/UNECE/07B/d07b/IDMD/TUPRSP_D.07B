@@ -1,0 +1,1340 @@
+                              UN/EDIFACT
+
+                UNITED NATIONS STANDARD MESSAGE (UNSM)
+
+Travel, tourism and leisure data update response - interactive message
+
+
+
+    This message can only be used with ISO 9735 Version 4 or later.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                           Message Type : TUPRSP
+                                           Version      : D
+                                           Release      : 07B
+                                           Contr. Agency: UN
+
+                                           Revision     : 1
+                                           Date         : 2007-11-06
+
+
+
+
+
+
+SOURCE: TBG9 Travel, Tourism and Leisure
+
+
+
+                               CONTENTS
+
+Travel, tourism and leisure data update response - interactive message
+
+0.     INTRODUCTION
+
+1.     SCOPE
+
+       1.1   Functional definition
+
+       1.2   Field of application
+
+       1.3   Principles
+
+2.     REFERENCES
+
+3.     TERMS AND DEFINITIONS
+
+       3.1   Standard terms and definitions
+
+4.     MESSAGE DEFINITION
+
+       4.1   Segment clarification
+
+       4.2   Segment index (alphabetical sequence by tag)
+
+       4.3   Message structure
+             4.3.1 Segment table
+
+
+
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------
+For general information on UN standard message types see UN Trade Data
+Interchange Directory, UNTDID, Part 4, Section 2.3, UN/ECE UNSM
+General Introduction
+----------------------------------------------------------------------
+
+
+
+0.     INTRODUCTION
+
+       This specification provides the definition of the Travel,
+       tourism and leisure data update response - interactive message
+       (TUPRSP) to be used in Electronic Data Interchange (EDI)
+       between trading partners involved in administration, commerce
+       and transport.
+
+1.     SCOPE
+
+1.1    Functional definition
+
+       An interactive Travel, tourism and leisure data update response
+       is sent by a global distribution system (GDS) to respond to a
+       TUPREQ that was sent by a supplier to update rates,
+       availability, or general or policy information.  It may also be
+       sent by a supplier to respond to a TUPREQ message sent by a GDS
+       to update a traveller’s profile.
+
+1.2    Field of application
+
+       The Travel, tourism and leisure data update response -
+       interactive message may be used for both national and
+       international applications. It is based on universal practice
+       related to administration, commerce and transport, and is not
+       dependent on the type of business or industry.
+
+1.3    Principles
+
+       TUPRSP incorporates the functionality to respond to a data base
+       request in the following ways:
+        
+       (1)  Acknowledge that the update(s) was processed successfully.
+       
+       (2)  Acknowledge that some of the update(s) were processed
+       successfully and list those that were not processed by an item
+       or identification number that was assigned by the supplier to
+       each update.
+       
+       (3)  Acknowledge that some of the update(s) were processed
+       successfully and return all the update information for those
+       that were not processed.
+       
+       (4)  Respond that no updates were processed and the error code
+       as to the reason no updates were processed.
+
+2.     REFERENCES
+
+       See UNTDID, Part 4, Chapter 2.3 UN/ECE UNSM - General
+       Introduction, Section 1.
+
+3.     TERMS AND DEFINITIONS
+
+3.1    Standard terms and definitions
+
+       See UNTDID, Part 4, Chapter 2.3 UN/ECE UNSM - General
+       Introduction, Section 2.
+
+4.     MESSAGE DEFINITION
+
+4.1    Segment clarification
+
+       This section should be read in conjunction with the segment
+       table which indicates mandatory, conditional and repeating
+       requirements.
+
+0010   UIH, Interactive message header
+       A service segment starting and uniquely identifying a message.
+       The message type code for the Travel, tourism and leisure data
+       update response - interactive message is TUPRSP.
+
+       Note: Travel, tourism and leisure data update response -
+       interactive messages conforming to this document must contain
+       the following data in segment UIH, composite S306:
+
+       Data element  0065 TUPRSP
+                     0052 D
+                     0054 07B
+                     0051 UN
+
+0020   MSD, Message action details
+       A segment identifying the industry type (e.g. air, car, train,
+       accommodations, etc.) and what type of data update is to be
+       done (e.g. availability, rates, etc.).
+
+
+0030   Segment group 1:  ERI-ITM-IFT
+       A group of segments to specify an application error, the number
+       of the item that was to be updated and any appropriate free
+       text.
+
+0040      ERI, Application error information
+          A segment to specify an application error that occurred
+          during the updating process.
+
+0050      ITM, Item number
+          A number associated with the item that was to be updated and
+          for which an error occurred.
+
+0060      IFT, Interactive free text
+          A segment to specify free text related to the error.
+
+
+0070   Segment group 2:  TVL-ITM-SG3-SG4
+       A group of segments for updating availability information based
+       on location information.
+
+0080      TVL, Travel product information
+          To specify a rental car location or a hotel property.
+
+0090      ITM, Item number
+          To specify an item number for this rental car location or
+          hotel property.
+
+
+0100      Segment group 3:  ERI-ITM-IFT
+          A group of segments to specify an application error, the
+          number of the item that was to be updated and any
+          appropriate free text.
+
+0110         ERI, Application error information
+             A segment to specify an application error that occurred
+             during the updating process.
+
+0120         ITM, Item number
+             A number associated with the item that was to be updated
+             and for which an error occurred.
+
+0130         IFT, Interactive free text
+             A segment to specify free text related to the error.
+
+
+0140      Segment group 4:  DTI-ITM-NUN-SG5-SG7
+          A group of segments to specify the applicable dates, number
+          of days, the availability status code, and rate code
+          information.
+
+0150         DTI, Date and time information
+             To specify the begin and/or end date(s) and times for an
+             availability period.
+
+0160         ITM, Item number
+             An item number associated with a date range.
+
+0170         NUN, Number of units
+             The minimum number of nights for a hotel stay.
+
+
+0180         Segment group 5:  RPI-SG6
+             A group of segments to specify availability status codes
+             and the associated rate codes and categories.
+
+0190            RPI, Quantity and action details
+                To specify the availability status codes such as open,
+                waitlisted, and on request.
+
+
+0200            Segment group 6:  RTC-SDT-PRD-TFF
+                A group of segments to specify a rate code, the rate
+                category, and room type.
+
+0210               RTC, Rate types
+                   A segment to specify a rate code.
+
+0220               SDT, Selection details
+                   A segment to indicate if the rate code is included
+                   or excluded from the availability status.
+
+0230               PRD, Product identification
+                   The room types that are applicable for a rate code.
+
+0240               TFF, Tariff information
+                   The rate category associated with the rate code.
+
+
+0250         Segment group 7:  PDT-ITM-TFF-RTC-POS-RPI
+             A group of segments to specify availability based on the
+             product code which includes yield level and car type and
+             the associated rate category, rate plans, and rate types.
+
+0260            PDT, Product information
+                A segment to specify the product code.
+
+0270            ITM, Item number
+                A segment to specify an item number associated to the
+                product code.
+
+0280            TFF, Tariff information
+                A segment to specify the rate category and rate plan.
+
+0290            RTC, Rate types
+                A segment to specify the rate codes.
+
+0300            POS, Point of sale information
+                A segment to specify agents either by agency
+                identification or locations for whom the availability
+                applies.
+
+0310            RPI, Quantity and action details
+                To specify the availability status codes such as open,
+                waitlisted, and on request.
+
+
+0320   Segment group 8:  MAP-SG9
+       A group of segments for updating supplier rates in another
+       system.
+
+0330      MAP, Message application product information
+          A segment to specify the type of action, add, delete, or
+          replace.
+
+
+0340      Segment group 9:  TVL-ITM-DTI-SG10-SG11-SG15
+          A group of segments detailing all the applicable rate
+          information.
+
+0350         TVL, Travel product information
+             A segment to identify the product by either location or
+             product identification for which the rate applies.
+
+0360         ITM, Item number
+             An item number associated to the product.
+
+0370         DTI, Date and time information
+             To specify the begin and/or end date(s) and times for a
+             rate period.
+
+
+0380         Segment group 10: ERI-ITM-IFT
+             A group of segments to specify an application error, the
+             number of the item that was to be updated and any
+             appropriate free text.
+
+0390            ERI, Application error information
+                A segment to specify an application error that
+                occurred during the updating process.
+
+0400            ITM, Item number
+                A number associated with the item that was to be
+                updated and for which an error occurred.
+
+0410            IFT, Interactive free text
+                A segment to specify free text related to the error.
+
+
+0420         Segment group 11: RTC-DTI-ODS-SSR-RUL-TFF-ITM-CMN-CUR-
+                               PMT-NUN-IFT-SG12-SG13
+             A group of segments to specify a rate code and all the
+             information associated with the rate.
+
+0430            RTC, Rate types
+                To specify the rate code.
+
+0440            DTI, Date and time information
+                To specify the begin and/or end date(s) and times for
+                which the information for the rate code is effective.
+
+0450            ODS, Additional product details
+                To indicate if taxes and service charges are included
+                in the rate, and if not the percent of each.
+
+0460            SSR, Special requirement details
+                To specify the meal plan associated with the rate.
+
+0470            RUL, Rule information
+                The rules, e.g. minimum and maximum length stay, the
+                cancellation policy, associated with the rate.
+
+0480            TFF, Tariff information
+                To specify associated charges, e.g. extra person,
+                extra night, and meal plan charges, associated with
+                the rate.
+
+0490            ITM, Item number
+                The rule identification number associated with the
+                rate.
+
+0500            CMN, Commission information
+                To specify if commission is automatically paid or if
+                it must be requested and the percentage paid.
+
+0510            CUR, Currencies
+                The secondary currency code associated with a rate.
+
+0520            PMT, Payment information
+                To specify what credit cards can be accepted for this
+                rate.
+
+0530            NUN, Number of units
+                To specify how many days prior to use of the service
+                the reservation must be made.
+
+0540            IFT, Interactive free text
+                Any rate facts associated to the rate.
+
+
+0550            Segment group 12: PDT-TFF
+                A group of segments to specify the room types
+                associated with the rate code and the actual rate.
+
+0560               PDT, Product information
+                   To specify a room type for this rate code.
+
+0570               TFF, Tariff information
+                   To specify the actual rate.
+
+
+0580            Segment group 13: RTI-SG14
+                To identify a rate category, the room types, and the
+                rate.
+
+0590               RTI, Rate details
+                   To specify a rate category.
+
+
+0600               Segment group 14: PDT-TFF-ODS
+                   A group of segments to specify the room types
+                   associated with the rate category and the actual
+                   rate.
+
+0610                  PDT, Product information
+                      To specify a room type for the rate category.
+
+0620                  TFF, Tariff information
+                      To specify the actual rate.
+
+0630                  ODS, Additional product details
+                      To specify the time and occupancy indicators for
+                      this room type.
+
+
+0640         Segment group 15: PRD-DTI-RTI-TFF-RTC-ODS-NUN-PMT-NME-
+                               ITM-SG16
+             A group of segments to specify the rates based on product
+             type, e.g. car type.
+
+0650            PRD, Product identification
+                The actual product type.
+
+0660            DTI, Date and time information
+                The begin and/or end date(s) and times for which the
+                rate is effective.
+
+0670            RTI, Rate details
+                The rate categories associated with the product type.
+
+0680            TFF, Tariff information
+                The actual rate and any additional charges associated
+                with the rate.
+
+0690            RTC, Rate types
+                The rate codes for the product type.
+
+0700            ODS, Additional product details
+                To specify the mileage type associated with this rate.
+
+0710            NUN, Number of units
+                The decimal representation for the currency.
+
+0720            PMT, Payment information
+                The method of guaranteeing the reservation in order to
+                get this rate.
+
+0730            NME, Name
+                The names of the global distribution systems who are
+                eligible to book this rate.
+
+0740            ITM, Item number
+                The rule identification numbers for this rate.
+
+
+0750            Segment group 16: RUL-DTI-ITM
+                A group of segments to specify the actual rules and
+                effective dates associated with this rate.
+
+0760               RUL, Rule information
+                   The rules in either coded or free text associated
+                   with this rate.
+
+0770               DTI, Date and time information
+                   The effective and discontinuation dates of the
+                   rule.
+
+0780               ITM, Item number
+                   To specify an item number for this rule.
+
+
+0790   Segment group 17: ITD-SG18
+       A group of segments for updating the policy and general
+       information for a supplier or an agency.
+
+0800      ITD, Information type data
+          To specify the type of information, e.g. agency, corporate
+          policy or general information.
+
+
+0810      Segment group 18: NME-ITM-SG19-SG20
+          A group of segments to specify the supplier or the agency
+          and all of the information being updated.
+
+0820         NME, Name
+             The supplier code or agency name for whom the information
+             applies.
+
+0830         ITM, Item number
+             An item number associated with this particular update.
+
+
+0840         Segment group 19: ERI-ITM-IFT
+             A group of segments to specify an application error, the
+             number of the item that was to be updated and any
+             appropriate free text.
+
+0850            ERI, Application error information
+                A segment to specify an application error that
+                occurred during the updating process.
+
+0860            ITM, Item number
+                A number associated with the item that was to be
+                updated and for which an error occurred.
+
+0870            IFT, Interactive free text
+                A segment to specify free text related to the error.
+
+
+0880         Segment group 20: MAP-ADS-CON-CRI-ORG-SG21-SG22-SG23-SG24
+             A group segments to specify the type of update - add,
+             change, delete, and all the information to be updated.
+
+0890            MAP, Message application product information
+                To specify if information is to be added, deleted, or
+                replaced.
+
+0900            ADS, Address
+                The address of the supplier or agency.
+
+0910            CON, Contact information
+                Phone, fax, and other contact numbers for the supplier
+                or agency.
+
+0920            CRI, Consumer reference information
+                Corporate numbers for this supplier.
+
+0930            ORG, Originator of request details
+                The agency identification and global distribution
+                system affiliations for this agency.
+
+
+0940            Segment group 21: SDT-POS
+                A group of segments to specify if the associated
+                information is excluded or included and the point of
+                sale information.
+
+0950               SDT, Selection details
+                   To indicate if the information is excluded or
+                   included.
+
+0960               POS, Point of sale information
+                   A segment to specify agents either by agency
+                   identification or locations.
+
+
+0970            Segment group 22: ODS-IFT-DTI
+                A group of segments for updating keyword information.
+
+0980               ODS, Additional product details
+                   To specify the keyword and the information if it is
+                   formatted.
+
+0990               IFT, Interactive free text
+                   The keyword information if it is not formatted
+                   information.
+
+1000               DTI, Date and time information
+                   The effective dates of the keyword information.
+
+
+1010            Segment group 23: RUL-DTI-ITM
+                A group of segments to specify rules for a supplier.
+
+1020               RUL, Rule information
+                   To specify the rules that are applicable in general
+                   to a supplier.
+
+1030               DTI, Date and time information
+                   The effective dates of the rules.
+
+1040               ITM, Item number
+                   An item number associated with the rule.
+
+
+1050            Segment group 24: TVL-DTI-SG25-SG26-SG27-SG28-SG29
+                A group of segments for updating information specific
+                to a location of the supplier, e.g. hotel property or
+                car rental location.
+
+1060               TVL, Travel product information
+                   To specify the supplier location.
+
+1070               DTI, Date and time information
+                   The effective dates for this information.
+
+
+1080               Segment group 25: SDT-POS-CRI
+                   A group of segments to specify if the associated
+                   point of sale information is excluded or included.
+
+1090                  SDT, Selection details
+                      To indicate if the information is excluded or
+                      included.
+
+1100                  POS, Point of sale information
+                      A segment to specify agents either by agency
+                      identification or locations.
+
+1110                  CRI, Consumer reference information
+                      The numbers of corporations affiliated with this
+                      agency.
+
+
+1120               Segment group 26: ODS-ITM-IFT-CRI-ATI
+                   A group of segments for updating keyword
+                   information for a specific location.
+
+1130                  ODS, Additional product details
+                      To specify the keyword and the information if it
+                      is formatted.
+
+1140                  ITM, Item number
+                      A number associated with the keyword.
+
+1150                  IFT, Interactive free text
+                      The keyword information if not formatted.
+
+1160                  CRI, Consumer reference information
+                      To specify applicable corporate discount numbers
+                      if the keyword information applies to age
+                      restrictions.
+
+1170                  ATI, Tour information
+                      To specify applicable tour programs if the
+                      keyword applies to age restrictions.
+
+
+1180               Segment group 27: ADS-DTI
+                   A group of segments to identify the address
+                   information for a specific location.
+
+1190                  ADS, Address
+                      The address of a product location.
+
+1200                  DTI, Date and time information
+                      The effective dates for this address.
+
+
+1210               Segment group 28: CON-DTI
+                   A group of segments to identify the phone and fax
+                   numbers for a location.
+
+1220                  CON, Contact information
+                      The phone and fax numbers for a location.
+
+1230                  DTI, Date and time information
+                      The effective dates for the contact information.
+
+
+1240               Segment group 29: PRD-VEH-NUN-RUL-RPI-SG30-SG31-
+                                     SG32
+                   To detail product information for a specific
+                   location.
+
+1250                  PRD, Product identification
+                      To specify the product type, such as car type.
+
+1260                  VEH, Vehicle
+                      To describe the model for a car type.
+
+1270                  NUN, Number of units
+                      A segment to further describe a vehicle, e.g.
+                      passenger capacity, number of doors, and luggage
+                      capacity.
+
+1280                  RUL, Rule information
+                      To identify the rules that apply to a product
+                      type.
+
+1290                  RPI, Quantity and action details
+                      To specify the availability status for this
+                      product type.
+
+
+1300                  Segment group 30: ICI-IFT
+                      A group of segments to identify the types of
+                      insurance coverage and waivers for a product
+                      type.
+
+1310                     ICI, Insurance cover information
+                         To identify the type of insurance coverage
+                         available and/or required and the applicable
+                         waivers.
+
+1320                     IFT, Interactive free text
+                         Free text information related to insurance
+                         coverage.
+
+
+1330                  Segment group 31: MOV-RPI-TFF-IFT
+                      A group of segments to detail delivery
+                      information for a rental car type
+
+1340                     MOV, Car delivery instruction
+                         A segment to indicate if delivery and/or
+                         chauffeur drive is applicable to a car type.
+
+1350                     RPI, Quantity and action details
+                         To indicate the availability of the delivery
+                         services.
+
+1360                     TFF, Tariff information
+                         A segment to specify charges associated with
+                         vehicle delivery or chauffeur drive.
+
+1370                     IFT, Interactive free text
+                         Additional delivery information in free text
+                         format.
+
+
+1380                  Segment group 32: SSR-TFF-RUL-IFT
+                      A group of segments to detail special equipment
+                      associated with a product type.
+
+1390                     SSR, Special requirement details
+                         To identify the type of special equipment.
+
+1400                     TFF, Tariff information
+                         To identify any charges associated with the
+                         special equipment.
+
+1410                     RUL, Rule information
+                         To specify any rules or restrictions related
+                         to the special equipment.
+
+1420                     IFT, Interactive free text
+                         Additional information in free text format
+                         related to the special equipment.
+
+
+1430   Segment group 33: ALS-ITM-IFT-CUR-SG34-SG35
+       A group of segments to initialize a system with a new product
+       or to update general information based on a city location.
+
+1440      ALS, Additional location information
+          To specify a city location of a product.
+
+1450      ITM, Item number
+          To associate an item number with this product
+          initialization.
+
+1460      IFT, Interactive free text
+          Free text associated with the initialization.
+
+1470      CUR, Currencies
+          To identify the primary currency code for the city location.
+
+
+1480      Segment group 34: ERI-ITM-IFT
+          A group of segments to specify an application error, the
+          number of the item that was to be updated and any
+          appropriate free text.
+
+1490         ERI, Application error information
+             A segment to specify an application error that occurred
+             during the updating process.
+
+1500         ITM, Item number
+             A number associated with the item that was to be updated
+             and for which an error occurred.
+
+1510         IFT, Interactive free text
+             A segment to specify free text related to the error.
+
+
+1520      Segment group 35: TVL-ITM-MAP-NME-PLI-NUN-CON-CUR-SSR-IFT-
+                            SG36-SG37-SG38-SG40
+          A group of segments to detail information for products, e.g.
+          as a hotel property, in a city.
+
+1530         TVL, Travel product information
+             To identify the product by name and identifier.
+
+1540         ITM, Item number
+             To associate an update number with this product.
+
+1550         MAP, Message application product information
+             To identify the type of update to be made.
+
+1560         NME, Name
+             To identify who is responsible for the information in
+             this update.
+
+1570         PLI, Product location information
+             To identify the reference points associated with a
+             product.
+
+1580         NUN, Number of units
+             To further describe the product, e.g. number of hotel
+             rooms, maximum number of people per room, number of
+             floors.
+
+1590         CON, Contact information
+             The phone and fax numbers for a product.
+
+1600         CUR, Currencies
+             The currency code for this product which may be different
+             than the primary currency code of the city.
+
+1610         SSR, Special requirement details
+             To detail special facilities associated with the product.
+
+1620         IFT, Interactive free text
+             To identify additional information, e.g. tax and
+             surcharge information, which is not normally formatted
+             information.
+
+
+1630         Segment group 36: ODS-NUN
+             A group of segments to identify formatted product
+             information including facilities, location type,
+             electrical current.
+
+1640            ODS, Additional product details
+                To identify formatted information about the product,
+                including any charges associated to it.
+
+1650            NUN, Number of units
+                A segment to state the maximum capacity of a room if
+                that is the product information identified in the
+                previous segment.
+
+
+1660         Segment group 37: PMT-ADS
+             A group of segments to specify payment information
+             related to the product.
+
+1670            PMT, Payment information
+                To specify the types of payment that are acceptable
+                for guarantee and deposit payments.
+
+1680            ADS, Address
+                To specify an address to send guarantee and deposit
+                payments.
+
+
+1690         Segment group 38: PDT-RPI-SG39
+             A group of segments for specifying room types at a hotel
+             property, the status of each, the rate category, and a
+             free text description.
+
+1700            PDT, Product information
+                A segment to identify the room type.
+
+1710            RPI, Quantity and action details
+                A segment to state whether the room type is available.
+
+
+1720            Segment group 39: RTC-IFT
+                A group of segments to identify the rate category and
+                description for a room type.
+
+1730               RTC, Rate types
+                   To identify a rate category for a room type.
+
+1740               IFT, Interactive free text
+                   Free text description of a room type.
+
+
+1750         Segment group 40: DTI-SG41
+             A group of segments to identify the dates for a rate
+             period for a product and the product types in that rate
+             period.
+
+1760            DTI, Date and time information
+                To specify a begin and/or end date(s) for the rate
+                period.
+
+
+1770            Segment group 41: PDT-QTI
+                A group of segments to identify the product type and
+                the inventory of each for a rate period.
+
+1780               PDT, Product information
+                   A segment to identify the product type, e.g. room
+                   type.
+
+1790               QTI, Quantity
+                   A segment to give the inventory of each product
+                   type.
+
+
+1800   Segment group 42: TIF-ITM-SG43-SG44
+       A group of segments to update the profile of a customer of a
+       supplier (also known as a traveller profile).
+
+1810      TIF, Traveller information
+          To identify the customer by name.
+
+1820      ITM, Item number
+          To associate a number with this traveller profile update.
+
+
+1830      Segment group 43: ERI-ITM-IFT
+          A group of segments to specify an application error, the
+          number of the item that was to be updated and any
+          appropriate free text.
+
+1840         ERI, Application error information
+             A segment to specify an application error that occurred
+             during the updating process.
+
+1850         ITM, Item number
+             A number associated with the item that was to be updated
+             and for which an error occurred.
+
+1860         IFT, Interactive free text
+             A segment to specify free text related to the error.
+
+
+1870      Segment group 44: MAP-ADS-CON-CRI-PMT-TDI-ALS-ODS-SG45
+          A group of segments to specify the type of update action and
+          the information for the update.
+
+1880         MAP, Message application product information
+             To specify if the information is to be added, deleted, or
+             changed, etc.
+
+1890         ADS, Address
+             The addresses of the customer.
+
+1900         CON, Contact information
+             The contact numbers, e.g. phone, fax, e-mail for a
+             customer.
+
+1910         CRI, Consumer reference information
+             The corporate discount and frequent traveller numbers for
+             the customer.
+
+1920         PMT, Payment information
+             Credit card information for the customer.
+
+1930         TDI, Traveller document information
+             To specify passport, visa, and driver’s license
+             information for a customer.
+
+1940         ALS, Additional location information
+             To identify city and country of birth.
+
+1950         ODS, Additional product details
+             To specify the type of mailings preferred.
+
+
+1960         Segment group 45: SDT-PRD-ICI-SSR-PMT-SG46-SG47
+             A group of segments to identify additional customer
+             information for leisure and/or business travel.
+
+1970            SDT, Selection details
+                To indicate if the information is for business or
+                leisure.
+
+1980            PRD, Product identification
+                The type of product preferred such as car type or
+                bedding type.
+
+1990            ICI, Insurance cover information
+                Insurance coverage preferred for a rental car.
+
+2000            SSR, Special requirement details
+                To identify seat preferences, special equipment
+                needed, and if smoking or non-smoking is preferred.
+
+2010            PMT, Payment information
+                To specify the credit cards to be used for travel.
+
+
+2020            Segment group 46: MSD-TFF
+                To identify the rate categories preferred based on the
+                travel product - car, hotel, etc.
+
+2030               MSD, Message action details
+                   To identify the travel sector.
+
+2040               TFF, Tariff information
+                   To identify the rate category for a travel sector.
+
+
+2050            Segment group 47: ALS-PRD-ICI-SSR-PMT-SG48
+                A group of segments to identify preferences by
+                country.
+
+2060               ALS, Additional location information
+                   The country in which a travel product is used.
+
+2070               PRD, Product identification
+                   The product type preferred for a specific country.
+
+2080               ICI, Insurance cover information
+                   The insurance coverage preferred for a rental car.
+
+2090               SSR, Special requirement details
+                   To identify seat preferences, special equipment
+                   needed, and if smoking or non-smoking is preferred.
+
+2100               PMT, Payment information
+                   To specify the credit cards to be used for travel.
+
+
+2110               Segment group 48: MSD-TFF
+                   To identify the rate categories preferred based on
+                   the travel product in a country
+
+2120                  MSD, Message action details
+                      To identify the travel sector.
+
+2130                  TFF, Tariff information
+                      To identify the rate category for a travel
+                      sector.
+
+2140   UIT, Interactive message trailer
+       A service segment ending a message, giving the total number of
+       segments in the message (including the UIH & UIT) and the
+       control reference number of the message.
+
+4.2    Segment index (alphabetical sequence by tag)
+
+          ADS Address
+          ALS Additional location information
+          ATI Tour information
+          CMN Commission information
+          CON Contact information
+          CRI Consumer reference information
+          CUR Currencies
+          DTI Date and time information
+          ERI Application error information
+          ICI Insurance cover information
+          IFT Interactive free text
+          ITD Information type data
+          ITM Item number
+          MAP Message application product information
+          MOV Car delivery instruction
+          MSD Message action details
+          NME Name
+          NUN Number of units
+          ODS Additional product details
+          ORG Originator of request details
+          PDT Product information
+          PLI Product location information
+          PMT Payment information
+          POS Point of sale information
+          PRD Product identification
+          QTI Quantity
+          RPI Quantity and action details
+          RTC Rate types
+          RTI Rate details
+          RUL Rule information
+          SDT Selection details
+          SSR Special requirement details
+          TDI Traveller document information
+          TFF Tariff information
+          TIF Traveller information
+          TVL Travel product information
+          UIH Interactive message header
+          UIT Interactive message trailer
+          VEH Vehicle
+
+4.3    Message structure
+
+4.3.1  Segment table
+
+Pos    Tag Name                                      S   R
+
+0010   UIH Interactive message header                M   1     
+0020   MSD Message action details                    M   1     
+
+0030       ----- Segment group 1  ------------------ C   99----------+
+0040   ERI Application error information             M   1           |
+0050   ITM Item number                               C   1           |
+0060   IFT Interactive free text                     C   1-----------+
+
+0070       ----- Segment group 2  ------------------ C   999---------+
+0080   TVL Travel product information                M   1           |
+0090   ITM Item number                               C   1           |
+                                                                     |
+0100       ----- Segment group 3  ------------------ C   5----------+|
+0110   ERI Application error information             M   1          ||
+0120   ITM Item number                               C   1          ||
+0130   IFT Interactive free text                     C   1----------+|
+                                                                     |
+0140       ----- Segment group 4  ------------------ C   99---------+|
+0150   DTI Date and time information                 M   1          ||
+0160   ITM Item number                               C   1          ||
+0170   NUN Number of units                           C   1          ||
+                                                                    ||
+0180       ----- Segment group 5  ------------------ C   99--------+||
+0190   RPI Quantity and action details               M   1         |||
+                                                                   |||
+0200       ----- Segment group 6  ------------------ C   999------+|||
+0210   RTC Rate types                                M   1        ||||
+0220   SDT Selection details                         C   1        ||||
+0230   PRD Product identification                    C   1        ||||
+0240   TFF Tariff information                        C   1--------++||
+                                                                    ||
+0250       ----- Segment group 7  ------------------ C   999-------+||
+0260   PDT Product information                       M   1         |||
+0270   ITM Item number                               C   1         |||
+0280   TFF Tariff information                        C   1         |||
+0290   RTC Rate types                                C   1         |||
+0300   POS Point of sale information                 C   1         |||
+0310   RPI Quantity and action details               C   1---------+++
+
+0320       ----- Segment group 8  ------------------ C   999---------+
+0330   MAP Message application product information   M   1           |
+                                                                     |
+0340       ----- Segment group 9  ------------------ C   999--------+|
+0350   TVL Travel product information                M   1          ||
+0360   ITM Item number                               C   1          ||
+0370   DTI Date and time information                 C   1          ||
+                                                                    ||
+0380       ----- Segment group 10 ------------------ C   5---------+||
+0390   ERI Application error information             M   1         |||
+0400   ITM Item number                               C   1         |||
+0410   IFT Interactive free text                     C   1---------+||
+                                                                    ||
+0420       ----- Segment group 11 ------------------ C   999-------+||
+0430   RTC Rate types                                M   1         |||
+0440   DTI Date and time information                 C   1         |||
+0450   ODS Additional product details                C   1         |||
+0460   SSR Special requirement details               C   1         |||
+0470   RUL Rule information                          C   1         |||
+0480   TFF Tariff information                        C   1         |||
+0490   ITM Item number                               C   1         |||
+0500   CMN Commission information                    C   1         |||
+0510   CUR Currencies                                C   1         |||
+0520   PMT Payment information                       C   1         |||
+0530   NUN Number of units                           C   1         |||
+0540   IFT Interactive free text                     C   99        |||
+                                                                   |||
+0550       ----- Segment group 12 ------------------ C   99-------+|||
+0560   PDT Product information                       M   1        ||||
+0570   TFF Tariff information                        C   1--------+|||
+                                                                   |||
+0580       ----- Segment group 13 ------------------ C   999------+|||
+0590   RTI Rate details                              M   1        ||||
+                                                                  ||||
+0600       ----- Segment group 14 ------------------ C   999-----+||||
+0610   PDT Product information                       M   1       |||||
+0620   TFF Tariff information                        C   1       |||||
+0630   ODS Additional product details                C   1-------+++||
+                                                                    ||
+0640       ----- Segment group 15 ------------------ C   999-------+||
+0650   PRD Product identification                    M   1         |||
+0660   DTI Date and time information                 C   1         |||
+0670   RTI Rate details                              C   1         |||
+0680   TFF Tariff information                        C   1         |||
+0690   RTC Rate types                                C   1         |||
+0700   ODS Additional product details                C   1         |||
+0710   NUN Number of units                           C   1         |||
+0720   PMT Payment information                       C   1         |||
+0730   NME Name                                      C   1         |||
+0740   ITM Item number                               C   1         |||
+                                                                   |||
+0750       ----- Segment group 16 ------------------ C   99-------+|||
+0760   RUL Rule information                          M   1        ||||
+0770   DTI Date and time information                 C   1        ||||
+0780   ITM Item number                               C   1--------++++
+
+0790       ----- Segment group 17 ------------------ C   99----------+
+0800   ITD Information type data                     M   1           |
+                                                                     |
+0810       ----- Segment group 18 ------------------ C   9----------+|
+0820   NME Name                                      M   1          ||
+0830   ITM Item number                               C   1          ||
+                                                                    ||
+0840       ----- Segment group 19 ------------------ C   5---------+||
+0850   ERI Application error information             M   1         |||
+0860   ITM Item number                               C   1         |||
+0870   IFT Interactive free text                     C   1---------+||
+                                                                    ||
+0880       ----- Segment group 20 ------------------ C   3---------+||
+0890   MAP Message application product information   M   1         |||
+0900   ADS Address                                   C   1         |||
+0910   CON Contact information                       C   1         |||
+0920   CRI Consumer reference information            C   1         |||
+0930   ORG Originator of request details             C   1         |||
+                                                                   |||
+0940       ----- Segment group 21 ------------------ C   99-------+|||
+0950   SDT Selection details                         M   1        ||||
+0960   POS Point of sale information                 C   1--------+|||
+                                                                   |||
+0970       ----- Segment group 22 ------------------ C   99-------+|||
+0980   ODS Additional product details                M   1        ||||
+0990   IFT Interactive free text                     C   9        ||||
+1000   DTI Date and time information                 C   1--------+|||
+                                                                   |||
+1010       ----- Segment group 23 ------------------ C   99-------+|||
+1020   RUL Rule information                          M   1        ||||
+1030   DTI Date and time information                 C   1        ||||
+1040   ITM Item number                               C   1--------+|||
+                                                                   |||
+1050       ----- Segment group 24 ------------------ C   999------+|||
+1060   TVL Travel product information                M   1        ||||
+1070   DTI Date and time information                 C   1        ||||
+                                                                  ||||
+1080       ----- Segment group 25 ------------------ C   99------+||||
+1090   SDT Selection details                         M   1       |||||
+1100   POS Point of sale information                 C   1       |||||
+1110   CRI Consumer reference information            C   1-------+||||
+                                                                  ||||
+1120       ----- Segment group 26 ------------------ C   99------+||||
+1130   ODS Additional product details                M   1       |||||
+1140   ITM Item number                               C   1       |||||
+1150   IFT Interactive free text                     C   1       |||||
+1160   CRI Consumer reference information            C   1       |||||
+1170   ATI Tour information                          C   1-------+||||
+                                                                  ||||
+1180       ----- Segment group 27 ------------------ C   9-------+||||
+1190   ADS Address                                   M   1       |||||
+1200   DTI Date and time information                 C   1-------+||||
+                                                                  ||||
+1210       ----- Segment group 28 ------------------ C   9-------+||||
+1220   CON Contact information                       M   1       |||||
+1230   DTI Date and time information                 C   1-------+||||
+                                                                  ||||
+1240       ----- Segment group 29 ------------------ C   999-----+||||
+1250   PRD Product identification                    M   1       |||||
+1260   VEH Vehicle                                   C   1       |||||
+1270   NUN Number of units                           C   1       |||||
+1280   RUL Rule information                          C   1       |||||
+1290   RPI Quantity and action details               C   1       |||||
+                                                                 |||||
+1300       ----- Segment group 30 ------------------ C   9------+|||||
+1310   ICI Insurance cover information               M   1      ||||||
+1320   IFT Interactive free text                     C   9------+|||||
+                                                                 |||||
+1330       ----- Segment group 31 ------------------ C   9------+|||||
+1340   MOV Car delivery instruction                  M   1      ||||||
+1350   RPI Quantity and action details               C   1      ||||||
+1360   TFF Tariff information                        C   1      ||||||
+1370   IFT Interactive free text                     C   9------+|||||
+                                                                 |||||
+1380       ----- Segment group 32 ------------------ C   99-----+|||||
+1390   SSR Special requirement details               M   1      ||||||
+1400   TFF Tariff information                        C   1      ||||||
+1410   RUL Rule information                          C   1      ||||||
+1420   IFT Interactive free text                     C   9------++++++
+
+1430       ----- Segment group 33 ------------------ C   999---------+
+1440   ALS Additional location information           M   1           |
+1450   ITM Item number                               C   1           |
+1460   IFT Interactive free text                     C   1           |
+1470   CUR Currencies                                C   1           |
+                                                                     |
+1480       ----- Segment group 34 ------------------ C   5----------+|
+1490   ERI Application error information             M   1          ||
+1500   ITM Item number                               C   1          ||
+1510   IFT Interactive free text                     C   1----------+|
+                                                                     |
+1520       ----- Segment group 35 ------------------ C   999--------+|
+1530   TVL Travel product information                M   1          ||
+1540   ITM Item number                               C   1          ||
+1550   MAP Message application product information   C   1          ||
+1560   NME Name                                      C   1          ||
+1570   PLI Product location information              C   1          ||
+1580   NUN Number of units                           C   1          ||
+1590   CON Contact information                       C   1          ||
+1600   CUR Currencies                                C   1          ||
+1610   SSR Special requirement details               C   1          ||
+1620   IFT Interactive free text                     C   9          ||
+                                                                    ||
+1630       ----- Segment group 36 ------------------ C   99--------+||
+1640   ODS Additional product details                M   1         |||
+1650   NUN Number of units                           C   1---------+||
+                                                                    ||
+1660       ----- Segment group 37 ------------------ C   99--------+||
+1670   PMT Payment information                       M   1         |||
+1680   ADS Address                                   C   1---------+||
+                                                                    ||
+1690       ----- Segment group 38 ------------------ C   9---------+||
+1700   PDT Product information                       M   1         |||
+1710   RPI Quantity and action details               C   1         |||
+                                                                   |||
+1720       ----- Segment group 39 ------------------ C   99-------+|||
+1730   RTC Rate types                                M   1        ||||
+1740   IFT Interactive free text                     C   1--------++||
+                                                                    ||
+1750       ----- Segment group 40 ------------------ C   99--------+||
+1760   DTI Date and time information                 M   1         |||
+                                                                   |||
+1770       ----- Segment group 41 ------------------ C   99-------+|||
+1780   PDT Product information                       M   1        ||||
+1790   QTI Quantity                                  C   1--------++++
+
+1800       ----- Segment group 42 ------------------ C   9-----------+
+1810   TIF Traveller information                     M   1           |
+1820   ITM Item number                               C   1           |
+                                                                     |
+1830       ----- Segment group 43 ------------------ C   5----------+|
+1840   ERI Application error information             M   1          ||
+1850   ITM Item number                               C   1          ||
+1860   IFT Interactive free text                     C   1----------+|
+                                                                     |
+1870       ----- Segment group 44 ------------------ C   3----------+|
+1880   MAP Message application product information   M   1          ||
+1890   ADS Address                                   C   5          ||
+1900   CON Contact information                       C   1          ||
+1910   CRI Consumer reference information            C   1          ||
+1920   PMT Payment information                       C   1          ||
+1930   TDI Traveller document information            C   1          ||
+1940   ALS Additional location information           C   1          ||
+1950   ODS Additional product details                C   1          ||
+                                                                    ||
+1960       ----- Segment group 45 ------------------ C   2---------+||
+1970   SDT Selection details                         M   1         |||
+1980   PRD Product identification                    C   1         |||
+1990   ICI Insurance cover information               C   1         |||
+2000   SSR Special requirement details               C   1         |||
+2010   PMT Payment information                       C   1         |||
+                                                                   |||
+2020       ----- Segment group 46 ------------------ C   9--------+|||
+2030   MSD Message action details                    M   1        ||||
+2040   TFF Tariff information                        C   1--------+|||
+                                                                   |||
+2050       ----- Segment group 47 ------------------ C   9--------+|||
+2060   ALS Additional location information           M   1        ||||
+2070   PRD Product identification                    C   1        ||||
+2080   ICI Insurance cover information               C   1        ||||
+2090   SSR Special requirement details               C   1        ||||
+2100   PMT Payment information                       C   1        ||||
+                                                                  ||||
+2110       ----- Segment group 48 ------------------ C   9-------+||||
+2120   MSD Message action details                    M   1       |||||
+2130   TFF Tariff information                        C   1-------+++++
+2140   UIT Interactive message trailer               M   1     

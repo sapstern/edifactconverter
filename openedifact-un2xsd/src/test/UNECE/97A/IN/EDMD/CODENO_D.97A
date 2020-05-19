@@ -1,0 +1,398 @@
+                              UN/EDIFACT
+
+                UNITED NATIONS STANDARD MESSAGE (UNSM)
+
+           Permit expiration/clearance ready notice message
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                            Message Type : CODENO
+                                            Version      : D
+                                            Release      : 97A
+                                            Contr. Agency: UN
+
+                                            Revision     : 3
+                                            Date         : 96-12-13
+
+
+
+
+
+
+SOURCE: Joint Transport Group (JM4)
+
+
+
+                               CONTENTS
+
+           Permit expiration/clearance ready notice message
+
+0.   INTRODUCTION
+
+1.   SCOPE
+
+     1.1   Functional definition
+
+     1.2   Field of application
+
+     1.3   Principles
+
+2.   REFERENCES
+
+3.   TERMS AND DEFINITIONS
+
+     3.1   Standard terms and definitions
+
+4.   MESSAGE DEFINITION
+
+     4.1   Data segment clarification
+
+     4.2   Data segment index (alphabetical sequence)
+
+     4.3   Message structure
+
+           4.3.1 Segment table
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------
+For general information on UN standard message types see UN Trade Data
+Interchange Directory, UNTDID, Part 4, Section 2.6, UN/ECE UNSM
+General Introduction
+----------------------------------------------------------------------
+
+
+
+0.     INTRODUCTION
+
+       This specification provides the definition of the Permit
+       expiration/clearance ready notice message (CODENO) to be used
+       in Electronic Data Interchange (EDI) between trading partners
+       involved in administration, commerce and transport.
+
+1.     SCOPE
+
+1.1    Functional Definition
+
+       Notice specifying the cargo for which either the validity of
+       the permits/Customs documents expires at short notice or for
+       which regulatory Customs clearance has taken place.
+       
+       This message is part of a total set of container-related
+       messages. These messages serve to facilitate the intermodal
+       handling of containers by streamlining the information
+       exchange.
+       The business scenario for the container messages is clarified
+       in a separate document, called: 'Guide to the scenario of
+       EDIFACT container messages'.
+
+1.2    Field of Application
+
+       The Permit expiration/clearance ready notice message may be
+       used for both national and international applications. It is
+       based on universal practice related to administration, commerce
+       and transport, and is not dependent on the type of business or
+       industry.
+
+1.3    Principles
+
+       Business area: 
+       Pre- and on-carriage transport of containers/equipment 
+        
+       Sending functions include: 
+       Container terminal, Inland terminal, Freight forwarder
+       (including Non-Vessel Operating Common Carrier (NVOCC)) 
+        
+       Receiving functions include: 
+       Shipping agent, Logistic Center, Freight forwarder 
+        
+       In the context of the 'Guide to the scenario of EDIFACT
+       container messages' (as referred to at the start of section 1)
+       the following guidelines, rules and functionality apply to this
+       Permit expiration/clearance ready notice message:
+        
+       *   In the case where the CODENO message is used as a Permit
+       expiration notice the message contents can be uniquely
+       identified by a combination of the following data elements:
+       - ordering customer, coded (NAD) 
+       - ordering customer agent, coded (NAD) 
+       - container announcement reference number (being the acceptance
+       order reference number) (RFF) 
+       In case the CODENO is used as a Customs clearance ready notice
+       the message contents can be uniquely identified by a
+       combination of the following message level data elements:
+       - carrier agent, coded (shipping agent) (NAD)
+       - carrier, coded (shipping line) (TDT)
+       - carrier's agent reference number (RFF)
+        
+       *   In one message customs documents for several containers can
+       be included.
+        
+       *   One shipping line, one seagoing vessel, one sea voyage
+       number and one shipping agent can be specified on message top
+       level.
+        
+       *   The document type, number, its date of issue and expiration
+       can be given for each goods item which can be related to the
+       corresponding containers by linking the goods item group (GID)
+       to the container details group(s) (EQD) by means of the SGP
+       segment.
+        
+       *   For logistic purposes the pick-up address of Customs
+       documents can be specified.
+
+2.     REFERENCES
+
+       See UNTDID, Part 4, Chapter 2.6 UN/ECE UNSM - General
+       Introduction, Section 1.
+
+3.     TERMS AND DEFINITIONS
+
+3.1    Standard terms and definitions
+
+       See UNTDID, Part 4, Chapter 2.6 UN/ECE UNSM - General
+       Introduction, Section 2.
+
+4.     MESSAGE DEFINITION
+
+4.1    Data Segment Clarification
+
+       This section should be read in conjunction with the Segment
+       Table which indicate mandatory, conditional and repeating
+       requirements.
+
+0010   UNH, Message header
+       A service segment starting and uniquely identifying a message.
+       The message type code for the Permit expiration/clearance ready
+       notice message is CODENO.
+       
+       Note: Permit expiration/clearance ready notice messages
+       conforming to this document must contain the following data in
+       segment UNH, composite S009:
+
+       Data element  0065 CODENO
+                     0052 D
+                     0054 97A
+                     0051 UN
+
+0020   BGM, Beginning of message
+       A segment to indicate the beginning of a message and to
+       transmit identifying number, and a further specification of the
+       message type (in data element 1001: Document/message name,
+       coded), such as Customs documents expiration notice, Customs
+       clearance ready notice and message function.
+
+0030   DTM, Date/time/period
+       A segment to indicate a date and/or time applying to the whole
+       message, such as date and time of document or message issue.
+
+0040   FTX, Free text
+       A segment to specify free form or processable supplementary
+       information, such as:
+       -   change information
+
+
+0050   Segment group 1:  RFF-DTM
+       A group of segments to specify a reference relating to the
+       whole message, and its date and/or time.
+
+0060      RFF, Reference
+          A segment to express a reference which applies to the entire
+          message, such as:
+          -   reference to previous message 
+          -   container announcement reference (being the acceptance
+          order reference number)
+          -   carrier's agent reference number
+
+0070      DTM, Date/time/period
+          A segment to indicate date and/or time related to the
+          reference.
+
+
+0080   Segment group 2:  TDT-LOC-DTM
+       A group of segments to indicate details of the movement of
+       containers.
+
+0090      TDT, Details of transport
+          A segment to indicate information related to the main
+          carriage stage of the transport (sea), such as carrier/liner
+          service.
+
+0100      LOC, Place/location identification
+          A segment to indicate a port corresponding to the transport
+          stage, such as port of loading or discharge.
+
+0110      DTM, Date/time/period
+          A segment to indicate a date/time relating to the transport
+          details, such as arrival date/time.
+
+
+0120   Segment group 3:  NAD-SG4
+       A group of segments to identify a party and related contacts.
+
+0130      NAD, Name and address
+          A segment to identify the party's name, address, and
+          function, such as: 
+          -   message recipient 
+          -   message sender 
+          -   ordering customer 
+          -   ordering customer agent
+          -   carrier agent (sea)
+
+
+0140      Segment group 4:  CTA-COM
+          A group of segments to identify a contact and its
+          communications related to the party.
+
+0150         CTA, Contact information
+             A segment to identify a person or department for the
+             party, such as: 
+             -   information contact
+
+0160         COM, Communication contact
+             A segment to identify a communication number of a person
+             or department to whom communication should be directed.
+
+
+0170   Segment group 5:  GID-SG6-SGP
+       A group of segments to describe the goods items stuffed in
+       containers.
+
+0180      GID, Goods item details
+          A segment to identify a goods item stuffed in containers. A
+          goods item can be identified by a goods item number.
+
+
+0190      Segment group 6:  DOC-DTM
+          A group of segments to specify documents and associated
+          date(s) and time(s) for a goods item.
+
+0200         DOC, Document/message details
+             A segment to specify a document prepared for a goods
+             item.
+
+0210         DTM, Date/time/period
+             A segment to associate issue and expiry date with the
+             prepared document.
+
+0220      SGP, Split goods placement
+          A segment to identify the containers in which goods are
+          transported.
+
+
+0230   Segment group 7:  EQD-RFF-NAD
+       A group of segments to specify containers in which goods are
+       transported.
+
+0240      EQD, Equipment details
+          A segment to specify container prefix and number.
+
+0250      RFF, Reference
+          A segment to specify the identifying number associated with
+          a container, such as:
+          -   container sequence number
+
+0260      NAD, Name and address
+          A segment to specify a pick-up address of Customs documents.
+
+0270   CNT, Control total
+       A segment to specify the number of containers in the message,
+       explicitly given by the sender.
+
+0280   UNT, Message trailer
+       A service segment ending a message, giving the total number of
+       segments in the message and the control reference number of the
+       message.
+
+4.2    Data segment index (Alphabetical sequence by tag)
+
+          BGM Beginning of message
+          CNT Control total
+          COM Communication contact
+          CTA Contact information
+          DOC Document/message details
+          DTM Date/time/period
+          EQD Equipment details
+          FTX Free text
+          GID Goods item details
+          LOC Place/location identification
+          NAD Name and address
+          RFF Reference
+          SGP Split goods placement
+          TDT Details of transport
+          UNH Message header
+          UNT Message trailer
+
+4.3    Message structure
+
+4.3.1  Segment table
+
+Pos    Tag Name                                      S   R
+
+0010   UNH Message header                            M   1     
+0020   BGM Beginning of message                      M   1     
+0030   DTM Date/time/period                          C   9     
+0040   FTX Free text                                 C   9     
+
+0050 *     ÄÄÄÄÄ Segment group 1  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄÄÄÄ¿
+0060   RFF Reference                                 M   1           ³
+0070   DTM Date/time/period                          C   9ÄÄÄÄÄÄÄÄÄÄÄÙ
+
+0080       ÄÄÄÄÄ Segment group 2  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   1ÄÄÄÄÄÄÄÄÄÄÄ¿
+0090   TDT Details of transport                      M   1           ³
+0100   LOC Place/location identification             C   9           ³
+0110   DTM Date/time/period                          C   9ÄÄÄÄÄÄÄÄÄÄÄÙ
+
+0120       ÄÄÄÄÄ Segment group 3  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   9ÄÄÄÄÄÄÄÄÄÄÄ¿
+0130   NAD Name and address                          M   1           ³
+                                                                     ³
+0140       ÄÄÄÄÄ Segment group 4  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄÄÄ¿³
+0150   CTA Contact information                       M   1          ³³
+0160   COM Communication contact                     C   9ÄÄÄÄÄÄÄÄÄÄÁÙ
+
+0170       ÄÄÄÄÄ Segment group 5  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   999ÄÄÄÄÄÄÄÄÄ¿
+0180   GID Goods item details                        M   1           ³
+                                                                     ³
+0190       ÄÄÄÄÄ Segment group 6  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   9ÄÄÄÄÄÄÄÄÄÄ¿³
+0200   DOC Document/message details                  M   1          ³³
+0210   DTM Date/time/period                          M   9ÄÄÄÄÄÄÄÄÄÄÙ³
+0220   SGP Split goods placement                     M   999ÄÄÄÄÄÄÄÄÄÙ
+
+0230       ÄÄÄÄÄ Segment group 7  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   999ÄÄÄÄÄÄÄÄÄ¿
+0240   EQD Equipment details                         M   1           ³
+0250   RFF Reference                                 C   1           ³
+0260   NAD Name and address                          C   9ÄÄÄÄÄÄÄÄÄÄÄÙ
+0270 * CNT Control total                             C   1     
+0280   UNT Message trailer                           M   1     

@@ -1,0 +1,759 @@
+                              UN/EDIFACT
+
+                UNITED NATIONS STANDARD MESSAGE (UNSM)
+
+                    Job order modification message
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                            Message Type : JOBMOD
+                                            Version      : D
+                                            Release      : 97A
+                                            Contr. Agency: UN
+
+                                            Revision     : 1
+                                            Date         : 96-12-13
+
+
+
+
+
+
+SOURCE: Western European EDIFACT Board, MD10
+
+
+
+                               CONTENTS
+
+                    Job order modification message
+
+0.   INTRODUCTION
+
+1.   SCOPE
+
+     1.1   Functional definition
+
+     1.2   Field of application
+
+     1.3   Principles
+
+2.   REFERENCES
+
+3.   TERMS AND DEFINITIONS
+
+     3.1   Standard terms and definitions
+
+4.   MESSAGE DEFINITION
+
+     4.1   Data segment clarification
+
+           4.1.1 Header section
+           4.1.2 Detail section
+
+     4.2   Data segment index (alphabetical sequence)
+
+     4.3   Message structure
+
+           4.3.1 Segment table
+
+
+
+
+
+
+
+----------------------------------------------------------------------
+For general information on UN standard message types see UN Trade Data
+Interchange Directory, UNTDID, Part 4, Section 2.6, UN/ECE UNSM
+General Introduction
+----------------------------------------------------------------------
+
+
+
+0.     INTRODUCTION
+
+       This specification provides the definition of the Job order
+       modification message (JOBMOD) to be used in Electronic Data
+       Interchange (EDI) between trading partners involved in
+       administration, commerce and transport.
+
+1.     SCOPE
+
+1.1    Functional Definition
+
+       A message specifying modifications of a previously sent Job
+       Order Message of one or more offered jobs or vacancies in an
+       enterprise or organization. The Job Order Modification Message
+       is transmitted from an employer or employment agency to an
+       employment office. The information and the changes detailed in
+       the message are related to profession, experiences, salaries,
+       education, work and contract conditions.
+
+1.2    Field of Application
+
+       The Job order modification message may be used for both
+       national and international applications. It is based on
+       universal practice related to administration, commerce and
+       transport, and is not dependent on the type of business or
+       industry.
+
+1.3    Principles
+
+       The intention of the message is to provide modifications and
+       detailed information for one or more jobs or vacancies offered
+       by an employer. A Job Order Modification Message is transmitted
+       from an employer or employment agency to an employment agency.
+       A Job Order Modification Message may contain detailed
+       information about the requirements of an applicant for the job,
+       e.g. age, sex, occupation or occupation type, location of the
+       job, education, knowledge, experiences. A Job Order
+       Modification Message may also contain detailed information of
+       the remuneration offered, a job application and/or arrangements
+       for an interview.
+
+2.     REFERENCES
+
+       See UNTDID, Part 4, Chapter 2.6 UN/ECE UNSM - General
+       Introduction, Section 1.
+
+3.     TERMS AND DEFINITIONS
+
+3.1    Standard terms and definitions
+
+       See UNTDID, Part 4, Chapter 2.6 UN/ECE UNSM - General
+       Introduction, Section 2.
+
+4.     MESSAGE DEFINITION
+
+4.1    Data Segment Clarification
+
+       This section should be read in conjunction with the Segment
+       Table which indicate mandatory, conditional and repeating
+       requirements.
+       
+       The following guidelines and principles apply to the whole
+       message and are intended to facilitate the understanding and
+       implementation of the message: 
+       All specified dates and times should be in the format 'yymmdd'
+       or 'hhmm' unless all parties involved in the transaction agree
+       that there is a functional requirement for an alternative
+       format. 
+       Periods should be specified as whole numbers representing the
+       required period as indicated in the format qualifier (weeks,
+       months, etc.) Where a choice of code or text is given only the
+       code element should be used wherever possible. 
+       Conditional data that is not required in the message should not
+       be included. 
+       Care must be taken that the segment qualifier in dependent
+       segments do not conflict with the segment qualifier of the
+       trigger segment of a group.
+
+4.1.1  Header section
+
+       Information to be provided in the Header section:
+
+0010   UNH, Message header
+       A service segment starting and uniquely identifying a message.
+       The message type code for the Job order modification message is
+       JOBMOD.
+       
+       Note: Job order modification messages conforming to this
+       document must contain the following data in segment UNH,
+       composite S009:
+
+       Data element  0065 JOBMOD
+                     0052 D
+                     0054 97A
+                     0051 UN
+
+0020   BGM, Beginning of message
+       A segment by which the sender must uniquely identify the job
+       order modification by means of its type and number and, when
+       necessary, its function, e.g. change, deletion, addition.
+
+0030   DTM, Date/time/period
+       A segment specifying general dates and, when relevant, times
+       related to the whole message. The segment must be specified at
+       least once to identify the document date. The Date/time/period
+       segment within other Segment groups should be used whenever the
+       date or time or period requires to be logically related to
+       another specified data item.
+
+
+0040   Segment group 1:  PNA-ADR-LOC-DTM-SG2
+       A group of segments identifying the parties with associated
+       information.
+
+0050      PNA, Party name
+          A segment identifying names of the parties, in coded or
+          clear form, and their functions relevant to the Job Order
+          Modification Message. Identification of the enterprise and
+          the job administration parties is mandatory for the Job
+          Order Modification Message. It is recommended that, where
+          possible, only the coded form of the party identification
+          should be specified, e.g. where the enterprise and the job
+          administration are known to each other, thus only the coded
+          identification is required, but a job center or a job
+          application address (interview) may vary and would have to
+          be clearly specified, preferably in structured format.
+
+0060      ADR, Address
+          A segment giving the address of the relevant party.
+
+0070      LOC, Place/location identification
+          A segment giving more specific location information of the
+          party specified in the ADR segment, e.g. internal site or
+          building number.
+
+0080      DTM, Date/time/period
+          A segment specifying the date or time.
+
+
+0090      Segment group 2:  CTA-COM
+          A group of segments giving contact details of the specific
+          person or department within the party identified in the PNA
+          segment.
+
+0100         CTA, Contact information
+             A segment to identify a person or department and their
+             function, to whom communications should be directed.
+
+0110         COM, Communication contact
+             A segment to identify a communications type and number
+             for the contact specified in the CTA segment, e.g.
+             telephone-number, fax-number, telex-number.
+
+
+0120   Segment group 3:  RFF-DTM
+       A group of segments for giving references and, where necessary,
+       their dates, relating to the whole message.
+
+0130      RFF, Reference
+          A segment identifying the reference by its number related to
+          the whole message.
+
+0140      DTM, Date/time/period
+          A segment specifying the date or time related to the
+          reference.
+
+
+0150   Segment group 4:  GIS-FTX
+       A group of segments specifying general processing indicators
+       and, when necessary, additional textual information relevant
+       for the whole message.
+
+0160      GIS, General indicator
+          A segment specifying general indicators for the whole
+          message.
+
+0170      FTX, Free text
+          A segment with free text information, in coded or clear
+          form, used when additional information is needed but cannot
+          be accommodated within other segments. In computer to
+          computer exchanges such text will normally require the
+          receiver to process this segment manually.
+
+4.1.2  Detail section
+
+       Information to be provided in the Detail section:
+
+0180   UNS, Section control
+       A mandatory service segment placed before the first user
+       segment in the detail section to avoid segment collision.
+
+
+0190   Segment group 5:  RFF-DTM-QTY-SG6-SG7-SG8-SG9-SG10-SG13-SG17
+       A group of segments providing details of the individual job or
+       vacancy offered or modified. There must be at least one
+       occurrence of Segment group 5 within a Job Order Modification
+       Message. This Segment group may be repeated to give information
+       about several other jobs or vacancies offered or modified. The
+       Segment group 5 gives information about the required profession
+       and may give additional requirements of the job, the
+       remuneration and the arrangements for an application or
+       interview.
+
+0200      RFF, Reference
+          A segment identifying the job offered or modified by a
+          number given by the enterprise, e.g. job order or job
+          modification number of the enterprise.
+
+0210      DTM, Date/time/period
+          A segment specifying date, and when relevant, time relating
+          to the job offered or modified. Examples of the use of this
+          DTM segment are: order date and/or time (of the enterprise),
+          expire date (of the job offer), required starting date of
+          the job.
+
+0220      QTY, Quantity
+          A segment identifying the number of vacancies.
+
+
+0230      Segment group 6:  PNA-DTM-LOC-NAT-PDI-DOC
+          A segment identifying personal information regarding a job
+          order.
+
+0240         PNA, Party name
+             A segment identifying a required person by his or her
+             function.
+
+0250         DTM, Date/time/period
+             A segment specifying requested limits regarding date of
+             birth.
+
+0260         LOC, Place/location identification
+             A segment specifying the country and/or place of
+             residence requested for a person related to the job
+             ordered.
+
+0270         NAT, Nationality
+             A segment indication a requested nationality for a job.
+
+0280         PDI, Person demographic information
+             A segment indicating requirements relating to gender or
+             marital status for a proposed job.
+
+0290         DOC, Document/message details
+             A segment indicating which type of document (s) an
+             applicant must have in his possession.
+
+
+0300      Segment group 7:  GIS-FTX
+          A group of segments specifying general processing indicators
+          and, when necessary, additional textual information,
+          relevant for the job offered or modified.
+
+0310         GIS, General indicator
+             A segment specifying general indicators related to the
+             job offered or modified, e.g. change, deletion, addition.
+             The code may indicate that in Segment group 5 a change or
+             a deletion was given. The change or deletion must be
+             recognized by the receivers application program.
+
+0320         FTX, Free text
+             A segment with free text information, in coded or clear
+             form, used when additional information is needed but
+             cannot be accommodated within other segments. In computer
+             to computer exchanges such text will normally require the
+             receiver to process this segment manually.
+
+
+0330      Segment group 8:  RFF-DTM
+          A group of segments for giving references and, where
+          necessary, their dates, relevant to the job offered or
+          modified. The reference segment is given only when the job
+          administration has given a Job Order Confirmation Message.
+
+0340         RFF, Reference
+             A segment for specifying references relevant to the job
+             offered or modified, e.g. job order number of the job
+             administration.
+
+0350         DTM, Date/time/period
+             A segment specifying the date or time related to the
+             reference.
+
+
+0360      Segment group 9:  RCS-RFF-DTM-FTX
+          A group of segments identifying requirements or conditions
+          for the job offered or modified.
+
+0370         RCS, Requirements and conditions
+             A segment to give, in coded form, requirements of a job
+             offered or modified.
+
+0380         RFF, Reference
+             A segment identifying the referenced document by its
+             number and, where appropriate, a line number.
+
+0390         DTM, Date/time/period
+             A segment indicating the date and/or time details
+             relating to the references.
+
+0400         FTX, Free text
+             A segment with free text information for the requirements
+             of the job offered or modified, in coded or clear form,
+             used when additional information is needed but cannot be
+             accommodated within other segments, e.g. advertisement of
+             the job. In computer to computer exchanges such text will
+             normally require the receiver to process this segment
+             manually.
+
+
+0410      Segment group 10: EMP-LOC-SG11-SG12
+          A group of segments identifying a profession for the
+          required job and attributes, such as education and
+          experience.
+
+0420         EMP, Employment details
+             A segment to identify the related area or sector of a
+             qualification, in coded or clear form, related to the job
+             offered or modified.
+
+0430         LOC, Place/location identification
+             A segment indicating the location, where the job should
+             be performed.
+
+
+0440         Segment group 11: ATT-FTX-PTY
+             A group of segments giving coded information about
+             requirements for the profession or job offered or
+             modified regarding educational qualifications and
+             experience and, when necessary, priority of the
+             information and additional textual information.
+
+0450            ATT, Attribute
+                A segment identifying, in coded form, the requirements
+                of the profession or job offered or modified. The
+                codes are related to education, job experience,
+                special knowledge and required qualifications.
+
+0460            FTX, Free text
+                A segment with free text information for special
+                knowledge, in coded or clear form, used when
+                additional information is needed but cannot be
+                accommodated within other segments. In computer to
+                computer exchanges such text will normally require the
+                receiver to process this segment manually.
+
+0470            PTY, Priority
+                A segment identifying the priority of requirements for
+                a job offered.
+
+
+0480         Segment group 12: LAN-GIS
+             A group of segments giving information about languages
+             and experiences of languages.
+
+0490            LAN, Language
+                A segment specifying a language in coded or clear
+                form.
+
+0500            GIS, General indicator
+                A segment specifying general indicators of the
+                experience of a language.
+
+
+0510      Segment group 13: SAL-FTX-DTM-SG14-SG15-SG16
+          A group of segments giving information about the type and
+          the basic conditions of the remuneration offered. It may
+          contain a remuneration amount or a remuneration range and
+          additional remuneration benefits.
+
+0520         SAL, Remuneration type identification
+             A segment identifying the type of the remuneration
+             offered and, if required, the name of the remuneration
+             type or contract.
+
+0530         FTX, Free text
+             A segment with free text information for the remuneration
+             type or contract, in coded or clear form, used when
+             additional information is needed but cannot be
+             accommodated within other segments. In computer to
+             computer exchanges such text will normally require the
+             receiver to process this segment manually.
+
+0540         DTM, Date/time/period
+             A segment specifying the dates and/or times related to
+             the remuneration offered.
+
+
+0550         Segment group 14: ATT-FTX
+             A group of segments giving attribute information, in
+             coded form, for the remuneration offered and, where
+             necessary, additional textual information.
+
+0560            ATT, Attribute
+                A segment identifying, in coded form, additional
+                remuneration information and other benefits offered.
+                The codes are related to working conditions, working
+                time, employment contract, piece of work and
+                remuneration benefits.
+
+0570            FTX, Free text
+                A segment with free text information for additional
+                remuneration benefits, in coded or clear form, used
+                when additional information is needed but cannot be
+                accommodated within other segments. In computer to
+                computer exchanges such text will normally require the
+                receiver to process this segment manually.
+
+
+0580         Segment group 15: GIS-FTX
+             A group of segments specifying general processing
+             indicators and, when necessary, additional textual
+             information, relevant for the remuneration offered.
+
+0590            GIS, General indicator
+                A segment specifying general indicators related to the
+                remuneration offered.
+
+0600            FTX, Free text
+                A segment with free text information, in coded or
+                clear form, used when additional information is needed
+                but cannot be accommodated within other segments. In
+                computer to computer exchanges such text will normally
+                require the receiver to process this segment manually.
+
+
+0610         Segment group 16: MOA-RNG-FTX
+             A group of segments specifying the type and the amount of
+             the remuneration or a remuneration range offered.
+
+0620            MOA, Monetary amount
+                A segment giving information about the type and the
+                amount of the remuneration offered.
+
+0630            RNG, Range details
+                A segment to identify a remuneration range for the
+                offered job, when an exact remuneration amount in the
+                MOA segment is not available. The remuneration range
+                is related to the type of remuneration in the MOA
+                segment.
+
+0640            FTX, Free text
+                A segment with free text information, in coded or
+                clear form, used when additional information is needed
+                but cannot be accommodated within other segments. In
+                computer to computer exchanges such text will normally
+                require the receiver to process this segment manually.
+
+
+0650      Segment group 17: PNA-ADR-GIS-LOC-FTX-SG18-SG19
+          A group of segments identifying the parties involved with an
+          application or interview of a person for the job with
+          associated information.
+
+0660         PNA, Party name
+             A segment identifying names of the parties, in coded or
+             clear form, and their functions relevant to an
+             application or interview. It is recommended that, where
+             possible, only the coded form of the party identification
+             should be specified, e.g. where the enterprise and the
+             job administration are known to each other, only the
+             coded identification is required, but a job center, an
+             application or interview address may vary and would have
+             to be clearly specified, preferably in structured format.
+
+0670         ADR, Address
+             A segment identifying the address of the party.
+
+0680         GIS, General indicator
+             A segment specifying an indicator related to an
+             application or interview of a person for this job, e.g.
+             personal, written.
+
+0690         LOC, Place/location identification
+             A segment giving more specific location information of
+             the party specified in the ADR segment, e.g. internal
+             site or building number for an interview.
+
+0700         FTX, Free text
+             A segment with free text information for arrangements for
+             an application or interview, in coded or clear form, used
+             when additional information is needed but cannot be
+             accommodated within other segments. In computer to
+             computer exchanges such text will normally require the
+             receiver to process this segment manually.
+
+
+0710         Segment group 18: DTM-FTX
+             A group of segments for giving date and time information
+             for the application or interview and, when required,
+             additional textual information.
+
+0720            DTM, Date/time/period
+                A segment specifying the date and/or time for the
+                application or interview of a person for the job
+                offered or modified.
+
+0730            FTX, Free text
+                A segment with free text information for the date and
+                time of the application or interview, in coded or
+                clear form, used when additional information is needed
+                but cannot be accommodated within the DTM segment. In
+                computer to computer exchanges such text will normally
+                require the receiver to process this segment manually.
+
+
+0740         Segment group 19: CTA-COM
+             A group of segments giving contact details of the
+             specific person or department within the party identified
+             in the PNA segment, e.g. person in the personnel
+             department.
+
+0750            CTA, Contact information
+                A segment to identify a person or department, and
+                their function, to whom communications should be
+                directed.
+
+0760            COM, Communication contact
+                A segment to identify a communications type and number
+                for the contact specified in the CTA segment, e.g.
+                telephone-number, fax-number, telex-number.
+
+0770   UNT, Message trailer
+       A service segment ending a message, giving the total number of
+       segments in the message and the control reference number of the
+       message.
+
+4.2    Data segment index (Alphabetical sequence by tag)
+
+          ADR Address
+          ATT Attribute
+          BGM Beginning of message
+          COM Communication contact
+          CTA Contact information
+          DOC Document/message details
+          DTM Date/time/period
+          EMP Employment details
+          FTX Free text
+          GIS General indicator
+          LAN Language
+          LOC Place/location identification
+          MOA Monetary amount
+          NAT Nationality
+          PDI Person demographic information
+          PNA Party name
+          PTY Priority
+          QTY Quantity
+          RCS Requirements and conditions
+          RFF Reference
+          RNG Range details
+          SAL Remuneration type identification
+          UNH Message header
+          UNS Section control
+          UNT Message trailer
+
+4.3    Message structure
+
+4.3.1  Segment table
+
+Pos    Tag Name                                      S   R
+
+           HEADER SECTION
+
+0010   UNH Message header                            M   1     
+0020   BGM Beginning of message                      M   1     
+0030   DTM Date/time/period                          M   2     
+
+0040       ÄÄÄÄÄ Segment group 1  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99ÄÄÄÄÄÄÄÄÄÄ¿
+0050   PNA Party name                                M   1           ³
+0060   ADR Address                                   C   1           ³
+0070   LOC Place/location identification             C   5           ³
+0080   DTM Date/time/period                          C   5           ³
+                                                                     ³
+0090       ÄÄÄÄÄ Segment group 2  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   5ÄÄÄÄÄÄÄÄÄÄ¿³
+0100   CTA Contact information                       M   1          ³³
+0110   COM Communication contact                     C   5ÄÄÄÄÄÄÄÄÄÄÁÙ
+
+0120       ÄÄÄÄÄ Segment group 3  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   5ÄÄÄÄÄÄÄÄÄÄÄ¿
+0130   RFF Reference                                 M   1           ³
+0140   DTM Date/time/period                          C   5ÄÄÄÄÄÄÄÄÄÄÄÙ
+
+0150       ÄÄÄÄÄ Segment group 4  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   5ÄÄÄÄÄÄÄÄÄÄÄ¿
+0160   GIS General indicator                         M   1           ³
+0170   FTX Free text                                 C   1ÄÄÄÄÄÄÄÄÄÄÄÙ
+
+           DETAIL SECTION
+
+0180   UNS Section control                           M   1     
+
+0190       ÄÄÄÄÄ Segment group 5  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   999ÄÄÄÄÄÄÄÄÄ¿
+0200   RFF Reference                                 M   1           ³
+0210   DTM Date/time/period                          M   5           ³
+0220   QTY Quantity                                  C   1           ³
+                                                                     ³
+0230       ÄÄÄÄÄ Segment group 6  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   1ÄÄÄÄÄÄÄÄÄÄ¿³
+0240   PNA Party name                                M   1          ³³
+0250   DTM Date/time/period                          C   2          ³³
+0260   LOC Place/location identification             C   1          ³³
+0270   NAT Nationality                               C   9          ³³
+0280   PDI Person demographic information            C   1          ³³
+0290   DOC Document/message details                  C   9ÄÄÄÄÄÄÄÄÄÄÙ³
+                                                                     ³
+0300       ÄÄÄÄÄ Segment group 7  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   5ÄÄÄÄÄÄÄÄÄÄ¿³
+0310   GIS General indicator                         M   1          ³³
+0320   FTX Free text                                 C   1ÄÄÄÄÄÄÄÄÄÄÙ³
+                                                                     ³
+0330       ÄÄÄÄÄ Segment group 8  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   5ÄÄÄÄÄÄÄÄÄÄ¿³
+0340   RFF Reference                                 M   1          ³³
+0350   DTM Date/time/period                          C   5ÄÄÄÄÄÄÄÄÄÄÙ³
+                                                                     ³
+0360       ÄÄÄÄÄ Segment group 9  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   1ÄÄÄÄÄÄÄÄÄÄ¿³
+0370   RCS Requirements and conditions               M   1          ³³
+0380   RFF Reference                                 C   5          ³³
+0390   DTM Date/time/period                          C   5          ³³
+0400   FTX Free text                                 C   5ÄÄÄÄÄÄÄÄÄÄÙ³
+                                                                     ³
+0410       ÄÄÄÄÄ Segment group 10 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   1ÄÄÄÄÄÄÄÄÄÄ¿³
+0420   EMP Employment details                        M   1          ³³
+0430   LOC Place/location identification             C   1          ³³
+                                                                    ³³
+0440       ÄÄÄÄÄ Segment group 11 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   20ÄÄÄÄÄÄÄÄ¿³³
+0450   ATT Attribute                                 M   1         ³³³
+0460   FTX Free text                                 C   1         ³³³
+0470   PTY Priority                                  C   1ÄÄÄÄÄÄÄÄÄÙ³³
+                                                                    ³³
+0480       ÄÄÄÄÄ Segment group 12 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   10ÄÄÄÄÄÄÄÄ¿³³
+0490   LAN Language                                  M   1         ³³³
+0500   GIS General indicator                         C   1ÄÄÄÄÄÄÄÄÄÁÙ³
+                                                                     ³
+0510       ÄÄÄÄÄ Segment group 13 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   1ÄÄÄÄÄÄÄÄÄÄ¿³
+0520   SAL Remuneration type identification          M   1          ³³
+0530   FTX Free text                                 C   1          ³³
+0540   DTM Date/time/period                          C   2          ³³
+                                                                    ³³
+0550       ÄÄÄÄÄ Segment group 14 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   10ÄÄÄÄÄÄÄÄ¿³³
+0560   ATT Attribute                                 M   1         ³³³
+0570   FTX Free text                                 C   1ÄÄÄÄÄÄÄÄÄÙ³³
+                                                                    ³³
+0580       ÄÄÄÄÄ Segment group 15 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   2ÄÄÄÄÄÄÄÄÄ¿³³
+0590   GIS General indicator                         M   1         ³³³
+0600   FTX Free text                                 C   1ÄÄÄÄÄÄÄÄÄÙ³³
+                                                                    ³³
+0610       ÄÄÄÄÄ Segment group 16 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   5ÄÄÄÄÄÄÄÄÄ¿³³
+0620   MOA Monetary amount                           M   1         ³³³
+0630   RNG Range details                             C   1         ³³³
+0640   FTX Free text                                 C   1ÄÄÄÄÄÄÄÄÄÁÙ³
+                                                                     ³
+0650       ÄÄÄÄÄ Segment group 17 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   2ÄÄÄÄÄÄÄÄÄÄ¿³
+0660   PNA Party name                                M   1          ³³
+0670   ADR Address                                   C   1          ³³
+0680   GIS General indicator                         C   1          ³³
+0690   LOC Place/location identification             C   1          ³³
+0700   FTX Free text                                 C   1          ³³
+                                                                    ³³
+0710       ÄÄÄÄÄ Segment group 18 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   2ÄÄÄÄÄÄÄÄÄ¿³³
+0720   DTM Date/time/period                          M   1         ³³³
+0730   FTX Free text                                 C   1ÄÄÄÄÄÄÄÄÄÙ³³
+                                                                    ³³
+0740       ÄÄÄÄÄ Segment group 19 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   5ÄÄÄÄÄÄÄÄÄ¿³³
+0750   CTA Contact information                       M   1         ³³³
+0760   COM Communication contact                     C   5ÄÄÄÄÄÄÄÄÄÁÁÙ
+0770   UNT Message trailer                           M   1     

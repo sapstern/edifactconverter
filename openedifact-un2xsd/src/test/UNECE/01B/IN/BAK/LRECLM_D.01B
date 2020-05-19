@@ -1,0 +1,489 @@
+                              UN/EDIFACT
+
+                UNITED NATIONS STANDARD MESSAGE (UNSM)
+
+                    Life reinsurance claims message
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                           Message Type : LRECLM
+                                           Version      : D
+                                           Release      : 01B
+                                           Contr. Agency: UN
+
+                                           Revision     : 1
+                                           Date         : 2001-05-15
+
+
+
+
+
+
+SOURCE: D9 Insurance (SWG)
+
+
+
+                               CONTENTS
+
+                    Life reinsurance claims message
+
+0.     INTRODUCTION
+
+1.     SCOPE
+
+       1.1   Functional definition
+
+       1.2   Field of application
+
+       1.3   Principles
+
+2.     REFERENCES
+
+3.     TERMS AND DEFINITIONS
+
+       3.1   Standard terms and definitions
+
+4.     MESSAGE DEFINITION
+
+       4.1   Segment clarification
+             4.1.1 Header section
+             4.1.2 Detail section
+
+       4.2   Segment index (alphabetical sequence by tag)
+
+       4.3   Message structure
+             4.3.1 Segment table
+
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------
+For general information on UN standard message types see UN Trade Data
+Interchange Directory, UNTDID, Part 4, Section 2.3, UN/ECE UNSM
+General Introduction
+----------------------------------------------------------------------
+
+
+
+0.     INTRODUCTION
+
+       This specification provides the definition of the Life
+       reinsurance claims message (LRECLM) to be used in Electronic
+       Data Interchange (EDI) between trading partners involved in
+       administration, commerce and transport.
+
+1.     SCOPE
+
+1.1    Functional definition
+
+       The LRECLM message is used by companies to exchange information
+       regarding a claim or claims on a policy or policies which have
+       been reinsured. The message will be used for both ceded and
+       assumed reinsurance.
+       
+       The trading partners utilizing the Life reinsurance claims
+       message will be direct companies, reinsurance companies,
+       reinsurance intermediaries and retrocessionaires. The message
+       will be used to transmit data required by ceding and assuming
+       companies to communicate information for the orderly settlement
+       of claims. It also facilitates the reconciliation of the
+       reinsurance records in order to maintain the integrity of the
+       data between the trading partners.
+
+1.2    Field of application
+
+       The Life reinsurance claims message may be used for both
+       national and international applications. It is based on
+       universal practice related to administration, commerce and
+       transport, and is not dependent on the type of business or
+       industry.
+
+1.3    Principles
+
+       - The Life reinsurance claims message contains information
+       about reinsured individual life insurance policies, reinsured
+       disability insurance policies and reinsured annuity contracts
+       administered under the terms and conditions of a reinsurance
+       treaty.
+       
+       - This message contains specific reinsurance information about
+       the base policy, the person on claim and the reinsured
+       coverages associated with the claim.
+       
+       - The message is used to confirm the details of a claim and the
+       person on claim under a specific reinsurance treaty and to
+       communicate information regarding the status of the claim and
+       the settlement of the claim.
+       
+       The following guidelines apply to the whole message and are
+       intended to facilitate the understanding and implementation of
+       the message:
+       
+       - All specified dates should include the century unless all
+       parties involved in the transaction agree that there is a
+       functional requirement for an alternative format.
+       
+       - Where a choice of code or text is given, only the code
+       element should be used wherever possible.
+
+2.     REFERENCES
+
+       See UNTDID, Part 4, Chapter 2.3 UN/ECE UNSM - General
+       Introduction, Section 1.
+
+3.     TERMS AND DEFINITIONS
+
+3.1    Standard terms and definitions
+
+       See UNTDID, Part 4, Chapter 2.3 UN/ECE UNSM - General
+       Introduction, Section 2.
+
+4.     MESSAGE DEFINITION
+
+4.1    Segment clarification
+
+       This section should be read in conjunction with the segment
+       table which indicates mandatory, conditional and repeating
+       requirements.
+
+4.1.1  Header section
+
+
+       Information to be provided in the Header section:
+
+0010   UNH, Message header
+       A service segment starting and uniquely identifying a message.
+       The message type code for the Life reinsurance claims message
+       is LRECLM.
+
+       Note: Life reinsurance claims messages conforming to this
+       document must contain the following data in segment UNH,
+       composite S009:
+
+       Data element  0065 LRECLM
+                     0052 D
+                     0054 01B
+                     0051 UN
+
+0020   BGM, Beginning of message
+       A segment specifying the type of message contained in the
+       transmission.
+
+0030   DTM, Date/time/period
+       A segment specifying the reporting period ending date.
+
+0040   CUX, Currencies
+       A segment identifying the default currency and its scaling
+       factor for monetary amounts in this message.
+
+0050   CTA, Contact information
+       A segment identifying a person(s) or department(s), and their
+       function(s), to whom communications should be directed.
+
+0060   FTX, Free text
+       A segment with free text information, in coded or clear form,
+       used when additional information is needed but cannot be
+       accommodated within other segments.
+
+4.1.2  Detail section
+
+       Information to be provided in the Detail section:
+
+
+0070   Segment group 1:  IMD-ATT-DTM-LOC-PCD-RFF-CUX-FTX-SG2-SG3-SG5
+       A group of segments in which is detailed claim information.
+
+0080      IMD, Item description
+          A segment defining the type of claim.
+
+0090      ATT, Attribute
+          A segment providing attributes of the claim.
+
+0100      DTM, Date/time/period
+          A segment specifying general dates or durations related to
+          the claim.
+
+0110      LOC, Place/location identification
+          A segment giving location information for the place of death
+          or location where the onset of the disability occurred.
+
+0120      PCD, Percentage details
+          A segment specifying the extent of loss and the interest
+          rate to be used in calculating the claim payment.
+
+0130      RFF, Reference
+          A segment specifying the claim numbers as assigned by the
+          ceding company and the reinsurer.
+
+0140      CUX, Currencies
+          A segment identifying the default currency and its scaling
+          factor for monetary amounts for the claim.
+
+0150      FTX, Free text
+          A segment with free text information, in coded or clear
+          form, used when additional information is needed regarding
+          the claim.
+
+
+0160      Segment group 2:  MOA-ARD
+          A group of segments in which is detailed monetary amounts
+          and their purpose for the claim.
+
+0170         MOA, Monetary amount
+             A segment specifying a monetary amount.
+
+0180         ARD, Monetary amount function
+             A segment specifying the purpose of the monetary amount.
+
+
+0190      Segment group 3:  PNA-DTM-LOC-EMP-SG4
+          A group of segments in which is detailed information
+          regarding the person for which this claim is being
+          submitted.
+
+0200         PNA, Party identification
+             A segment identifying the name of the person on claim.
+
+0210         DTM, Date/time/period
+             A segment specifying general date and durations
+             associated with the person on claim.
+
+0220         LOC, Place/location identification
+             A segment giving location information for the place of
+             residence of the person on claim at the time of loss.
+
+0230         EMP, Employment details
+             A segment providing the occupation class of the person on
+             claim at time of loss for purposes of this claim as
+             defined by the issuing company.
+
+
+0240         Segment group 4:  MOA-ARD
+             A group of segments in which is detailed monetary amounts
+             and their purpose for this person on claim.
+
+0250            MOA, Monetary amount
+                A segment specifying a monetary amount.
+
+0260            ARD, Monetary amount function
+                A segment specifying the purpose of the monetary
+                amount.
+
+
+0270      Segment group 5:  GIS-RFF-PNA-DTM-SG6-SG7
+          A group of segments in which is detailed information
+          regarding the policy on claim and other policies related to
+          the claim.
+
+0280 X       GIS, General indicator
+             An indicator specifying whether this policy is the policy
+             on claim or an associated policy.
+
+0290         RFF, Reference
+             A segment specifying the policy number as assigned by the
+             ceding company.
+
+0300         PNA, Party identification
+             A segment identifying the original issuer of the policy,
+             in coded or clear form.
+
+0310         DTM, Date/time/period
+             A segment specifying general dates and durations
+             associated with the policy on claim or related policy.
+
+
+0320         Segment group 6:  MOA-ARD
+             A group of segments in which is detailed monetary amounts
+             and their purpose for this policy.
+
+0330            MOA, Monetary amount
+                A segment specifying a monetary amount.
+
+0340            ARD, Monetary amount function
+                A segment specifying the purpose of the monetary
+                amount.
+
+
+0350         Segment group 7:  IDE-PNA-DTM-SG8
+             A group of segments in which is detailed information
+             regarding the insureds on this policy.
+
+0360            IDE, Identity
+                A segment identifying the party as the insured of
+                record.
+
+0370            PNA, Party identification
+                A segment identifying the insured's name and universal
+                identifier.
+
+0380            DTM, Date/time/period
+                A segment specifying the date of birth of the insured.
+
+
+0390            Segment group 8:  ICD-DTM-RFF-ATT-PCD-AGR-SG9
+                A group of segments in which is detailed coverage
+                information regarding the insured.
+
+0400               ICD, Insurance cover description
+                   A segment giving the insurance cover type
+                   associated with this coverage.
+
+0410               DTM, Date/time/period
+                   A segment specifying general dates or durations
+                   related to this coverage.
+
+0420               RFF, Reference
+                   A segment specifying general references for this
+                   coverage.
+
+0430               ATT, Attribute
+                   A segment providing attributes of the coverage.
+
+0440               PCD, Percentage details
+                   A segment specifying the percentages associated
+                   with the claim.
+
+0450               AGR, Agreement identification
+                   A segment identifying the treaty as assigned by the
+                   ceding company.
+
+
+0460               Segment group 9:  MOA-ARD
+                   A group of segments in which is detailed monetary
+                   amounts and their purpose for the coverage.
+
+0470                  MOA, Monetary amount
+                      A segment specifying a monetary amount.
+
+0480                  ARD, Monetary amount function
+                      A segment specifying the purpose of the monetary
+                      amount.
+
+0490   UNT, Message trailer
+       A service segment ending a message, giving the total number of
+       segments in the message (including the UNH & UNT) and the
+       control reference number of the message.
+
+4.2    Segment index (alphabetical sequence by tag)
+
+          AGR Agreement identification
+          ARD Monetary amount function
+          ATT Attribute
+          BGM Beginning of message
+          CTA Contact information
+          CUX Currencies
+          DTM Date/time/period
+          EMP Employment details
+          FTX Free text
+       X  GIS General indicator
+          ICD Insurance cover description
+          IDE Identity
+          IMD Item description
+          LOC Place/location identification
+          MOA Monetary amount
+          PCD Percentage details
+          PNA Party identification
+          RFF Reference
+          UNH Message header
+          UNT Message trailer
+
+4.3    Message structure
+
+4.3.1  Segment table
+
+Pos    Tag Name                                      S   R
+
+           HEADER SECTION
+
+0010   UNH Message header                            M   1     
+0020   BGM Beginning of message                      M   1     
+0030   DTM Date/time/period                          M   1     
+0040   CUX Currencies                                C   1     
+0050   CTA Contact information                       C   9     
+0060   FTX Free text                                 C   1     
+
+           DETAIL SECTION
+
+0070       ÄÄÄÄÄ Segment group 1  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   999999ÄÄÄÄÄÄ¿
+0080   IMD Item description                          M   1           ³
+0090   ATT Attribute                                 M   99          ³
+0100   DTM Date/time/period                          C   9           ³
+0110   LOC Place/location identification             C   1           ³
+0120   PCD Percentage details                        C   9           ³
+0130   RFF Reference                                 C   9           ³
+0140   CUX Currencies                                C   1           ³
+0150   FTX Free text                                 C   1           ³
+                                                                     ³
+0160       ÄÄÄÄÄ Segment group 2  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄÄÄ¿³
+0170   MOA Monetary amount                           M   1          ³³
+0180   ARD Monetary amount function                  M   1ÄÄÄÄÄÄÄÄÄÄÙ³
+                                                                     ³
+0190       ÄÄÄÄÄ Segment group 3  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   1ÄÄÄÄÄÄÄÄÄÄ¿³
+0200   PNA Party identification                      M   1          ³³
+0210   DTM Date/time/period                          M   9          ³³
+0220   LOC Place/location identification             C   1          ³³
+0230   EMP Employment details                        C   1          ³³
+                                                                    ³³
+0240       ÄÄÄÄÄ Segment group 4  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄÄ¿³³
+0250   MOA Monetary amount                           M   1         ³³³
+0260   ARD Monetary amount function                  M   1ÄÄÄÄÄÄÄÄÄÁÙ³
+                                                                     ³
+0270       ÄÄÄÄÄ Segment group 5  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   99ÄÄÄÄÄÄÄÄÄ¿³
+0280 X GIS General indicator                         M   1          ³³
+0290   RFF Reference                                 M   9          ³³
+0300   PNA Party identification                      C   1          ³³
+0310   DTM Date/time/period                          C   99         ³³
+                                                                    ³³
+0320       ÄÄÄÄÄ Segment group 6  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄÄ¿³³
+0330   MOA Monetary amount                           M   1         ³³³
+0340   ARD Monetary amount function                  M   1ÄÄÄÄÄÄÄÄÄÙ³³
+                                                                    ³³
+0350       ÄÄÄÄÄ Segment group 7  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99ÄÄÄÄÄÄÄÄ¿³³
+0360   IDE Identity                                  M   1         ³³³
+0370   PNA Party identification                      M   1         ³³³
+0380   DTM Date/time/period                          M   1         ³³³
+                                                                   ³³³
+0390       ÄÄÄÄÄ Segment group 8  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99ÄÄÄÄÄÄÄ¿³³³
+0400   ICD Insurance cover description               M   1        ³³³³
+0410   DTM Date/time/period                          C   99       ³³³³
+0420   RFF Reference                                 C   9        ³³³³
+0430   ATT Attribute                                 C   9        ³³³³
+0440   PCD Percentage details                        C   1        ³³³³
+0450   AGR Agreement identification                  C   1        ³³³³
+                                                                  ³³³³
+0460       ÄÄÄÄÄ Segment group 9  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄ¿³³³³
+0470   MOA Monetary amount                           M   1       ³³³³³
+0480   ARD Monetary amount function                  M   1ÄÄÄÄÄÄÄÁÁÁÁÙ
+0490   UNT Message trailer                           M   1     

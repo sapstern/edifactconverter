@@ -1,0 +1,626 @@
+                              UN/EDIFACT
+
+                UNITED NATIONS STANDARD MESSAGE (UNSM)
+
+                    Container release order message
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                            Message Type : COREOR
+                                            Version      : D
+                                            Release      : 97A
+                                            Contr. Agency: UN
+
+                                            Revision     : 3
+                                            Date         : 96-12-13
+
+
+
+
+
+
+SOURCE: Joint Transport Group (JM4)
+
+
+
+                               CONTENTS
+
+                    Container release order message
+
+0.   INTRODUCTION
+
+1.   SCOPE
+
+     1.1   Functional definition
+
+     1.2   Field of application
+
+     1.3   Principles
+
+2.   REFERENCES
+
+3.   TERMS AND DEFINITIONS
+
+     3.1   Standard terms and definitions
+
+4.   MESSAGE DEFINITION
+
+     4.1   Data segment clarification
+
+     4.2   Data segment index (alphabetical sequence)
+
+     4.3   Message structure
+
+           4.3.1 Segment table
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------
+For general information on UN standard message types see UN Trade Data
+Interchange Directory, UNTDID, Part 4, Section 2.6, UN/ECE UNSM
+General Introduction
+----------------------------------------------------------------------
+
+
+
+0.     INTRODUCTION
+
+       This specification provides the definition of the Container
+       release order message (COREOR) to be used in Electronic Data
+       Interchange (EDI) between trading partners involved in
+       administration, commerce and transport.
+
+1.     SCOPE
+
+1.1    Functional Definition
+
+       Order to release containers, and giving permission for them to
+       be picked up by or on behalf of a specified party.
+       This message is part of a total set of container-related
+       messages.
+       These messages serve to facilitate the intermodal handling of
+       containers by streamlining the information exchange.
+       The business scenario for the container messages is clarified
+       in a separate document, called: 'Guide to the scenario of
+       EDIFACT container messages'.
+
+1.2    Field of Application
+
+       The Container release order message may be used for both
+       national and international applications. It is based on
+       universal practice related to administration, commerce and
+       transport, and is not dependent on the type of business or
+       industry.
+
+1.3    Principles
+
+       Business area:
+       Pre- and on-carriage transport of containers/equipment
+       
+       Sending functions include:
+       Shipping agent, Logistic center, Freight forwarder, Inland
+       carrier (copy)
+       
+       Receiving functions include:
+       Container depot, Inland terminal, Container freight station,
+       Freight forwarder (copy), Inland carrier (copy)
+       
+       In the context of the 'Guide to the scenario of EDIFACT
+       container messages' (as referred to at the start of section 1)
+       the following guidelines, rules and functionality apply to this
+       Container release order message:
+       
+       *   The message contents can be uniquely identified by a
+       combination of the following data elements:
+       - ordering customer, coded (NAD)
+       - ordering customer agent, coded (NAD)
+       - container release reference number (RFF)
+       The ordering customer agent, coded is needed to supplement the
+       unique identification only in the next situation: the agent
+       acts on behalf of several ordering customers issuing the same
+       range of reference numbers for each customer.
+       E.g. the ship's agent acts on behalf of several shipping lines
+       issuing for each shipping line the same range of numbers.
+       
+       *   One shipping line, one seagoing vessel, one sea voyage
+       number and one shipping agent can be specified on message top
+       level.
+       
+       *   An indicator for the transport status (i.e., export,
+       import, transhipment or continental) can be completed on
+       container level (EQD-segment).
+       
+       *   One message may contain several containers identified by
+       their prefix and number or several equipment guidelines for
+       groups of (empty) containers.
+       
+       *   Inland transport details can be specified for each
+       individual container or can be specified on message level (for
+       all containers in the message); the two options must not be
+       used simultaneously.
+       
+       *   An inland transport charges reference or a sea booking
+       reference can be specified either on message level (related to
+       all containers in the message) or for each individual
+       container; the two options must not be used simultaneously.
+       
+       *   The final place of positioning can be included in case of
+       routing via an inland terminal or several container freight
+       stations (for stacking purposes).
+       
+       *   For each container up to 3 communication addresses can be
+       specified to which a copy of the Container gate-in/gate-out
+       report message is to be sent.
+       
+       *   For each container details can be specified such as
+       container prefix and number, size/type, loading instructions,
+       special instructions, seals, temperature, dangerous goods and
+       off-dimensions details.
+       
+       *   A goods item may be detailed, such as number and type of
+       packages, goods description,  gross weight, dangerous goods
+       information and special instruction.
+       
+       *   Goods item information can be related to the corresponding
+       containers by linking the goods item group (GID) to the
+       container details group(s) (EQD) by means of the SGP-segment.
+
+2.     REFERENCES
+
+       See UNTDID, Part 4, Chapter 2.6 UN/ECE UNSM - General
+       Introduction, Section 1.
+
+3.     TERMS AND DEFINITIONS
+
+3.1    Standard terms and definitions
+
+       See UNTDID, Part 4, Chapter 2.6 UN/ECE UNSM - General
+       Introduction, Section 2.
+
+4.     MESSAGE DEFINITION
+
+4.1    Data Segment Clarification
+
+       This section should be read in conjunction with the Segment
+       Table which indicate mandatory, conditional and repeating
+       requirements.
+
+0010   UNH, Message header
+       A service segment starting and uniquely identifying a message.
+       The message type code for the Container release order message
+       is COREOR.
+       
+       Note: Container release order messages conforming to this
+       document must contain the following data in segment UNH,
+       composite S009:
+
+       Data element  0065 COREOR
+                     0052 D
+                     0054 97A
+                     0051 UN
+
+0020   BGM, Beginning of message
+       A segment to indicate the beginning of a message and to
+       transmit identifying number and the further specification of
+       the message type (in data element 1001: Document/message name,
+       coded), such as Container release order.
+
+0030   DTM, Date/time/period
+       A segment to indicate a date and/or time applying to the whole
+       message, such as date and time of document or message issue.
+
+0040   FTX, Free text
+       A segment to specify free form or processable supplementary
+       information, such as:
+       -   special instructions
+
+
+0050   Segment group 1:  RFF-DTM
+       A group of segments to specify a reference relating to the 
+       whole message, and its date and/or time.
+
+0060      RFF, Reference
+          A segment to express a reference which applies to the entire
+          message, such as:
+          -   release order reference number
+          -   container announcement reference number
+
+0070      DTM, Date/time/period
+          A segment to indicate date and/or time related to the
+          reference.
+
+
+0080   Segment group 2:  TDT-RFF-LOC-DTM
+       A group of segments to identify vessel and voyage details
+       relevant to the instruction.
+
+0090      TDT, Details of transport
+           A segment to indicate the main carriage stage of the
+          transport, such as carrier/liner service; also inland
+          transport details can be specified.
+
+0100      RFF, Reference
+          A segment to provide a reference for the liner service, such
+          as:
+          -   conference
+          -   marketing organization
+          -   syndicate
+          -   vessel sharing agreement
+
+0110      LOC, Place/location identification
+          A segment to indicate a place/port corresponding to the
+          transport stage, such as final place/port of discharge or
+          port of loading.
+
+0120      DTM, Date/time/period
+          A segment to indicate the arrival date and time relating to
+          the main carriage.
+
+
+0130   Segment group 3:  NAD-SG4-RFF-DTM
+       A group of segments to identify a party and related contacts.
+
+0140      NAD, Name and address
+          A segment to identify the party's name and address, and
+          function, such as:
+          -   message recipient
+          -   message sender
+          -   carrier or agent
+          -   ordering customer
+          -   ordering customer agent
+
+
+0150      Segment group 4:  CTA-COM
+          A group of segments to identify a contact and its
+          communications related to the party.
+
+0160         CTA, Contact information
+             A segment to identify a person or department for contact
+             purposes, such as:
+             -   information contact
+
+0170         COM, Communication contact
+             A segment to identify a communication number of a person
+             or department to whom communication should be directed.
+
+0180      RFF, Reference
+          A segment to identify a reference used by a party or at an
+          address, such as:
+          -   reference at place of collection
+
+0190      DTM, Date/time/period
+          A segment to indicate a date and time relating to the party.
+
+
+0200   Segment group 5:  GID-HAN-FTX-SG6-MEA-PCI-SG7-SG8
+       A group of segments to identify details relating to the cargo
+       in a container, together with information on handling
+       requirements.
+
+0210      GID, Goods item details
+          A segment to identify a goods item. A goods item can be
+          identified by a goods item number.
+
+0220      HAN, Handling instructions
+          A segment to specify handling instructions for the goods
+          item, such as:
+          -   hazardous cargo
+          -   off-dimensions
+
+0230      FTX, Free text
+          A segment to describe the goods item.
+
+
+0240      Segment group 6:  NAD-DTM-RFF
+          A group of segments to describe the address, reference and
+          date/time for the stuffing or the stripping of the goods
+          item in the containers.
+
+0250         NAD, Name and address
+             A segment to identify an address relating to the goods
+             item, such as:
+             -   place of positioning
+             -   Customs clearance place
+
+0260         DTM, Date/time/period
+             A segment to indicate a date and time when the container
+             is to be positioned, such as:
+             -   requested equipment positioning date/time
+             -   ultimate equipment positioning date/time
+
+0270         RFF, Reference
+             A segment to identify a reference used by a party or at
+             an address.
+
+0280      MEA, Measurements
+          A segment to specify measurements, other than dimensions,
+          applicable to a goods item, such as:
+          -   gross weight
+
+0290      PCI, Package identification
+          A segment to specify marks and numbers for the goods item.
+
+
+0300      Segment group 7:  SGP-MEA
+          A group of segments to specify the distribution of a goods
+          item among the containers.
+
+0310         SGP, Split goods placement
+             A segment to identify a container in which goods are
+             transported.
+
+0320         MEA, Measurements
+             A segment to specify the gross weight of that portion of
+             the goods item in the container.
+
+
+0330      Segment group 8:  DGS-FTX-MEA
+          A group of segments to specify dangerous goods details
+          related to the goods item. One goods item may be in
+          different dangerous goods classes.
+
+0340         DGS, Dangerous goods
+             A segment to indicate the dangerous goods regulations for
+             the corresponding mode of transport, class of dangerous
+             goods, additional dangerous goods code, UN-number and
+             shipment flash point.
+
+0350         FTX, Free text
+             A segment to specify supplementary details related to the
+             dangerous goods, such as:
+             -   dangerous goods technical name
+             -   dangerous goods additional information
+
+0360         MEA, Measurements
+             A segment to specify measurements of the dangerous goods,
+             such as:
+             -   net net weight
+
+
+0370 | Segment group 9:  EQD-RFF-TSR-MEA-DIM-TMP-RNG-SEL-FTX-EQA-HAN-
+                         SG10-SG11
+       A group of segments to specify details relating to the
+       containers to be released.
+
+0380      EQD, Equipment details
+          A segment to specify a container, container size and type,
+          and full/empty indication.
+
+0390      RFF, Reference
+          A segment to specify a reference number relevant to the
+          container, such as:
+          -   release number
+          -   reference at the place of collection
+
+0400      TSR, Transport service requirements
+          A segment to specify special instructions and/or services
+          regarding the container, such as seals to be checked, damage
+          to be inspected.
+
+0410      MEA, Measurements
+          A segment to specify measurement, other than dimensions,
+          associated with the container, such as:
+          -   tare weight
+          -   gross weight
+
+0420      DIM, Dimensions
+          A segment to specify off-standard dimensions applicable to
+          the container.
+
+0430      TMP, Temperature
+          A segment to specify the transport temperature setting of a
+          container.
+
+0440      RNG, Range details
+          A segment to specify the transport temperature range setting
+          of the container.
+
+0450      SEL, Seal number
+          A segment to identify seal and seal issuer associated with
+          the container, such as shipper, consolidator, carrier (sea)
+          and Customs.
+
+0460      FTX, Free text
+          A segment to specify processable supplementary information
+          associated with the container, such as:
+          -   loading instructions (seagoing vessel)
+          -   special instructions (related to inland transport)
+
+0470      EQA, Attached equipment
+          A segment to specify details of any equipment attached to
+          the container, such as:
+          -   clip-on unit number
+
+0480 +    HAN, Handling instructions
+          A segment to specify handling instructions related to the
+          container equipment.
+
+
+0490      Segment group 10: TDT-LOC-DTM
+          A group of segments to specify details of the inland
+          transport relevant to the collection of the container.
+
+0500         TDT, Details of transport
+             A segment to specify details of the inland transport
+             associated with the collection of the container.
+
+0510         LOC, Place/location identification
+             A segment to specify a place/port associated with the
+             inland transport, such as:
+             -   place of departure
+             -   place of arrival
+
+0520         DTM, Date/time/period
+             A segment to specify a date/time relating to the inland
+             transport, such as arrival or departure date/time.
+
+
+0530      Segment group 11: NAD-DTM-CTA-COM
+          A group of segments to identify different parties/places
+          relevant to the collection of the container.
+
+0540         NAD, Name and address
+             A segment to specify a party or other address relevant to
+             the release of the container:
+             -   consignee
+             -   consignee's agent
+             -   place of collection
+
+0550         DTM, Date/time/period
+             A segment to indicate a date and time relating to the
+             party.
+
+0560         CTA, Contact information
+             A segment to identify a person or department for the
+             specified party.
+
+0570         COM, Communication contact
+             A segment to identify the communication number on the
+             EDI-network (e.g. mailbox number) to whom a copy of the
+             Container gate-in/gate-out report message should be sent.
+
+0580   CNT, Control total
+       A segment to specify the number of containers in the message,
+       explicitly given by the sender.
+
+0590   UNT, Message trailer
+       A service segment ending a message, giving the total number of
+       segments in the message and the control reference number of the
+       message.
+
+4.2    Data segment index (Alphabetical sequence by tag)
+
+          BGM Beginning of message
+          CNT Control total
+          COM Communication contact
+          CTA Contact information
+          DGS Dangerous goods
+          DIM Dimensions
+          DTM Date/time/period
+          EQA Attached equipment
+          EQD Equipment details
+          FTX Free text
+          GID Goods item details
+          HAN Handling instructions
+          LOC Place/location identification
+          MEA Measurements
+          NAD Name and address
+          PCI Package identification
+          RFF Reference
+          RNG Range details
+          SEL Seal number
+          SGP Split goods placement
+          TDT Details of transport
+          TMP Temperature
+          TSR Transport service requirements
+          UNH Message header
+          UNT Message trailer
+
+4.3    Message structure
+
+4.3.1  Segment table
+
+Pos    Tag Name                                      S   R
+
+0010   UNH Message header                            M   1     
+0020   BGM Beginning of message                      M   1     
+0030   DTM Date/time/period                          C   9     
+0040   FTX Free text                                 C   9     
+
+0050       ÄÄÄÄÄ Segment group 1  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄÄÄÄ¿
+0060   RFF Reference                                 M   1           ³
+0070   DTM Date/time/period                          C   9ÄÄÄÄÄÄÄÄÄÄÄÙ
+
+0080       ÄÄÄÄÄ Segment group 2  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   1ÄÄÄÄÄÄÄÄÄÄÄ¿
+0090   TDT Details of transport                      M   1           ³
+0100   RFF Reference                                 C   9           ³
+0110   LOC Place/location identification             C   9           ³
+0120   DTM Date/time/period                          C   9ÄÄÄÄÄÄÄÄÄÄÄÙ
+
+0130       ÄÄÄÄÄ Segment group 3  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   9ÄÄÄÄÄÄÄÄÄÄÄ¿
+0140   NAD Name and address                          M   1           ³
+                                                                     ³
+0150       ÄÄÄÄÄ Segment group 4  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄÄÄ¿³
+0160   CTA Contact information                       M   1          ³³
+0170   COM Communication contact                     C   9ÄÄÄÄÄÄÄÄÄÄÙ³
+0180   RFF Reference                                 C   9           ³
+0190   DTM Date/time/period                          C   9ÄÄÄÄÄÄÄÄÄÄÄÙ
+
+0200       ÄÄÄÄÄ Segment group 5  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   999ÄÄÄÄÄÄÄÄÄ¿
+0210   GID Goods item details                        M   1           ³
+0220   HAN Handling instructions                     C   9           ³
+0230   FTX Free text                                 C   9           ³
+                                                                     ³
+0240       ÄÄÄÄÄ Segment group 6  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄÄÄ¿³
+0250   NAD Name and address                          M   1          ³³
+0260   DTM Date/time/period                          C   9          ³³
+0270   RFF Reference                                 C   9ÄÄÄÄÄÄÄÄÄÄÙ³
+0280   MEA Measurements                              C   9           ³
+0290   PCI Package identification                    C   9           ³
+                                                                     ³
+0300       ÄÄÄÄÄ Segment group 7  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   999ÄÄÄÄÄÄÄÄ¿³
+0310   SGP Split goods placement                     M   1          ³³
+0320   MEA Measurements                              C   9ÄÄÄÄÄÄÄÄÄÄÙ³
+                                                                     ³
+0330       ÄÄÄÄÄ Segment group 8  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄÄÄ¿³
+0340   DGS Dangerous goods                           M   1          ³³
+0350   FTX Free text                                 C   9          ³³
+0360   MEA Measurements                              C   9ÄÄÄÄÄÄÄÄÄÄÁÙ
+
+0370       ÄÄÄÄÄ Segment group 9  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   999ÄÄÄÄÄÄÄÄÄ¿
+0380   EQD Equipment details                         M   1           ³
+0390   RFF Reference                                 M   9           ³
+0400   TSR Transport service requirements            C   9           ³
+0410   MEA Measurements                              C   9           ³
+0420   DIM Dimensions                                C   9           ³
+0430   TMP Temperature                               C   9           ³
+0440   RNG Range details                             C   9           ³
+0450   SEL Seal number                               C   9           ³
+0460   FTX Free text                                 C   9           ³
+0470   EQA Attached equipment                        C   1           ³
+0480 + HAN Handling instructions                     C   9           ³
+                                                                     ³
+0490       ÄÄÄÄÄ Segment group 10 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄÄÄ¿³
+0500   TDT Details of transport                      M   1          ³³
+0510   LOC Place/location identification             C   9          ³³
+0520   DTM Date/time/period                          C   9ÄÄÄÄÄÄÄÄÄÄÙ³
+                                                                     ³
+0530       ÄÄÄÄÄ Segment group 11 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄÄÄ¿³
+0540   NAD Name and address                          M   1          ³³
+0550   DTM Date/time/period                          C   1          ³³
+0560   CTA Contact information                       C   1          ³³
+0570   COM Communication contact                     C   1ÄÄÄÄÄÄÄÄÄÄÁÙ
+0580 * CNT Control total                             C   1     
+0590   UNT Message trailer                           M   1     

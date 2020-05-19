@@ -1,0 +1,474 @@
+                              UN/EDIFACT
+
+                         DRAFT RECOMMENDATION
+
+                      Party information message
+
+
+
+
+
+----------------------------------------------------------------------
+This message is available for formal trial for at least six months
+from the date of approval by UN/ECE/TRADE/WP.4.
+ 
+Organisations are invited to trial this message. Comments on the
+results from the trial should be forwarded to their Rapporteur's Team
+Secretariat as soon as they are available. Based on the results of the
+trials, a UNSM may be issued.
+ 
+The segments, composite data elements, data elements and codes for
+use in the trial of this message are contained in the Draft directory.
+However, this information may differ from that in the Standard
+directory (UNTDID), even for material having the same identifying
+tags.
+----------------------------------------------------------------------
+
+
+
+
+
+
+
+
+                                            Message Type : PARTIN
+                                            Version      : D
+                                            Release      : 96A
+                                            Contr. Agency: UN
+                                            Status       : 2
+                                            Revision     : 3
+                                            Date         : 95-11-23
+
+
+
+
+
+
+SOURCE: Submitted by WEEB-MD1 on behalf of PAEB
+
+
+
+                               CONTENTS
+
+                      Party information message
+
+
+
+0.   INTRODUCTION
+
+
+1.   SCOPE
+
+     1.1   Functional definition
+
+     1.2   Field of application
+
+     1.3   Principles
+
+2.   REFERENCES
+
+3.   TERMS AND DEFINITIONS
+
+4.   MESSAGE DEFINITION
+
+     4.1   Data segment clarification
+
+           4.1.1 Header section
+           4.1.2 Detail section
+
+     4.2   Data segment index (alphabetical sequence)
+
+     4.3   Message structure
+
+           4.3.1 Segment table
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------
+For general information on UN standard message types see UN Trade Data
+Interchange Directory, UNTDID, Part 4, Section 2.6, UN/ECE UNSM
+General Introduction
+----------------------------------------------------------------------
+
+
+
+0.     INTRODUCTION
+
+       This specification provides the definition of the Party
+       information message (PARTIN) to be used in Electronic Data
+       Interchange (EDI) between trading partners involved in
+       administration, commerce and transport.
+
+1.     SCOPE
+
+1.1    Functional Definition
+
+       A message to enable the transmission of basic information
+       regarding locations and the related operational,
+       administrative, financial, manufacturing and trading data.
+
+1.2    Field of Application
+
+       The UN Standard Party Information Message may be applied for
+       both national and international trade. It is based on universal
+       commercial practice and is not dependent on the type of
+       business or industry.
+
+1.3    Principles
+
+       The accurate and unambiguous identification of the trading
+       partners and their operational parameters is an essential issue
+       for EDI.
+       
+       The Party Information Message serves to maintain the partners
+       master data files.
+       
+       Note: Once the data available in master data files is
+       established: 
+       - identifying codes should be used instead of clear data 
+       - clear data is to be used if it is required to override the
+       data from a particular transaction.
+       
+       The Party Information Message is used to specify information
+       related to physical locations and to functional locations. A
+       functional location is usually a specific department within a
+       company.
+       
+       The change, delete, add indicator being given in the BGM
+       segment, one separate message has to be provided per type of
+       function required.
+
+2.     REFERENCES
+
+       See UNTDID, Part 4, Chapter 2.6 UN/ECE UNSM - General
+       Introduction, Section 1.
+
+3.     TERMS AND DEFINITIONS
+
+       See UNTDID, Part 4, Chapter 2.6 UN/ECE UNSM - General
+       Introduction, Section 2.
+
+4.     MESSAGE DEFINITION
+
+4.1    Data Segment Clarification
+
+       This section should be read in conjunction with the Branching
+       Diagram and the Segment Table which indicate mandatory,
+       conditional and repeating requirements.
+       
+       The following guidelines and principles apply to the whole
+       message and are intended to facilitate the understanding and
+       implementation of the message: 
+       
+       All specified dates/times should be in the format
+       'yymmdd'/'hhmm' unless all parties involved in the transaction
+       agree that there is a functional requirement for an alternative
+       format. Periods should be specified as whole numbers
+       representing the required period as indicated in the format
+       qualifier (weeks, months, etc.) 
+       
+       Where a choice of code or text is given only the code element
+       should be used wherever possible.
+       Conditional data that is not required in the message should not
+       be included.
+       
+       Care must be taken that the segment qualifier in dependent
+       segments do not conflict with the segment qualifier of the
+       trigger segment of a group.
+       
+       Free text information within the message should be avoided as
+       this inhibits automatic processing.
+
+4.1.1  Header section
+
+       Information to be provided in the Header section:
+
+0010 | UNH, Message header
+       A service segment starting and uniquely identifying a message.
+       The message type code for the Party information message is
+       PARTIN.
+       
+       Note: Party information messages conforming to this document
+       must contain the following data in segment UNH, composite S009:
+
+       Data element  0065 PARTIN
+                     0052 D
+                     0054 96A
+                     0051 UN
+
+0020   BGM, Beginning of message
+       A segment for unique identification of the Document name and
+       number.
+       The message function code (DE 1225) applies to all transactions
+       indicated in the message. Consequently, one separate message
+       has to be provided per type of function required.
+       The following rules apply: - Addition (DE 1225 = 2). This code
+       is used for providing information about parties for the first
+       time to the trading partner.
+       - Deletion (DE 1225 = 3). This code is used to delete parties
+       from the partner's master file; In case of deletion, only the
+       NAD segments need to be sent in the detail section.
+       - Change (DE 1225 = 4). This code is used to modify any
+       information relevant to parties already known by the trading
+       partner. All the segments relating to the party including the
+       address to be modified need to be sent.
+       - Confirmation (DE 1225 = 6). This code is used when party
+       information is sent again for confirmation.
+
+0030   DTM, Date/time/period
+       A segment specifying general dates, and when relevant, times
+       related to the whole message.
+
+0040   FII, Financial institution information
+       A segment identifying the financial institution (e.g. bank) and
+       relevant account numbers valid for all the parties described in
+       the detail section of the message.
+
+0050   FTX, Free text
+       A segment with free text information, in coded or clear form,
+       used when additional information is needed but cannot be
+       accommodated within other segments. In computer to computer
+       exchanges such text will normally require the receiver to
+       process this segment manually.
+
+
+0060   Segment group 1:  RFF-DTM
+       A group of segments indicating reference numbers and optionally
+       date of the reference relating to the whole message.
+
+0070      RFF, Reference
+          A segment for referencing documents relating to the whole
+          message, e.g. previously sent PARTIN message number,
+          Interchange Agreement contract.
+
+0080      DTM, Date/time/period
+          A segment specifying the date of the reference number
+          indicated in the RFF segment.
+
+
+0090   Segment group 2:  NAD-SG3
+       A group of segments identifying Names, Addresses, Contacts and
+       Communication numbers relevant to the sender and the receiver
+       of the message.
+
+0100      NAD, Name and address
+          A segment for identifying the Sender and Receiver name and
+          address.
+
+
+0110      Segment group 3:  CTA-COM
+          A group of segments giving details of the specific person or
+          department within the party.
+
+0120         CTA, Contact information
+             A segment giving additional contact information relating
+             to the party specified in the NAD segment, e.g. contact
+             person or department in a particular function.
+
+0130         COM, Communication contact
+             A segment to identify communication numbers of
+             departments or persons related to the contact information
+             provided in CTA.
+
+4.1.2  Detail section
+
+       Information to be provided in the Detail section:
+
+0140   UNS, Section control
+       A service segment placed at the start of the detail section to
+       avoid segment collision.
+
+
+0150   Segment group 4:  NAD-DTM-FII-SG5-SG6-SG7-SG8-SG9-SG10
+       A group of segments for giving the details of a party.
+
+0160      NAD, Name and address
+          A segment for identifying the party identification code and
+          the corresponding function, name and address. The party
+          identification code is mandatory, and the structured address
+          form is preferred.
+
+0170      DTM, Date/time/period
+          A segment specifying the date and the time details relevant
+          to the party information identified in the NAD segment.
+
+0180      FII, Financial institution information
+          A segment identifying the financial institution, (e.g. bank)
+          and relevant account numbers for the party identified in the
+          NAD segment.
+
+
+0190      Segment group 5:  LOC-DTM
+          A group of segments for giving locations and dates relevant
+          to party.
+
+0200         LOC, Place/location identification
+             A segment specifying the locations relevant to the party
+             identified in the NAD segment, e.g. internal building
+             number on a site.
+
+0210         DTM, Date/time/period
+             A segment specifying dates and times relevant to the LOC
+             segment.
+
+
+0220      Segment group 6:  RFF-DTM
+          A group of segments for giving references relevant to the
+          party.
+
+0230         RFF, Reference
+             A segment for referencing numbers related to the party
+             such as Party Tax Identification Number.
+
+0240         DTM, Date/time/period
+             A segment specifying the date of the reference number
+             indicated in the RFF segment.
+
+
+0250      Segment group 7:  CTA-COM
+          A group of segments giving contact details of the specific
+          person or department within the party.
+
+0260         CTA, Contact information
+             A segment giving additional contact information relating
+             to the party specified in the NAD segment, e.g. contact
+             person of department in a particular function.
+
+0270         COM, Communication contact
+             A segment to identify communication numbers of
+             departments or persons related to the contact information
+             provided in CTA.
+
+
+0280      Segment group 8:  SCC-DTM
+          A group of segment specifying schedules related to the party
+          identified in the NAD segment.
+
+0290         SCC, Scheduling conditions
+             A segment specifying the type and status of the schedule
+             being given, and optionally defining a pattern to be
+             established, e.g. firm or proposed schedule for a weekly
+             pattern of delivery hours.
+
+0300         DTM, Date/time/period
+             A segment indicating the date/time details relevant to
+             the schedule details in the SCC segment. This segment may
+             be used to indicate date/time ranges.
+
+
+0310      Segment group 9:  TOD-LOC
+          A group of segments specifying the standard terms of
+          delivery.
+
+0320         TOD, Terms of delivery or transport
+             A segment indicating terms of delivery related to the
+             referenced NAD segment.
+
+0330         LOC, Place/location identification
+             A segment specifying location for the referenced terms of
+             delivery.
+
+
+0340      Segment group 10: PAI-PAT-CUX
+          A group of segments relating to the standard payment
+          instructions, payment terms, the reference and the payment
+          currencies.
+
+0350         PAI, Payment instructions
+             A segment giving information on payment instructions.
+
+0360         PAT, Payment terms basis
+             A segment giving information on the payment terms basis.
+
+0370         CUX, Currencies
+             A segment giving information on the currencies.
+
+0380   UNT, Message trailer
+       A service segment ending a message, giving the total number of
+       segments in the message and the control reference number of the
+       message.
+
+4.2    Data segment index (Alphabetical sequence by tag)
+
+          BGM Beginning of message
+          COM Communication contact
+          CTA Contact information
+          CUX Currencies
+          DTM Date/time/period
+          FII Financial institution information
+          FTX Free text
+          LOC Place/location identification
+          NAD Name and address
+          PAI Payment instructions
+          PAT Payment terms basis
+          RFF Reference
+          SCC Scheduling conditions
+          TOD Terms of delivery or transport
+          UNH Message header
+          UNS Section control
+          UNT Message trailer
+
+4.3    Message structure
+
+4.3.1  Segment table
+
+Pos    Tag Name                                      S   R
+
+           HEADER SECTION
+
+0010   UNH Message header                            M   1     
+0020   BGM Beginning of message                      M   1     
+0030   DTM Date/time/period                          M   5     
+0040   FII Financial institution information         C   10    
+0050   FTX Free text                                 C   5     
+
+0060       ÄÄÄÄÄ Segment group 1  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   5ÄÄÄÄÄÄÄÄÄÄÄ¿
+0070   RFF Reference                                 M   1           ³
+0080   DTM Date/time/period                          C   1ÄÄÄÄÄÄÄÄÄÄÄÙ
+
+0090       ÄÄÄÄÄ Segment group 2  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   2ÄÄÄÄÄÄÄÄÄÄÄ¿
+0100   NAD Name and address                          M   1           ³
+                                                                     ³
+0110       ÄÄÄÄÄ Segment group 3  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   5ÄÄÄÄÄÄÄÄÄÄ¿³
+0120   CTA Contact information                       M   1          ³³
+0130   COM Communication contact                     C   5ÄÄÄÄÄÄÄÄÄÄÁÙ
+
+           DETAIL SECTION
+
+0140   UNS Section control                           M   1     
+
+0150       ÄÄÄÄÄ Segment group 4  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   200000ÄÄÄÄÄÄ¿
+0160   NAD Name and address                          M   1           ³
+0170   DTM Date/time/period                          C   5           ³
+0180   FII Financial institution information         C   10          ³
+                                                                     ³
+0190       ÄÄÄÄÄ Segment group 5  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99ÄÄÄÄÄÄÄÄÄ¿³
+0200   LOC Place/location identification             M   1          ³³
+0210   DTM Date/time/period                          C   2ÄÄÄÄÄÄÄÄÄÄÙ³
+                                                                     ³
+0220       ÄÄÄÄÄ Segment group 6  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   15ÄÄÄÄÄÄÄÄÄ¿³
+0230   RFF Reference                                 M   1          ³³
+0240   DTM Date/time/period                          C   1ÄÄÄÄÄÄÄÄÄÄÙ³
+                                                                     ³
+0250       ÄÄÄÄÄ Segment group 7  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   5ÄÄÄÄÄÄÄÄÄÄ¿³
+0260   CTA Contact information                       M   1          ³³
+0270   COM Communication contact                     C   5ÄÄÄÄÄÄÄÄÄÄÙ³
+                                                                     ³
+0280       ÄÄÄÄÄ Segment group 8  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   10ÄÄÄÄÄÄÄÄÄ¿³
+0290   SCC Scheduling conditions                     M   1          ³³
+0300   DTM Date/time/period                          C   2ÄÄÄÄÄÄÄÄÄÄÙ³
+                                                                     ³
+0310       ÄÄÄÄÄ Segment group 9  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   1ÄÄÄÄÄÄÄÄÄÄ¿³
+0320   TOD Terms of delivery or transport            M   1          ³³
+0330   LOC Place/location identification             C   1ÄÄÄÄÄÄÄÄÄÄÙ³
+                                                                     ³
+0340       ÄÄÄÄÄ Segment group 10 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   1ÄÄÄÄÄÄÄÄÄÄ¿³
+0350   PAI Payment instructions                      M   1          ³³
+0360   PAT Payment terms basis                       C   1          ³³
+0370   CUX Currencies                                C   2ÄÄÄÄÄÄÄÄÄÄÁÙ
+0380   UNT Message trailer                           M   1     

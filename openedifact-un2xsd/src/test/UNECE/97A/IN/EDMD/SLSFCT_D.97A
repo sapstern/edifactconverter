@@ -1,0 +1,441 @@
+                              UN/EDIFACT
+
+                UNITED NATIONS STANDARD MESSAGE (UNSM)
+
+                        Sales forecast message
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                            Message Type : SLSFCT
+                                            Version      : D
+                                            Release      : 97A
+                                            Contr. Agency: UN
+
+                                            Revision     : 1
+                                            Date         : 96-12-13
+
+
+
+
+
+
+SOURCE: Joint Rapporteurs Message Design Group JM2
+
+
+
+                               CONTENTS
+
+                        Sales forecast message
+
+0.   INTRODUCTION
+
+1.   SCOPE
+
+     1.1   Functional definition
+
+     1.2   Field of application
+
+     1.3   Principles
+
+2.   REFERENCES
+
+3.   TERMS AND DEFINITIONS
+
+     3.1   Standard terms and definitions
+
+4.   MESSAGE DEFINITION
+
+     4.1   Data segment clarification
+
+     4.2   Data segment index (alphabetical sequence)
+
+     4.3   Message structure
+
+           4.3.1 Segment table
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------
+For general information on UN standard message types see UN Trade Data
+Interchange Directory, UNTDID, Part 4, Section 2.6, UN/ECE UNSM
+General Introduction
+----------------------------------------------------------------------
+
+
+
+0.     INTRODUCTION
+
+       This specification provides the definition of the Sales
+       forecast message (SLSFCT) to be used in Electronic Data
+       Interchange (EDI) between trading partners involved in
+       administration, commerce and transport.
+
+1.     SCOPE
+
+1.1    Functional Definition
+
+       A message to enable the transmission of forecast data related
+       to products or services, such as corresponding location,
+       period, product identification, pricing, monetary amount,
+       quantity, market sector information, sales parties. It enables
+       the recipient to process the information automatically and use
+       it for production, planning, marketing, statistical purposes,
+       etc.
+
+1.2    Field of Application
+
+       The Sales forecast message may be used for both national and
+       international applications. It is based on universal practice
+       related to administration, commerce and transport, and is not
+       dependent on the type of business or industry.
+
+1.3    Principles
+
+       The message intent is to provide sales forecast information for
+       one or more locations for a series of products within a
+       specified time period.
+       
+       The message is transmitted either from a seller to its supplier
+       or from a headquarters, coordination or distribution centre to
+       a manufacturer, supplier or a third party.
+       
+       It allows the recipient to know sales forcast for a specific
+       product by: 
+       
+       - Sales location 
+       
+       - Sales period 
+       
+       - Product identification 
+       
+       - Product selling price, quantity and value of the sales 
+       
+       - Additional Identification of the products such as promotional
+       flags, product group or family identification and internal
+       identification numbers 
+       
+       - Periodical Turnover of a specified location 
+       
+       - Global specified product sales, i.e. total sales of a product
+       in all locations 
+       
+       - Sales channel, market segment end use, if known.
+       
+       - Sales parties identification, if known.
+       
+       - Outlet identification, if known.
+       
+       Though the message is location driven, it is conceivable that
+       the recipient process the data to derive information based on
+       other variables such as a specific product and all its related
+       sales locations and/or addresses or forcasted periodic turnover
+       and the related locations.
+
+2.     REFERENCES
+
+       See UNTDID, Part 4, Chapter 2.6 UN/ECE UNSM - General
+       Introduction, Section 1.
+
+3.     TERMS AND DEFINITIONS
+
+3.1    Standard terms and definitions
+
+       See UNTDID, Part 4, Chapter 2.6 UN/ECE UNSM - General
+       Introduction, Section 2.
+
+4.     MESSAGE DEFINITION
+
+4.1    Data Segment Clarification
+
+       This section should be read in conjunction with the Segment
+       Table which indicate mandatory, conditional and repeating
+       requirements.
+
+0010   UNH, Message header
+       A service segment starting and uniquely identifying a message.
+       The message type code for the Sales forecast message is SLSFCT.
+       
+       Note: Sales forecast messages conforming to this document must
+       contain the following data in segment UNH, composite S009:
+
+       Data element  0065 SLSFCT
+                     0052 D
+                     0054 97A
+                     0051 UN
+
+0020   BGM, Beginning of message
+       A segment by which the sender must uniquely identify the sales
+       forecast by means of its type and number.
+
+0030   DTM, Date/time/period
+       A segment specifying general dates and, when relevant, times
+       related to the whole message. The sales forecast report
+       preparation date and the forecast period covered by the report
+       must be specified using this segment.
+
+
+0040   Segment group 1:  NAD-SG2
+       A group of segments identifying the parties with associated
+       information.
+
+0050      NAD, Name and address
+          A segment identifying names and addresses of the parties, in
+          coded or clear form, and their functions relevant to the
+          Sales Forecast Message. Identification of the sender of the
+          report and the recipient is mandatory for the Sales Forecast
+          Message. It is recommended that where possible only the
+          coded form of the party ID should be specified e.g. the
+          sender and receiver of the sales forecast are known to each
+          other, thus only the coded ID is required, but when a new
+          address might have to be clearly specified, this should be
+          done preferably in structured format.
+
+
+0060      Segment group 2:  CTA-COM
+          A group of segments giving contact details of the specific
+          person or department within the party identified in the NAD
+          segment.
+
+0070         CTA, Contact information
+             A segment to identify a person or department, and their
+             function, to whom communications should be directed.
+
+0080         COM, Communication contact
+             A segment to identify a communications type and number
+             for the contact specified in the CTA segment.
+
+
+0090   Segment group 3:  RFF-DTM
+       A group of segments for giving references and, where necessary,
+       their dates, relating to the whole message, e.g. contract
+       number.
+
+0100      RFF, Reference
+          A segment identifying the reference by its number and, where
+          appropriate, a line number within the document.
+
+0110      DTM, Date/time/period
+          A segment specifying the date/time related to the reference.
+
+
+0120   Segment group 4:  CUX-DTM
+       A group of segments specifying the currencies and related
+       dates/periods valid for the whole sales forecast message.
+       Segment Group 4 may be omitted in national applications but
+       will be required for international exchanges.
+
+0130      CUX, Currencies
+          A segment identifying the currencies specified in the sales
+          forecast message, e.g. the currency in which the forecast
+          amounts or product prices are expressed. A rate of exchange
+          may be given to convert a reference currency into a target
+          currency.
+
+0140      DTM, Date/time/period
+          A segment specifying the date/time/period related to the
+          rate of exchange.
+
+
+0150   Segment group 5:  LOC-DTM-SG6
+       A group of segments providing details of the location for which
+       forecasted sales are being reported and the period or
+       sub-period during which the sales will take place. There must
+       be at least one occurrence of Segment group 5 within a sales
+       forecast message.
+
+0160      LOC, Place/location identification
+          A segment indicating in coded form the location to which the
+          forecast data being reported apply, e.g. a retail outlet, a
+          geographic area.
+
+0170      DTM, Date/time/period
+          A segment identifying the sub-period during which the
+          forecast sales being reported will occur if different from
+          the period specified in the heading section. e.g. within a
+          biweekly sales forecast message as specified in the heading
+          section, sales forecasts are reported in sub-periods of one
+          week.
+
+
+0180      Segment group 6:  LIN-PIA-IMD-PAC-RFF-DOC-ALI-MOA-PRI-SG7
+          A group of segments providing details per location and
+          period of the individual products to be sold in terms of
+          product family or group, planned promotional flags, total
+          forecast sale monetary amount and planned sale price.
+
+0190         LIN, Line item
+             A segment identifying the line item by the line number
+             and configuration level, and additionally identifying the
+             product or service to be sold.
+
+0200         PIA, Additional product id
+             A segment providing either additional identification to
+             the product specified in the LIN segment or providing any
+             substitute product identification. In the Sales Forecast
+             Message the PIA segment can be used when a product
+             specified in LIN has to be associated with a group or
+             family of products whose identity could be specified in
+             PIA.
+
+0210         IMD, Item description
+             A segment for describing the product in the line item.
+
+0220         PAC, Package
+             A segment specifying the number and type of packages.
+
+0230         RFF, Reference
+             A segment for referencing documents or other numbers
+             pertinent to the line item.
+
+0240         DOC, Document/message details
+             A segment identifying and providing information relating
+             to documents.
+
+0250         ALI, Additional information
+             A segment indicating that the line item is subject to
+             special conditions owing to origin, customs preference,
+             embargo regulations or commercial factors. In the Sales
+             Forecast Message the ALI segment can be used to specify
+             planned promotions, e.g. to indicate what type of
+             promotion if any will be in effect when the product
+             specified in LIN is to be sold.
+
+0260         MOA, Monetary amount
+             A segment specifying any monetary amounts relating to the
+             product. For the sales forecast message the MOA segment
+             can be used to express the forecast total monetary amount
+             of the product to be sold, held, distributed, produced in
+             one location for one period.
+
+0270         PRI, Price details
+             A segment to specify the price type and amount. The price
+             used in the calculation of the forecast total sales
+             monetary amount will normally be the average forecast
+             selling price.
+
+
+0280         Segment group 7:  QTY-MKS-NAD
+             A group of segments identifying the quantity to be sold
+             and if relevant through which market sector, sales
+             distribution channel, end-use type, etc.
+
+0290            QTY, Quantity
+                A segment identifying the product quantity, i.e.
+                forecast quantity sold, held, produced, distributed.
+
+0300            MKS, Market/sales channel information
+                A segment to specify to which market sector and/or
+                through which distribution channel and/or for which
+                end-use the forecast sales of product/service are to
+                be made.
+
+0310            NAD, Name and address
+                A segment identifying the name and address of a party
+                being the recipient of a proportion of the forecast
+                quantity.
+
+0320   UNT, Message trailer
+       A service segment ending a message, giving the total number of
+       segments in the message and the control reference number of the
+       message.
+
+4.2    Data segment index (Alphabetical sequence by tag)
+
+          ALI Additional information
+          BGM Beginning of message
+          COM Communication contact
+          CTA Contact information
+          CUX Currencies
+          DOC Document/message details
+          DTM Date/time/period
+          IMD Item description
+          LIN Line item
+          LOC Place/location identification
+          MKS Market/sales channel information
+          MOA Monetary amount
+          NAD Name and address
+          PAC Package
+          PIA Additional product id
+          PRI Price details
+          QTY Quantity
+          RFF Reference
+          UNH Message header
+          UNT Message trailer
+
+4.3    Message structure
+
+4.3.1  Segment table
+
+Pos    Tag Name                                      S   R
+
+0010   UNH Message header                            M   1     
+0020   BGM Beginning of message                      M   1     
+0030   DTM Date/time/period                          M   5     
+
+0040       ÄÄÄÄÄ Segment group 1  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   5ÄÄÄÄÄÄÄÄÄÄÄ¿
+0050   NAD Name and address                          M   1           ³
+                                                                     ³
+0060       ÄÄÄÄÄ Segment group 2  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   5ÄÄÄÄÄÄÄÄÄÄ¿³
+0070   CTA Contact information                       M   1          ³³
+0080   COM Communication contact                     C   5ÄÄÄÄÄÄÄÄÄÄÁÙ
+
+0090       ÄÄÄÄÄ Segment group 3  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   5ÄÄÄÄÄÄÄÄÄÄÄ¿
+0100   RFF Reference                                 M   1           ³
+0110   DTM Date/time/period                          C   5ÄÄÄÄÄÄÄÄÄÄÄÙ
+
+0120       ÄÄÄÄÄ Segment group 4  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   5ÄÄÄÄÄÄÄÄÄÄÄ¿
+0130   CUX Currencies                                M   1           ³
+0140   DTM Date/time/period                          C   5ÄÄÄÄÄÄÄÄÄÄÄÙ
+
+0150       ÄÄÄÄÄ Segment group 5  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   200000ÄÄÄÄÄÄ¿
+0160   LOC Place/location identification             M   1           ³
+0170   DTM Date/time/period                          C   5           ³
+                                                                     ³
+0180       ÄÄÄÄÄ Segment group 6  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   200000ÄÄÄÄÄ¿³
+0190   LIN Line item                                 M   1          ³³
+0200   PIA Additional product id                     C   5          ³³
+0210   IMD Item description                          C   5          ³³
+0220   PAC Package                                   C   5          ³³
+0230   RFF Reference                                 C   5          ³³
+0240   DOC Document/message details                  C   5          ³³
+0250   ALI Additional information                    C   5          ³³
+0260   MOA Monetary amount                           C   5          ³³
+0270   PRI Price details                             C   5          ³³
+                                                                    ³³
+0280       ÄÄÄÄÄ Segment group 7  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   999ÄÄÄÄÄÄÄ¿³³
+0290   QTY Quantity                                  M   1         ³³³
+0300   MKS Market/sales channel information          C   1         ³³³
+0310   NAD Name and address                          C   1ÄÄÄÄÄÄÄÄÄÁÁÙ
+0320   UNT Message trailer                           M   1     

@@ -1,0 +1,598 @@
+                              UN/EDIFACT
+
+                         DRAFT RECOMMENDATION
+
+                    Drawing administration message
+
+
+
+
+
+----------------------------------------------------------------------
+This message is available for formal trial for at least six months
+from the date of approval by UN/ECE/TRADE/WP.4.
+ 
+Organisations are invited to trial this message. Comments on the
+results from the trial should be forwarded to their Rapporteur's Team
+Secretariat as soon as they are available. Based on the results of the
+trials, a UNSM may be issued.
+ 
+The segments, composite data elements, data elements and codes for
+use in the trial of this message are contained in the Draft directory.
+However, this information may differ from that in the Standard
+directory (UNTDID), even for material having the same identifying
+tags.
+----------------------------------------------------------------------
+
+
+
+
+
+
+
+
+                                            Message Type : CONDRA
+                                            Version      : D
+                                            Release      : 96A
+                                            Contr. Agency: UN
+                                            Status       : 1
+                                            Revision     : 1
+                                            Date         : 95-11-23
+
+
+
+
+
+
+SOURCE: Western European EDIFACT Board - MD5
+
+
+
+                               CONTENTS
+
+                    Drawing administration message
+
+
+
+0.   INTRODUCTION
+
+
+1.   SCOPE
+
+     1.1   Functional definition
+
+     1.2   Field of application
+
+     1.3   Principles
+
+2.   REFERENCES
+
+3.   TERMS AND DEFINITIONS
+
+4.   MESSAGE DEFINITION
+
+     4.1   Data segment clarification
+
+     4.2   Data segment index (alphabetical sequence)
+
+     4.3   Message structure
+
+           4.3.1 Segment table
+
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------
+For general information on UN standard message types see UN Trade Data
+Interchange Directory, UNTDID, Part 4, Section 2.6, UN/ECE UNSM
+General Introduction
+----------------------------------------------------------------------
+
+
+
+0.     INTRODUCTION
+
+       This specification provides the definition of the Drawing
+       administration message (CONDRA) to be used in Electronic Data
+       Interchange (EDI) between trading partners involved in
+       administration, commerce and transport.
+
+1.     SCOPE
+
+1.1    Functional Definition
+
+       The message will be used for the administration of each
+       exchange of a set of engineering/CAD files. It will give
+       additional information about the files; for example, their
+       nature, a list of their contents and technical information
+       necessary to interpret them.
+       
+       The whole process of exchanging engineering or CAD (Computer
+       Aided Design) files between different parties within one
+       project will be supported by EDIFACT messages. The message
+       CONDRA is one of these messages.
+
+1.2    Field of Application
+
+       This message type may be applied for both national and
+       international trade. It is based on universal practice and is
+       not dependent on the type of business or industry.
+       
+       The following descriptions refer to the exchange of
+       engineering/CAD files, but do not exclude any other type of
+       "native" files, e.g. files originating from software packages
+       and tools like word-processing, spreadsheet, DTP (Desk Top
+       Publishing), graphics and so on.
+
+1.3    Principles
+
+       CONDRA is the EDIFACT message to administer the exchange of
+       engineering/CAD files. The message itself does not consist of
+       any engineering or graphical information. This information will
+       be transferred within files written in existing standard
+       graphical exchange formats or native formats, referred to
+       within the message as external file reference to identify each
+       of these files. The nature of the engineering files and its
+       content is not relevant for the syntax of the EDIFACT message. 
+        
+       All types of engineering/CAD files to be exchanged during a
+       project's life cycle and its naming/structuring conventions,
+       including project organisation and system environments are
+       defined in the EDIFACT message CONDRO (Drawing Organisation). 
+        
+       CONDRA will refer to the message CONDRO, previously received by
+       the business parties, if there is additional information
+       required about the project organisation, system environment and
+       naming/structuring convention.
+
+2.     REFERENCES
+
+       See UNTDID, Part 4, Chapter 2.6 UN/ECE UNSM - General
+       Introduction, Section 1.
+
+3.     TERMS AND DEFINITIONS
+
+       See UNTDID, Part 4, Chapter 2.6 UN/ECE UNSM - General
+       Introduction, Section 2.
+
+4.     MESSAGE DEFINITION
+
+4.1    Data Segment Clarification
+
+       This section should be read in conjunction with the Branching
+       Diagram and the Segment Table which indicate mandatory,
+       conditional and repeating requirements.
+
+0010 | UNH, Message header
+       A service segment starting and uniquely identifying a message.
+       The message type code for the Drawing administration message is
+       CONDRA.
+       
+       Note: Drawing administration messages conforming to this
+       document must contain the following data in segment UNH,
+       composite S009:
+
+       Data element  0065 CONDRA
+                     0052 D
+                     0054 96A
+                     0051 UN
+
+0020   BGM, Beginning of message
+       A segment for unique identification of the Drawing
+       Administration document name, number and function.
+
+0030   DTM, Date/time/period
+       A segment specifying the dates relevant to this document; e.g.
+       the date, when the drawing administration in this message has
+       been defined.
+
+0040   AUT, Authentication result
+       A segment used to authenticate the message by exchanging a
+       password or some other form of identification agreed between
+       the business partners.
+
+0050   AGR, Agreement identification
+       A segment will be used to identify the "type of agreement of
+       the organisation of engineering or CAD files" that apply to the
+       information given by this message.
+
+0060   FTX, Free text
+       A segment with free text information, in coded or clear form,
+       used for any textual information. In computer to computer
+       exchanges, such text will require the receiver to process this
+       segment manually.
+
+0070   QTY, Quantity
+       This segment conveys exchange information like the number of
+       engineering/CAD files and their total size (volume) that form
+       part of the exchange of this message and to which this message
+       refers.
+
+
+0080   Segment group 1:  RFF-DOC-DTM-FTX
+       A group of segments used for quoting references and their
+       relevant dates applicable to the message. For the building
+       industry the following recommendation is given: in the first
+       occurrence of this segment group the project references, if
+       relevant, can be given, in order to identify the project to
+       which this message  relates. In any subsequent  recurrence of
+       this segment group, references to other messages (e.g. the
+       original CONDRO when it is an update) or documents, relevant to
+       this message, may be quoted.
+
+0090      RFF, Reference
+          A segment for quoting the unique references which can be the
+          project number to which this message is relevant, or, in the
+          case of a reference to another message or document, that
+          message or document's unique identifier.
+
+0100      DOC, Document/message details
+          Document details of the reference quoted in the previous RFF
+          segment.
+
+0110      DTM, Date/time/period
+          Date of a reference quoted in the previous RFF segment, e.g.
+          project date or message/document date.
+
+0120      FTX, Free text
+          This segment can contain any textual information relevant to
+          the reference quoted in the previous RFF segment, e.g. a
+          small project or message/document description and/or other
+          narrative, for additional information.
+
+
+0130   Segment group 2:  NAD-LOC-FTX-INP-RCS-SG3-SG4
+       A group of segments identifying all the relevant parties with
+       specific information about them that other business partner
+       should know.
+
+0140      NAD, Name and address
+          A segment identifying name and address of a party, in coded
+          or clear form, and its function relevant to the Drawing
+          Administration Message. This is to identify each partner
+          involved in the future exchange of CAD files. It is
+          recommended that where possible only the coded form of the
+          party ID should be specified.
+
+0150      LOC, Place/location identification
+          A segment giving more specific location information of the
+          party specified in the NAD segment e.g. internal
+          site/building number.
+
+0160      FTX, Free text
+          This segment allows any narrative that may be needed to
+          accompany the party name and address information specified
+          in the previous NAD segment.
+
+0170      INP, Parties to instruction
+          A segment that gives each of the receivers their specific
+          instructions for what they should do with this message and
+          the files to which this message refers.
+
+0180      RCS, Requirements and conditions
+          A segment that gives specific requirements to each of the
+          receivers of this message, e.g. action request.
+
+
+0190      Segment group 3:  RFF-DTM
+          This segment group can be used to quote specific references
+          for each partner, that may be needed for internal use.
+          Examples of references that a partner may require are
+          internal project number or a DP number.
+
+0200         RFF, Reference
+             In this segment specific internal references will be
+             quoted, as and when required.
+
+0210         DTM, Date/time/period
+             A segment specifying the date and/or time details related
+             to the party's specific internal references.
+
+
+0220      Segment group 4:  CTA-COM-LOC
+          A group of segments giving contact details of the specific
+          person or department within the party identified in the NAD
+          segment.
+
+0230         CTA, Contact information
+             A segment to identify a person or department, and their
+             function, to whom communications should be directed.
+
+0240         COM, Communication contact
+             A segment to identify  a communication type and number
+             for the contact specified in the CTA segment.
+
+0250         LOC, Place/location identification
+             This segment specifies the location of the contact
+             specified in the previous CTA segment. In large
+             organisations and construction projects it is possible
+             that persons are not necessarily on the same internal
+             site or construction site specified in the previous LOC
+             segment in segment group 2. This segment also enables the
+             specification of a more accurate internal site location.
+
+
+0260   Segment group 5:  EFI-CED-RFF-DTM-QTY-SG6
+       A group of segments that refers through an external file
+       identification to each of the external engineering/CAD files
+       and giving additional information about each of the files.
+
+0270      EFI, External file link identification
+          This segment will identify the external files by indicating
+          the file name, file number and its sequence number in an
+          exchange.
+
+0280      CED, Computer environment details
+          A segment that gives details of a computer or software
+          environment.
+
+0290      RFF, Reference
+          A segment that refers to the computer environment used by
+          the sender when he produced/processed/used the external
+          engineering/CAD file identified by the previous EFI segment.
+          This reference number is specific to the sender and the
+          receivers are informed about its full meaning through
+          another message (for the building industry e. g. CONDRO) if
+          this feature is used.
+
+0300      DTM, Date/time/period
+          This segment will convey the date/time details of the
+          external engineering/CAD file.
+
+0310      QTY, Quantity
+          The size/volume of the external engineering/CAD file
+          identified in the previous EFI segment.
+
+
+0320      Segment group 6:  BII-GIS-DTM-IMD-QTY-CTA-AUT-AGR-INP-RCS-
+                            LOC-DIM-MEA-SG7
+          A group of segments that records more detailed information
+          about the contents of the external engineering/CAD file is
+          identified in the previous EFI segment. This information is
+          organised hierarchically. First, each hierarchy is
+          identified, followed by the type of hierarchy.
+
+0330         BII, Structure identification
+             This segment will, through a structured index code,
+             uniquely identify the level described in the following
+             segments.
+
+0340         GIS, General indicator
+             This segment is used to define the level type identified
+             by the previous BII segment, like, for example, drawing
+             sheet, view, layer group, and layer, but also phase etc.
+
+0350         DTM, Date/time/period
+             Date and time details of the level identified in the
+             previous BII segment.
+
+0360         IMD, Item description
+             This segment contains the name of the level that is
+             identified in the previous BII segment.
+
+0370         QTY, Quantity
+             This segment conveys quantity details of the level
+             identified in the previous BII segment. This quantity
+             details concern the precision or the number of objects in
+             the lower level, e.g. number of drawing views.
+
+0380         CTA, Contact information
+             The person or department responsible (author) of this
+             specific part (level) of the contents is recorded in this
+             segment.
+
+0390         AUT, Authentication result
+             A segment used to authenticate the part of the message
+             identified in the previous BII segment by exchanging a
+             password or some other form of identification agreed
+             between the business partners.
+
+0400         AGR, Agreement identification
+             This segment will be used to identify the "type of
+             agreement" that applies to the information defined in the
+             previous BII segment.
+
+0410         INP, Parties to instruction
+             Instructions for the receiver for this specific part
+             (level) of the contents are recorded in this segment.
+
+0420         RCS, Requirements and conditions
+             Requirements for the receiver for this specific part
+             (level) of the contents are recorded in this segment.
+
+0430         LOC, Place/location identification
+             This location of the level (e.g. layer) in a co-ordinate
+             system is given in this segment.
+
+0440         DIM, Dimensions
+             Dimensions (like size, unit of measurements) are given in
+             this segment.
+
+0450         MEA, Measurements
+             The scale used can be quoted in this segment.
+
+
+0460         Segment group 7:  RFF-SG8-SG9
+             For each of the levels that are identified in the
+             previous BII segment it is possible to refer to other
+             messages/documents on other levels of the structure of
+             the engineering/CAD file identified in the previous EFI
+             segment. It is also possible to refer to other levels
+             which are part of a different engineering/CAD file than
+             the one identified in the previous EFI segment. If
+             needed, here should also be made a reference to a
+             contractual document or to a revision number.
+
+0470            RFF, Reference
+                An ID number will be used to refer to either another
+                message/document or to another engineering/CAD file.
+                If needed, here should also be made a reference to a
+                contractual document or to a revision number.
+
+
+0480            Segment group 8:  DOC-DTM
+                If the reference number quoted in the previous RFF
+                segment is a reference to another message/document,
+                this segment group is used to give more details about
+                this message/document.
+
+0490               DOC, Document/message details
+                   The details of the message/document referred to are
+                   quoted in this segment.
+
+0500               DTM, Date/time/period
+                   Date/time details of the message/document referred
+                   to are quoted in this segment.
+
+
+0510            Segment group 9:  SEQ-BII-RFF-GIS-DTM-IMD
+                This segment group will be used when a reference is
+                made to another specific level in the structure of an
+                engineering/CAD file.
+                If in the previous RFF segment a standard dummy value
+                is quoted, the level referred to is part of the
+                engineering/CAD file identified in the previous EFI
+                segment. If, however, in the previous RFF segment any
+                other value is quoted, the level described in the
+                following BII segment is part of the engineering/CAD
+                file identified by the ID number.
+
+0520               SEQ, Sequence details
+                   A segment identifying the beginning of a CAD-file
+                   by a sequential  number.
+
+0530               BII, Structure identification
+                   This segment will through a structured index code
+                   uniquely identify the level referred to.
+
+0540               RFF, Reference
+                   Through an "index system", updates (versions) can
+                   be recorded in a reference number. In this segment
+                   the version of the level referred to can be quoted.
+
+0550               GIS, General indicator
+                   This segment is used to define the level type
+                   identified in the previous BII segment; like, for
+                   example, drawing sheet, view, layer group and
+                   layer.
+
+0560               DTM, Date/time/period
+                   Date/time details of the level that is referred to
+                   are quoted here.
+
+0570               IMD, Item description
+                   A detailed description of the level referred to can
+                   be quoted in this segment.
+
+0580   UNT, Message trailer
+       A service segment ending a message, giving the total number of
+       segments in the message and the control reference number of the
+       message.
+
+4.2    Data segment index (Alphabetical sequence by tag)
+
+          AGR Agreement identification
+          AUT Authentication result
+          BGM Beginning of message
+          BII Structure identification
+          CED Computer environment details
+          COM Communication contact
+          CTA Contact information
+          DIM Dimensions
+          DOC Document/message details
+          DTM Date/time/period
+          EFI External file link identification
+          FTX Free text
+          GIS General indicator
+          IMD Item description
+          INP Parties to instruction
+          LOC Place/location identification
+          MEA Measurements
+          NAD Name and address
+          QTY Quantity
+          RCS Requirements and conditions
+          RFF Reference
+          SEQ Sequence details
+          UNH Message header
+          UNT Message trailer
+
+4.3    Message structure
+
+4.3.1  Segment table
+
+Pos    Tag Name                                      S   R
+
+0010   UNH Message header                            M   1     
+0020   BGM Beginning of message                      M   1     
+0030   DTM Date/time/period                          M   5     
+0040   AUT Authentication result                     C   2     
+0050   AGR Agreement identification                  C   2     
+0060   FTX Free text                                 C   10    
+0070   QTY Quantity                                  C   5     
+
+0080       ÄÄÄÄÄ Segment group 1  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   10ÄÄÄÄÄÄÄÄÄÄ¿
+0090   RFF Reference                                 M   1           ³
+0100   DOC Document/message details                  C   1           ³
+0110   DTM Date/time/period                          C   1           ³
+0120   FTX Free text                                 C   5ÄÄÄÄÄÄÄÄÄÄÄÙ
+
+0130       ÄÄÄÄÄ Segment group 2  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   999ÄÄÄÄÄÄÄÄÄ¿
+0140   NAD Name and address                          M   1           ³
+0150   LOC Place/location identification             C   99          ³
+0160   FTX Free text                                 C   10          ³
+0170   INP Parties to instruction                    C   10          ³
+0180   RCS Requirements and conditions               C   10          ³
+                                                                     ³
+0190       ÄÄÄÄÄ Segment group 3  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   5ÄÄÄÄÄÄÄÄÄÄ¿³
+0200   RFF Reference                                 M   1          ³³
+0210   DTM Date/time/period                          C   1ÄÄÄÄÄÄÄÄÄÄÙ³
+                                                                     ³
+0220       ÄÄÄÄÄ Segment group 4  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   10ÄÄÄÄÄÄÄÄÄ¿³
+0230   CTA Contact information                       M   1          ³³
+0240   COM Communication contact                     C   5          ³³
+0250   LOC Place/location identification             C   1ÄÄÄÄÄÄÄÄÄÄÁÙ
+
+0260       ÄÄÄÄÄ Segment group 5  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99ÄÄÄÄÄÄÄÄÄÄ¿
+0270   EFI External file link identification         M   1           ³
+0280   CED Computer environment details              M   10          ³
+0290   RFF Reference                                 C   10          ³
+0300   DTM Date/time/period                          C   5           ³
+0310   QTY Quantity                                  C   5           ³
+                                                                     ³
+0320       ÄÄÄÄÄ Segment group 6  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   100000ÄÄÄÄÄ¿³
+0330   BII Structure identification                  M   1          ³³
+0340   GIS General indicator                         C   5          ³³
+0350   DTM Date/time/period                          C   10         ³³
+0360   IMD Item description                          C   1          ³³
+0370   QTY Quantity                                  C   10         ³³
+0380   CTA Contact information                       C   1          ³³
+0390   AUT Authentication result                     C   2          ³³
+0400   AGR Agreement identification                  C   2          ³³
+0410   INP Parties to instruction                    C   10         ³³
+0420   RCS Requirements and conditions               C   10         ³³
+0430   LOC Place/location identification             C   5          ³³
+0440   DIM Dimensions                                C   5          ³³
+0450   MEA Measurements                              C   1          ³³
+                                                                    ³³
+0460       ÄÄÄÄÄ Segment group 7  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99ÄÄÄÄÄÄÄÄ¿³³
+0470   RFF Reference                                 M   1         ³³³
+                                                                   ³³³
+0480       ÄÄÄÄÄ Segment group 8  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   1ÄÄÄÄÄÄÄÄ¿³³³
+0490   DOC Document/message details                  M   1        ³³³³
+0500   DTM Date/time/period                          C   1ÄÄÄÄÄÄÄÄÙ³³³
+                                                                   ³³³
+0510       ÄÄÄÄÄ Segment group 9  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   999ÄÄÄÄÄÄ¿³³³
+0520   SEQ Sequence details                          M   1        ³³³³
+0530   BII Structure identification                  M   1        ³³³³
+0540   RFF Reference                                 C   1        ³³³³
+0550   GIS General indicator                         M   5        ³³³³
+0560   DTM Date/time/period                          C   1        ³³³³
+0570   IMD Item description                          C   1ÄÄÄÄÄÄÄÄÁÁÁÙ
+0580   UNT Message trailer                           M   1     

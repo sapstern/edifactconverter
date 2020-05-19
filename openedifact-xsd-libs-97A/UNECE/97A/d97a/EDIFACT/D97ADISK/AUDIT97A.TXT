@@ -1,0 +1,43 @@
+Audit Statement for the UN/EDIFACT Standard Directory
+=====================================================
+
+This directory set is the official approved version of UN/EDIFACT
+Standard Directory 
+D.97A.
+
+Following the preparation of the directory by the Directory Production
+Team, it was examined by the Directory Audit Team, (DAT) which has
+confirmed in a report to the EDIFACT Steering Group (ESG) that the
+content was prepared in accordance with approved procedures and is
+considered satisfactory for implementation. 
+
+A copy of the full audit report submitted to ESG is available from the
+UN/ECE secretariat.
+
+The directory is the final version of the D.97A for user
+implementation.  Under no circumstances will any corrigenda, addenda or
+revisions be issued.
+
+If during implementation a user identifies what is considered to be an
+error, this should be notified in a Data Maintenance Request (DMR) to
+allow possible amendments in a subsequent Standard Directory.
+
+A DMR form can be obtained from the regional EDIFACT Board secretariat,
+who will advise of the process to be followed for its submission and
+may assist in the completion of the form.  The text section of the
+"Business Needs" section, of this DMR, should read "Possible 
+Standard Directory Error".
+
+
+
+
+
+
+D. Trafford
+Chairman
+Directory Audit Team
+13 December 1996
+
+
+    ---------------------------------------------------------------
+                     -------------------------------

@@ -1,0 +1,4112 @@
+2.   Data element specifications
+
+     Change indicators
+
+     a plus sign (+)    for an addition
+     an asterisk (*)    for an amendment to structure
+     a hash sign (#)    for changes to names
+     a vertical bar (|) for changes to text for descriptions,
+                        notes and functions
+     a minus sign (-)   for a deletion
+     a X sign (X)       for marked for deletion
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   1000  Document/message name
+
+   Desc: Plain language identifier specifying the function of a
+         document/message.
+
+   Repr: an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   1001  Document/message name, coded
+
+   Desc: Document/message identifier expressed in code.
+
+   Repr: an..3
+
+   Note: Users should note that code values marked as additions or
+         changes are included pending approval by the 1001 Maintenance
+         Agency and may be disapproved or changed. The results of this
+         review will be reflected in a future version of the draft
+         directory.
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   1004  Document/message number
+
+   Desc: Reference number assigned to the document/message by the
+         issuer.
+
+   Repr: an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   1049  Message section, coded
+
+   Desc: Recognition of a particular part of a message.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   1050  Sequence number
+
+   Desc: Number indicating the position in a sequence.
+
+   Repr: an..6
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   1052  Message item number
+
+   Desc: The referenced number allocated to an identifiable item in a
+         message. eg Customs item or invoice item.
+
+   Repr: an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   1054  Message sub-item number
+
+   Desc: The reference number allocated to an identifiable sub-item in
+         a message. eg: invoice line number.
+
+   Repr: n..6
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   1056  Version
+
+   Desc: To specify the version number or name of an object.
+
+   Repr: an..9
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   1058  Release
+
+   Desc: To specify the release number or release name of an object.
+
+   Repr: an..9
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   1060  Revision number
+
+   Desc: To specify a revision number.
+
+   Repr: an..6
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   1073  Document line indicator, coded
+
+   Desc: Code indicating if a document line is included or excluded
+         for processing purposes.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   1082  Line item number
+
+   Desc: Serial number designating each separate item within a series
+         of articles.
+
+   Repr: n..6
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   1131  Code list qualifier
+
+   Desc: Identification of a code list.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   1153  Reference qualifier
+
+   Desc: Code giving specific meaning to a reference segment or a
+         reference number.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   1154  Reference number
+
+   Desc: Identification number the nature and function of which can be
+         qualified by an entry in data element 1153 Reference
+         qualifier.
+
+   Repr: an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   1156  Line number
+
+   Desc: Number of the line in the document/message referenced in 1154
+         Reference number.
+
+   Repr: an..6
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   1159  Sequence number source, coded
+
+   Desc: Specification of the source for a specified sequence number
+         in a coded form.
+
+   Repr: an..3
+
+   Note: May also be used in combination with 1131/3055.
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   1218  Number of originals of document required
+
+   Desc: Specification of the number of originals of a stipulated
+         document that are required.
+
+   Repr: n..2
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   1220  Number of copies of document required
+
+   Desc: Number of originals or copies of a document stipulated or
+         referred to as being required.
+
+   Repr: n..2
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   1222  Configuration level
+
+   Desc: Number indicating the level of an object which is in a
+         hierarchy.
+
+   Repr: n..2
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   1225  Message function, coded
+
+   Desc: Code indicating the function of the message.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   1227  Calculation sequence indicator, coded
+
+   Desc: Code indicating the sequence of cumulated calculations to be
+         agreed between interchange partners.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   1228  Action request/notification
+
+   Desc: Plain text specifying action taken or to be taken.
+
+   Repr: an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   1229  Action request/notification, coded
+
+   Desc: Code specifying the action to be taken or already taken.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   1230  Allowance or charge number
+
+   Desc: Number assigned by a party referencing an allowance,
+         promotion, deal or charge.
+
+   Repr: an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   1245  Status indicator, coded
+
+   Desc: Specification of a status or disposition.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   1312  Consignment load sequence number
+
+   Desc: To indicate the sequence of loading in which the consignments
+         are loaded in a piece of equipment or in a means of transport
+         (e.g. truck).
+
+   Repr: n..4
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   1366  Document/message source
+
+   Desc: Indication of the source from which the printed information
+         is to be or has been obtained.
+
+   Repr: an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   1373  Document/message status, coded
+
+   Desc: To identify the status of a document/message.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   1475  Message type identifier
+
+   Desc: Code identifying a type of message as assigned by its
+         controlling agency.
+
+   Repr: an..6
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   1476  Control agency
+
+   Desc: Identification of the agency controlling the specification,
+         maintenance and publication of the message.
+
+   Repr: an..2
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   1490  Consolidation item number
+
+   Desc: Serial number differentiating each separate consignment
+         included in the consolidation.
+
+   Repr: n..4
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   1496  Goods item number
+
+   Desc: Serial number differentiating each separate goods item entry
+         of a consignment as contained in one document/declaration.
+
+   Repr: n..5
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   1501  Computer environment details qualifier
+
+   Desc: A code to identify the computer environment details.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   1502  Data format
+
+   Desc: To describe a data format in free form.
+
+   Repr: an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   1503  Data format, coded
+
+   Desc: A code to identify the data format.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   1505  Value list type, coded
+
+   Desc: A code indicating the type of value list.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   1507  Class designator, coded
+
+   Desc: To identify a designated class.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   1508  File name
+
+   Desc: Name assigned to a file.
+
+   Repr: an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   1510  Computer environment
+
+   Desc: To define the product name of the specified computer
+         environment part.
+
+   Repr: an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   1511  Computer environment, coded
+
+   Desc: A code to identify the computer environment.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   1514  Value list name
+
+   Desc: The name of a list of coded or non coded values.
+
+   Repr: an..70
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   1516  File format
+
+   Desc: To give an identification of the file format.
+
+   Repr: an..17
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   1518  Value list identifier
+
+   Desc: The identifier of a coded or non coded value list.
+
+   Repr: an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   1520  Data set identifier
+
+   Desc: The identifier of a data set.
+
+   Repr: an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   1523  Association assigned identification
+
+   Desc: An association assigned code to further identify
+         implementation of a message.
+
+   Repr: an..6
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   2005  Date/time/period qualifier
+
+   Desc: Code giving specific meaning to a date, time or period.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   2009  Time relation, coded
+
+   Desc: Code relating payment terms to a time before, on or after the
+         reference date.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   2013  Frequency, coded
+
+   Desc: Code specifying interval grouping of the delivery,
+         production, etc. of the schedule.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   2015  Despatch pattern, coded
+
+   Desc: Code specifying the days/periods for routine shipments or
+         deliveries.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   2017  Despatch pattern timing, coded
+
+   Desc: Code specifying the detailed times for routine shipments or
+         deliveries within data element 2015 Despatch pattern, coded.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   2151  Type of period, coded
+
+   Desc: Agreed or specified period of time (coded).
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   2152  Number of periods
+
+   Desc: Number of periods of the type indicated in data element 2151
+         Type of period, coded.
+
+   Repr: n..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   2379  Date/time/period format qualifier
+
+   Desc: Specification of the representation of a date, a date and
+         time or of a period.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   2380  Date/time/period
+
+   Desc: The value of a date, a date and time, a time or of a period
+         in a specified representation.
+
+   Repr: an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   2475  Payment time reference, coded
+
+   Desc: Code relating payment terms to the date of a specific event.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   3035  Party qualifier
+
+   Desc: Code giving specific meaning to a party.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   3036  Party name
+
+   Desc: Name of a party involved in a transaction.
+
+   Repr: an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   3039  Party id. identification
+
+   Desc: Code identifying a party involved in a transaction.
+
+   Repr: an..35
+
+   Note: User or association defined code.  May be used in combination
+         with 1131/3055.
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   3042  Street and number/p.o. box
+
+   Desc: Street and number in plain language, or Post Office Box No.
+
+   Repr: an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   3045  Party name format, coded
+
+   Desc: Specification of the representation of a party name.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   3055  Code list responsible agency, coded
+
+   Desc: Code identifying the agency responsible for a code list.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   3077  Test media, coded
+
+   Desc: Code specifying the medium on which the test was applied,
+         e.g. animal, human.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   3124  Name and address line
+
+   Desc: Free form name and address description.
+
+   Repr: an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   3127  Carrier identification
+
+   Desc: Identification of party undertaking or arranging transport of
+         goods between named points.
+
+   Repr: an..17
+
+   Note: User or association defined code.  May be used in combination
+         with 1131/3055.
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   3128  Carrier name
+
+   Desc: Name of party undertaking or arranging transport of goods
+         between named points.
+
+   Repr: an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   3131  Address type, coded
+
+   Desc: To specify the type of address.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   3139  Contact function, coded
+
+   Desc: Code specifying the function of a contact (e.g. department or
+         person).
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+*| 3148  Communication number
+
+|  Desc: The communication number.
+
+   Repr: an..512
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   3153  Communication channel identifier, coded
+
+   Desc: Code identifying the type of communication channel being
+         used.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   3155  Communication channel qualifier
+
+   Desc: Code identifying the type of communication channel being
+         used.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   3164  City name
+
+   Desc: Name of a city (a town, a village) for addressing purposes.
+
+   Repr: an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   3192  Account holder name
+
+   Desc: Name of the holder of the account.
+
+   Repr: an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   3194  Account holder number
+
+   Desc: Account number of the holder of the account.
+
+   Repr: an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   3207  Country, coded
+
+   Desc: Identification of the name of a country or other geographical
+         entity as specified in ISO 3166.
+
+   Repr: an..3
+
+   Note: Use ISO 3166 two alpha country code.
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   3222  Related place/location one
+
+   Desc: Specification of the first related place/location by name.
+
+   Repr: an..70
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   3223  Related place/location one identification
+
+   Desc: Specification of the first related place/location by code.
+
+   Repr: an..25
+
+   Note: Use UN/ECE Recommendation No. 16: UNLOCODE.  If not
+         applicable, use appropriate code set in combination with
+         1131/3055.
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+*  3224  Place/location
+
+   Desc: Name of place/location, other than 3164 City name.
+
+   Repr: an..70
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   3225  Place/location identification
+
+   Desc: Identification of the name of place/location, other than 3164
+         City name.
+
+   Repr: an..25
+
+   Note: Use UN/ECE Recommendation No. 16: UNLOCODE.  If not
+         applicable, use appropriate code set in combination with
+         1131/3055.
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   3227  Place/location qualifier
+
+   Desc: Code identifying the function of a location.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   3228  Country sub-entity
+
+   Desc: Name of sub-entities (state, province) defined by appropriate
+         governmental agencies.
+
+   Repr: an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   3229  Country sub-entity identification
+
+   Desc: Identification of the name of sub-entities (state, province)
+         defined by appropriate governmental agencies.
+
+   Repr: an..9
+
+   Note: Use code defined by appropriate national authority.
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   3232  Related place/location two
+
+   Desc: Specification of a second related place/location by name.
+
+   Repr: an..70
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   3233  Related place/location two identification
+
+   Desc: Specification of a second related place/location by code.
+
+   Repr: an..25
+
+   Note: Use UN/ECE Recommendation No. 16: UNLOCODE.  If not
+         applicable, use appropriate code set in combination with
+         1131/3055.
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   3236  Sample location
+
+   Desc: Free form description of the location within the specimen,
+         from which the sample was taken.
+
+   Repr: an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   3237  Sample location, coded
+
+   Desc: Code specifying the location, within the specimen, from which
+         the sample was taken.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   3239  Country of origin, coded
+
+   Desc: Country in which the goods have been produced or
+         manufactured, according to criteria laid down for the
+         purposes of application of the Customs tariff, of
+         quantitative restrictions, or of any other measure related to
+         trade.
+
+   Repr: an..3
+
+   Note: See Country and currency codes (UNTDED) or ISO 3166 two alpha
+         country code (Code set 3207).
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   3251  Postcode identification
+
+   Desc: Code defining postal zones or addresses.
+
+   Repr: an..9
+
+   Note: Use code defined by appropriate national authority.
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   3279  Geographic environment, coded
+
+   Desc: Describe the geographic area for message.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   3285  Recipient of the instruction identification
+
+   Desc: Party to whom the instruction is directed for advice or
+         action.
+
+   Repr: an..17
+
+   Note: User or association defined code.  May be used in combination
+         with 1131/3055.
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   3286  Address component
+
+   Desc: To specify a component of an address.
+
+   Repr: an..70
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   3289  Person characteristic qualifier
+
+   Desc: To specify the type of specific person characteristic.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   3292  Nationality
+
+   Desc: Name of country of which an entity is the subject.
+
+   Repr: a..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   3293  Nationality, coded
+
+   Desc: Code for country of which an entity is the subject.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   3295  Name component original representation, coded
+
+   Desc: To specify the alphabet originally used to represent the
+         name.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   3299  Address purpose, coded
+
+   Desc: To specify the purpose of the address.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   3301  Party enacting instruction identification
+
+   Desc: Party responsible for carrying out the instruction.
+
+   Repr: an..17
+
+   Note: User or association defined code.  May be used in combination
+         with 1131/3055.
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   3310  Person inherited characteristic
+
+   Desc: To specify a person inherited characteristic as free text.
+
+   Repr: an..70
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   3311  Person inherited characteristic identification
+
+   Desc: To specify a person inherited characteristic using a code
+         value.
+
+   Repr: an..8
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   3397  Name status, coded
+
+   Desc: To specify the status of a name (such as current name).
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   3398  Name component
+
+   Desc: Part of party name such as family name or given name.
+
+   Repr: an..70
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   3401  Name component status, coded
+
+   Desc: To specify the status of a name component.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   3403  Name type, coded
+
+   Desc: Code for type of name such as official name, alias.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   3405  Name component qualifier
+
+   Desc: To indicate a part of the name such as family name or given
+         name.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   3412  Department or employee
+
+   Desc: The department or person within an organizational entity.
+
+   Repr: an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   3413  Department or employee identification
+
+   Desc: Internal identification code.
+
+   Repr: an..17
+
+   Note: Code specified by organisation concerned.
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   3432  Institution name
+
+   Desc: Name of an institution.
+
+   Repr: an..70
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   3433  Institution name identification
+
+   Desc: Code identifying an institution.
+
+   Repr: an..11
+
+   Note: User or association defined code.  May be used in combination
+         with 1131/3055.
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   3434  Institution branch number
+
+   Desc: Number identifying a branch of an institution.
+
+   Repr: an..17
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   3436  Institution branch place
+
+   Desc: Official name of the place where the institution branch is
+         situated.
+
+   Repr: an..70
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   3446  Party tax identification number
+
+   Desc: Number assigned to a purchaser (buyer, orderer) by a tax
+         jurisdiction (state, country, etc).
+
+   Repr: an..20
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   3452  Language
+
+   Desc: Language as text (ISO 639-1988).
+
+   Repr: an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   3453  Language, coded
+
+   Desc: Code of language (ISO 639-1988).
+
+   Repr: an..3
+
+   Note: Use ISO 639-1988.
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   3455  Language qualifier
+
+   Desc: Type of language.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   3475  Address status, coded
+
+   Desc: To specify the status of the address.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   3477  Address format, coded
+
+   Desc: To specify the content of the various address components.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   3478  Marital status
+
+   Desc: Marital status of a person.
+
+   Repr: an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   3479  Marital status, coded
+
+   Desc: Code giving the marital status of a person.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   3482  Religion
+
+   Desc: To specify the religion of a person.
+
+   Repr: an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   3483  Religion, coded
+
+   Desc: To specify the religion of a person in a coded form.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   3493  Nationality qualifier
+
+   Desc: To qualify a nationality.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   3494  Job title
+
+   Desc: Description of job classification.
+
+   Repr: an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   3496  Sales channel identifier
+
+   Desc: Code identifying a sales channel for marketing information.
+
+   Repr: an..17
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   3499  Sex, coded
+
+   Desc: Code giving the gender of a person, animal or plant.
+
+   Repr: an..3
+
+   Note: Use ISO 5218 Representation of human sexes
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   4000  Reference version number
+
+   Desc: To uniquely identify a reference by its revision number.
+
+   Repr: an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   4017  Delivery plan status indicator, coded
+
+   Desc: Code indicating the level of commitment of schedule
+         information.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   4022  Business description
+
+   Desc: Description of a business.
+
+   Repr: an..70
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   4025  Business function, coded
+
+   Desc: Code describing the specific business function.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   4027  Business function qualifier
+
+   Desc: Specification of the type of business function.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   4035  Priority qualifier
+
+   Desc: To indicate the type of a priority.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   4036  Priority
+
+   Desc: To indicate a priority.
+
+   Repr: an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   4037  Priority, coded
+
+   Desc: To indicate a priority in coded form.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   4038  Additional safety information
+
+   Desc: Element to enable additional safety information to be
+         specified as free text.
+
+   Repr: an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   4039  Additional safety information, coded
+
+   Desc: Element to identify the additional safety information in
+         coded form.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   4043  Class of trade, coded
+
+   Desc: Code identifying the class of trade.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   4044  Safety section name
+
+   Desc: To identify the safety section name.
+
+   Repr: an..70
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   4046  Safety section
+
+   Desc: To identify the safety section number.
+
+   Repr: n..2
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   4052  Terms of delivery or transport
+
+   Desc: Terms agreed between two parties (e.g. seller/buyer,
+         shipper/carrier) under which a product or service is
+         provided.
+
+   Repr: an..70
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   4053  Terms of delivery or transport, coded
+
+   Desc: Identification of the terms agreed between two parties (e.g.
+         seller/buyer, shipper/carrier) under which a product or
+         service is provided.
+
+   Repr: an..3
+
+   Note: Use UN/ECE Recommendation No. 5 Incoterms 1990.  If not
+         applicable, use appropriate code set in combination with
+         1131/3055.
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   4055  Terms of delivery or transport function, coded
+
+   Desc: Indication whether the terms relate to e.g. price conditions,
+         delivery conditions, transport conditions, or a combination
+         of these.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   4065  Contract and carriage condition, coded
+
+   Desc: Code to identify the conditions of contract and carriage.
+
+   Repr: an..3
+
+   Note: User or association defined code.  May be used in combination
+         with 1131/3055.
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   4078  Handling instructions
+
+   Desc: Instructions on how specified goods, packages or containers
+         should be handled.
+
+   Repr: an..70
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   4079  Handling instructions, coded
+
+   Desc: Identification of the instructions on how specified goods,
+         packages or containers should be handled.
+
+   Repr: an..3
+
+   Note: User or association defined code.  May be used in combination
+         with 1131/3055.  See also UNTDED 5.9 p.2 CIMP.
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   4183  Special conditions, coded
+
+   Desc: Indication of a specific condition.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   4215  Transport charges method of payment, coded
+
+   Desc: Identification of method of payment for transport charges.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   4219  Transport priority, coded
+
+   Desc: Coded priority of requested transport service.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   4221  Discrepancy, coded
+
+   Desc: Code defining the disposition of any difference between the
+         quantity ordered and invoiced, or shipped and invoiced for a
+         line item or transaction.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   4233  Marking instructions, coded
+
+   Desc: Code indicating instructions on how specified packages or
+         physical units should be marked.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   4237  Prepaid/collect indicator, coded
+
+   Desc: Code indicating whether freight item amount is prepaid or to
+         be collected.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   4276  Terms of payment
+
+   Desc: Conditions of payment between the parties to a transaction
+         (generic term).
+
+   Repr: an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   4277  Terms of payment identification
+
+   Desc: Identification of the terms of payment between the parties to
+         a transaction (generic term).
+
+   Repr: an..17
+
+   Note: Use UN/ECE Recommendation No. 17 Payterms.  If not
+         applicable, use appropriate code set in combination with
+         1131/3055, or values underneath.
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   4279  Payment terms type qualifier
+
+   Desc: Identification of the type of payment terms.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   4294  Change reason
+
+   Desc: Description of the reason for a change.
+
+   Repr: an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   4295  Change reason, coded
+
+   Desc: Identification of the reason for a change.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   4343  Response type, coded
+
+   Desc: Code specifying the type of acknowledgement required or
+         transmitted.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   4347  Product id. function qualifier
+
+   Desc: Indication of the function of the product code.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   4383  Bank operation, coded
+
+   Desc: Describe the method to transfer funds in coded form.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   4400  Instruction
+
+   Desc: Description of an instruction.
+
+   Repr: an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   4401  Instruction, coded
+
+   Desc: Specification of an action to be taken by the receiver of the
+         message.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   4403  Instruction qualifier
+
+   Desc: Code giving specific meaning to the type of instructions.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   4405  Status, coded
+
+   Desc: Provides information regarding a status.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   4407  Sample process status, coded
+
+   Desc: Code specifying the stage in the product development cycle at
+         which the specimen was selected for testing.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   4415  Test method identification
+
+   Desc: Code to specify the test method employed.
+
+   Repr: an..17
+
+   Note: User or association defined code.  May be used in combination
+         with 1131/3055.
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   4416  Test description
+
+   Desc: Free form description of the test method and procedure.
+
+   Repr: an..70
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   4419  Test route of administering, coded
+
+   Desc: Code specifying the method of administering the test, e.g.
+         oral, inhalation.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   4424  Test reason
+
+   Desc: Reason for performing a test by name.
+
+   Repr: an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   4425  Test reason identification
+
+   Desc: Reason for performing a test by code.
+
+   Repr: an..17
+
+   Note: User or association defined code.  May be used in combination
+         with 1131/3055.
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   4431  Payment guarantee, coded
+
+   Desc: Identification of the means of guarantee.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   4435  Payment channel, coded
+
+   Desc: Identification of the channel of payment.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   4439  Payment conditions, coded
+
+   Desc: Identification of the method employed or to be employed in
+         order that a payment may be made or regarded as made. The
+         method may or may not be tied to a guarantee.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   4440  Free text
+
+   Desc: Free text field available to the message sender for
+         information.
+
+   Repr: an..70
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   4441  Free text, coded
+
+   Desc: Free text in coded form.
+
+   Repr: an..3
+
+   Note: User or association defined code.  May be used in combination
+         with 1131/3055.
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   4451  Text subject qualifier
+
+   Desc: Code specifying subject of a free text.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   4453  Text function, coded
+
+   Desc: Code specifying how to handle the text.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   4455  Back order, coded
+
+   Desc: Code to identify the back order agreement.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   4457  Product/service substitution, coded
+
+   Desc: Code indicating product or service substitution conditions.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   4461  Payment means, coded
+
+   Desc: Indication of the instrument of payment, which may include a
+         guarantee.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   4463  Intra-company payment, coded
+
+   Desc: Indication that the payment is within one company.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   4465  Adjustment reason, coded
+
+   Desc: Indication of reason for adjustment.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   4471  Settlement, coded
+
+   Desc: Indication of how allowances or charges are to be settled.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   4487  Type of financial transaction, coded
+
+   Desc: Specification of the type of a financial transaction in coded
+         form.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   4493  Delivery requirements, coded
+
+   Desc: Indication of general instruction for delivery.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   4494  Insurance cover
+
+   Desc: Identification of the insurance cover.
+
+   Repr: an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   4495  Insurance cover identification
+
+   Desc: Coded identification of the insurance cover.
+
+   Repr: an..17
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   4497  Insurance cover type, coded
+
+   Desc: Specification of the meaning of the insurance cover.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   4499  Reason for inventory movement, coded
+
+   Desc: To explain the reason for the inventory movement.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   4501  Inventory movement direction, coded
+
+   Desc: To specify the direction of inventory movement.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   4503  Inventory balance method, coded
+
+   Desc: To specify the method used to establish an inventory balance.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   4505  Credit cover request, coded
+
+   Desc: Request for a credit cover.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   4507  Credit cover response, coded
+
+   Desc: Reply to a request for credit cover.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   4509  Credit cover reason, coded
+
+   Desc: Reason of reply to a request for credit cover.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   4510  Requested information
+
+   Desc: To specify the information requested in a responding message
+         in a clear text form.
+
+   Repr: an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   4511  Requested information, coded
+
+   Desc: To specify the information requested in a responding message
+         in a coded form.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   4513  Maintenance operation, coded
+
+   Desc: To indicate the type of data maintenance operation for an
+         object, such as add, delete, replace.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   4517  Seal condition, coded
+
+   Desc: To indicate the condition of a seal.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   5004  Monetary amount
+
+   Desc: Number of monetary units.
+
+   Repr: n..18
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   5007  Monetary function, coded
+
+   Desc: To specify the function of a related monetary amount.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   5013  Index qualifier
+
+   Desc: To identify the type of index being referred to.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   5025  Monetary amount type qualifier
+
+   Desc: Indication of type of amount.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   5027  Index type, coded
+
+   Desc: To identify the type of index.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   5030  Index value
+
+   Desc: To specify the value of an index.
+
+   Repr: n..6
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   5039  Index value representation, coded
+
+   Desc: To identify the representation of an index value.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   5047  Contribution qualifier
+
+   Desc: Specification of the meaning of a financial contribution to a
+         scheme or group.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   5048  Contribution type
+
+   Desc: Description of the type of a contribution to a scheme or
+         group.
+
+   Repr: an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   5049  Contribution type, coded
+
+   Desc: Identification of the type of a contribution to a scheme or
+         group.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   5118  Price
+
+   Desc: The monetary value associated with a purchase or sale of an
+         article, product or service.
+
+   Repr: n..15
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   5125  Price qualifier
+
+   Desc: Identification of a type of price.
+
+   Repr: an..3
+
+   Note: Code set of 5387 may be used also.
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   5152  Duty/tax/fee type
+
+   Desc: Type of duty or tax or fee applicable to commodities or of
+         tax applicable to services.
+
+   Repr: an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   5153  Duty/tax/fee type, coded
+
+   Desc: Identification of the type of duty or tax or fee applicable
+         to commodities or of tax applicable to services.
+
+   Repr: an..3
+
+   Note: If national codes needed, use in combination with 1131/3055.
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   5189  Charge/allowance description, coded
+
+   Desc: Identification of a charge or allowance.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   5213  Sub-line price change, coded
+
+   Desc: Code indicating disposition of the price change of a sub-line
+         item.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   5237  Charge category, coded
+
+   Desc: To indicate the category or zone of charges.
+
+   Repr: an..3
+
+   Note: User or association defined code.  May be used in combination
+         with 1131/3055.
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   5242  Rate/tariff class
+
+   Desc: Description of applicable rate/tariff class.
+
+   Repr: an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   5243  Rate/tariff class identification
+
+   Desc: Identification of the rate/tariff class.
+
+   Repr: an..9
+
+   Note: User or association defined code.  May be used in combination
+         with 1131/3055.
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   5245  Percentage qualifier
+
+   Desc: Identification of the usage of a percentage.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   5249  Percentage basis, coded
+
+   Desc: Indication of the application of a percentage.
+
+   Repr: an..3
+
+   Note: User or association defined code.  May be used in combination
+         with 1131/3055.
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   5273  Duty/tax/fee rate basis identification
+
+   Desc: Identification of the various elements of tax combination to
+         be attributed to a commodity.
+
+   Repr: an..12
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   5275  Supplementary rate/tariff basis identification
+
+   Desc: Code identifying supplementary rate/tariff.
+
+   Repr: an..6
+
+   Note: User or association defined code.  May be used in combination
+         with 1131/3055.
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   5278  Duty/tax/fee rate
+
+   Desc: Rate of duty or tax or fee applicable to commodities or of
+         tax applicable to services.
+
+   Repr: an..17
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   5279  Duty/tax/fee rate identification
+
+   Desc: Identification of the rate of duty or tax or fee applicable
+         to commodities or of tax applicable to services.
+
+   Repr: an..7
+
+   Note: See national code sets.  May be used in combination with
+         1131/3055.
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   5283  Duty/tax/fee function qualifier
+
+   Desc: Code identifying the function of an duty, tax or fee
+         information.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   5284  Unit price basis
+
+   Desc: Basis on which the unit price/rate applies.
+
+   Repr: n..9
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   5286  Duty/tax/fee assessment basis
+
+   Desc: Value or quantity on which a duty or tax will be assessed.
+
+   Repr: an..15
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   5289  Duty/tax/fee account identification
+
+   Desc: Identification of a particular duty, tax or fee.
+
+   Repr: an..6
+
+   Note: See national code sets.  May be used in combination with
+         1131/3055.
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   5305  Duty/tax/fee category, coded
+
+   Desc: Code identifying a tax/duty/fee category within a
+         tax/duty/fee type system.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   5314  Remuneration type
+
+   Desc: Name of remuneration type as free text.
+
+   Repr: an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   5315  Remuneration type, coded
+
+   Desc: Remuneration type in coded form.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   5375  Price type, coded
+
+   Desc: Code identifying the type of price of an item.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   5377  Price change indicator, coded
+
+   Desc: Indication of the type of price change for a line item (eg
+         increased).
+
+   Repr: an..3
+
+   Note: User or association defined code.  May be used in combination
+         with 1131/3055.
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   5379  Product group type, coded
+
+   Desc: Specification of the type of product group used for products.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   5387  Price type qualifier
+
+   Desc: Code identifying pricing specification.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   5388  Product group
+
+   Desc: Free form description allocated by the seller to identify
+         uniquely his product group for a product or a series of
+         products.
+
+   Repr: an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   5389  Product group, coded
+
+   Desc: Code allocated by the seller to identify uniquely his product
+         group for a product or series of products.
+
+   Repr: an..3
+
+   Note: No code values at present.
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   5393  Price multiplier qualifier
+
+   Desc: Type of price multiplier.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   5394  Price multiplier
+
+   Desc: Rate to be used to multiply a price.
+
+   Repr: n..12
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   5402  Rate of exchange
+
+   Desc: The rate at which one specified currency is expressed in
+         another specified currency.
+
+   Repr: n..12
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   5419  Rate type qualifier
+
+   Desc: Identification of the type of rate.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   5420  Rate per unit
+
+   Desc: Rate per unit specified in the unit price basis.
+
+   Repr: n..15
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   5463  Allowance or charge qualifier
+
+   Desc: Specification of an allowance or charge for the service
+         specified.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   5479  Relation, coded
+
+   Desc: To specify the relationship between two or more items.
+
+   Repr: an..3
+
+   Note: Code values to be provided.
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+*  5482  Percentage
+
+   Desc: Value expressed as a percentage of a specified amount.
+
+   Repr: n..10
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   5495  Sub-line indicator, coded
+
+   Desc: Indication that the segment and/or segment group is used for
+         sub-line item information.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   6008  Height dimension
+
+   Desc: Height of pieces or packages stated for transport purposes.
+
+   Repr: n..15
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   6060  Quantity
+
+   Desc: Numeric value of a quantity.
+
+   Repr: n..15
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   6063  Quantity qualifier
+
+   Desc: Code giving specific meaning to a quantity.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   6064  Quantity difference
+
+   Desc: Numeric value of variance between ordered/shipped/invoiced
+         quantities.
+
+   Repr: n..15
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   6066  Control value
+
+   Desc: Value obtained from summing the values specified by the
+         Control Qualifier throughout the message (Hash total).
+
+   Repr: n..18
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   6069  Control qualifier
+
+   Desc: Determines the source data elements in the message which
+         forms the basis for 6066 Control value.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   6071  Frequency qualifier
+
+   Desc: Indication of the application of a frequency.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   6072  Frequency value
+
+   Desc: A value indicating a repetitive occurrence.
+
+   Repr: n..9
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   6074  Confidence limit
+
+   Desc: A percent value expressing the confidence that a true value
+         falls within a certain confidence interval.
+
+   Repr: n..6
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   6140  Width dimension
+
+   Desc: Width of pieces or packages stated for transport purposes.
+
+   Repr: n..15
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   6145  Dimension qualifier
+
+   Desc: To specify the dimensions applicable to each of the
+         transportable units.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   6152  Range maximum
+
+   Desc: Maximum of a range.
+
+   Repr: n..18
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   6154  Measurement attribute
+
+   Desc: To specify non-discrete measurement values.
+
+   Repr: an..70
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   6155  Measurement attribute, coded
+
+   Desc: Code used to specify non-discrete measurement values.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   6162  Range minimum
+
+   Desc: Minimum of a range.
+
+   Repr: n..18
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   6167  Range type qualifier
+
+   Desc: Identification of the type of range.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   6168  Length dimension
+
+   Desc: Length of pieces or packages stated for transport purposes.
+
+   Repr: n..15
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   6173  Size qualifier
+
+   Desc: Indication of the type or application of a size.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   6174  Size
+
+   Desc: A specified magnitude.
+
+   Repr: n..15
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   6176  Maximum number of occurrences
+
+   Desc: To specify the maximum number of occurrences.
+
+   Repr: n..7
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   6245  Temperature qualifier
+
+   Desc: A code giving specific meaning to the temperature.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   6246  Temperature setting
+
+   Desc: The actual temperature value in degrees Celsius (e.g. 008,
+         020).
+
+   Repr: n3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   6311  Measurement application qualifier
+
+   Desc: Specification of the application of the physical measurement
+         used.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   6313  Measurement dimension, coded
+
+   Desc: Specification of the type of dimension to be measured.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   6314  Measurement value
+
+   Desc: Value of the measured unit.
+
+   Repr: n..18
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   6321  Measurement significance, coded
+
+   Desc: Code specifying the significance of a measurement value.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   6331  Statistic type, coded
+
+   Desc: Specification of the specific statistic being reported.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   6341  Currency market exchange, coded
+
+   Desc: Code identifying the market upon which the currency exchange
+         rate is based.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   6343  Currency qualifier
+
+   Desc: Code giving specific meaning to data element 6345 Currency.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   6345  Currency, coded
+
+   Desc: Identification of the name or symbol of the monetary unit
+         involved in the transaction.
+
+   Repr: an..3
+
+   Note: Use ISO 4217 three alpha code.
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   6347  Currency details qualifier
+
+   Desc: Specification of the usage to which the currency relates.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   6348  Currency rate base
+
+   Desc: Multiplying factor used in expressing the number of currency
+         units.
+
+   Repr: n..4
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   6350  Number of units
+
+   Desc: Number of units of a certain type.
+
+   Repr: n..15
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   6353  Number of units qualifier
+
+   Desc: Indication of the objective of number of units information.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   6411  Measure unit qualifier
+
+   Desc: Indication of the unit of measurement in which weight (mass),
+         capacity, length, area, volume or other quantity is
+         expressed.
+
+   Repr: an..3
+
+   Note: See UN/ECE Recommendation 20.
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   6426  Number of stages
+
+   Desc: Count of the number of stages that will be used in the
+         process.
+
+   Repr: n..2
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   6428  Actual stage count
+
+   Desc: Count of the actual number of stages agreed in a process.
+
+   Repr: n..2
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   6432  Significant digits
+
+   Desc: To specify the number of significant digits.
+
+   Repr: n..2
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   6434  Statistical concept identifier
+
+   Desc: The identifier of a statistical concept.
+
+   Repr: an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
++  7001  Physical or logical state qualifier
+
+   Desc: Code giving a specific meaning to a physical or logical
+         state.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
++  7006  Physical or logical state
+
+   Desc: Description of the physical or logical state.
+
+   Repr: an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
++  7007  Physical or logical state, coded
+
+   Desc: Code of the physical or logical state.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   7008  Item description
+
+   Desc: Plain language description of articles or products.
+
+   Repr: an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   7009  Item description identification
+
+   Desc: Code from an industry code list which provides specific data
+         about a product characteristic.
+
+   Repr: an..17
+
+   Note: User or association defined code.  May be used in combination
+         with 1131/3055.
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   7011  Article availability, coded
+
+   Desc: Code specifying the production status of an item.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   7036  Characteristic
+
+   Desc: Free form description of the product characteristic.
+
+   Repr: an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   7037  Characteristic identification
+
+   Desc: A code from an industry code list which provides specific
+         data about a product characteristic.
+
+   Repr: an..17
+
+   Note: User or association defined code.  May be used in combination
+         with 1131/3055.
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   7039  Sample selection method, coded
+
+   Desc: Code denoting the method of selecting the test specimen.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   7045  Sample description, coded
+
+   Desc: Code describing the state of the specimen.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   7047  Sample direction, coded
+
+   Desc: Code specifying the direction in which the sample was taken.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   7059  Property class, coded
+
+   Desc: Specification of the type of class.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   7064  Type of packages
+
+   Desc: Description of the form in which goods are presented.
+
+   Repr: an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   7065  Type of packages identification
+
+   Desc: Coded description of the form in which goods are presented.
+
+   Repr: an..17
+
+   Note: See UN/ECE Recommendation No. 21 (See Vol. II of UNTDED). 
+         May be used in combination with 1131/3055.
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   7073  Packaging terms and conditions, coded
+
+   Desc: Code identifying packaging terms and conditions.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   7075  Packaging level, coded
+
+   Desc: Indication of level of packaging specified.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   7077  Item description type, coded
+
+   Desc: Code indicating the format of a description.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   7081  Item characteristic, coded
+
+   Desc: Code specifying the item characteristic being described.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   7083  Configuration, coded
+
+   Desc: Code indicating the status of the sub-line item in the
+         configuration.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   7085  Nature of cargo, coded
+
+   Desc: Code indicating the type of cargo as a rough classification.
+
+   Repr: an..3
+
+   Note: Association defined code.  May be used in combination with
+         1131/3055.
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   7088  Dangerous goods flashpoint
+
+   Desc: Lowest temperature, in the case of dangerous goods, at which
+         vapour from an inflammable liquid forms an ignitable mixture
+         with air.
+
+   Repr: an..8
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   7102  Shipping marks
+
+   Desc: Marks and numbers identifying individual packages.
+
+   Repr: an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   7106  Shipment flashpoint
+
+   Desc: Temperature in centigrade determined by the closed cup test
+         as per ISO 1523/73 where a vapour is given off that can be
+         ignited.
+
+   Repr: n3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   7110  Characteristic value
+
+   Desc: To identify the value of a characteristic.
+
+   Repr: an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   7111  Characteristic value, coded
+
+   Desc: To identify the value of a particular characteristic in coded
+         form.
+
+   Repr: an..3
+
+   Note: User or association defined code may be used in association
+         with 1131/3055.
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   7124  UNDG number
+
+   Desc: Unique serial number assigned within the United Nations to
+         substances and articles contained in a list of the dangerous
+         goods most commonly carried.
+
+   Repr: n4
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   7130  Customer authorization number
+
+   Desc: Customer provided authorization number to allow supplier to
+         ship goods under specific freight conditions.  This number
+         will be transmitted back to customer in the dispatch advice
+         message.
+
+   Repr: an..17
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   7140  Item number
+
+   Desc: A number allocated to a group or item.
+
+   Repr: an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   7143  Item number type, coded
+
+   Desc: Identification of the type of item number.
+
+   Repr: an..3
+
+   Note: User or association defined code.  May be used in combination
+         with 1131/3055.
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   7160  Special service
+
+   Desc: Description of a special service.
+
+   Repr: an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   7161  Special services, coded
+
+   Desc: Code identifying a special service.
+
+   Repr: an..3
+
+   Note: User or association defined code.  May be used in combination
+         with 1131/3055.
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   7164  Hierarchical id. number
+
+   Desc: A unique number assigned by the sender to identify a level
+         within a hierarchical structure.
+
+   Repr: an..12
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   7166  Hierarchical parent id.
+
+   Desc: Identification number of the next higher hierarchical data
+         segment in a hierarchical structure.
+
+   Repr: an..12
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   7168  Level number
+
+   Desc: Relative hierarchical position of a data segment within a
+         message as expressed in a branching diagram.
+
+   Repr: n1
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   7186  Process type
+
+   Desc: Free form description of a process.
+
+   Repr: an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   7187  Process type identification
+
+   Desc: Specification of a process or subprocess.
+
+   Repr: an..17
+
+   Note: User or association defined code.  May be used in combination
+         with 1131/3055.
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   7188  Test revision number
+
+   Desc: Definition of the revision or of the change level of the
+         specified test method employed.
+
+   Repr: an..30
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   7224  Number of packages
+
+   Desc: Number of individual parts of a shipment either unpacked, or
+         packed in such a way that they cannot be divided without
+         first undoing the packing.
+
+   Repr: n..8
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   7233  Packaging related information, coded
+
+   Desc: Code giving packaging, handling and marking related
+         information.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   7240  Total number of items
+
+   Desc: Total number of items, having separate goods descriptions.
+
+   Repr: n..15
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+|  7273  Service requirement, coded
+
+|  Desc: Identification of a service requirement (which may constitute
+         an additional component to a basic contract).
+
+   Repr: an..3
+
+   Note: User or association defined code.  May be used in combination
+         with 1131/3055.
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   7293  Sector/subject identification qualifier
+
+   Desc: Identification of the subject areas to which the specified
+         conditions apply.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   7294  Requirement or condition
+
+   Desc: Plain text identifying a specific requirement or condition.
+
+   Repr: an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   7295  Requirement/condition identification
+
+   Desc: Code identifying a specific rule, regulation or condition.
+
+   Repr: an..17
+
+   Note: User or association defined code.  May be used in combination
+         with 1131/3055.
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   7297  Set identification qualifier
+
+   Desc: Identification of the type of set.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   7299  Requirement designator, coded
+
+   Desc: To specify the designated requirement.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   7357  Commodity/rate identification
+
+   Desc: Code identifying goods for Customs, transport or statistical
+         purposes (generic term).
+
+   Repr: an..18
+
+   Note: User or association defined code.  May be used in combination
+         with 1131/3055.
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   7361  Customs code identification
+
+   Desc: To specify goods in terms of customs identity.
+
+   Repr: an..18
+
+   Note: Use relevant code.  May be used in combination with
+         1131/3055.
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   7365  Processing indicator, coded
+
+   Desc: Identifies the value to be attributed to indicators required
+         by the processing system.
+
+   Repr: an..3
+
+   Note: If national codes needed, use 1131 and 3055.
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   7383  Surface/layer indicator, coded
+
+   Desc: Code indicating the surface or layer of a product that is
+         being described.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   7402  Identity number
+
+   Desc: A value given to an object for identification purposes.
+
+   Repr: an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   7405  Identity number qualifier
+
+   Desc: Code specifying the type/source of identity number.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   7419  Hazardous material class code, identification
+
+   Desc: Code specifying the kind of hazard for a material.
+
+   Repr: an..4
+
+   Note: Association defined code.  May be used in combination with
+         1131/3055.
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   7429  Indexing structure qualifier
+
+   Desc: To qualify the indexing structure established for a project.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   7431  Agreement type qualifier
+
+   Desc: Indication of the type of agreement.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   7433  Agreement type, coded
+
+   Desc: Specification of the type of agreement.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   7434  Agreement type description
+
+   Desc: Description of the type of agreement.
+
+   Repr: an..70
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   7436  Level one id.
+
+   Desc: The first facet of a sequencing mechanism used to position an
+         item within an indexing structure.
+
+   Repr: an..17
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   7438  Level two id.
+
+   Desc: The second facet of a sequencing mechanism used to position
+         an item within an indexing structure.
+
+   Repr: an..17
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   7440  Level three id.
+
+   Desc: The third facet of a sequencing mechanism used to position an
+         item within an indexing structure.
+
+   Repr: an..17
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   7442  Level four id.
+
+   Desc: The fourth facet of a sequencing mechanism used to position
+         an item within an indexing structure.
+
+   Repr: an..17
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   7444  Level five id.
+
+   Desc: The fifth facet of a sequencing mechanism used to position an
+         item within an indexing structure.
+
+   Repr: an..17
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   7446  Level six id.
+
+   Desc: The sixth facet of a sequencing mechanism used to position an
+         item within an indexing structure.
+
+   Repr: an..17
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   7449  Membership qualifier
+
+   Desc: Specification of the meaning of a code to qualify membership
+         data.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   7450  Membership category
+
+   Desc: Description of a membership category.
+
+   Repr: an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   7451  Membership category identification
+
+   Desc: Identification of a membership category.
+
+   Repr: an..4
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   7452  Membership status
+
+   Desc: Description of membership status.
+
+   Repr: an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   7453  Membership status, coded
+
+   Desc: Identification of the membership status.
+
+   Repr: an..3
+
+   Note: User or association defined code.  May be used in combination
+         with 1131/3055.
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   7455  Membership level qualifier
+
+   Desc: Specification of the meaning of a membership level.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   7456  Membership level
+
+   Desc: Description of a membership level.
+
+   Repr: an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   7457  Membership level identification
+
+   Desc: Identification of a membership level.
+
+   Repr: an..9
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   7491  Type of inventory affected, coded
+
+   Desc: To specify the type of inventory which is affected by an
+         inventory movement or expressed in an inventory balance.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   7493  Damage details qualifier
+
+   Desc: Code giving specific meaning to the damage details.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   7495  Identification qualifier
+
+   Desc: To identify a type of object.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   7497  Component function qualifier
+
+   Desc: To identify the function of a structure component.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   7500  Type of damage
+
+   Desc: Description specifying the type of damage to an object.
+
+   Repr: an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   7501  Type of damage, coded
+
+   Desc: Code specifying the type of damage to an object.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   7502  Damage area
+
+   Desc: Description specifying where the damage is on an object.
+
+   Repr: an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   7503  Damage area identification
+
+   Desc: Code specifying where the damage is on an object.
+
+   Repr: an..4
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   7504  Type of unit/component
+
+   Desc: Description identifying the type of unit/component of an
+         object (e.g. lock, door, tyre).
+
+   Repr: an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   7505  Type of unit/component, coded
+
+   Desc: Code identifying the type of unit/component of an object
+         (e.g. lock, door, tyre).
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   7506  Component material
+
+   Desc: Description identifying the material of which a component is
+         composed (e.g. steel, plastics).
+
+   Repr: an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   7507  Component material, coded
+
+   Desc: Code identifying the material of which a component is
+         composed (e.g. steel, plastics).
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   7508  Damage severity
+
+   Desc: Description specifying the severity of damage to an object.
+
+   Repr: an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   7509  Damage severity, coded
+
+   Desc: Code specifying the severity of damage to an object.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   7511  Type of marking, coded
+
+   Desc: To specify the type of marking that reflects the method and
+         the conventions adhered to for marking.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   7512  Structure component identifier
+
+   Desc: The identifier of a structure component.
+
+   Repr: an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   8022  Freight and charges
+
+   Desc: Plain language statement describing freight and other
+         charges.
+
+   Repr: an..26
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   8023  Freight and charges identification
+
+   Desc: Coded description of freight charges and other charges (used
+         in combination with 1131/3055).
+
+   Repr: an..17
+
+   Note: Use UN/ECE Recommendation No. 23: Freight costs and charges. 
+         If not applicable, use appropriate code in combination with
+         1131/3055.
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   8028  Conveyance reference number
+
+   Desc: Unique reference given by the carrier to a certain journey or
+         departure of a means of transport (generic term).
+
+   Repr: an..17
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   8051  Transport stage qualifier
+
+   Desc: Qualifier giving a specific meaning to the transport details.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   8053  Equipment qualifier
+
+   Desc: Code identifying type of equipment.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   8066  Mode of transport
+
+   Desc: Method of transport used for the carriage of the goods.
+
+   Repr: an..17
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   8067  Mode of transport, coded
+
+   Desc: Coded method of transport used for the carriage of the goods.
+
+   Repr: an..3
+
+   Note: Use UN/ECE Recommendation No 19.
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   8077  Equipment supplier, coded
+
+   Desc: To indicate the party that is the supplier of the equipment.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   8078  Hazard substance/item/page number
+
+   Desc: Number giving additional hazard code classification of a
+         goods item within the applicable dangerous goods regulation.
+
+   Repr: an..7
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   8092  Hazard code version number
+
+   Desc: The version/revision number of date of issuance of the code
+         used.
+
+   Repr: an..10
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   8101  Transit direction, coded
+
+   Desc: Identification of the point of origin and point of direction.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   8126  Trem card number
+
+   Desc: The identification of a transport emergency card giving
+         advice for emergency actions.
+
+   Repr: an..10
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   8154  Equipment size and type
+
+   Desc: Plain language description of the size and type of equipment
+         e.g. unit load device.
+
+   Repr: an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   8155  Equipment size and type identification
+
+   Desc: Coded description of the size and type of equipment e.g. unit
+         load device.
+
+   Repr: an..10
+
+   Note: User or association defined code.  May be used in combination
+         with 1131/3055. See ISO 6346 for seagoing containers.
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   8158  Hazard identification number, upper part
+
+   Desc: The id. number for the Orange Placard (upper part) required
+         on the means of transport.
+
+   Repr: an..4
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   8169  Full/empty indicator, coded
+
+   Desc: To indicate the extent to which the equipment is full or
+         empty.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   8178  Type of means of transport
+
+   Desc: Description of the type of the means of transport being
+         utilized.
+
+   Repr: an..17
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   8179  Type of means of transport identification
+
+   Desc: Code defining the type of the means of transport being
+         utilized.
+
+   Repr: an..8
+
+   Note: No international codes available.
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   8186  Substance identification number, lower part
+
+   Desc: The number for the Orange Placard (lower part) required on
+         the means of transport.
+
+   Repr: an4
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   8211  Permission for transport, coded
+
+   Desc: Code giving evidence that transportation of particular
+         hazardous cargo is permitted and identifies the restrictions
+         being put upon a particular transport.
+
+   Repr: an..3
+
+   Note: Code values to be provided.
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   8212  Id. of the means of transport
+
+   Desc: Identification of the means of transport by name or number.
+
+   Repr: an..35
+
+   Note: Use relevant code.  May be used in combination with
+         1131/3055.
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   8213  Id. of means of transport identification
+
+   Desc: Identification of the means of transport by name or number.
+
+   Repr: an..9
+
+   Note: Use relevant code.  May be used in combination with
+         1131/3055.
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   8246  Dangerous goods label marking
+
+   Desc: Marking identifying the type of hazardous goods (substance),
+         Loading/Unloading instructions and advising actions in case
+         of emergency.
+
+   Repr: an..4
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   8249  Equipment status, coded
+
+   Desc: Indication of the action related to the equipment.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   8255  Packing instruction, coded
+
+   Desc: Code defining the quantity and the type of package in which a
+         product is allowed to be shipped in a passenger or freight
+         aircraft.
+
+   Repr: an..3
+
+   Note: User or association defined code.  May be used in combination
+         with 1131/3055.
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   8260  Equipment identification number
+
+   Desc: Marks (letters and/or numbers) which identify equipment e.g.
+         unit load device.
+
+   Repr: an..17
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   8273  Dangerous goods regulations, coded
+
+   Desc: Code indicating the regulation, international or national,
+         applicable for a means of transport.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   8275  Container/package status, coded
+
+   Desc: Code to identify whether goods of separate description or
+         comprising separate consignments are contained in the same
+         external packaging or to indicate that a container or similar
+         unit load device is empty.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   8281  Transport ownership, coded
+
+   Desc: Code indicating the ownership of the means of transport.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   8323  Transport movement, coded
+
+   Desc: Code indicating the movement of goods (e.g. import, export,
+         transit).
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   8325  Category of means of transport, coded
+
+   Desc: Identification of the type of means of transport determined
+         to carry particular goods, not necessarily being hazardous.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   8332  Equipment plan
+
+   Desc: Description indicating equipment plan, e.g. FCL or LCL.
+
+   Repr: an..26
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   8334  Movement type
+
+   Desc: Description of the type of movement.
+
+   Repr: an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   8335  Movement type, coded
+
+   Desc: Code indicating the type of movement.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   8339  Packing group, coded
+
+   Desc: Identification of a packing group by code.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   8341  Haulage arrangements, coded
+
+   Desc: Specification of the type of equipment haulage arrangements.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   8351  Hazard code identification
+
+   Desc: Dangerous goods code.
+
+   Repr: an..7
+
+   Note: Use relevant code list.
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   8364  EMS number
+
+   Desc: Emergency procedures for ships carrying dangerous goods.
+
+   Repr: an..6
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   8393  Returnable package load contents, coded
+
+   Desc: To indicate the composition of goods loaded into a returnable
+         package.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   8395  Returnable package freight payment responsibility, coded
+
+   Desc: To indicate responsibility for payment of return freight
+         charges for packaging that is returnable.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   8410  MFAG
+
+   Desc: Medical first aid guide.
+
+   Repr: an..4
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   8453  Nationality of means of transport, coded
+
+   Desc: Coded name of the country in which a means of transport is
+         registered.
+
+   Repr: an..3
+
+   Note: Use ISO 3166 alpha two country code.
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   8457  Excess transportation reason, coded
+
+   Desc: Indication of reason for excess transportation.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   8459  Excess transportation responsibility, coded
+
+   Desc: Indication of responsibility for excess transportation.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   9003  Employment qualifier
+
+   Desc: Specification of the meaning of employment details.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   9004  Employment category
+
+   Desc: Description of employment category.
+
+   Repr: an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   9005  Employment category, coded
+
+   Desc: Identification of the employment category.
+
+   Repr: an..3
+
+   Note: User or association defined code.  May be used in combination
+         with 1131/3055.
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   9006  Qualification classification
+
+   Desc: Description of a qualification classification.
+
+   Repr: an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   9007  Qualification classification, coded
+
+   Desc: Identification of a qualification classification.
+
+   Repr: an..3
+
+   Note: User or association defined code.  May be used in combination
+         with 1131/3055.
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   9008  Occupation
+
+   Desc: Description of an occupation.
+
+   Repr: an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   9009  Occupation, coded
+
+   Desc: Code identifying an occupation.
+
+   Repr: an..3
+
+   Note: User or association defined code.  May be used in combination
+         with 1131/3055.
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   9010  Status event
+
+   Desc: Description of a status event.
+
+   Repr: an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   9011  Status event, coded
+
+   Desc: Code identifying a status event.
+
+   Repr: an..3
+
+   Note: User or association defined code.  May be used in combination
+         with 1131/3055.
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   9012  Status reason
+
+   Desc: Provides the reason behind a status event.
+
+   Repr: an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   9013  Status reason, coded
+
+   Desc: Code identifying the reason behind a status event.
+
+   Repr: an..3
+
+   Note: User or association defined code.  May be used in combination
+         with 1131/3055.
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   9015  Status type, coded
+
+   Desc: Code identifying the type of status event.
+
+   Repr: an..3
+
+   Note: User or association defined code.  May be used in combination
+         with 1131/3055.
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   9017  Attribute function qualifier
+
+   Desc: Specification of the meaning of an attribute function.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   9018  Attribute
+
+   Desc: Description of an attribute of an entity.
+
+   Repr: an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   9019  Attribute, coded
+
+   Desc: Identification of an attribute.
+
+   Repr: an..3
+
+   Note: Must be from an external code set, such as a user or
+         association defined code.  May be used in combination with
+         1131/3055.
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   9021  Attribute type, coded
+
+   Desc: Coded specification of the type attribute.
+
+   Repr: an..3
+
+   Note: Must be from an external code set, such as a user or
+         association defined code.  May be used in combination with
+         1131/3055.
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   9035  Qualification area, coded
+
+   Desc: Code identifying the application area of a qualification.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   9141  Relationship qualifier
+
+   Desc: Specification of the meaning of a relationship.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   9142  Relationship
+
+   Desc: Description of a relationship.
+
+   Repr: an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   9143  Relationship, coded
+
+   Desc: Identification of a relationship.
+
+   Repr: an..3
+
+   Note: User or association defined code.  May be used in combination
+         with 1131/3055.
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   9146  Composite data element tag
+
+   Desc: Tag of a composite data element.
+
+   Repr: an..4
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   9148  Directory status
+
+   Desc: The status of a directory set.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   9150  Simple data element tag
+
+   Desc: Tag of a simple data element.
+
+   Repr: an..4
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   9153  Simple data element character representation, coded
+
+   Desc: To specify the character representation of a simple data
+         element.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   9155  Simple data element length type, coded
+
+   Desc: Code identifying the length type of a simple data element.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   9156  Simple data element maximum length
+
+   Desc: To indicate the maximum length of a simple data element.
+
+   Repr: n..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   9158  Simple data element minimum length
+
+   Desc: To indicate the minimum length of a simple data element.
+
+   Repr: n..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   9161  Code set indicator, coded
+
+   Desc: To indicate if a data element has an associated code set.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   9162  Data element tag
+
+   Desc: Tag of a data element.
+
+   Repr: an..4
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   9164  Group identification
+
+   Desc: To identify a group within a message type structure.
+
+   Repr: an..4
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   9166  Segment tag
+
+   Desc: Tag of a segment.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   9213  Type of duty regime, coded
+
+   Desc: Identification of the statement of the full/preferential
+         regime according to which duty is assessed.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   9280  Validation result
+
+   Desc: The result of the application of an algorithm to the content
+         of data element in a message.
+
+   Repr: an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   9282  Validation key identification
+
+   Desc: Identifies the cryptographic key used to calculate the
+         validation result.
+
+   Repr: an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   9302  Sealing party
+
+   Desc: Clear text, representing the name of the issuer of the seal
+         number.
+
+   Repr: an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   9303  Sealing party, coded
+
+   Desc: Identification of the issuer of the seal number.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   9308  Seal number
+
+   Desc: The number of a custom seal or another seal affixed to the
+         containers or other transport unit.
+
+   Repr: an..10
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   9321  Application error identification
+
+   Desc: The code assigned by the receiver of a message to the
+         identification of a data validation error condition.
+
+   Repr: an..8
+
+   Note: User or association defined code.  May be used in combination
+         with 1131/3055.
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   9353  Government procedure, coded
+
+   Desc: Code identifying the treatment applied by the government to
+         goods which are subject to a control.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   9411  Government involvement, coded
+
+   Desc: Indication of requirement and status of government
+         involvement.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   9415  Government agency, coded
+
+   Desc: To indicate government agencies that are involved.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   9417  Government action, coded
+
+   Desc: To indicate type of government action such as inspection,
+         detention, fumigation, security.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   9419  Service layer, coded
+
+   Desc: Subdivision of a service by code.
+
+   Repr: an..3
+
+   Note: User or association defined code.  May be used in combination
+         with 1131/3055.
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   9421  Stages qualifier
+
+   Desc: Code identifying the kind of stage in a process.
+
+   Repr: an..3
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   9424  Array cell information
+
+   Desc: Contains the data for a cell in an array.
+
+   Repr: an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   9426  Code value
+
+   Desc: Value of the code.
+
+   Repr: an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   9428  Array structure identifier
+
+   Desc: The identifier of an array structure.
+
+   Repr: an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   9430  Footnote set identifier
+
+   Desc: The identifier of a set of footnotes.
+
+   Repr: an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   9432  Footnote identifier
+
+   Desc: The identifier of a footnote.
+
+   Repr: an..35
+
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   9434  Code name
+
+   Desc: Name of a code.
+
+   Repr: an..70
+

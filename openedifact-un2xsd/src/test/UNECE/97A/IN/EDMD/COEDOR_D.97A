@@ -1,0 +1,394 @@
+                              UN/EDIFACT
+
+                UNITED NATIONS STANDARD MESSAGE (UNSM)
+
+                    Container stock report message
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                            Message Type : COEDOR
+                                            Version      : D
+                                            Release      : 97A
+                                            Contr. Agency: UN
+
+                                            Revision     : 3
+                                            Date         : 96-12-13
+
+
+
+
+
+
+SOURCE: Joint Transport Group (JM4)
+
+
+
+                               CONTENTS
+
+                    Container stock report message
+
+0.   INTRODUCTION
+
+1.   SCOPE
+
+     1.1   Functional definition
+
+     1.2   Field of application
+
+     1.3   Principles
+
+2.   REFERENCES
+
+3.   TERMS AND DEFINITIONS
+
+     3.1   Standard terms and definitions
+
+4.   MESSAGE DEFINITION
+
+     4.1   Data segment clarification
+
+     4.2   Data segment index (alphabetical sequence)
+
+     4.3   Message structure
+
+           4.3.1 Segment table
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------
+For general information on UN standard message types see UN Trade Data
+Interchange Directory, UNTDID, Part 4, Section 2.6, UN/ECE UNSM
+General Introduction
+----------------------------------------------------------------------
+
+
+
+0.     INTRODUCTION
+
+       This specification provides the definition of the Container
+       stock report message (COEDOR) to be used in Electronic Data
+       Interchange (EDI) between trading partners involved in
+       administration, commerce and transport.
+
+1.     SCOPE
+
+1.1    Functional Definition
+
+       A message to report containers that are in stock of the sending
+       party (i.e., a terminal, depot or container freight station).
+       
+       This message is part of a total set of container-related
+       messages. These messages serve to facilitate the intermodal
+       handling of containers by streamlining the information
+       exchange.
+       The business scenario for the container messages is clarified
+       in a separate document, called: 'Guide to the scenario of
+       EDIFACT container messages'.
+
+1.2    Field of Application
+
+       The Container stock report message may be used for both
+       national and international applications. It is based on
+       universal practice related to administration, commerce and
+       transport, and is not dependent on the type of business or
+       industry.
+
+1.3    Principles
+
+       Business area: 
+       Pre- and on-carriage transport of containers/equipment 
+        
+       Sending functions include: 
+       Container terminal (seaside), inland terminal (landside),
+       container freight station, container depot
+        
+       Receiving functions include: 
+       Shipping agent, logistic center, freight forwarder 
+        
+       In the context of the 'Guide to the scenario of EDIFACT
+       container messages' (as referred to at the start of section 1)
+       the following guidelines, rules and functionality apply to this
+       Container stock report message:
+        
+       *   The message contents can be uniquely identified by a
+       combination of the following data elements:
+       - message sender, coded (NAD) 
+       - stock check date/time (DTM) 
+        
+       A combination of the following data elements can be used in
+       order to relate to business data contained in the Container
+       acceptance order:
+       - ordering customer, coded (NAD) 
+       - ordering customer agent, coded (NAD) 
+       - container announcement reference (being the acceptance order
+       reference) (EQD/RFF) 
+        
+       *   The message can be sent on a regular basis; e.g. once or
+       twice per day.
+        
+       *   One message may contain several containers identified by
+       their prefix and serial number.
+       
+       *   For each container its stack position can be given,
+       including the date and time of its checking by the stock
+       reporter, and the date/time on which the container was
+       delivered at the stock keeper's place.
+        
+       *   Also the transport status (= export, import, transhipment
+       or continental), full/empty indication and the condition
+       (damage) of the container can be specified.
+        
+       *   Depending on the transport status of the container
+       additional information on the container can be given, such as
+       carrier agent's reference, (seagoing) vessel, (sea) voyage
+       number/indication and port of discharge.
+        
+       *   Goods item details cannot be completed.
+
+2.     REFERENCES
+
+       See UNTDID, Part 4, Chapter 2.6 UN/ECE UNSM - General
+       Introduction, Section 1.
+
+3.     TERMS AND DEFINITIONS
+
+3.1    Standard terms and definitions
+
+       See UNTDID, Part 4, Chapter 2.6 UN/ECE UNSM - General
+       Introduction, Section 2.
+
+4.     MESSAGE DEFINITION
+
+4.1    Data Segment Clarification
+
+       This section should be read in conjunction with the Segment
+       Table which indicate mandatory, conditional and repeating
+       requirements.
+
+0010   UNH, Message header
+       A service segment starting and uniquely identifying a message.
+       The message type code for the Container stock report message is
+       COEDOR.
+       
+       Note: Container stock report messages conforming to this
+       document must contain the following data in segment UNH,
+       composite S009:
+
+       Data element  0065 COEDOR
+                     0052 D
+                     0054 97A
+                     0051 UN
+
+0020   BGM, Beginning of message
+       A segment to indicate the beginning of a message and to
+       transmit the identifying number.
+
+0030   DTM, Date/time/period
+       A segment to indicate the date and time on which the particular
+       container has been ascertained as being in stock (stock check
+       date/time).
+
+0040   FTX, Free text
+       A segment to specify free form or processable supplementary
+       information, such as:
+       -   change information
+
+
+0050   Segment group 1:  RFF-DTM
+       A group of segments to specify a reference relating to the
+       whole message, and its date and/or time.
+
+0060      RFF, Reference
+          A segment to express a reference which applies to the entire
+          message, such as:
+          -   reference to previous message
+
+0070      DTM, Date/time/period
+          A segment to indicate date and/or time related to the
+          reference.
+
+
+0080   Segment group 2:  NAD-SG3
+       A group of segments to identify a party and/or addresses and
+       related contacts.
+
+0090      NAD, Name and address
+          A segment to identify the party's name and address, and
+          function, such as:
+          -   message recipient 
+          -   message sender 
+          -   ordering customer 
+          -   ordering customer agent
+
+
+0100      Segment group 3:  CTA-COM
+          A group of segments to identify a contact and its
+          communications related to the party.
+
+0110         CTA, Contact information
+             A segment to identify a person or department of a message
+             sender and/or message recipient, such as: 
+             -   information contact
+
+0120         COM, Communication contact
+             A segment to identify a communication number of a person
+             or department to whom communication should be directed.
+
+
+0130 | Segment group 4:  EQD-RFF-DTM-LOC-HAN-SG5-SG6
+       A group of segments to specify containers in stock of the
+       sending party, including relevant details.
+
+0140      EQD, Equipment details
+          A segment to specify the prefix and number of the container,
+          its status and a full/empty indication.
+
+0150      RFF, Reference
+          A segment to express a reference which applies to the
+          particular container, such as:
+          -   container announcement reference number
+          -   acceptance order reference
+
+0160      DTM, Date/time/period
+          A segment to indicate the date and time on which the
+          particular container has been ascertained as being in stock
+          (stock check date/time), and to indicate when the container
+          has been delivered at the stock keeper (actual equipment
+          positioning date/time).
+
+0170      LOC, Place/location identification
+          A segment to indicate a port/place according to the
+          corresponding container, such as:
+          -   stack position
+
+0180 +    HAN, Handling instructions
+          A segment to specify handling instructions related to the
+          container equipment.
+
+
+0190      Segment group 5:  DAM-COD
+          A group of segments to specify damage details related to the
+          equipment.
+
+0200         DAM, Damage
+             A segment to specify equipment damages, such as the point
+             of the damage on the equipment, and the type of damage.
+
+0210         COD, Component details
+             A segment to specify component details of the damaged
+             equipment.
+
+
+0220      Segment group 6:  TDT-LOC
+          A group of segments to specify transport details related to
+          the container.
+
+0230         TDT, Details of transport
+             A segment to indicate information about sea transport
+             related to the container (main carriage transport), such
+             as voyage number/indication sea transport, vessel and
+             carrier/liner service.
+
+0240         LOC, Place/location identification
+             A segment to indicate a port/place according to the
+             corresponding container, such as:
+             -   place of discharge
+
+0250   CNT, Control total
+       A segment to specify the number of containers in the message,
+       explicitly given by the sender.
+
+0260   UNT, Message trailer
+       A service segment ending a message, giving the total number of
+       segments in the message and the control reference number of the
+       message.
+
+4.2    Data segment index (Alphabetical sequence by tag)
+
+          BGM Beginning of message
+          CNT Control total
+          COD Component details
+          COM Communication contact
+          CTA Contact information
+          DAM Damage
+          DTM Date/time/period
+          EQD Equipment details
+          FTX Free text
+       +  HAN Handling instructions
+          LOC Place/location identification
+          NAD Name and address
+          RFF Reference
+          TDT Details of transport
+          UNH Message header
+          UNT Message trailer
+
+4.3    Message structure
+
+4.3.1  Segment table
+
+Pos    Tag Name                                      S   R
+
+0010   UNH Message header                            M   1     
+0020   BGM Beginning of message                      M   1     
+0030   DTM Date/time/period                          M   1     
+0040   FTX Free text                                 C   9     
+
+0050       ÄÄÄÄÄ Segment group 1  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄÄÄÄ¿
+0060   RFF Reference                                 M   1           ³
+0070   DTM Date/time/period                          C   9ÄÄÄÄÄÄÄÄÄÄÄÙ
+
+0080       ÄÄÄÄÄ Segment group 2  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   9ÄÄÄÄÄÄÄÄÄÄÄ¿
+0090   NAD Name and address                          M   1           ³
+                                                                     ³
+0100       ÄÄÄÄÄ Segment group 3  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄÄÄ¿³
+0110   CTA Contact information                       M   1          ³³
+0120   COM Communication contact                     C   9ÄÄÄÄÄÄÄÄÄÄÁÙ
+
+0130       ÄÄÄÄÄ Segment group 4  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   9999ÄÄÄÄÄÄÄÄ¿
+0140   EQD Equipment details                         M   1           ³
+0150   RFF Reference                                 C   9           ³
+0160   DTM Date/time/period                          C   9           ³
+0170   LOC Place/location identification             C   9           ³
+0180 + HAN Handling instructions                     C   9           ³
+                                                                     ³
+0190       ÄÄÄÄÄ Segment group 5  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄÄÄ¿³
+0200   DAM Damage                                    M   1          ³³
+0210   COD Component details                         C   1ÄÄÄÄÄÄÄÄÄÄÙ³
+                                                                     ³
+0220       ÄÄÄÄÄ Segment group 6  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   1ÄÄÄÄÄÄÄÄÄÄ¿³
+0230   TDT Details of transport                      M   1          ³³
+0240   LOC Place/location identification             C   9ÄÄÄÄÄÄÄÄÄÄÁÙ
+0250 * CNT Control total                             C   1     
+0260   UNT Message trailer                           M   1     

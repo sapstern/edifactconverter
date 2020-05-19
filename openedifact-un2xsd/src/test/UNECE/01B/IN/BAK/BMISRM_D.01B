@@ -1,0 +1,458 @@
+                              UN/EDIFACT
+
+                UNITED NATIONS STANDARD MESSAGE (UNSM)
+
+            Bulk marine inspection summary report message
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                           Message Type : BMISRM
+                                           Version      : D
+                                           Release      : 01B
+                                           Contr. Agency: UN
+
+                                           Revision     : 2
+                                           Date         : 2001-05-15
+
+
+
+
+
+
+SOURCE: D4 Transport (SWG)
+
+
+
+                               CONTENTS
+
+            Bulk marine inspection summary report message
+
+0.     INTRODUCTION
+
+1.     SCOPE
+
+       1.1   Functional definition
+
+       1.2   Field of application
+
+       1.3   Principles
+
+2.     REFERENCES
+
+3.     TERMS AND DEFINITIONS
+
+       3.1   Standard terms and definitions
+
+4.     MESSAGE DEFINITION
+
+       4.1   Segment clarification
+             4.1.1 Header section
+             4.1.2 Detail section
+
+       4.2   Segment index (alphabetical sequence by tag)
+
+       4.3   Message structure
+             4.3.1 Segment table
+
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------
+For general information on UN standard message types see UN Trade Data
+Interchange Directory, UNTDID, Part 4, Section 2.3, UN/ECE UNSM
+General Introduction
+----------------------------------------------------------------------
+
+
+
+0.     INTRODUCTION
+
+       This specification provides the definition of the Bulk marine
+       inspection summary report message (BMISRM) to be used in
+       Electronic Data Interchange (EDI) between trading partners
+       involved in administration, commerce and transport.
+
+1.     SCOPE
+
+1.1    Functional definition
+
+       A message from an inspection company to bulk cargo buyers and
+       sellers, ship and barge owners, agents, or customs, identifying
+       significant transport dates and times, as well as cargo quality
+       and quantity information.
+
+1.2    Field of application
+
+       The Bulk marine inspection summary report message may be used
+       for both national and international applications. It is based
+       on universal practice related to administration, commerce and
+       transport, and is not dependent on the type of business or
+       industry.
+
+1.3    Principles
+
+       This message summarizes the flow of bulk marine cargo between
+       seller and buyer as monitored by an inspection company, and is
+       used for loss control. This message may also be used to replace
+       the functions covered by time log information, certificate of
+       analysis, and voyage analysis information as related to loss
+       control and payment approval. This message can also be used to:
+       - identify vessels, barges, tugs, ports and terminals, and
+       associated voyage numbers
+       - specify transportation details such as, docking dates and
+       times, sea valve numbers, and vessel experience factors
+       - specify bulk cargo by name, physical measurements and tests.
+
+2.     REFERENCES
+
+       See UNTDID, Part 4, Chapter 2.3 UN/ECE UNSM - General
+       Introduction, Section 1.
+
+3.     TERMS AND DEFINITIONS
+
+3.1    Standard terms and definitions
+
+       See UNTDID, Part 4, Chapter 2.3 UN/ECE UNSM - General
+       Introduction, Section 2.
+
+4.     MESSAGE DEFINITION
+
+4.1    Segment clarification
+
+       This section should be read in conjunction with the segment
+       table which indicates mandatory, conditional and repeating
+       requirements.
+       
+       The detail section provides cargo type details, equipment
+       details and test and measurement information. This section may
+       contain voyage analysis and certificate of analysis information
+       which can be transmitted as separate entities or as a
+       conglomeration.
+
+4.1.1  Header section
+
+
+       Information to be provided in the Header section:
+
+0010   UNH, Message header
+       A service segment starting and uniquely identifying a message.
+       The message type code for the Bulk marine inspection summary
+       report message is BMISRM.
+
+       Note: Bulk marine inspection summary report messages conforming
+       to this document must contain the following data in segment
+       UNH, composite S009:
+
+       Data element  0065 BMISRM
+                     0052 D
+                     0054 01B
+                     0051 UN
+
+0020   BGM, Beginning of message
+       A segment to indicate the beginning of the message by
+       identifying the message by a document number.
+
+0030   DTM, Date/time/period
+       A segment to specify the document date.
+
+0040   RFF, Reference
+       A segment to express a reference which relates to the whole
+       message such as, the job number of a related inspection report.
+
+0050   LOC, Place/location identification
+       A segment to indicate the location of the vessel during the
+       inspection.
+
+0060   FTX, Free text
+       A segment to specify free form or supplementary information
+       relevant to the entire message such as a letter of protest.
+
+
+0070   Segment group 1:  PNA-ADR-RFF-SG2
+       A group of segments to identify the inspection company and any
+       related parties pertaining to the whole message, their contacts
+       and communication channel information. If more than one party
+       is associated with the cargo, they are to be identified at the
+       detail level.
+
+0080      PNA, Party identification
+          A segment to identify the name of the inspection company and
+          any related parties pertaining to the whole message.
+
+0090      ADR, Address
+          A segment to specify the address of the identified parties.
+
+0100      RFF, Reference
+          A segment to specify reference numbers related to the
+          identified party.
+
+
+0110      Segment group 2:  CTA-COM
+          A group of segments to identify contacts and related
+          communication numbers of the identified parties.
+
+0120         CTA, Contact information
+             A segment to identify a person or department within a
+             party.
+
+0130         COM, Communication contact
+             A segment to identify a communication number of a person
+             or department to whom communication should be directed.
+
+
+0140   Segment group 3:  DTM-STS-FTX
+       A group of segments to specify a time log, detailing such
+       information as, docked date and time, notice of readiness date
+       and time, and reasons for excess transportation time.
+
+0150      DTM, Date/time/period
+          A segment providing date and time information related to the
+          voyage.
+
+0160      STS, Status
+          A segment providing status event details related to the
+          voyage.
+
+0170      FTX, Free text
+          A segment to specify free form or supplementary information
+          pertaining to the status event and time.
+
+4.1.2  Detail section
+
+       Information to be provided in the Detail section:
+
+
+0180   Segment group 4:  LIN-QTY-FTX-SG5-SG7
+       A group of segments to identify the cargo and the associated
+       contractual quantity.
+
+0190      LIN, Line item
+          A segment to identify the cargo.
+
+0200      QTY, Quantity
+          A segment to specify the contractual quantity for the
+          identified cargo.
+
+0210      FTX, Free text
+          A segment to specify free form or supplementary information
+          pertaining to the cargo.
+
+
+0220      Segment group 5:  PNA-ADR-RFF-SG6
+          A group of segments to identify parties, contacts, and
+          communication numbers related to the cargo.
+
+0230         PNA, Party identification
+             A segment to identify the name of parties related to the
+             cargo.
+
+0240         ADR, Address
+             A segment to specify the address of the identified
+             parties.
+
+0250         RFF, Reference
+             A segment to specify reference numbers related to the
+             identified party.
+
+
+0260         Segment group 6:  CTA-COM
+             A group of segments to identify contacts and related
+             communication numbers of the identified parties.
+
+0270            CTA, Contact information
+                A segment to identify a person or department within a
+                party.
+
+0280            COM, Communication contact
+                A segment to identify a communication number of a
+                person or department to whom communication should be
+                directed.
+
+
+0290      Segment group 7:  TDT-EQD-RFF-QTY-MEA-PCD-SG8
+          A group of segments to provide details of the transport
+          vessel and the bulk cargo.
+
+0300         TDT, Details of transport
+             A segment to specify transport details such as vessel
+             name, voyage number, and carrier as it relates to a stage
+             of transport.
+
+0310         EQD, Equipment details
+             A segment to specify the type of equipment.
+
+0320         RFF, Reference
+             A segment to specify reference numbers for the lighter
+             vessel identification and its voyage number.
+
+0330         QTY, Quantity
+             A segment to specify the quantity of cargo owned by
+             related party.
+
+0340         MEA, Measurements
+             A segment to specify measurements related to the vessel
+             such as draft markings.
+
+0350         PCD, Percentage details
+             A segment to specify non-discrete measurement values
+             related to the vessel such as list.
+
+
+0360         Segment group 8:  PSD-LOC-SG9
+             A group of segments to identify test methods and their
+             results related to the cargo.
+
+0370            PSD, Physical sample description
+                A segment to provide specimen collection details.
+
+0380            LOC, Place/location identification
+                A segment to indicate the location from which the
+                sample being tested was taken.
+
+
+0390            Segment group 9:  TEM-MEA-PCD-DTM-FTX
+                A group of segments to identify test methods and their
+                results related to the cargo.
+
+0400               TEM, Test method
+                   A segment to identify a test method.
+
+0410               MEA, Measurements
+                   A segment to specify the results of the test.
+
+0420               PCD, Percentage details
+                   A segment to specify the results of the test
+                   expressed in percentages.
+
+0430               DTM, Date/time/period
+                   A segment to identify dates and times associated
+                   with the test.
+
+0440               FTX, Free text
+                   A segment to specify free form or supplementary
+                   information pertaining to the test.
+
+0450   UNT, Message trailer
+       A service segment ending a message, giving the total number of
+       segments in the message (including the UNH & UNT) and the
+       control reference number of the message.
+
+4.2    Segment index (alphabetical sequence by tag)
+
+          ADR Address
+          BGM Beginning of message
+          COM Communication contact
+          CTA Contact information
+          DTM Date/time/period
+          EQD Equipment details
+          FTX Free text
+          LIN Line item
+          LOC Place/location identification
+          MEA Measurements
+          PCD Percentage details
+          PNA Party identification
+          PSD Physical sample description
+          QTY Quantity
+          RFF Reference
+          STS Status
+          TDT Details of transport
+          TEM Test method
+          UNH Message header
+          UNT Message trailer
+
+4.3    Message structure
+
+4.3.1  Segment table
+
+Pos    Tag Name                                      S   R
+
+           HEADER SECTION
+
+0010   UNH Message header                            M   1     
+0020   BGM Beginning of message                      M   1     
+0030   DTM Date/time/period                          M   1     
+0040   RFF Reference                                 M   9     
+0050   LOC Place/location identification             M   9     
+0060   FTX Free text                                 C   99    
+
+0070       ÄÄÄÄÄ Segment group 1  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   9ÄÄÄÄÄÄÄÄÄÄÄ¿
+0080   PNA Party identification                      M   1           ³
+0090   ADR Address                                   C   1           ³
+0100   RFF Reference                                 C   1           ³
+                                                                     ³
+0110       ÄÄÄÄÄ Segment group 2  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄÄÄ¿³
+0120   CTA Contact information                       M   1          ³³
+0130   COM Communication contact                     C   9ÄÄÄÄÄÄÄÄÄÄÁÙ
+
+0140       ÄÄÄÄÄ Segment group 3  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   999ÄÄÄÄÄÄÄÄÄ¿
+0150   DTM Date/time/period                          M   1           ³
+0160   STS Status                                    C   1           ³
+0170   FTX Free text                                 C   9ÄÄÄÄÄÄÄÄÄÄÄÙ
+
+           DETAIL SECTION
+
+0180       ÄÄÄÄÄ Segment group 4  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   999ÄÄÄÄÄÄÄÄÄ¿
+0190   LIN Line item                                 M   1           ³
+0200   QTY Quantity                                  C   1           ³
+0210   FTX Free text                                 C   99          ³
+                                                                     ³
+0220       ÄÄÄÄÄ Segment group 5  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄÄÄ¿³
+0230   PNA Party identification                      M   1          ³³
+0240   ADR Address                                   C   1          ³³
+0250   RFF Reference                                 C   1          ³³
+                                                                    ³³
+0260       ÄÄÄÄÄ Segment group 6  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄÄ¿³³
+0270   CTA Contact information                       M   1         ³³³
+0280   COM Communication contact                     C   9ÄÄÄÄÄÄÄÄÄÁÙ³
+                                                                     ³
+0290       ÄÄÄÄÄ Segment group 7  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   999ÄÄÄÄÄÄÄÄ¿³
+0300   TDT Details of transport                      M   1          ³³
+0310   EQD Equipment details                         C   1          ³³
+0320   RFF Reference                                 C   9          ³³
+0330   QTY Quantity                                  C   1          ³³
+0340   MEA Measurements                              C   99         ³³
+0350   PCD Percentage details                        C   99         ³³
+                                                                    ³³
+0360       ÄÄÄÄÄ Segment group 8  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99ÄÄÄÄÄÄÄÄ¿³³
+0370   PSD Physical sample description               M   1         ³³³
+0380   LOC Place/location identification             C   99        ³³³
+                                                                   ³³³
+0390       ÄÄÄÄÄ Segment group 9  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   999ÄÄÄÄÄÄ¿³³³
+0400   TEM Test method                               M   1        ³³³³
+0410   MEA Measurements                              C   99       ³³³³
+0420   PCD Percentage details                        C   99       ³³³³
+0430   DTM Date/time/period                          C   99       ³³³³
+0440   FTX Free text                                 C   99ÄÄÄÄÄÄÄÁÁÁÙ
+0450   UNT Message trailer                           M   1     

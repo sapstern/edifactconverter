@@ -1,0 +1,617 @@
+                              UN/EDIFACT
+
+                UNITED NATIONS STANDARD MESSAGE (UNSM)
+
+               Settlement transaction reporting message
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                           Message Type : STLRPT
+                                           Version      : D
+                                           Release      : 07B
+                                           Contr. Agency: UN
+
+                                           Revision     : 2
+                                           Date         : 2007-11-06
+
+
+
+
+
+
+SOURCE: TBG9 Travel, Tourism and Leisure
+
+
+
+                               CONTENTS
+
+               Settlement transaction reporting message
+
+0.     INTRODUCTION
+
+1.     SCOPE
+
+       1.1   Functional definition
+
+       1.2   Field of application
+
+       1.3   Principles
+
+2.     REFERENCES
+
+3.     TERMS AND DEFINITIONS
+
+       3.1   Standard terms and definitions
+
+       3.2   Message terms and definitions
+
+4.     MESSAGE DEFINITION
+
+       4.1   Segment clarification
+
+       4.2   Segment index (alphabetical sequence by tag)
+
+       4.3   Message structure
+             4.3.1 Segment table
+
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------
+For general information on UN standard message types see UN Trade Data
+Interchange Directory, UNTDID, Part 4, Section 2.3, UN/ECE UNSM
+General Introduction
+----------------------------------------------------------------------
+
+
+
+0.     INTRODUCTION
+
+       This specification provides the definition of the Settlement
+       transaction reporting message (STLRPT) to be used in Electronic
+       Data Interchange (EDI) between trading partners involved in
+       administration, commerce and transport.
+
+1.     SCOPE
+
+1.1    Functional definition
+
+       A Settlement transaction reporting message is exchanged between
+       participants in the Billing and Settlement Plan (BSP) to report
+       transaction data for processing and account settlement
+       purposes. BSP participants include airlines, agents, Computer
+       Reservations Systems (CRS) and the BSP Centre.
+
+1.2    Field of application
+
+       The Settlement transaction reporting message may be used for
+       both national and international applications. It is based on
+       universal practice related to administration, commerce and
+       transport, and is not dependent on the type of business or
+       industry.
+
+1.3    Principles
+
+       A Billing and Settlement Plan (BSP) provides a central system
+       and a global standard for reporting and settling accounts for
+       transactions in the travel, tourism and leisure industry.
+       
+       The Settlement transaction reporting message has two distinct
+       functions:
+       
+       (1) for a Computer Reservation System (CRS) to report agent
+       transactions to the BSP Centre (BSPC);
+       (2) for the BSP Centre (BSPC) to report agent transactions and
+       totals to BSP participating airlines.
+       
+       In the CRS to the BSPC functional message, the data is
+       transmitted on an agent transaction basis. In the BSPC to
+       airline functional message, the data is transmitted on an
+       airline agent basis.
+       
+       Totals of all transactions for an airline by reporting period,
+       agent and transaction type are only transmitted in the BSPC to
+       airline functional message.
+
+2.     REFERENCES
+
+       IATA BSP Data Interchange Specifications Handbook
+       Effective 01 June 1995.
+       
+       See UNTDID, Part 4, Chapter 2.3 UN/ECE UNSM - General
+       Introduction, Section 1.
+
+3.     TERMS AND DEFINITIONS
+
+3.1    Standard terms and definitions
+
+       See UNTDID, Part 4, Chapter 2.3 UN/ECE UNSM - General
+       Introduction, Section 2.
+
+3.2    Message terms and definitions
+
+       IATA BSP Data Interchange Specifications Handbook
+       - Effective 01 June 1995
+
+4.     MESSAGE DEFINITION
+
+4.1    Segment clarification
+
+       This section should be read in conjunction with the segment
+       table which indicates mandatory, conditional and repeating
+       requirements.
+
+0010   UNH, Message header
+       A service segment starting and uniquely identifying a message.
+       The message type code for the Settlement transaction reporting
+       message is STLRPT.
+
+       Note: Settlement transaction reporting messages conforming to
+       this document must contain the following data in segment UNH,
+       composite S009:
+
+       Data element  0065 STLRPT
+                     0052 D
+                     0054 07B
+                     0051 UN
+
+0020   BGM, Beginning of message
+       A segment to indicate the type and function of the message.
+
+0030   DTM, Date/time/period
+       A segment to indicate processing dates and times.
+
+0040   NAD, Name and address
+       A segment identifying either the reporting agent or the BSP.
+
+
+0050   Segment group 1:  CUX-EQN-MOA
+       A group of segments occurring in the BSP-to-airline functional
+       message to specify transaction totals of all agents by
+       specified currency.
+
+0060      CUX, Currencies
+          A segment to specify the currency for the total amount.
+
+0070      EQN, Number of units
+          A segment to specify the number of agents reporting
+          transactions for the specified currency.
+
+0080      MOA, Monetary amount
+          A segment to indicate the transaction totals for the
+          specified currency.
+
+
+0090   Segment group 2:  DTM-GEI-SG3-SG4
+       A group of segments to specify either the transactions for the
+       reporting period in the CRS-to-BSPC functional message, or the
+       billing analysis transactions and totals in the BSPC-to-airline
+       functional message.
+
+0100      DTM, Date/time/period
+          A segment to indicate BSP reporting dates.
+
+0110      GEI, Processing information
+          A segment to specify indicators relating to the BSP
+          processing of the transactions.
+
+
+0120      Segment group 3:  CUX-EQN-MOA-QVR
+          A group of segments occurring in the BSP-to-airline
+          functional message to specify the transactions totals for
+          all agents by specified currency for a billing analysis
+          period.
+
+0130         CUX, Currencies
+             A segment to specify the currency for the total amount.
+
+0140         EQN, Number of units
+             A segment to specify the number of agents reporting
+             transactions for the specified currency.
+
+0150         MOA, Monetary amount
+             A segment to indicate the transaction totals for the
+             specified currency.
+
+0160         QVR, Quantity variances
+             A segment to indicate monetary variances relating to BSP
+             processing.
+
+
+0170      Segment group 4:  RFF-LOC-DTM-FTX-SG5-SG6-CNT
+          A group of segments to specify the transaction data for an
+          agent.
+
+0180         RFF, Reference
+             A segment identifying the reporting agent.
+
+0190         LOC, Place/location identification
+             A segment to identify the locale of the agent.
+
+0200         DTM, Date/time/period
+             A segment to indicate the BSP remittance period ending
+             date.
+
+0210         FTX, Free text
+             A segment to specify free text information relating to
+             the agent transactions.
+
+
+0220         Segment group 5:  CUX-MOA-QVR
+             A group of segments occurring in the BSP-to-airline
+             functional message to specify transaction totals for the
+             agent.
+
+0230            CUX, Currencies
+                A segment to specify the currency for the total
+                amounts.
+
+0240            MOA, Monetary amount
+                A segment to indicate the transaction totals for the
+                specified currency.
+
+0250            QVR, Quantity variances
+                A segment to indicate monetary variances relating to
+                BSP processing for the agent.
+
+
+0260         Segment group 6:  BUS-SG7-SG8
+             A group of segments to specify transaction type data.
+
+0270            BUS, Business function
+                A segment to specify the transaction type.
+
+
+0280            Segment group 7:  CUX-MOA-QVR
+                A group of segments occurring in the BSP-to-airline
+                functional message to specify transaction type totals
+                of an agent by specified currency.
+
+0290               CUX, Currencies
+                   A segment to specify the currency for the total
+                   amounts.
+
+0300               MOA, Monetary amount
+                   A segment to indicate the transaction type totals
+                   for the specified currency.
+
+0310               QVR, Quantity variances
+                   A segment to indicate transaction type monetary
+                   variances relating to BSP processing for the agent.
+
+
+0320            Segment group 8:  LIN-DTM-RFF-NAD-LOC-CUX-GEI-IMD-MOA-
+                                  ALC-FTX-TAX-SG9-SG10-SG11
+                A group of segments to specify the transaction
+                details.
+
+0330               LIN, Line item
+                   A segment to specify the transaction.
+
+0340               DTM, Date/time/period
+                   A segment to indicate the date of issue of the
+                   transaction.
+
+0350               RFF, Reference
+                   A segment identifying the reference numbers
+                   relating to a transaction.
+
+0360               NAD, Name and address
+                   A segment identifying the agent and passenger
+                   involved in the transaction.
+
+0370               LOC, Place/location identification
+                   A segment to identify the location where the
+                   transaction took place.
+
+0380               CUX, Currencies
+                   A segment to indicate the currency relating to the
+                   transaction.
+
+0390               GEI, Processing information
+                   A segment to specify indicators relating to the
+                   processing of the transaction.
+
+0400               IMD, Item description
+                   A segment to specify the type of transaction, in
+                   coded form.
+
+0410               MOA, Monetary amount
+                   A segment to indicate transaction monetary amounts.
+
+0420               ALC, Allowance or charge
+                   A segment to indicate the charge.
+
+0430               FTX, Free text
+                   A segment to specify free text information relating
+                   to the transaction.
+
+0440               TAX, Duty/tax/fee details
+                   A segment to specify tax and commission amounts.
+
+
+0450               Segment group 9:  DOC-DTM-FTX-PIA-SEQ
+                   A group of segments to specify the ticket details.
+
+0460                  DOC, Document/message details
+                      A segment to specify the ticket number.
+
+0470                  DTM, Date/time/period
+                      A segment to indicate the date of issue of a
+                      refunded ticket.
+
+0480                  FTX, Free text
+                      A segment to specify free text information
+                      relating to the ticket.
+
+0490                  PIA, Additional product id
+                      A segment to specify the substituted ticket
+                      number.
+
+0500                  SEQ, Sequence details
+                      A segment to specify the product delivery
+                      sequence number.
+
+
+0510               Segment group 10: PYT-MOA-RFF-DTM-AGR-GEI-NAD-FTX-
+                                     IMD
+                   A group of segments to specify the terms of payment
+                   details.
+
+0520                  PYT, Payment terms
+                      A segment to specify the terms of payment.
+
+0530                  MOA, Monetary amount
+                      A segment to indicate the monetary amounts
+                      associated with the terms of payment.
+
+0540                  RFF, Reference
+                      A segment identifying references relating to the
+                      terms of payment.
+
+0550                  DTM, Date/time/period
+                      A segment to indicate the dates associated with
+                      the terms of payment.
+
+0560                  AGR, Agreement identification
+                      A segment to specify the agreement details.
+
+0570                  GEI, Processing information
+                      A segment to indicate payment processing codes.
+
+0580                  NAD, Name and address
+                      A segment identifying the client.
+
+0590                  FTX, Free text
+                      A segment to specify optional free text
+                      information.
+
+0600                  IMD, Item description
+                      A segment to specify the form of payment, in
+                      coded form.
+
+
+0610               Segment group 11: GIR-IMD-GIN-SG12
+                   A group of segments to specify related document
+                   details.
+
+0620                  GIR, Related identification numbers
+                      A segment to specify the related document
+                      number.
+
+0630                  IMD, Item description
+                      A segment to specify the type of related
+                      document.
+
+0640                  GIN, Goods identity number
+                      A segment to specify stock control numbers.
+
+
+0650                  Segment group 12: SEQ-FTX-ALC-GIN-RFF-IMD-NAD-
+                                        TDT-DTM-LOC
+                      A group of segments to specify coupon
+                      information.
+
+0660                     SEQ, Sequence details
+                         A segment to specify the coupon delivery
+                         sequence.
+
+0670                     FTX, Free text
+                         A segment to specify print and service
+                         provider information in free text format.
+
+0680                     ALC, Allowance or charge
+                         A segment to indicate the coupon charge.
+
+0690                     GIN, Goods identity number
+                         A segment to specify coupon stock control
+                         numbers.
+
+0700                     RFF, Reference
+                         A segment to specify a frequent flyer number.
+
+0710                     IMD, Item description
+                         A segment to specify services and products
+                         relating to the coupon or flight details.
+
+0720                     NAD, Name and address
+                         A segment identifying the party to be billed.
+
+0730                     TDT, Transport information
+                         A segment identifying the carrier and flight
+                         number.
+
+0740                     DTM, Date/time/period
+                         A segment to indicate flight departure dates
+                         and times, and, coupon validity dates.
+
+0750                     LOC, Place/location identification
+                         A segment to specify airports of departure
+                         and arrival and to indicate transit stops.
+
+0760         CNT, Control total
+             A segment to specify the total number of transactions per
+             agent.
+
+0770   UNT, Message trailer
+       A service segment ending a message, giving the total number of
+       segments in the message (including the UNH & UNT) and the
+       control reference number of the message.
+
+4.2    Segment index (alphabetical sequence by tag)
+
+          AGR Agreement identification
+          ALC Allowance or charge
+          BGM Beginning of message
+          BUS Business function
+          CNT Control total
+          CUX Currencies
+          DOC Document/message details
+          DTM Date/time/period
+          EQN Number of units
+          FTX Free text
+          GEI Processing information
+          GIN Goods identity number
+          GIR Related identification numbers
+          IMD Item description
+          LIN Line item
+          LOC Place/location identification
+          MOA Monetary amount
+          NAD Name and address
+          PIA Additional product id
+          PYT Payment terms
+          QVR Quantity variances
+          RFF Reference
+          SEQ Sequence details
+          TAX Duty/tax/fee details
+          TDT Transport information
+          UNH Message header
+          UNT Message trailer
+
+4.3    Message structure
+
+4.3.1  Segment table
+
+Pos    Tag Name                                      S   R
+
+0010   UNH Message header                            M   1     
+0020   BGM Beginning of message                      M   1     
+0030   DTM Date/time/period                          M   2     
+0040   NAD Name and address                          M   1     
+
+0050       ----- Segment group 1  ------------------ C   999---------+
+0060   CUX Currencies                                M   1           |
+0070   EQN Number of units                           M   1           |
+0080   MOA Monetary amount                           M   6-----------+
+
+0090       ----- Segment group 2  ------------------ M   9-----------+
+0100   DTM Date/time/period                          M   1           |
+0110   GEI Processing information                    C   1           |
+                                                                     |
+0120       ----- Segment group 3  ------------------ C   999--------+|
+0130   CUX Currencies                                M   1          ||
+0140   EQN Number of units                           M   1          ||
+0150   MOA Monetary amount                           M   6          ||
+0160   QVR Quantity variances                        C   1----------+|
+                                                                     |
+0170       ----- Segment group 4  ------------------ M   999999-----+|
+0180   RFF Reference                                 M   1          ||
+0190   LOC Place/location identification             C   1          ||
+0200   DTM Date/time/period                          C   1          ||
+0210   FTX Free text                                 C   9          ||
+                                                                    ||
+0220       ----- Segment group 5  ------------------ C   999-------+||
+0230   CUX Currencies                                M   1         |||
+0240   MOA Monetary amount                           M   9         |||
+0250   QVR Quantity variances                        C   1---------+||
+                                                                    ||
+0260       ----- Segment group 6  ------------------ M   99--------+||
+0270   BUS Business function                         M   1         |||
+                                                                   |||
+0280       ----- Segment group 7  ------------------ C   999------+|||
+0290   CUX Currencies                                M   1        ||||
+0300   MOA Monetary amount                           M   9        ||||
+0310   QVR Quantity variances                        C   1--------+|||
+                                                                   |||
+0320       ----- Segment group 8  ------------------ M   99999----+|||
+0330   LIN Line item                                 M   1        ||||
+0340   DTM Date/time/period                          C   1        ||||
+0350   RFF Reference                                 C   9        ||||
+0360   NAD Name and address                          C   9        ||||
+0370   LOC Place/location identification             C   1        ||||
+0380   CUX Currencies                                C   1        ||||
+0390   GEI Processing information                    C   2        ||||
+0400   IMD Item description                          C   9        ||||
+0410   MOA Monetary amount                           C   9        ||||
+0420   ALC Allowance or charge                       C   9        ||||
+0430   FTX Free text                                 C   99       ||||
+0440   TAX Duty/tax/fee details                      C   999      ||||
+                                                                  ||||
+0450       ----- Segment group 9  ------------------ C   99------+||||
+0460   DOC Document/message details                  M   1       |||||
+0470   DTM Date/time/period                          M   1       |||||
+0480   FTX Free text                                 C   1       |||||
+0490   PIA Additional product id                     C   1       |||||
+0500   SEQ Sequence details                          C   1-------+||||
+                                                                  ||||
+0510       ----- Segment group 10 ------------------ C   9999----+||||
+0520   PYT Payment terms                             M   1       |||||
+0530   MOA Monetary amount                           C   9       |||||
+0540   RFF Reference                                 C   9       |||||
+0550   DTM Date/time/period                          C   2       |||||
+0560   AGR Agreement identification                  C   1       |||||
+0570   GEI Processing information                    C   2       |||||
+0580   NAD Name and address                          C   1       |||||
+0590   FTX Free text                                 C   9       |||||
+0600   IMD Item description                          C   2-------+||||
+                                                                  ||||
+0610       ----- Segment group 11 ------------------ C   999-----+||||
+0620   GIR Related identification numbers            M   1       |||||
+0630   IMD Item description                          C   2       |||||
+0640   GIN Goods identity number                     C   2       |||||
+                                                                 |||||
+0650       ----- Segment group 12 ------------------ C   99-----+|||||
+0660   SEQ Sequence details                          M   1      ||||||
+0670   FTX Free text                                 C   99     ||||||
+0680   ALC Allowance or charge                       C   1      ||||||
+0690   GIN Goods identity number                     C   1      ||||||
+0700   RFF Reference                                 C   2      ||||||
+0710   IMD Item description                          C   9      ||||||
+0720   NAD Name and address                          C   1      ||||||
+0730   TDT Transport information                     C   1      ||||||
+0740   DTM Date/time/period                          C   9      ||||||
+0750   LOC Place/location identification             C   9------++++||
+0760   CNT Control total                             M   1----------++
+0770   UNT Message trailer                           M   1     

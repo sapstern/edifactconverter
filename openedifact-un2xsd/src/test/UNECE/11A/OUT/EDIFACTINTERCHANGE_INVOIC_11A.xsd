@@ -1,0 +1,4316 @@
+<?xml version="1.0" encoding="ISO-8859-1"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:sapstern.com:EDIFACTINTERCHANGE_INVOIC_11A" xmlns="urn:sapstern.com:EDIFACTINTERCHANGE_INVOIC_11A">
+<xsd:element name="EDIFACTINTERCHANGE">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="S_UNA" minOccurs="0"/>
+<xsd:element ref="S_UNB" minOccurs="0"/>
+<xsd:element ref="M_INVOIC_11A" maxOccurs="unbounded"/>
+<xsd:element ref="S_UNZ" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="M_INVOIC_11A">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="S_UNH"/>
+<xsd:element ref="S_BGM"/>
+<xsd:element ref="S_DTM" maxOccurs="35"/>
+<xsd:element ref="S_PAI" minOccurs="0"/>
+<xsd:element ref="S_ALI" minOccurs="0" maxOccurs="5"/>
+<xsd:element ref="S_IMD" minOccurs="0"/>
+<xsd:element ref="S_FTX" minOccurs="0" maxOccurs="99"/>
+<xsd:element ref="S_LOC" minOccurs="0" maxOccurs="10"/>
+<xsd:element ref="S_GEI" minOccurs="0" maxOccurs="10"/>
+<xsd:element ref="S_DGS" minOccurs="0"/>
+<xsd:element ref="S_GIR" minOccurs="0" maxOccurs="10"/>
+<xsd:element ref="G_INVOIC_11A_SG1" minOccurs="0" maxOccurs="99999"/>
+<xsd:element ref="G_INVOIC_11A_SG2" minOccurs="0" maxOccurs="99"/>
+<xsd:element ref="G_INVOIC_11A_SG6" minOccurs="0" maxOccurs="5"/>
+<xsd:element ref="G_INVOIC_11A_SG7" minOccurs="0" maxOccurs="99"/>
+<xsd:element ref="G_INVOIC_11A_SG8" minOccurs="0" maxOccurs="10"/>
+<xsd:element ref="G_INVOIC_11A_SG9" minOccurs="0" maxOccurs="10"/>
+<xsd:element ref="G_INVOIC_11A_SG12" minOccurs="0" maxOccurs="5"/>
+<xsd:element ref="G_INVOIC_11A_SG13" minOccurs="0" maxOccurs="99"/>
+<xsd:element ref="G_INVOIC_11A_SG14" minOccurs="0" maxOccurs="1000"/>
+<xsd:element ref="G_INVOIC_11A_SG16" minOccurs="0" maxOccurs="9999"/>
+<xsd:element ref="G_INVOIC_11A_SG23" minOccurs="0" maxOccurs="100"/>
+<xsd:element ref="G_INVOIC_11A_SG24" minOccurs="0"/>
+<xsd:element ref="G_INVOIC_11A_SG25" minOccurs="0"/>
+<xsd:element ref="G_INVOIC_11A_SG26" minOccurs="0" maxOccurs="99"/>
+<xsd:element ref="G_INVOIC_11A_SG27" minOccurs="0" maxOccurs="9999999"/>
+<xsd:element ref="S_UNS"/>
+<xsd:element ref="S_CNT" minOccurs="0" maxOccurs="10"/>
+<xsd:element ref="G_INVOIC_11A_SG52" maxOccurs="100"/>
+<xsd:element ref="G_INVOIC_11A_SG54" minOccurs="0" maxOccurs="10"/>
+<xsd:element ref="G_INVOIC_11A_SG55" minOccurs="0" maxOccurs="15"/>
+<xsd:element ref="S_UNT"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="G_INVOIC_11A_SG1">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="S_RFF"/>
+<xsd:element ref="S_DTM" minOccurs="0" maxOccurs="5"/>
+<xsd:element ref="S_GIR" minOccurs="0" maxOccurs="5"/>
+<xsd:element ref="S_LOC" minOccurs="0" maxOccurs="2"/>
+<xsd:element ref="S_MEA" minOccurs="0" maxOccurs="5"/>
+<xsd:element ref="S_QTY" minOccurs="0" maxOccurs="2"/>
+<xsd:element ref="S_FTX" minOccurs="0" maxOccurs="5"/>
+<xsd:element ref="S_MOA" minOccurs="0" maxOccurs="2"/>
+<xsd:element ref="S_RTE" minOccurs="0" maxOccurs="99"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="G_INVOIC_11A_SG2">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="S_NAD"/>
+<xsd:element ref="S_LOC" minOccurs="0" maxOccurs="25"/>
+<xsd:element ref="S_FII" minOccurs="0" maxOccurs="5"/>
+<xsd:element ref="S_MOA" minOccurs="0" maxOccurs="99"/>
+<xsd:element ref="G_INVOIC_11A_SG3" minOccurs="0" maxOccurs="9999"/>
+<xsd:element ref="G_INVOIC_11A_SG4" minOccurs="0" maxOccurs="5"/>
+<xsd:element ref="G_INVOIC_11A_SG5" minOccurs="0" maxOccurs="5"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="G_INVOIC_11A_SG3">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="S_RFF"/>
+<xsd:element ref="S_DTM" minOccurs="0" maxOccurs="5"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="G_INVOIC_11A_SG4">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="S_DOC"/>
+<xsd:element ref="S_DTM" minOccurs="0" maxOccurs="5"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="G_INVOIC_11A_SG5">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="S_CTA"/>
+<xsd:element ref="S_COM" minOccurs="0" maxOccurs="5"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="G_INVOIC_11A_SG6">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="S_TAX"/>
+<xsd:element ref="S_MOA" minOccurs="0"/>
+<xsd:element ref="S_LOC" minOccurs="0" maxOccurs="5"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="G_INVOIC_11A_SG7">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="S_CUX"/>
+<xsd:element ref="S_DTM" minOccurs="0" maxOccurs="5"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="G_INVOIC_11A_SG8">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="S_PYT"/>
+<xsd:element ref="S_DTM" minOccurs="0" maxOccurs="5"/>
+<xsd:element ref="S_PCD" minOccurs="0"/>
+<xsd:element ref="S_MOA" minOccurs="0"/>
+<xsd:element ref="S_PAI" minOccurs="0"/>
+<xsd:element ref="S_FII" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="G_INVOIC_11A_SG9">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="S_TDT"/>
+<xsd:element ref="S_TSR" minOccurs="0"/>
+<xsd:element ref="G_INVOIC_11A_SG10" minOccurs="0" maxOccurs="10"/>
+<xsd:element ref="G_INVOIC_11A_SG11" minOccurs="0" maxOccurs="9999"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="G_INVOIC_11A_SG10">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="S_LOC"/>
+<xsd:element ref="S_DTM" minOccurs="0" maxOccurs="5"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="G_INVOIC_11A_SG11">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="S_RFF"/>
+<xsd:element ref="S_DTM" minOccurs="0" maxOccurs="5"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="G_INVOIC_11A_SG12">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="S_TOD"/>
+<xsd:element ref="S_LOC" minOccurs="0" maxOccurs="2"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="G_INVOIC_11A_SG13">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="S_EQD"/>
+<xsd:element ref="S_SEL" minOccurs="0" maxOccurs="9"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="G_INVOIC_11A_SG14">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="S_PAC"/>
+<xsd:element ref="S_MEA" minOccurs="0" maxOccurs="5"/>
+<xsd:element ref="S_EQD" minOccurs="0"/>
+<xsd:element ref="G_INVOIC_11A_SG15" minOccurs="0" maxOccurs="5"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="G_INVOIC_11A_SG15">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="S_PCI"/>
+<xsd:element ref="S_RFF" minOccurs="0"/>
+<xsd:element ref="S_DTM" minOccurs="0" maxOccurs="5"/>
+<xsd:element ref="S_GIN" minOccurs="0" maxOccurs="5"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="G_INVOIC_11A_SG16">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="S_ALC"/>
+<xsd:element ref="S_ALI" minOccurs="0" maxOccurs="5"/>
+<xsd:element ref="S_FTX" minOccurs="0"/>
+<xsd:element ref="G_INVOIC_11A_SG17" minOccurs="0" maxOccurs="5"/>
+<xsd:element ref="G_INVOIC_11A_SG18" minOccurs="0"/>
+<xsd:element ref="G_INVOIC_11A_SG19" minOccurs="0"/>
+<xsd:element ref="G_INVOIC_11A_SG20" minOccurs="0" maxOccurs="2"/>
+<xsd:element ref="G_INVOIC_11A_SG21" minOccurs="0"/>
+<xsd:element ref="G_INVOIC_11A_SG22" minOccurs="0" maxOccurs="5"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="G_INVOIC_11A_SG17">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="S_RFF"/>
+<xsd:element ref="S_DTM" minOccurs="0" maxOccurs="5"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="G_INVOIC_11A_SG18">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="S_QTY"/>
+<xsd:element ref="S_RNG" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="G_INVOIC_11A_SG19">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="S_PCD"/>
+<xsd:element ref="S_RNG" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="G_INVOIC_11A_SG20">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="S_MOA"/>
+<xsd:element ref="S_RNG" minOccurs="0"/>
+<xsd:element ref="S_CUX" minOccurs="0"/>
+<xsd:element ref="S_DTM" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="G_INVOIC_11A_SG21">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="S_RTE"/>
+<xsd:element ref="S_RNG" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="G_INVOIC_11A_SG22">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="S_TAX"/>
+<xsd:element ref="S_MOA" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="G_INVOIC_11A_SG23">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="S_RCS"/>
+<xsd:element ref="S_RFF" minOccurs="0" maxOccurs="5"/>
+<xsd:element ref="S_DTM" minOccurs="0" maxOccurs="5"/>
+<xsd:element ref="S_FTX" minOccurs="0" maxOccurs="5"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="G_INVOIC_11A_SG24">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="S_AJT"/>
+<xsd:element ref="S_FTX" minOccurs="0" maxOccurs="5"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="G_INVOIC_11A_SG25">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="S_INP"/>
+<xsd:element ref="S_FTX" minOccurs="0" maxOccurs="5"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="G_INVOIC_11A_SG26">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="S_EFI"/>
+<xsd:element ref="S_CED" minOccurs="0" maxOccurs="99"/>
+<xsd:element ref="S_COM" minOccurs="0" maxOccurs="9"/>
+<xsd:element ref="S_RFF" minOccurs="0" maxOccurs="9"/>
+<xsd:element ref="S_DTM" minOccurs="0" maxOccurs="9"/>
+<xsd:element ref="S_QTY" minOccurs="0" maxOccurs="9"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="G_INVOIC_11A_SG27">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="S_LIN"/>
+<xsd:element ref="S_PIA" minOccurs="0" maxOccurs="25"/>
+<xsd:element ref="S_PGI" minOccurs="0" maxOccurs="99"/>
+<xsd:element ref="S_IMD" minOccurs="0" maxOccurs="99"/>
+<xsd:element ref="S_MEA" minOccurs="0" maxOccurs="5"/>
+<xsd:element ref="S_QTY" minOccurs="0" maxOccurs="5"/>
+<xsd:element ref="S_PCD" minOccurs="0"/>
+<xsd:element ref="S_ALI" minOccurs="0" maxOccurs="5"/>
+<xsd:element ref="S_DTM" minOccurs="0" maxOccurs="35"/>
+<xsd:element ref="S_GIN" minOccurs="0" maxOccurs="1000"/>
+<xsd:element ref="S_GIR" minOccurs="0" maxOccurs="1000"/>
+<xsd:element ref="S_QVR" minOccurs="0"/>
+<xsd:element ref="S_EQD" minOccurs="0"/>
+<xsd:element ref="S_FTX" minOccurs="0" maxOccurs="99"/>
+<xsd:element ref="S_DGS" minOccurs="0"/>
+<xsd:element ref="G_INVOIC_11A_SG28" minOccurs="0" maxOccurs="99"/>
+<xsd:element ref="G_INVOIC_11A_SG29" minOccurs="0" maxOccurs="10"/>
+<xsd:element ref="G_INVOIC_11A_SG30" minOccurs="0" maxOccurs="25"/>
+<xsd:element ref="G_INVOIC_11A_SG31" minOccurs="0" maxOccurs="10"/>
+<xsd:element ref="G_INVOIC_11A_SG32" minOccurs="0" maxOccurs="10"/>
+<xsd:element ref="G_INVOIC_11A_SG34" minOccurs="0" maxOccurs="9999"/>
+<xsd:element ref="G_INVOIC_11A_SG35" minOccurs="0" maxOccurs="99"/>
+<xsd:element ref="G_INVOIC_11A_SG36" minOccurs="0" maxOccurs="99"/>
+<xsd:element ref="G_INVOIC_11A_SG40" minOccurs="0" maxOccurs="30"/>
+<xsd:element ref="G_INVOIC_11A_SG46" minOccurs="0" maxOccurs="10"/>
+<xsd:element ref="G_INVOIC_11A_SG48" minOccurs="0" maxOccurs="5"/>
+<xsd:element ref="G_INVOIC_11A_SG49" minOccurs="0" maxOccurs="100"/>
+<xsd:element ref="G_INVOIC_11A_SG50" minOccurs="0" maxOccurs="999"/>
+<xsd:element ref="G_INVOIC_11A_SG51" minOccurs="0" maxOccurs="99"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="G_INVOIC_11A_SG28">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="S_MOA"/>
+<xsd:element ref="S_CUX" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="G_INVOIC_11A_SG29">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="S_PYT"/>
+<xsd:element ref="S_DTM" minOccurs="0" maxOccurs="5"/>
+<xsd:element ref="S_PCD" minOccurs="0" maxOccurs="99"/>
+<xsd:element ref="S_MOA" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="G_INVOIC_11A_SG30">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="S_PRI"/>
+<xsd:element ref="S_CUX" minOccurs="0"/>
+<xsd:element ref="S_APR" minOccurs="0"/>
+<xsd:element ref="S_RNG" minOccurs="0"/>
+<xsd:element ref="S_DTM" minOccurs="0" maxOccurs="5"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="G_INVOIC_11A_SG31">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="S_RFF"/>
+<xsd:element ref="S_DTM" minOccurs="0" maxOccurs="5"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="G_INVOIC_11A_SG32">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="S_PAC"/>
+<xsd:element ref="S_MEA" minOccurs="0" maxOccurs="10"/>
+<xsd:element ref="S_EQD" minOccurs="0"/>
+<xsd:element ref="G_INVOIC_11A_SG33" minOccurs="0" maxOccurs="10"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="G_INVOIC_11A_SG33">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="S_PCI"/>
+<xsd:element ref="S_RFF" minOccurs="0"/>
+<xsd:element ref="S_DTM" minOccurs="0" maxOccurs="5"/>
+<xsd:element ref="S_GIN" minOccurs="0" maxOccurs="10"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="G_INVOIC_11A_SG34">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="S_LOC"/>
+<xsd:element ref="S_QTY" minOccurs="0" maxOccurs="100"/>
+<xsd:element ref="S_DTM" minOccurs="0" maxOccurs="5"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="G_INVOIC_11A_SG35">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="S_TAX"/>
+<xsd:element ref="S_MOA" minOccurs="0" maxOccurs="2"/>
+<xsd:element ref="S_LOC" minOccurs="0" maxOccurs="5"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="G_INVOIC_11A_SG36">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="S_NAD"/>
+<xsd:element ref="S_LOC" minOccurs="0" maxOccurs="5"/>
+<xsd:element ref="S_FII" minOccurs="0" maxOccurs="5"/>
+<xsd:element ref="G_INVOIC_11A_SG37" minOccurs="0" maxOccurs="5"/>
+<xsd:element ref="G_INVOIC_11A_SG38" minOccurs="0" maxOccurs="5"/>
+<xsd:element ref="G_INVOIC_11A_SG39" minOccurs="0" maxOccurs="5"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="G_INVOIC_11A_SG37">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="S_RFF"/>
+<xsd:element ref="S_DTM" minOccurs="0" maxOccurs="5"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="G_INVOIC_11A_SG38">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="S_DOC"/>
+<xsd:element ref="S_DTM" minOccurs="0" maxOccurs="5"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="G_INVOIC_11A_SG39">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="S_CTA"/>
+<xsd:element ref="S_COM" minOccurs="0" maxOccurs="5"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="G_INVOIC_11A_SG40">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="S_ALC"/>
+<xsd:element ref="S_ALI" minOccurs="0" maxOccurs="5"/>
+<xsd:element ref="S_DTM" minOccurs="0" maxOccurs="5"/>
+<xsd:element ref="S_FTX" minOccurs="0"/>
+<xsd:element ref="G_INVOIC_11A_SG41" minOccurs="0"/>
+<xsd:element ref="G_INVOIC_11A_SG42" minOccurs="0"/>
+<xsd:element ref="G_INVOIC_11A_SG43" minOccurs="0" maxOccurs="2"/>
+<xsd:element ref="G_INVOIC_11A_SG44" minOccurs="0"/>
+<xsd:element ref="G_INVOIC_11A_SG45" minOccurs="0" maxOccurs="5"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="G_INVOIC_11A_SG41">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="S_QTY"/>
+<xsd:element ref="S_RNG" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="G_INVOIC_11A_SG42">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="S_PCD"/>
+<xsd:element ref="S_RNG" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="G_INVOIC_11A_SG43">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="S_MOA"/>
+<xsd:element ref="S_RNG" minOccurs="0"/>
+<xsd:element ref="S_CUX" minOccurs="0"/>
+<xsd:element ref="S_DTM" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="G_INVOIC_11A_SG44">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="S_RTE"/>
+<xsd:element ref="S_RNG" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="G_INVOIC_11A_SG45">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="S_TAX"/>
+<xsd:element ref="S_MOA" minOccurs="0" maxOccurs="2"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="G_INVOIC_11A_SG46">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="S_TDT"/>
+<xsd:element ref="G_INVOIC_11A_SG47" minOccurs="0" maxOccurs="10"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="G_INVOIC_11A_SG47">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="S_LOC"/>
+<xsd:element ref="S_DTM" minOccurs="0" maxOccurs="5"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="G_INVOIC_11A_SG48">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="S_TOD"/>
+<xsd:element ref="S_LOC" minOccurs="0" maxOccurs="2"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="G_INVOIC_11A_SG49">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="S_RCS"/>
+<xsd:element ref="S_RFF" minOccurs="0" maxOccurs="5"/>
+<xsd:element ref="S_DTM" minOccurs="0" maxOccurs="5"/>
+<xsd:element ref="S_FTX" minOccurs="0" maxOccurs="5"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="G_INVOIC_11A_SG50">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="S_GEI"/>
+<xsd:element ref="S_RFF" minOccurs="0" maxOccurs="9"/>
+<xsd:element ref="S_IMD" minOccurs="0" maxOccurs="99"/>
+<xsd:element ref="S_DTM" minOccurs="0" maxOccurs="5"/>
+<xsd:element ref="S_GIR" minOccurs="0" maxOccurs="5"/>
+<xsd:element ref="S_LOC" minOccurs="0" maxOccurs="2"/>
+<xsd:element ref="S_MEA" minOccurs="0" maxOccurs="5"/>
+<xsd:element ref="S_QTY" minOccurs="0" maxOccurs="9"/>
+<xsd:element ref="S_FTX" minOccurs="0" maxOccurs="5"/>
+<xsd:element ref="S_MOA" minOccurs="0" maxOccurs="2"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="G_INVOIC_11A_SG51">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="S_EFI"/>
+<xsd:element ref="S_CED" minOccurs="0" maxOccurs="99"/>
+<xsd:element ref="S_COM" minOccurs="0" maxOccurs="9"/>
+<xsd:element ref="S_RFF" minOccurs="0" maxOccurs="9"/>
+<xsd:element ref="S_DTM" minOccurs="0" maxOccurs="9"/>
+<xsd:element ref="S_QTY" minOccurs="0" maxOccurs="9"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="G_INVOIC_11A_SG52">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="S_MOA"/>
+<xsd:element ref="G_INVOIC_11A_SG53" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="G_INVOIC_11A_SG53">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="S_RFF"/>
+<xsd:element ref="S_DTM" minOccurs="0" maxOccurs="5"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="G_INVOIC_11A_SG54">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="S_TAX"/>
+<xsd:element ref="S_MOA" minOccurs="0" maxOccurs="9"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="G_INVOIC_11A_SG55">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="S_ALC"/>
+<xsd:element ref="S_ALI" minOccurs="0"/>
+<xsd:element ref="S_MOA" minOccurs="0" maxOccurs="2"/>
+<xsd:element ref="S_FTX" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="S_UNH">
+<xsd:annotation>
+<xsd:documentation>Message Header</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_0062" minOccurs="0"/>
+<xsd:element ref="C_S009" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="S_BGM">
+<xsd:annotation>
+<xsd:documentation>BEGINNING OF MESSAGE</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="C_C002" minOccurs="0"/>
+<xsd:element ref="C_C106" minOccurs="0"/>
+<xsd:element ref="D_1225" minOccurs="0"/>
+<xsd:element ref="D_4343" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="S_DTM">
+<xsd:annotation>
+<xsd:documentation>DATE/TIME/PERIOD</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="C_C507" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="S_PAI">
+<xsd:annotation>
+<xsd:documentation>PAYMENT INSTRUCTIONS</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="C_C534" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="S_ALI">
+<xsd:annotation>
+<xsd:documentation>ADDITIONAL INFORMATION</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_3239" minOccurs="0"/>
+<xsd:element ref="D_9213" minOccurs="0"/>
+<xsd:element ref="D_4183" minOccurs="0"/>
+<xsd:element ref="D_4183_1" minOccurs="0"/>
+<xsd:element ref="D_4183_2" minOccurs="0"/>
+<xsd:element ref="D_4183_3" minOccurs="0"/>
+<xsd:element ref="D_4183_4" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="S_IMD">
+<xsd:annotation>
+<xsd:documentation>ITEM DESCRIPTION</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_7077" minOccurs="0"/>
+<xsd:element ref="C_C272" minOccurs="0"/>
+<xsd:element ref="C_C273" minOccurs="0"/>
+<xsd:element ref="D_7383" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="S_FTX">
+<xsd:annotation>
+<xsd:documentation>FREE TEXT</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_4451" minOccurs="0"/>
+<xsd:element ref="D_4453" minOccurs="0"/>
+<xsd:element ref="C_C107" minOccurs="0"/>
+<xsd:element ref="C_C108" minOccurs="0"/>
+<xsd:element ref="D_3453" minOccurs="0"/>
+<xsd:element ref="D_4447" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="S_LOC">
+<xsd:annotation>
+<xsd:documentation>PLACE/LOCATION IDENTIFICATION</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_3227" minOccurs="0"/>
+<xsd:element ref="C_C517" minOccurs="0"/>
+<xsd:element ref="C_C519" minOccurs="0"/>
+<xsd:element ref="C_C553" minOccurs="0"/>
+<xsd:element ref="D_5479" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="S_GEI">
+<xsd:annotation>
+<xsd:documentation>PROCESSING INFORMATION</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_9649" minOccurs="0"/>
+<xsd:element ref="C_C012" minOccurs="0"/>
+<xsd:element ref="D_7187" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="S_DGS">
+<xsd:annotation>
+<xsd:documentation>DANGEROUS GOODS</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_8273" minOccurs="0"/>
+<xsd:element ref="C_C205" minOccurs="0"/>
+<xsd:element ref="C_C234" minOccurs="0"/>
+<xsd:element ref="C_C223" minOccurs="0"/>
+<xsd:element ref="D_8339" minOccurs="0"/>
+<xsd:element ref="D_8364" minOccurs="0"/>
+<xsd:element ref="D_8410" minOccurs="0"/>
+<xsd:element ref="D_8126" minOccurs="0"/>
+<xsd:element ref="C_C235" minOccurs="0"/>
+<xsd:element ref="C_C236" minOccurs="0"/>
+<xsd:element ref="D_8255" minOccurs="0"/>
+<xsd:element ref="D_8179" minOccurs="0"/>
+<xsd:element ref="D_8211" minOccurs="0"/>
+<xsd:element ref="C_C289" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="S_GIR">
+<xsd:annotation>
+<xsd:documentation>RELATED IDENTIFICATION NUMBERS</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_7297" minOccurs="0"/>
+<xsd:element ref="C_C206" minOccurs="0"/>
+<xsd:element ref="C_C206_1" minOccurs="0"/>
+<xsd:element ref="C_C206_2" minOccurs="0"/>
+<xsd:element ref="C_C206_3" minOccurs="0"/>
+<xsd:element ref="C_C206_4" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="S_RFF">
+<xsd:annotation>
+<xsd:documentation>REFERENCE</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="C_C506" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="S_MEA">
+<xsd:annotation>
+<xsd:documentation>MEASUREMENTS</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_6311" minOccurs="0"/>
+<xsd:element ref="C_C502" minOccurs="0"/>
+<xsd:element ref="C_C174" minOccurs="0"/>
+<xsd:element ref="D_7383" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="S_QTY">
+<xsd:annotation>
+<xsd:documentation>QUANTITY</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="C_C186" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="S_MOA">
+<xsd:annotation>
+<xsd:documentation>MONETARY AMOUNT</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="C_C516" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="S_RTE">
+<xsd:annotation>
+<xsd:documentation>RATE DETAILS</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="C_C128" minOccurs="0"/>
+<xsd:element ref="D_4405" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="S_NAD">
+<xsd:annotation>
+<xsd:documentation>NAME AND ADDRESS</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_3035" minOccurs="0"/>
+<xsd:element ref="C_C082" minOccurs="0"/>
+<xsd:element ref="C_C058" minOccurs="0"/>
+<xsd:element ref="C_C080" minOccurs="0"/>
+<xsd:element ref="C_C059" minOccurs="0"/>
+<xsd:element ref="D_3164" minOccurs="0"/>
+<xsd:element ref="C_C819" minOccurs="0"/>
+<xsd:element ref="D_3251" minOccurs="0"/>
+<xsd:element ref="D_3207" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="S_FII">
+<xsd:annotation>
+<xsd:documentation>FINANCIAL INSTITUTION INFORMATION</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_3035" minOccurs="0"/>
+<xsd:element ref="C_C078" minOccurs="0"/>
+<xsd:element ref="C_C088" minOccurs="0"/>
+<xsd:element ref="D_3207" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="S_DOC">
+<xsd:annotation>
+<xsd:documentation>DOCUMENT/MESSAGE DETAILS</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="C_C002" minOccurs="0"/>
+<xsd:element ref="C_C503" minOccurs="0"/>
+<xsd:element ref="D_3153" minOccurs="0"/>
+<xsd:element ref="D_1220" minOccurs="0"/>
+<xsd:element ref="D_1218" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="S_CTA">
+<xsd:annotation>
+<xsd:documentation>CONTACT INFORMATION</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_3139" minOccurs="0"/>
+<xsd:element ref="C_C056" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="S_COM">
+<xsd:annotation>
+<xsd:documentation>COMMUNICATION CONTACT</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="C_C076" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="S_TAX">
+<xsd:annotation>
+<xsd:documentation>DUTY/TAX/FEE DETAILS</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_5283" minOccurs="0"/>
+<xsd:element ref="C_C241" minOccurs="0"/>
+<xsd:element ref="C_C533" minOccurs="0"/>
+<xsd:element ref="D_5286" minOccurs="0"/>
+<xsd:element ref="C_C243" minOccurs="0"/>
+<xsd:element ref="D_5305" minOccurs="0"/>
+<xsd:element ref="D_3446" minOccurs="0"/>
+<xsd:element ref="D_1227" minOccurs="0"/>
+<xsd:element ref="D_5307" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="S_CUX">
+<xsd:annotation>
+<xsd:documentation>CURRENCIES</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="C_C504" minOccurs="0"/>
+<xsd:element ref="C_C504_1" minOccurs="0"/>
+<xsd:element ref="D_5402" minOccurs="0"/>
+<xsd:element ref="D_6341" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="S_PYT">
+<xsd:annotation>
+<xsd:documentation>PAYMENT TERMS</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_4279" minOccurs="0"/>
+<xsd:element ref="C_C019" minOccurs="0"/>
+<xsd:element ref="D_2475" minOccurs="0"/>
+<xsd:element ref="D_2009" minOccurs="0"/>
+<xsd:element ref="D_2151" minOccurs="0"/>
+<xsd:element ref="D_2152" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="S_PCD">
+<xsd:annotation>
+<xsd:documentation>PERCENTAGE DETAILS</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="C_C501" minOccurs="0"/>
+<xsd:element ref="D_4405" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="S_TDT">
+<xsd:annotation>
+<xsd:documentation>TRANSPORT INFORMATION</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_8051" minOccurs="0"/>
+<xsd:element ref="D_8028" minOccurs="0"/>
+<xsd:element ref="C_C220" minOccurs="0"/>
+<xsd:element ref="C_C001" minOccurs="0"/>
+<xsd:element ref="C_C040" minOccurs="0"/>
+<xsd:element ref="D_8101" minOccurs="0"/>
+<xsd:element ref="C_C401" minOccurs="0"/>
+<xsd:element ref="C_C222" minOccurs="0"/>
+<xsd:element ref="D_8281" minOccurs="0"/>
+<xsd:element ref="C_C003" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="S_TSR">
+<xsd:annotation>
+<xsd:documentation>TRANSPORT SERVICE REQUIREMENTS</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="C_C536" minOccurs="0"/>
+<xsd:element ref="C_C233" minOccurs="0"/>
+<xsd:element ref="C_C537" minOccurs="0"/>
+<xsd:element ref="C_C703" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="S_TOD">
+<xsd:annotation>
+<xsd:documentation>TERMS OF DELIVERY OR TRANSPORT</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_4055" minOccurs="0"/>
+<xsd:element ref="D_4215" minOccurs="0"/>
+<xsd:element ref="C_C100" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="S_EQD">
+<xsd:annotation>
+<xsd:documentation>EQUIPMENT DETAILS</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_8053" minOccurs="0"/>
+<xsd:element ref="C_C237" minOccurs="0"/>
+<xsd:element ref="C_C224" minOccurs="0"/>
+<xsd:element ref="D_8077" minOccurs="0"/>
+<xsd:element ref="D_8249" minOccurs="0"/>
+<xsd:element ref="D_8169" minOccurs="0"/>
+<xsd:element ref="D_4233" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="S_SEL">
+<xsd:annotation>
+<xsd:documentation>SEAL NUMBER</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_9308" minOccurs="0"/>
+<xsd:element ref="C_C215" minOccurs="0"/>
+<xsd:element ref="D_4517" minOccurs="0"/>
+<xsd:element ref="C_C208" minOccurs="0"/>
+<xsd:element ref="D_4525" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="S_PAC">
+<xsd:annotation>
+<xsd:documentation>PACKAGE</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_7224" minOccurs="0"/>
+<xsd:element ref="C_C531" minOccurs="0"/>
+<xsd:element ref="C_C202" minOccurs="0"/>
+<xsd:element ref="C_C402" minOccurs="0"/>
+<xsd:element ref="C_C532" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="S_PCI">
+<xsd:annotation>
+<xsd:documentation>PACKAGE IDENTIFICATION</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_4233" minOccurs="0"/>
+<xsd:element ref="C_C210" minOccurs="0"/>
+<xsd:element ref="D_8169" minOccurs="0"/>
+<xsd:element ref="C_C827" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="S_GIN">
+<xsd:annotation>
+<xsd:documentation>GOODS IDENTITY NUMBER</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_7405" minOccurs="0"/>
+<xsd:element ref="C_C208" minOccurs="0"/>
+<xsd:element ref="C_C208_1" minOccurs="0"/>
+<xsd:element ref="C_C208_2" minOccurs="0"/>
+<xsd:element ref="C_C208_3" minOccurs="0"/>
+<xsd:element ref="C_C208_4" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="S_ALC">
+<xsd:annotation>
+<xsd:documentation>ALLOWANCE OR CHARGE</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_5463" minOccurs="0"/>
+<xsd:element ref="C_C552" minOccurs="0"/>
+<xsd:element ref="D_4471" minOccurs="0"/>
+<xsd:element ref="D_1227" minOccurs="0"/>
+<xsd:element ref="C_C214" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="S_RNG">
+<xsd:annotation>
+<xsd:documentation>RANGE DETAILS</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_6167" minOccurs="0"/>
+<xsd:element ref="C_C280" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="S_RCS">
+<xsd:annotation>
+<xsd:documentation>REQUIREMENTS AND CONDITIONS</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_7293" minOccurs="0"/>
+<xsd:element ref="C_C550" minOccurs="0"/>
+<xsd:element ref="D_1229" minOccurs="0"/>
+<xsd:element ref="D_3207" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="S_AJT">
+<xsd:annotation>
+<xsd:documentation>ADJUSTMENT DETAILS</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_4465" minOccurs="0"/>
+<xsd:element ref="D_1082" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="S_INP">
+<xsd:annotation>
+<xsd:documentation>PARTIES AND INSTRUCTION</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="C_C849" minOccurs="0"/>
+<xsd:element ref="C_C522" minOccurs="0"/>
+<xsd:element ref="C_C850" minOccurs="0"/>
+<xsd:element ref="D_1229" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="S_EFI">
+<xsd:annotation>
+<xsd:documentation>EXTERNAL FILE LINK IDENTIFICATION</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="C_C077" minOccurs="0"/>
+<xsd:element ref="C_C099" minOccurs="0"/>
+<xsd:element ref="D_1050" minOccurs="0"/>
+<xsd:element ref="D_9450" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="S_CED">
+<xsd:annotation>
+<xsd:documentation>COMPUTER ENVIRONMENT DETAILS</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_1501" minOccurs="0"/>
+<xsd:element ref="C_C079" minOccurs="0"/>
+<xsd:element ref="D_9448" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="S_LIN">
+<xsd:annotation>
+<xsd:documentation>LINE ITEM</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_1082" minOccurs="0"/>
+<xsd:element ref="D_1229" minOccurs="0"/>
+<xsd:element ref="C_C212" minOccurs="0"/>
+<xsd:element ref="C_C829" minOccurs="0"/>
+<xsd:element ref="D_1222" minOccurs="0"/>
+<xsd:element ref="D_7083" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="S_PIA">
+<xsd:annotation>
+<xsd:documentation>ADDITIONAL PRODUCT ID</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_4347" minOccurs="0"/>
+<xsd:element ref="C_C212" minOccurs="0"/>
+<xsd:element ref="C_C212_1" minOccurs="0"/>
+<xsd:element ref="C_C212_2" minOccurs="0"/>
+<xsd:element ref="C_C212_3" minOccurs="0"/>
+<xsd:element ref="C_C212_4" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="S_PGI">
+<xsd:annotation>
+<xsd:documentation>PRODUCT GROUP INFORMATION</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_5379" minOccurs="0"/>
+<xsd:element ref="C_C288" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="S_QVR">
+<xsd:annotation>
+<xsd:documentation>QUANTITY VARIANCES</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="C_C279" minOccurs="0"/>
+<xsd:element ref="D_4221" minOccurs="0"/>
+<xsd:element ref="C_C960" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="S_PRI">
+<xsd:annotation>
+<xsd:documentation>PRICE DETAILS</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="C_C509" minOccurs="0"/>
+<xsd:element ref="D_5213" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="S_APR">
+<xsd:annotation>
+<xsd:documentation>ADDITIONAL PRICE INFORMATION</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_4043" minOccurs="0"/>
+<xsd:element ref="C_C138" minOccurs="0"/>
+<xsd:element ref="C_C960" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="S_UNS">
+<xsd:annotation>
+<xsd:documentation>Service Segment</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_0081" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="S_CNT">
+<xsd:annotation>
+<xsd:documentation>CONTROL TOTAL</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="C_C270" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="S_UNT">
+<xsd:annotation>
+<xsd:documentation>Message Trailer</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_0074" minOccurs="0"/>
+<xsd:element ref="D_0062" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="S_UNA">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_UNA1" minOccurs="0"/>
+<xsd:element ref="D_UNA2" minOccurs="0"/>
+<xsd:element ref="D_UNA3" minOccurs="0"/>
+<xsd:element ref="D_UNA4" minOccurs="0"/>
+<xsd:element ref="D_UNA5" minOccurs="0"/>
+<xsd:element ref="D_UNA6" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="S_UNB">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="C_S001" minOccurs="0"/>
+<xsd:element ref="C_S002" minOccurs="0"/>
+<xsd:element ref="C_S003" minOccurs="0"/>
+<xsd:element ref="C_S004" minOccurs="0"/>
+<xsd:element ref="D_0020" minOccurs="0"/>
+<xsd:element ref="C_S005" minOccurs="0"/>
+<xsd:element ref="D_0026" minOccurs="0"/>
+<xsd:element ref="D_0029" minOccurs="0"/>
+<xsd:element ref="D_0031" minOccurs="0"/>
+<xsd:element ref="D_0032" minOccurs="0"/>
+<xsd:element ref="D_0035" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="S_UNZ">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_0036" minOccurs="0"/>
+<xsd:element ref="D_0020" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C273">
+<xsd:annotation>
+<xsd:documentation>Description of an item.</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_7009" minOccurs="0"/>
+<xsd:element ref="D_1131" minOccurs="0"/>
+<xsd:element ref="D_3055" minOccurs="0"/>
+<xsd:element ref="D_7008" minOccurs="0"/>
+<xsd:element ref="D_7008_1" minOccurs="0"/>
+<xsd:element ref="D_3453" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C079">
+<xsd:annotation>
+<xsd:documentation>To identify parts of a computer environment.</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_1511" minOccurs="0"/>
+<xsd:element ref="D_1131" minOccurs="0"/>
+<xsd:element ref="D_3055" minOccurs="0"/>
+<xsd:element ref="D_1510" minOccurs="0"/>
+<xsd:element ref="D_1056" minOccurs="0"/>
+<xsd:element ref="D_1058" minOccurs="0"/>
+<xsd:element ref="D_7402" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C272">
+<xsd:annotation>
+<xsd:documentation>To provide the characteristic of the item being</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_7081" minOccurs="0"/>
+<xsd:element ref="D_1131" minOccurs="0"/>
+<xsd:element ref="D_3055" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C078">
+<xsd:annotation>
+<xsd:documentation>Identification of an account holder by account</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_3194" minOccurs="0"/>
+<xsd:element ref="D_3192" minOccurs="0"/>
+<xsd:element ref="D_3192_1" minOccurs="0"/>
+<xsd:element ref="D_6345" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C077">
+<xsd:annotation>
+<xsd:documentation>To identify a file.</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_1508" minOccurs="0"/>
+<xsd:element ref="D_7008" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C270">
+<xsd:annotation>
+<xsd:documentation>Control total for checking integrity of a message or</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_6069"/>
+<xsd:element ref="D_6066"/>
+<xsd:element ref="D_6411" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C076">
+<xsd:annotation>
+<xsd:documentation>Communication number of a department or employee in</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_3148"/>
+<xsd:element ref="D_3155"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C703">
+<xsd:annotation>
+<xsd:documentation>Rough classification of a type of cargo.</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_7085"/>
+<xsd:element ref="D_1131" minOccurs="0"/>
+<xsd:element ref="D_3055" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C509">
+<xsd:annotation>
+<xsd:documentation>Identification of price type, price and related</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_5125"/>
+<xsd:element ref="D_5118" minOccurs="0"/>
+<xsd:element ref="D_5375" minOccurs="0"/>
+<xsd:element ref="D_5387" minOccurs="0"/>
+<xsd:element ref="D_5284" minOccurs="0"/>
+<xsd:element ref="D_6411" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C507">
+<xsd:annotation>
+<xsd:documentation>Date and/or time, or period relevant to the</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_2005"/>
+<xsd:element ref="D_2380" minOccurs="0"/>
+<xsd:element ref="D_2379" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C506">
+<xsd:annotation>
+<xsd:documentation>Identification of a reference.</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_1153"/>
+<xsd:element ref="D_1154" minOccurs="0"/>
+<xsd:element ref="D_1156" minOccurs="0"/>
+<xsd:element ref="D_1056" minOccurs="0"/>
+<xsd:element ref="D_1060" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_S009">
+<xsd:annotation>
+<xsd:documentation>Segment Identification</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_0065"/>
+<xsd:element ref="D_0052"/>
+<xsd:element ref="D_0054"/>
+<xsd:element ref="D_0051"/>
+<xsd:element ref="D_0057" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C504">
+<xsd:annotation>
+<xsd:documentation>The usage to which a currency relates.</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_6347"/>
+<xsd:element ref="D_6345" minOccurs="0"/>
+<xsd:element ref="D_6343" minOccurs="0"/>
+<xsd:element ref="D_6348" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C504_1">
+<xsd:annotation>
+<xsd:documentation>The usage to which a currency relates.</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_6347"/>
+<xsd:element ref="D_6345" minOccurs="0"/>
+<xsd:element ref="D_6343" minOccurs="0"/>
+<xsd:element ref="D_6348" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C503">
+<xsd:annotation>
+<xsd:documentation>Identification of document/message by number,</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_1004" minOccurs="0"/>
+<xsd:element ref="D_1373" minOccurs="0"/>
+<xsd:element ref="D_1366" minOccurs="0"/>
+<xsd:element ref="D_3453" minOccurs="0"/>
+<xsd:element ref="D_1056" minOccurs="0"/>
+<xsd:element ref="D_1060" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C502">
+<xsd:annotation>
+<xsd:documentation>Identification of measurement type.</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_6313" minOccurs="0"/>
+<xsd:element ref="D_6321" minOccurs="0"/>
+<xsd:element ref="D_6155" minOccurs="0"/>
+<xsd:element ref="D_6154" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C501">
+<xsd:annotation>
+<xsd:documentation>Percentage relating to a specified basis.</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_5245"/>
+<xsd:element ref="D_5482" minOccurs="0"/>
+<xsd:element ref="D_5249" minOccurs="0"/>
+<xsd:element ref="D_1131" minOccurs="0"/>
+<xsd:element ref="D_3055" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_S005">
+<xsd:annotation>
+<xsd:documentation>Reference or password as agreed between the</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_0022"/>
+<xsd:element ref="D_0025" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_S004">
+<xsd:annotation>
+<xsd:documentation>Date and time of preparation of the interchange.</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_0017"/>
+<xsd:element ref="D_0019"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_S003">
+<xsd:annotation>
+<xsd:documentation>Identification of the recipient of the interchange.</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_0010"/>
+<xsd:element ref="D_0007" minOccurs="0"/>
+<xsd:element ref="D_0014" minOccurs="0"/>
+<xsd:element ref="D_0044" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_S002">
+<xsd:annotation>
+<xsd:documentation>Identification of the sender of the interchange.</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_0004"/>
+<xsd:element ref="D_0007" minOccurs="0"/>
+<xsd:element ref="D_0008" minOccurs="0"/>
+<xsd:element ref="D_0040" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_S001">
+<xsd:annotation>
+<xsd:documentation>Identification of the agency controlling the syntax,</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_0001"/>
+<xsd:element ref="D_0002"/>
+<xsd:element ref="D_0080" minOccurs="0"/>
+<xsd:element ref="D_0133" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C108">
+<xsd:annotation>
+<xsd:documentation>Free text; one to five lines.</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_4440"/>
+<xsd:element ref="D_4440_1" minOccurs="0"/>
+<xsd:element ref="D_4440_2" minOccurs="0"/>
+<xsd:element ref="D_4440_3" minOccurs="0"/>
+<xsd:element ref="D_4440_4" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C107">
+<xsd:annotation>
+<xsd:documentation>Coded reference to a standard text and its source.</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_4441"/>
+<xsd:element ref="D_1131" minOccurs="0"/>
+<xsd:element ref="D_3055" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C106">
+<xsd:annotation>
+<xsd:documentation>Identification of a document/message by its number</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_1004" minOccurs="0"/>
+<xsd:element ref="D_1056" minOccurs="0"/>
+<xsd:element ref="D_1060" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C100">
+<xsd:annotation>
+<xsd:documentation>Terms of delivery or transport code from a specified</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_4053" minOccurs="0"/>
+<xsd:element ref="D_1131" minOccurs="0"/>
+<xsd:element ref="D_3055" minOccurs="0"/>
+<xsd:element ref="D_4052" minOccurs="0"/>
+<xsd:element ref="D_4052_1" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C850">
+<xsd:annotation>
+<xsd:documentation>Provides information regarding the status of an</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_4405"/>
+<xsd:element ref="D_3036" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C059">
+<xsd:annotation>
+<xsd:documentation>Street address and/or PO Box number in a structured</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_3042"/>
+<xsd:element ref="D_3042_1" minOccurs="0"/>
+<xsd:element ref="D_3042_2" minOccurs="0"/>
+<xsd:element ref="D_3042_3" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C058">
+<xsd:annotation>
+<xsd:documentation>Unstructured name and address: one to five lines.</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_3124"/>
+<xsd:element ref="D_3124_1" minOccurs="0"/>
+<xsd:element ref="D_3124_2" minOccurs="0"/>
+<xsd:element ref="D_3124_3" minOccurs="0"/>
+<xsd:element ref="D_3124_4" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C849">
+<xsd:annotation>
+<xsd:documentation>Identify the sending and receiving parties of the</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_3301"/>
+<xsd:element ref="D_3285" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C056">
+<xsd:annotation>
+<xsd:documentation>Code and/or name of a contact such as a department</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_3413" minOccurs="0"/>
+<xsd:element ref="D_3412" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C243">
+<xsd:annotation>
+<xsd:documentation>Rate of duty/tax/fee applicable to commodities or of</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_5279" minOccurs="0"/>
+<xsd:element ref="D_1131" minOccurs="0"/>
+<xsd:element ref="D_3055" minOccurs="0"/>
+<xsd:element ref="D_5278" minOccurs="0"/>
+<xsd:element ref="D_5273" minOccurs="0"/>
+<xsd:element ref="D_1131_1" minOccurs="0"/>
+<xsd:element ref="D_3055_1" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C241">
+<xsd:annotation>
+<xsd:documentation>Code and/or name identifying duty, tax or fee.</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_5153" minOccurs="0"/>
+<xsd:element ref="D_1131" minOccurs="0"/>
+<xsd:element ref="D_3055" minOccurs="0"/>
+<xsd:element ref="D_5152" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C040">
+<xsd:annotation>
+<xsd:documentation>Identification of a carrier by code and/or by name.</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_3127" minOccurs="0"/>
+<xsd:element ref="D_1131" minOccurs="0"/>
+<xsd:element ref="D_3055" minOccurs="0"/>
+<xsd:element ref="D_3126" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C237">
+<xsd:annotation>
+<xsd:documentation>Marks (letters/numbers) identifying equipment.</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_8260" minOccurs="0"/>
+<xsd:element ref="D_1131" minOccurs="0"/>
+<xsd:element ref="D_3055" minOccurs="0"/>
+<xsd:element ref="D_3207" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C236">
+<xsd:annotation>
+<xsd:documentation>Markings identifying the type of hazardous goods and</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_8246" minOccurs="0"/>
+<xsd:element ref="D_8246_1" minOccurs="0"/>
+<xsd:element ref="D_8246_2" minOccurs="0"/>
+<xsd:element ref="D_8246_3" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C235">
+<xsd:annotation>
+<xsd:documentation>These numbers appear on the hazard identification</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_8158" minOccurs="0"/>
+<xsd:element ref="D_8186" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C234">
+<xsd:annotation>
+<xsd:documentation>Information on dangerous goods, taken from the</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_7124" minOccurs="0"/>
+<xsd:element ref="D_7088" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C233">
+<xsd:annotation>
+<xsd:documentation>To identify a service (which may constitute an</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_7273"/>
+<xsd:element ref="D_1131" minOccurs="0"/>
+<xsd:element ref="D_3055" minOccurs="0"/>
+<xsd:element ref="D_7273_1" minOccurs="0"/>
+<xsd:element ref="D_1131_1" minOccurs="0"/>
+<xsd:element ref="D_3055_1" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C829">
+<xsd:annotation>
+<xsd:documentation>To provide an indication that a segment or segment</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_5495" minOccurs="0"/>
+<xsd:element ref="D_1082" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C827">
+<xsd:annotation>
+<xsd:documentation>Specification of the type of marking that reflects</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_7511"/>
+<xsd:element ref="D_1131" minOccurs="0"/>
+<xsd:element ref="D_3055" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C224">
+<xsd:annotation>
+<xsd:documentation>Code and or name identifying size and type of</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_8155" minOccurs="0"/>
+<xsd:element ref="D_1131" minOccurs="0"/>
+<xsd:element ref="D_3055" minOccurs="0"/>
+<xsd:element ref="D_8154" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C223">
+<xsd:annotation>
+<xsd:documentation>Temperature at which a vapor can be ignited as per</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_7106" minOccurs="0"/>
+<xsd:element ref="D_6411" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C222">
+<xsd:annotation>
+<xsd:documentation>Code and/or name identifying the means of transport.</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_8213" minOccurs="0"/>
+<xsd:element ref="D_1131" minOccurs="0"/>
+<xsd:element ref="D_3055" minOccurs="0"/>
+<xsd:element ref="D_8212" minOccurs="0"/>
+<xsd:element ref="D_8453" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C220">
+<xsd:annotation>
+<xsd:documentation>Method of transport code or name. Code preferred.</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_8067" minOccurs="0"/>
+<xsd:element ref="D_8066" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C819">
+<xsd:annotation>
+<xsd:documentation>To specify a country subdivision, such as state,</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_3229" minOccurs="0"/>
+<xsd:element ref="D_1131" minOccurs="0"/>
+<xsd:element ref="D_3055" minOccurs="0"/>
+<xsd:element ref="D_3228" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C186">
+<xsd:annotation>
+<xsd:documentation>Quantity information in a transaction, qualified</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_6063"/>
+<xsd:element ref="D_6060"/>
+<xsd:element ref="D_6411" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C215">
+<xsd:annotation>
+<xsd:documentation>Identification of the issuer of a seal on equipment</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_9303" minOccurs="0"/>
+<xsd:element ref="D_1131" minOccurs="0"/>
+<xsd:element ref="D_3055" minOccurs="0"/>
+<xsd:element ref="D_9302" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C214">
+<xsd:annotation>
+<xsd:documentation>Identification of a special service by a code from a</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_7161" minOccurs="0"/>
+<xsd:element ref="D_1131" minOccurs="0"/>
+<xsd:element ref="D_3055" minOccurs="0"/>
+<xsd:element ref="D_7160" minOccurs="0"/>
+<xsd:element ref="D_7160_1" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C019">
+<xsd:annotation>
+<xsd:documentation>Terms of payment information.</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_4277" minOccurs="0"/>
+<xsd:element ref="D_1131" minOccurs="0"/>
+<xsd:element ref="D_3055" minOccurs="0"/>
+<xsd:element ref="D_4276" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C212">
+<xsd:annotation>
+<xsd:documentation>Goods identification for a specified source.</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_7140" minOccurs="0"/>
+<xsd:element ref="D_7143" minOccurs="0"/>
+<xsd:element ref="D_1131" minOccurs="0"/>
+<xsd:element ref="D_3055" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C212_1">
+<xsd:annotation>
+<xsd:documentation>Goods identification for a specified source.</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_7140" minOccurs="0"/>
+<xsd:element ref="D_7143" minOccurs="0"/>
+<xsd:element ref="D_1131" minOccurs="0"/>
+<xsd:element ref="D_3055" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C212_2">
+<xsd:annotation>
+<xsd:documentation>Goods identification for a specified source.</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_7140" minOccurs="0"/>
+<xsd:element ref="D_7143" minOccurs="0"/>
+<xsd:element ref="D_1131" minOccurs="0"/>
+<xsd:element ref="D_3055" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C212_3">
+<xsd:annotation>
+<xsd:documentation>Goods identification for a specified source.</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_7140" minOccurs="0"/>
+<xsd:element ref="D_7143" minOccurs="0"/>
+<xsd:element ref="D_1131" minOccurs="0"/>
+<xsd:element ref="D_3055" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C212_4">
+<xsd:annotation>
+<xsd:documentation>Goods identification for a specified source.</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_7140" minOccurs="0"/>
+<xsd:element ref="D_7143" minOccurs="0"/>
+<xsd:element ref="D_1131" minOccurs="0"/>
+<xsd:element ref="D_3055" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C210">
+<xsd:annotation>
+<xsd:documentation>Shipping marks on packages in free text; one to ten</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_7102"/>
+<xsd:element ref="D_7102_1" minOccurs="0"/>
+<xsd:element ref="D_7102_2" minOccurs="0"/>
+<xsd:element ref="D_7102_3" minOccurs="0"/>
+<xsd:element ref="D_7102_4" minOccurs="0"/>
+<xsd:element ref="D_7102_5" minOccurs="0"/>
+<xsd:element ref="D_7102_6" minOccurs="0"/>
+<xsd:element ref="D_7102_7" minOccurs="0"/>
+<xsd:element ref="D_7102_8" minOccurs="0"/>
+<xsd:element ref="D_7102_9" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C012">
+<xsd:annotation>
+<xsd:documentation>Identification of the processing indicator.</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_7365" minOccurs="0"/>
+<xsd:element ref="D_1131" minOccurs="0"/>
+<xsd:element ref="D_3055" minOccurs="0"/>
+<xsd:element ref="D_7364" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C174">
+<xsd:annotation>
+<xsd:documentation>Measurement value and relevant minimum and maximum</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_6411"/>
+<xsd:element ref="D_6314" minOccurs="0"/>
+<xsd:element ref="D_6162" minOccurs="0"/>
+<xsd:element ref="D_6152" minOccurs="0"/>
+<xsd:element ref="D_6432" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C960">
+<xsd:annotation>
+<xsd:documentation>Code and/or description of the reason for a change.</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_4295" minOccurs="0"/>
+<xsd:element ref="D_1131" minOccurs="0"/>
+<xsd:element ref="D_3055" minOccurs="0"/>
+<xsd:element ref="D_4294" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C402">
+<xsd:annotation>
+<xsd:documentation>Identification of the form in which goods are</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_7077"/>
+<xsd:element ref="D_7064"/>
+<xsd:element ref="D_7143" minOccurs="0"/>
+<xsd:element ref="D_7064_1" minOccurs="0"/>
+<xsd:element ref="D_7143_1" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C208">
+<xsd:annotation>
+<xsd:documentation>Goods item identification numbers, start and end of</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_7402"/>
+<xsd:element ref="D_7402_1" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C208_1">
+<xsd:annotation>
+<xsd:documentation>Goods item identification numbers, start and end of</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_7402"/>
+<xsd:element ref="D_7402_1" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C208_2">
+<xsd:annotation>
+<xsd:documentation>Goods item identification numbers, start and end of</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_7402"/>
+<xsd:element ref="D_7402_1" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C208_3">
+<xsd:annotation>
+<xsd:documentation>Goods item identification numbers, start and end of</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_7402"/>
+<xsd:element ref="D_7402_1" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C208_4">
+<xsd:annotation>
+<xsd:documentation>Goods item identification numbers, start and end of</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_7402"/>
+<xsd:element ref="D_7402_1" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C401">
+<xsd:annotation>
+<xsd:documentation>To provide details of reason for, and responsibility</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_8457"/>
+<xsd:element ref="D_8459"/>
+<xsd:element ref="D_7130" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C206">
+<xsd:annotation>
+<xsd:documentation>The identification of an object.</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_7402"/>
+<xsd:element ref="D_7405" minOccurs="0"/>
+<xsd:element ref="D_4405" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C206_1">
+<xsd:annotation>
+<xsd:documentation>The identification of an object.</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_7402"/>
+<xsd:element ref="D_7405" minOccurs="0"/>
+<xsd:element ref="D_4405" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C206_2">
+<xsd:annotation>
+<xsd:documentation>The identification of an object.</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_7402"/>
+<xsd:element ref="D_7405" minOccurs="0"/>
+<xsd:element ref="D_4405" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C206_3">
+<xsd:annotation>
+<xsd:documentation>The identification of an object.</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_7402"/>
+<xsd:element ref="D_7405" minOccurs="0"/>
+<xsd:element ref="D_4405" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C206_4">
+<xsd:annotation>
+<xsd:documentation>The identification of an object.</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_7402"/>
+<xsd:element ref="D_7405" minOccurs="0"/>
+<xsd:element ref="D_4405" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C205">
+<xsd:annotation>
+<xsd:documentation>The identification of the dangerous goods in code.</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_8351"/>
+<xsd:element ref="D_8078" minOccurs="0"/>
+<xsd:element ref="D_8092" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C202">
+<xsd:annotation>
+<xsd:documentation>Type of package by name or by code from a specified</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_7065" minOccurs="0"/>
+<xsd:element ref="D_1131" minOccurs="0"/>
+<xsd:element ref="D_3055" minOccurs="0"/>
+<xsd:element ref="D_7064" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C003">
+<xsd:annotation>
+<xsd:documentation>To specify the type of power.</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_7041" minOccurs="0"/>
+<xsd:element ref="D_1131" minOccurs="0"/>
+<xsd:element ref="D_3055" minOccurs="0"/>
+<xsd:element ref="D_7040" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C002">
+<xsd:annotation>
+<xsd:documentation>Identification of a type of document/message by code</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_1001" minOccurs="0"/>
+<xsd:element ref="D_1131" minOccurs="0"/>
+<xsd:element ref="D_3055" minOccurs="0"/>
+<xsd:element ref="D_1000" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C001">
+<xsd:annotation>
+<xsd:documentation>Code and/or name identifying the type of means of</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_8179" minOccurs="0"/>
+<xsd:element ref="D_1131" minOccurs="0"/>
+<xsd:element ref="D_3055" minOccurs="0"/>
+<xsd:element ref="D_8178" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C553">
+<xsd:annotation>
+<xsd:documentation>Identification of second related location by code or</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_3233" minOccurs="0"/>
+<xsd:element ref="D_1131" minOccurs="0"/>
+<xsd:element ref="D_3055" minOccurs="0"/>
+<xsd:element ref="D_3232" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C552">
+<xsd:annotation>
+<xsd:documentation>Identification of allowance/charge information by</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_1230" minOccurs="0"/>
+<xsd:element ref="D_5189" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C550">
+<xsd:annotation>
+<xsd:documentation>To identify the specific rule/condition requirement.</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_7295"/>
+<xsd:element ref="D_1131" minOccurs="0"/>
+<xsd:element ref="D_3055" minOccurs="0"/>
+<xsd:element ref="D_7294" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C537">
+<xsd:annotation>
+<xsd:documentation>To indicate the priority of requested transport</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_4219"/>
+<xsd:element ref="D_1131" minOccurs="0"/>
+<xsd:element ref="D_3055" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C536">
+<xsd:annotation>
+<xsd:documentation>To identify a contract and carriage condition.</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_4065"/>
+<xsd:element ref="D_1131" minOccurs="0"/>
+<xsd:element ref="D_3055" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C534">
+<xsd:annotation>
+<xsd:documentation>Indication of method of payment employed or to be</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_4439" minOccurs="0"/>
+<xsd:element ref="D_4431" minOccurs="0"/>
+<xsd:element ref="D_4461" minOccurs="0"/>
+<xsd:element ref="D_1131" minOccurs="0"/>
+<xsd:element ref="D_3055" minOccurs="0"/>
+<xsd:element ref="D_4435" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C533">
+<xsd:annotation>
+<xsd:documentation>Indication of account reference for duties, taxes</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_5289"/>
+<xsd:element ref="D_1131" minOccurs="0"/>
+<xsd:element ref="D_3055" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C532">
+<xsd:annotation>
+<xsd:documentation>Indication of responsibility for payment and load</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_8395" minOccurs="0"/>
+<xsd:element ref="D_8393" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C531">
+<xsd:annotation>
+<xsd:documentation>Packaging level and details, terms and conditions.</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_7075" minOccurs="0"/>
+<xsd:element ref="D_7233" minOccurs="0"/>
+<xsd:element ref="D_7073" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C138">
+<xsd:annotation>
+<xsd:documentation>Price multiplier and its identification.</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_5394"/>
+<xsd:element ref="D_5393" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C099">
+<xsd:annotation>
+<xsd:documentation>To define details relevant to a file.</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_1516"/>
+<xsd:element ref="D_1056" minOccurs="0"/>
+<xsd:element ref="D_1503" minOccurs="0"/>
+<xsd:element ref="D_1502" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C522">
+<xsd:annotation>
+<xsd:documentation>To specify an instruction.</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_4403"/>
+<xsd:element ref="D_4401" minOccurs="0"/>
+<xsd:element ref="D_1131" minOccurs="0"/>
+<xsd:element ref="D_3055" minOccurs="0"/>
+<xsd:element ref="D_4400" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C128">
+<xsd:annotation>
+<xsd:documentation>Rate per unit and rate basis.</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_5419"/>
+<xsd:element ref="D_5420"/>
+<xsd:element ref="D_5284" minOccurs="0"/>
+<xsd:element ref="D_6411" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C289">
+<xsd:annotation>
+<xsd:documentation>To specify a restriction for transport through</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_8461" minOccurs="0"/>
+<xsd:element ref="D_1131" minOccurs="0"/>
+<xsd:element ref="D_3055" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C288">
+<xsd:annotation>
+<xsd:documentation>To give product group information.</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_5389" minOccurs="0"/>
+<xsd:element ref="D_1131" minOccurs="0"/>
+<xsd:element ref="D_3055" minOccurs="0"/>
+<xsd:element ref="D_5388" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C088">
+<xsd:annotation>
+<xsd:documentation>Identification of a financial institution by code</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_3433" minOccurs="0"/>
+<xsd:element ref="D_1131" minOccurs="0"/>
+<xsd:element ref="D_3055" minOccurs="0"/>
+<xsd:element ref="D_3434" minOccurs="0"/>
+<xsd:element ref="D_1131_1" minOccurs="0"/>
+<xsd:element ref="D_3055_1" minOccurs="0"/>
+<xsd:element ref="D_3432" minOccurs="0"/>
+<xsd:element ref="D_3436" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C280">
+<xsd:annotation>
+<xsd:documentation>Range minimum and maximum limits.</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_6411"/>
+<xsd:element ref="D_6162" minOccurs="0"/>
+<xsd:element ref="D_6152" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C082">
+<xsd:annotation>
+<xsd:documentation>Identification of a transaction party by code.</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_3039"/>
+<xsd:element ref="D_1131" minOccurs="0"/>
+<xsd:element ref="D_3055" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C519">
+<xsd:annotation>
+<xsd:documentation>Identification the first related location by code or</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_3223" minOccurs="0"/>
+<xsd:element ref="D_1131" minOccurs="0"/>
+<xsd:element ref="D_3055" minOccurs="0"/>
+<xsd:element ref="D_3222" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C080">
+<xsd:annotation>
+<xsd:documentation>Identification of a transaction party by name, one</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_3036"/>
+<xsd:element ref="D_3036_1" minOccurs="0"/>
+<xsd:element ref="D_3036_2" minOccurs="0"/>
+<xsd:element ref="D_3036_3" minOccurs="0"/>
+<xsd:element ref="D_3036_4" minOccurs="0"/>
+<xsd:element ref="D_3045" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C517">
+<xsd:annotation>
+<xsd:documentation>Identification of a location by code or name.</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_3225" minOccurs="0"/>
+<xsd:element ref="D_1131" minOccurs="0"/>
+<xsd:element ref="D_3055" minOccurs="0"/>
+<xsd:element ref="D_3224" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C516">
+<xsd:annotation>
+<xsd:documentation>Amount of goods or services stated as a monetary</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_5025"/>
+<xsd:element ref="D_5004" minOccurs="0"/>
+<xsd:element ref="D_6345" minOccurs="0"/>
+<xsd:element ref="D_6343" minOccurs="0"/>
+<xsd:element ref="D_4405" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="C_C279">
+<xsd:annotation>
+<xsd:documentation>Information on quantity difference.</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="D_6064"/>
+<xsd:element ref="D_6063" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="D_4471" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code specifying the means of settlement.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_9450" type="string1..35">
+<xsd:annotation>
+<xsd:documentation>Name of a file compression technique.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_8364" type="string1..6">
+<xsd:annotation>
+<xsd:documentation>To identify the emergency procedure number for ships</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_9448" type="string1..35">
+<xsd:annotation>
+<xsd:documentation>Name of a file generation command.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_4465" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code specifying the adjustment reason.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_4461" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code identifying a means of payment.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_7273" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code specifying a service requirement.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_7273_1" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code specifying a service requirement.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_8351" type="string1..7">
+<xsd:annotation>
+<xsd:documentation>Code identifying a hazard.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_4453" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code specifying the function of free text.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_4451" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code qualifying the subject of the text.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_4447" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code specifying the format of free text.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_UNA6" type="string1..1">
+<xsd:annotation>
+<xsd:documentation>SEGMENT TERMINATOR</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_UNA5" type="string1..1">
+<xsd:annotation>
+<xsd:documentation>RESERVE</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_UNA4" type="string1..1">
+<xsd:annotation>
+<xsd:documentation>RELEASE CHARACTER</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_4441" type="string1..17">
+<xsd:annotation>
+<xsd:documentation>Code specifying free form text.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_UNA3" type="string1..1">
+<xsd:annotation>
+<xsd:documentation>DECIMAL NOTATION</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_4440" type="string1..512">
+<xsd:annotation>
+<xsd:documentation>Free form text.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_4440_1" type="string1..512">
+<xsd:annotation>
+<xsd:documentation>Free form text.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_4440_2" type="string1..512">
+<xsd:annotation>
+<xsd:documentation>Free form text.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_4440_3" type="string1..512">
+<xsd:annotation>
+<xsd:documentation>Free form text.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_4440_4" type="string1..512">
+<xsd:annotation>
+<xsd:documentation>Free form text.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_UNA2" type="string1..1">
+<xsd:annotation>
+<xsd:documentation>DATA ELEMENT SEPARATOR</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_UNA1" type="string1..1">
+<xsd:annotation>
+<xsd:documentation>COMPONENT DATA ELEMENT SEPARATOR</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_8339" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code specifying the level of danger for which the</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_4439" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code specifying the payment conditions.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_4435" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code specifying the payment channel.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_6167" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code qualifying a type of range.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_4431" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code specifying the means of payment guarantee.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_6162" type="numeric1..18">
+<xsd:annotation>
+<xsd:documentation>To specify the minimum value of a range.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_6155" type="string1..17">
+<xsd:annotation>
+<xsd:documentation>Code specifying the name of a non-discrete</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_6154" type="string1..70">
+<xsd:annotation>
+<xsd:documentation>Name of a non-discrete measurement.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_6152" type="numeric1..18">
+<xsd:annotation>
+<xsd:documentation>To specify the maximum value of a range.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_7233" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code specifying information related to packaging.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_0081" type="string1..1">
+<xsd:annotation>
+<xsd:documentation>Section identification</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_0080" type="string1..6">
+<xsd:annotation>
+<xsd:documentation>Version number of the service code list directory.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_7224" type="numeric1..8">
+<xsd:annotation>
+<xsd:documentation>To specify the number of packages.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_0074" type="numeric1..10">
+<xsd:annotation>
+<xsd:documentation>The number of segments in a message, including the message</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_1156" type="string1..6">
+<xsd:annotation>
+<xsd:documentation>To identify a line of a document.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_4405" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code specifying a status.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_1154" type="string1..70">
+<xsd:annotation>
+<xsd:documentation>Identifies a reference.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_4403" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code qualifying the type of instruction.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_1153" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code qualifying a reference.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_4401" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code specifying an instruction.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_4400" type="string1..35">
+<xsd:annotation>
+<xsd:documentation>Free form description of an instruction.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_0065" type="string1..6">
+<xsd:annotation>
+<xsd:documentation>Code identifying a type of message and assigned by its</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_0062" type="string1..14">
+<xsd:annotation>
+<xsd:documentation>Unique message reference assigned by the sender.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_0057" type="string1..6">
+<xsd:annotation>
+<xsd:documentation>Code, assigned by the association responsible for the design</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_0054" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Release number within the current message version number.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_0052" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Version number of a message type.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_3301" type="string1..35">
+<xsd:annotation>
+<xsd:documentation>To identify the party enacting an instruction.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_0051" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code identifying a controlling agency.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_5394" type="numeric1..12">
+<xsd:annotation>
+<xsd:documentation>To specify the rate of a price multiplier.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_5393" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code qualifying the type of price multiplier.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_1131" type="string1..17">
+<xsd:annotation>
+<xsd:documentation>Code identifying a user or association maintained code</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_1131_1" type="string1..17">
+<xsd:annotation>
+<xsd:documentation>Code identifying a user or association maintained code</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_5389" type="string1..25">
+<xsd:annotation>
+<xsd:documentation>Code specifying the name of a product group.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_5388" type="string1..35">
+<xsd:annotation>
+<xsd:documentation>Name of a product code.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_0044" type="string1..35">
+<xsd:annotation>
+<xsd:documentation>Third level identification of the interchange recipient.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_5387" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code identifying pricing specification.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_5025" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code qualifying the type of monetary amount.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_0040" type="string1..35">
+<xsd:annotation>
+<xsd:documentation>Third level identification of the interchange sender.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_4295" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code specifying the reason for a change.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_4294" type="string1..35">
+<xsd:annotation>
+<xsd:documentation>Free form description of the reason for change.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_0036" type="numeric1..6">
+<xsd:annotation>
+<xsd:documentation>The number of messages in an interchange or, if used, the</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_5379" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code specifying the type of product group.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_0035" type="numeric1..1">
+<xsd:annotation>
+<xsd:documentation>Indication that the structural level containing the test</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_0032" type="string1..35">
+<xsd:annotation>
+<xsd:documentation>Identification by name or code of the type of agreement under</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_5375" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code specifying the type of price.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_0031" type="numeric1..1">
+<xsd:annotation>
+<xsd:documentation>Code requesting acknowledgement for the interchange.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_8186" type="string14">
+<xsd:annotation>
+<xsd:documentation>To specify the identity number for the lower part of</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_0029" type="numeric1..1">
+<xsd:annotation>
+<xsd:documentation>Code determined by the sender requesting processing priority</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_0026" type="string1..14">
+<xsd:annotation>
+<xsd:documentation>Identification of the application area assigned by the</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_0025" type="string12">
+<xsd:annotation>
+<xsd:documentation>Qualifier for the recipient's reference or password.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_0022" type="string1..14">
+<xsd:annotation>
+<xsd:documentation>Reference or password to the recipient's system or to a third</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_5004" type="numeric1..35">
+<xsd:annotation>
+<xsd:documentation>To specify a monetary amount.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_0020" type="string1..14">
+<xsd:annotation>
+<xsd:documentation>Unique reference assigned by the sender to an interchange.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_8179" type="string1..8">
+<xsd:annotation>
+<xsd:documentation>Code specifying the means of transport.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_8178" type="string1..17">
+<xsd:annotation>
+<xsd:documentation>Free form description of the means of transport.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_3194" type="string1..35">
+<xsd:annotation>
+<xsd:documentation>To identify the holder of an account.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_3192" type="string1..35">
+<xsd:annotation>
+<xsd:documentation>Name of the holder of an account.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_3192_1" type="string1..35">
+<xsd:annotation>
+<xsd:documentation>Name of the holder of an account.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_4279" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code qualifying the type of payment terms.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_4277" type="string1..17">
+<xsd:annotation>
+<xsd:documentation>Identification of the terms of payment between the</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_4276" type="string1..35">
+<xsd:annotation>
+<xsd:documentation>Free form description of the conditions of payment</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_0019" type="numeric1..4">
+<xsd:annotation>
+<xsd:documentation>Local time of day when an interchange or a group was</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_0017" type="numeric1..6">
+<xsd:annotation>
+<xsd:documentation>Local date when an interchange or a group was prepared.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_0014" type="string1..35">
+<xsd:annotation>
+<xsd:documentation>Second level identification of the interchange recipient.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_7088" type="string1..8">
+<xsd:annotation>
+<xsd:documentation>To describe the flahspoint of dangerous goods.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_0010" type="string1..35">
+<xsd:annotation>
+<xsd:documentation>First level identification of the interchange recipient.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_7085" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code specifying the classification of a type of cargo.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_7083" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code specifying the configuration operation.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_7081" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code specifying the characteristic of an item.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_8169" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code indicating whether an object is full or empty.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_6432" type="numeric1..2">
+<xsd:annotation>
+<xsd:documentation>Count of the number of significant digits.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_7511" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code specifying the type of marking.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_0008" type="string1..35">
+<xsd:annotation>
+<xsd:documentation>Second level identification of the interchange sender.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_0007" type="string1..4">
+<xsd:annotation>
+<xsd:documentation>Qualifier referring to the source of the code for the level</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_0004" type="string1..35">
+<xsd:annotation>
+<xsd:documentation>First level identification of the interchange sender.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_0002" type="string1..1">
+<xsd:annotation>
+<xsd:documentation>Version number of the syntax.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_0001" type="string1..4">
+<xsd:annotation>
+<xsd:documentation>Coded identification of the agency controlling the syntax,</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_7077" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code specifying the format of a description.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_7075" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code specifying a level of packaging.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_7073" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code specifying the packaging terms and conditions.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_8158" type="string1..4">
+<xsd:annotation>
+<xsd:documentation>To specify the identity number for the upper part of</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_8155" type="string1..10">
+<xsd:annotation>
+<xsd:documentation>Code specifying the size and type of equipment.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_8154" type="string1..35">
+<xsd:annotation>
+<xsd:documentation>Free form description of the size and type of</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_7065" type="string1..17">
+<xsd:annotation>
+<xsd:documentation>Code specifying the type of package.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_7064" type="string1..35">
+<xsd:annotation>
+<xsd:documentation>Description of the form in which goods are presented.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_7064_1" type="string1..35">
+<xsd:annotation>
+<xsd:documentation>Description of the form in which goods are presented.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_3164" type="string1..35">
+<xsd:annotation>
+<xsd:documentation>Name of a city.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_6411" type="string1..8">
+<xsd:annotation>
+<xsd:documentation>Code specifying the unit of measurement.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_3155" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code specifying the type of communication address.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_3153" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code specifying the type of communication medium.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_4233" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code specifying instructions for marking.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_9213" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code specifying a type of duty regime.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_7041" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code indicating the type of power.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_3148" type="string1..512">
+<xsd:annotation>
+<xsd:documentation>To identify a communication address.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_7040" type="string1..17">
+<xsd:annotation>
+<xsd:documentation>Description of the type of power.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_8126" type="string1..10">
+<xsd:annotation>
+<xsd:documentation>To identify a transport emergency (TREM) card.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_4221" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code specifying the identification used to define the</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_5307" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>A code indicating when the duty, tax, or fee payment</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_5305" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code specifying a duty or tax or fee category.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_3139" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code specifying the function of a contact (e.g.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_4219" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code specifying the priority of a transport service.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_4215" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code specifying the payment method for transport</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_7383" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code specifying the surface or layer of an object.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_3127" type="string1..17">
+<xsd:annotation>
+<xsd:documentation>To identify a carrier.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_3126" type="string1..35">
+<xsd:annotation>
+<xsd:documentation>Name of a carrier.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_3124" type="string1..35">
+<xsd:annotation>
+<xsd:documentation>Free form description of a name and address line.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_3124_1" type="string1..35">
+<xsd:annotation>
+<xsd:documentation>Free form description of a name and address line.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_3124_2" type="string1..35">
+<xsd:annotation>
+<xsd:documentation>Free form description of a name and address line.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_3124_3" type="string1..35">
+<xsd:annotation>
+<xsd:documentation>Free form description of a name and address line.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_3124_4" type="string1..35">
+<xsd:annotation>
+<xsd:documentation>Free form description of a name and address line.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_8101" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code specifying the direction of transport.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_8461" type="string1..6">
+<xsd:annotation>
+<xsd:documentation>A code indicating a restriction for transport through</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_8459" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code specifying the responsibility for excess</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_8457" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code specifying the reason for excess transportation.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_8453" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code specifying the nationality of a means of</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_7009" type="string1..17">
+<xsd:annotation>
+<xsd:documentation>Code specifying an item.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_7008" type="string1..256">
+<xsd:annotation>
+<xsd:documentation>Free form description of an item.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_7008_1" type="string1..256">
+<xsd:annotation>
+<xsd:documentation>Free form description of an item.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_7365" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code specifying a processing indicator.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_7364" type="string1..35">
+<xsd:annotation>
+<xsd:documentation>Free form description of a processing indicator.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_2380" type="string1..35">
+<xsd:annotation>
+<xsd:documentation>The value of a date, a date and time, a time or of a</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_2379" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code specifying the representation of a date, time or</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_5189" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code specifying the identification of an allowance or</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_3453" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code specifying the language name.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_2009" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code relating terms to a reference date, time or</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_2005" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code qualifying the function of a date, time or</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_3446" type="string1..20">
+<xsd:annotation>
+<xsd:documentation>To identify a number assigned to a party by a tax</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_4525" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>To specify a type of seal.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_3436" type="string1..70">
+<xsd:annotation>
+<xsd:documentation>Name of the location of a branch of an institution.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_3434" type="string1..17">
+<xsd:annotation>
+<xsd:documentation>To identify a branch of an institution.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_3433" type="string1..11">
+<xsd:annotation>
+<xsd:documentation>Code specifying the name of an institution.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_3432" type="string1..70">
+<xsd:annotation>
+<xsd:documentation>Name of an institution.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_8410" type="string1..4">
+<xsd:annotation>
+<xsd:documentation>To identify a Medical First Aid Guide (MFAG) for</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_4517" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code specifying the condition of a seal.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_5153" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code specifying a type of duty, tax or fee.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_5152" type="string1..35">
+<xsd:annotation>
+<xsd:documentation>Name of a type of duty, tax or fee.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_4065" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code to identify the conditions of contract and</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_3413" type="string1..17">
+<xsd:annotation>
+<xsd:documentation>To identify a contact, such as a department or</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_3412" type="string1..256">
+<xsd:annotation>
+<xsd:documentation>Name of a contact, such as a department or employee.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_4055" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code specifying the function of delivery or transport</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_4053" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code specifying the delivery or transport terms.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_4052" type="string1..70">
+<xsd:annotation>
+<xsd:documentation>Free form description of delivery or transport terms.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_4052_1" type="string1..70">
+<xsd:annotation>
+<xsd:documentation>Free form description of delivery or transport terms.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_5495" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code indicating a sub-line item.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_1230" type="string1..35">
+<xsd:annotation>
+<xsd:documentation>To identify an allowance or charge.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_4043" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code identifying the class of trade.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_5125" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code qualifying a price.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_1229" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code specifying the action to be taken or already</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_5482" type="numeric1..10">
+<xsd:annotation>
+<xsd:documentation>To specify a percentage.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_1227" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code specifying a calculation sequence.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_1225" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code indicating the function of the message.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_1222" type="numeric1..2">
+<xsd:annotation>
+<xsd:documentation>To specify a level within a configuration.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_1220" type="numeric1..2">
+<xsd:annotation>
+<xsd:documentation>Quantity of document copies required.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_5118" type="numeric1..15">
+<xsd:annotation>
+<xsd:documentation>To specify a price.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_5479" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code specifying a relation.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_0133" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Coded identification of the character encoding used in the</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_1218" type="numeric1..2">
+<xsd:annotation>
+<xsd:documentation>Quantity of document originals required.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_8281" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code indicating the ownership of a means of transport.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_5463" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code qualifying an allowance or charge.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_8273" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code specifying a dangerous goods regulation.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_7187" type="string1..17">
+<xsd:annotation>
+<xsd:documentation>Code specifying a type of process.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_3285" type="string1..35">
+<xsd:annotation>
+<xsd:documentation>Code specifying the party to receive an instruction.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_8260" type="string1..17">
+<xsd:annotation>
+<xsd:documentation>To identify equipment.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_8255" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code specifying a type of packing instruction.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_7161" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code specifying a special service.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_7160" type="string1..35">
+<xsd:annotation>
+<xsd:documentation>Free form description of a special service.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_7160_1" type="string1..35">
+<xsd:annotation>
+<xsd:documentation>Free form description of a special service.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_8249" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code specifying the status of equipment.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_8246" type="string1..4">
+<xsd:annotation>
+<xsd:documentation>To identify the marking of dangerous goods.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_8246_1" type="string1..4">
+<xsd:annotation>
+<xsd:documentation>To identify the marking of dangerous goods.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_8246_2" type="string1..4">
+<xsd:annotation>
+<xsd:documentation>To identify the marking of dangerous goods.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_8246_3" type="string1..4">
+<xsd:annotation>
+<xsd:documentation>To identify the marking of dangerous goods.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_4347" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code qualifying the product identifier.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_4343" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code specifying the type of acknowledgment required or</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_5420" type="numeric1..15">
+<xsd:annotation>
+<xsd:documentation>To specify the rate per unit specified in the unit</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_3251" type="string1..17">
+<xsd:annotation>
+<xsd:documentation>Code specifying the postal zone or address.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_6069" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code qualifying the type of control of hash total.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_6066" type="numeric1..18">
+<xsd:annotation>
+<xsd:documentation>To specify the value of a control quantity.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_6064" type="numeric1..15">
+<xsd:annotation>
+<xsd:documentation>To specify the value of a quantity variance.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_1082" type="string1..6">
+<xsd:annotation>
+<xsd:documentation>To identify a line item.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_6063" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code qualifying the type of quantity.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_5419" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code qualifying the type of rate.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_6060" type="string1..35">
+<xsd:annotation>
+<xsd:documentation>Alphanumeric representation of a quantity.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_7143" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Coded identification of an item type.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_7143_1" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Coded identification of an item type.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_1516" type="string1..17">
+<xsd:annotation>
+<xsd:documentation>Name of a file format.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_7140" type="string1..35">
+<xsd:annotation>
+<xsd:documentation>To identify an item.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_1511" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code specifying a computer environment.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_1510" type="string1..35">
+<xsd:annotation>
+<xsd:documentation>Name of a computer environment.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_9308" type="string1..35">
+<xsd:annotation>
+<xsd:documentation>The identification number of a seal affixed to a</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_9303" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code specifying the name of the sealing party.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_9302" type="string1..35">
+<xsd:annotation>
+<xsd:documentation>Name of the sealing party.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_5402" type="numeric1..12">
+<xsd:annotation>
+<xsd:documentation>To specify the rate at which one specified currency is</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_2152" type="numeric1..3">
+<xsd:annotation>
+<xsd:documentation>Count of the number of periods.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_1508" type="string1..35">
+<xsd:annotation>
+<xsd:documentation>Name of a file.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_2151" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code specifying the type of period.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_3239" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>To identify the country in which the goods have been</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_7130" type="string1..17">
+<xsd:annotation>
+<xsd:documentation>To identify the authorisation to ship issued by the</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_1503" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code specifying the data format.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_1502" type="string1..35">
+<xsd:annotation>
+<xsd:documentation>Free form description of the data format.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_1501" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code qualifying computer environment details.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_3233" type="string1..35">
+<xsd:annotation>
+<xsd:documentation>To identify a second related location.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_3232" type="string1..70">
+<xsd:annotation>
+<xsd:documentation>Name of the second related location.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_8213" type="string1..35">
+<xsd:annotation>
+<xsd:documentation>Identifies the name of the transport means.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_8212" type="string1..70">
+<xsd:annotation>
+<xsd:documentation>Name identifying a means of transport.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_8211" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code specifying the authorisation for the</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_1060" type="string1..6">
+<xsd:annotation>
+<xsd:documentation>To identify a revision.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_7124" type="numeric14">
+<xsd:annotation>
+<xsd:documentation>The unique serial number assigned within the United</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_3229" type="string1..9">
+<xsd:annotation>
+<xsd:documentation>To identify a country subdivision, such as state,</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_3228" type="string1..70">
+<xsd:annotation>
+<xsd:documentation>Name of a country subdivision, such as state, canton,</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_3227" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code identifying the function of a location.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_3225" type="string1..35">
+<xsd:annotation>
+<xsd:documentation>To identify a location.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_3224" type="string1..256">
+<xsd:annotation>
+<xsd:documentation>Name of the location.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_3223" type="string1..35">
+<xsd:annotation>
+<xsd:documentation>To identify a first related location.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_3222" type="string1..70">
+<xsd:annotation>
+<xsd:documentation>Name of first related location.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_1058" type="string1..9">
+<xsd:annotation>
+<xsd:documentation>To identify a release.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_9649" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code qualifying the processing information.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_1056" type="string1..9">
+<xsd:annotation>
+<xsd:documentation>To identify a version.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_1050" type="string1..10">
+<xsd:annotation>
+<xsd:documentation>To identify a position in a sequence.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_7106" type="numeric13">
+<xsd:annotation>
+<xsd:documentation>To specify the value of the flashpoint of a shipment.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_7102" type="string1..35">
+<xsd:annotation>
+<xsd:documentation>Free form description of the shipping marks.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_7102_1" type="string1..35">
+<xsd:annotation>
+<xsd:documentation>Free form description of the shipping marks.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_7102_2" type="string1..35">
+<xsd:annotation>
+<xsd:documentation>Free form description of the shipping marks.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_7102_3" type="string1..35">
+<xsd:annotation>
+<xsd:documentation>Free form description of the shipping marks.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_7102_4" type="string1..35">
+<xsd:annotation>
+<xsd:documentation>Free form description of the shipping marks.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_7102_5" type="string1..35">
+<xsd:annotation>
+<xsd:documentation>Free form description of the shipping marks.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_7102_6" type="string1..35">
+<xsd:annotation>
+<xsd:documentation>Free form description of the shipping marks.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_7102_7" type="string1..35">
+<xsd:annotation>
+<xsd:documentation>Free form description of the shipping marks.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_7102_8" type="string1..35">
+<xsd:annotation>
+<xsd:documentation>Free form description of the shipping marks.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_7102_9" type="string1..35">
+<xsd:annotation>
+<xsd:documentation>Free form description of the shipping marks.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_3207" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Identification of the name of the country or other</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_2475" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code specifying a time that references an event that</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_5289" type="string1..6">
+<xsd:annotation>
+<xsd:documentation>Code specifying a duty or tax or fee account.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_5286" type="string1..15">
+<xsd:annotation>
+<xsd:documentation>To specify the basis on which a duty or tax or fee</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_5284" type="numeric1..9">
+<xsd:annotation>
+<xsd:documentation>To specify the basis for a unit price.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_5283" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code qualifying the function of a duty or tax or fee.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_8092" type="string1..10">
+<xsd:annotation>
+<xsd:documentation>To identify the version number of a hazard code.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_5279" type="string1..7">
+<xsd:annotation>
+<xsd:documentation>Code specifying a rate of a duty or tax or fee.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_5278" type="string1..17">
+<xsd:annotation>
+<xsd:documentation>Rate of a duty or tax or fee.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_5273" type="string1..12">
+<xsd:annotation>
+<xsd:documentation>Code specifying the basis for a duty or tax or fee</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_1373" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code specifying the status of a document.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_4183" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code specifying a special condition.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_4183_1" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code specifying a special condition.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_4183_2" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code specifying a special condition.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_4183_3" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code specifying a special condition.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_4183_4" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code specifying a special condition.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_1366" type="string1..70">
+<xsd:annotation>
+<xsd:documentation>Free form description of the source of a document.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_6348" type="numeric1..4">
+<xsd:annotation>
+<xsd:documentation>To specify the value of the multiplication factor used</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_1004" type="string1..70">
+<xsd:annotation>
+<xsd:documentation>To identify a document.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_6347" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code qualifying the usage of a currency.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_6345" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code specifying a monetary unit.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_8078" type="string1..7">
+<xsd:annotation>
+<xsd:documentation>To identify an additional hazard classification.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_1001" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code specifying the document name.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_8077" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code specifying the party that is the supplier of the</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_1000" type="string1..35">
+<xsd:annotation>
+<xsd:documentation>Name of a document.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_6343" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code qualifying the type of currency.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_6341" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>To identify an exchange rate currency market.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_8067" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code specifying the name of a mode of transport.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_8066" type="string1..17">
+<xsd:annotation>
+<xsd:documentation>Name of a mode of transport.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_5249" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code specifying the basis on which a percentage is</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_5245" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code qualifying the type of percentage.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_6321" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code specifying the significance of a measurement.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_8053" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code qualifying a type of equipment.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_8051" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code qualifying a specific stage of transport.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_7405" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code qualifying the identification of an object.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_7402" type="string1..35">
+<xsd:annotation>
+<xsd:documentation>Code specifying the unique identity of an object.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_7402_1" type="string1..35">
+<xsd:annotation>
+<xsd:documentation>Code specifying the unique identity of an object.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_6314" type="string1..18">
+<xsd:annotation>
+<xsd:documentation>To specify the value of a measurement.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_6313" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code specifying the attribute measured.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_6311" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code qualifying the purpose of the measurement.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_3055" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code specifying the agency responsible for a code</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_3055_1" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code specifying the agency responsible for a code</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_8395" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code specifying the responsibility for the freight</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_8393" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code specifying the load contents for a returnable</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_5213" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code specifying the price change operation for a sub-</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_8028" type="string1..17">
+<xsd:annotation>
+<xsd:documentation>To identify a journey of a means of transport.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_3045" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code specifying the representation of a party name.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_3042" type="string1..35">
+<xsd:annotation>
+<xsd:documentation>To identify a street and number and/or Post Office box</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_3042_1" type="string1..35">
+<xsd:annotation>
+<xsd:documentation>To identify a street and number and/or Post Office box</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_3042_2" type="string1..35">
+<xsd:annotation>
+<xsd:documentation>To identify a street and number and/or Post Office box</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_3042_3" type="string1..35">
+<xsd:annotation>
+<xsd:documentation>To identify a street and number and/or Post Office box</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_7297" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code qualifying the type of set.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_7295" type="string1..17">
+<xsd:annotation>
+<xsd:documentation>Code specifying a requirement or condition.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_7294" type="string1..35">
+<xsd:annotation>
+<xsd:documentation>Free form description of a requirement or condition.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_7293" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code qualifying identification of a subject area.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_3039" type="string1..35">
+<xsd:annotation>
+<xsd:documentation>Code specifying the identity of a party.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_3036" type="string1..70">
+<xsd:annotation>
+<xsd:documentation>Name of a party.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_3036_1" type="string1..70">
+<xsd:annotation>
+<xsd:documentation>Name of a party.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_3036_2" type="string1..70">
+<xsd:annotation>
+<xsd:documentation>Name of a party.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_3036_3" type="string1..70">
+<xsd:annotation>
+<xsd:documentation>Name of a party.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_3036_4" type="string1..70">
+<xsd:annotation>
+<xsd:documentation>Name of a party.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="D_3035" type="string1..3">
+<xsd:annotation>
+<xsd:documentation>Code giving specific meaning to a party.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:simpleType name="string14">
+<xsd:restriction base="xsd:string">
+<xsd:minLength value="1"/>
+<xsd:maxLength value="4"/>
+</xsd:restriction>
+</xsd:simpleType>
+<xsd:simpleType name="string12">
+<xsd:restriction base="xsd:string">
+<xsd:minLength value="1"/>
+<xsd:maxLength value="2"/>
+</xsd:restriction>
+</xsd:simpleType>
+<xsd:simpleType name="string1..18">
+<xsd:restriction base="xsd:string">
+<xsd:minLength value="1"/>
+<xsd:maxLength value="18"/>
+</xsd:restriction>
+</xsd:simpleType>
+<xsd:simpleType name="string1..17">
+<xsd:restriction base="xsd:string">
+<xsd:minLength value="1"/>
+<xsd:maxLength value="17"/>
+</xsd:restriction>
+</xsd:simpleType>
+<xsd:simpleType name="string1..15">
+<xsd:restriction base="xsd:string">
+<xsd:minLength value="1"/>
+<xsd:maxLength value="15"/>
+</xsd:restriction>
+</xsd:simpleType>
+<xsd:simpleType name="string1..14">
+<xsd:restriction base="xsd:string">
+<xsd:minLength value="1"/>
+<xsd:maxLength value="14"/>
+</xsd:restriction>
+</xsd:simpleType>
+<xsd:simpleType name="string1..12">
+<xsd:restriction base="xsd:string">
+<xsd:minLength value="1"/>
+<xsd:maxLength value="12"/>
+</xsd:restriction>
+</xsd:simpleType>
+<xsd:simpleType name="string1..11">
+<xsd:restriction base="xsd:string">
+<xsd:minLength value="1"/>
+<xsd:maxLength value="11"/>
+</xsd:restriction>
+</xsd:simpleType>
+<xsd:simpleType name="string1..10">
+<xsd:restriction base="xsd:string">
+<xsd:minLength value="1"/>
+<xsd:maxLength value="10"/>
+</xsd:restriction>
+</xsd:simpleType>
+<xsd:simpleType name="string1..70">
+<xsd:restriction base="xsd:string">
+<xsd:minLength value="1"/>
+<xsd:maxLength value="70"/>
+</xsd:restriction>
+</xsd:simpleType>
+<xsd:simpleType name="numeric1..35">
+<xsd:restriction base="xsd:decimal">
+<xsd:totalDigits value="35"/>
+</xsd:restriction>
+</xsd:simpleType>
+<xsd:simpleType name="string1..9">
+<xsd:restriction base="xsd:string">
+<xsd:minLength value="1"/>
+<xsd:maxLength value="9"/>
+</xsd:restriction>
+</xsd:simpleType>
+<xsd:simpleType name="numeric1..9">
+<xsd:restriction base="xsd:decimal">
+<xsd:totalDigits value="9"/>
+</xsd:restriction>
+</xsd:simpleType>
+<xsd:simpleType name="string1..8">
+<xsd:restriction base="xsd:string">
+<xsd:minLength value="1"/>
+<xsd:maxLength value="8"/>
+</xsd:restriction>
+</xsd:simpleType>
+<xsd:simpleType name="numeric1..8">
+<xsd:restriction base="xsd:decimal">
+<xsd:totalDigits value="8"/>
+</xsd:restriction>
+</xsd:simpleType>
+<xsd:simpleType name="string1..7">
+<xsd:restriction base="xsd:string">
+<xsd:minLength value="1"/>
+<xsd:maxLength value="7"/>
+</xsd:restriction>
+</xsd:simpleType>
+<xsd:simpleType name="string1..6">
+<xsd:restriction base="xsd:string">
+<xsd:minLength value="1"/>
+<xsd:maxLength value="6"/>
+</xsd:restriction>
+</xsd:simpleType>
+<xsd:simpleType name="numeric1..6">
+<xsd:restriction base="xsd:decimal">
+<xsd:totalDigits value="6"/>
+</xsd:restriction>
+</xsd:simpleType>
+<xsd:simpleType name="string1..4">
+<xsd:restriction base="xsd:string">
+<xsd:minLength value="1"/>
+<xsd:maxLength value="4"/>
+</xsd:restriction>
+</xsd:simpleType>
+<xsd:simpleType name="numeric1..4">
+<xsd:restriction base="xsd:decimal">
+<xsd:totalDigits value="4"/>
+</xsd:restriction>
+</xsd:simpleType>
+<xsd:simpleType name="numeric14">
+<xsd:restriction base="xsd:decimal">
+<xsd:totalDigits value="4"/>
+</xsd:restriction>
+</xsd:simpleType>
+<xsd:simpleType name="string1..3">
+<xsd:restriction base="xsd:string">
+<xsd:minLength value="1"/>
+<xsd:maxLength value="3"/>
+</xsd:restriction>
+</xsd:simpleType>
+<xsd:simpleType name="numeric1..3">
+<xsd:restriction base="xsd:decimal">
+<xsd:totalDigits value="3"/>
+</xsd:restriction>
+</xsd:simpleType>
+<xsd:simpleType name="numeric13">
+<xsd:restriction base="xsd:decimal">
+<xsd:totalDigits value="3"/>
+</xsd:restriction>
+</xsd:simpleType>
+<xsd:simpleType name="numeric1..2">
+<xsd:restriction base="xsd:decimal">
+<xsd:totalDigits value="2"/>
+</xsd:restriction>
+</xsd:simpleType>
+<xsd:simpleType name="string1..1">
+<xsd:restriction base="xsd:string">
+<xsd:minLength value="1"/>
+<xsd:maxLength value="1"/>
+</xsd:restriction>
+</xsd:simpleType>
+<xsd:simpleType name="numeric1..1">
+<xsd:restriction base="xsd:decimal">
+<xsd:totalDigits value="1"/>
+</xsd:restriction>
+</xsd:simpleType>
+<xsd:simpleType name="string1..35">
+<xsd:restriction base="xsd:string">
+<xsd:minLength value="1"/>
+<xsd:maxLength value="35"/>
+</xsd:restriction>
+</xsd:simpleType>
+<xsd:simpleType name="string1..256">
+<xsd:restriction base="xsd:string">
+<xsd:minLength value="1"/>
+<xsd:maxLength value="256"/>
+</xsd:restriction>
+</xsd:simpleType>
+<xsd:simpleType name="string1..25">
+<xsd:restriction base="xsd:string">
+<xsd:minLength value="1"/>
+<xsd:maxLength value="25"/>
+</xsd:restriction>
+</xsd:simpleType>
+<xsd:simpleType name="string1..512">
+<xsd:restriction base="xsd:string">
+<xsd:minLength value="1"/>
+<xsd:maxLength value="512"/>
+</xsd:restriction>
+</xsd:simpleType>
+<xsd:simpleType name="numeric1..18">
+<xsd:restriction base="xsd:decimal">
+<xsd:totalDigits value="18"/>
+</xsd:restriction>
+</xsd:simpleType>
+<xsd:simpleType name="string1..20">
+<xsd:restriction base="xsd:string">
+<xsd:minLength value="1"/>
+<xsd:maxLength value="20"/>
+</xsd:restriction>
+</xsd:simpleType>
+<xsd:simpleType name="numeric1..15">
+<xsd:restriction base="xsd:decimal">
+<xsd:totalDigits value="15"/>
+</xsd:restriction>
+</xsd:simpleType>
+<xsd:simpleType name="numeric1..12">
+<xsd:restriction base="xsd:decimal">
+<xsd:totalDigits value="12"/>
+</xsd:restriction>
+</xsd:simpleType>
+<xsd:simpleType name="numeric1..10">
+<xsd:restriction base="xsd:decimal">
+<xsd:totalDigits value="10"/>
+</xsd:restriction>
+</xsd:simpleType>
+</xsd:schema>

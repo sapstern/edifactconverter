@@ -1,0 +1,394 @@
+                                UN/EDIFACT
+
+                  UNITED NATIONS STANDARD MESSAGE (UNSM)
+
+                        Verified gross mass message
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                           Message Type : VERMAS
+                                           Version      : D
+                                           Release      : 17B
+                                           Contr. Agency: UN
+
+                                           Revision     : 1
+                                           Date         : 2017-10-19
+
+
+
+
+
+
+SOURCE: TBG3 Transport
+
+
+
+                                  CONTENTS
+
+                        Verified gross mass message
+
+0.     INTRODUCTION
+
+1.     SCOPE
+
+       1.1   Functional definition
+
+       1.2   Field of application
+
+       1.3   Principles
+
+2.     REFERENCES
+
+3.     TERMS AND DEFINITIONS
+
+       3.1   Standard terms and definitions
+
+       3.2   Message terms and definitions
+
+4.     MESSAGE DEFINITION
+
+       4.1   Segment clarification
+
+       4.2   Segment index (alphabetical sequence by tag)
+
+       4.3   Message structure
+             4.3.1 Segment table
+
+
+
+
+
+
+
+
+
+
+
+---------------------------------------------------------------------------
+For general information on UN standard message types see UN Trade Data
+Interchange Directory, UNTDID, Part 4, Section 2.3, UN/ECE UNSM
+General Introduction
+---------------------------------------------------------------------------
+
+
+
+0.     INTRODUCTION
+
+       This specification provides the definition of the Verified gross
+       mass message (VERMAS) to be used in Electronic Data Interchange
+       (EDI) between trading partners involved in administration, commerce
+       and transport.
+
+1.     SCOPE
+
+       The Verified gross mass message may be used for both national and
+       international trade. It is based on universal commercial practice
+       and is not dependent on the type of business or industry.
+
+1.1    Functional definition
+
+       VERMAS can be used by different parties at different times in a
+       transport chain.
+       It is not dedicated to a particular process step.
+              
+       For example, in relation to a supply chain including the transport
+       of a packed container on an ocean vessel, the Verified gross mass
+       message (VERMAS) permits to submit the verified gross mass of the
+       packed container and supporting information as legally required by
+       the SOLAS Convention Chapter VI, Part A, Regulation 2.
+
+1.2    Field of application
+
+       The Verified gross mass message may be used for both national and
+       international applications. It is based on universal practice
+       related to administration, commerce and transport, and is not
+       dependent on the type of business or industry.
+
+1.3    Principles
+
+       VERMAS incorporates information on the verified gross mass (VGM) of
+       a packed piece of transport equipment such as a seagoing container,
+       the time, place and method of obtaining the VGM, the responsible
+       parties, and references required by the receiver to assign the VGM
+       to his transactions.
+       
+       The message is used to transmit information related to one or many
+       pieces of transport equipment belonging to a clearly defined
+       transport movement.
+       
+       The message can be exchanged between any two parties in the
+       transport chain as per mutual agreement. The sender may have
+       obtained the verified gross mass himself or he may forward a VGM
+       received from a third party. Each party in the transport chain can
+       be a sender or a receiver of a VERMAS message.
+       
+       The only mandatory information in the message refers to the
+       transport equipment and to the VGM value. All other information is
+       optional and its transmission depends on the role of sender and
+       receiver in the transport chain. It is essential that sender and
+       receiver agree on the information and references to be exchanged.
+       
+       The message shall not be used as a handling order.
+       
+       The message shall not be used for reporting of empty containers.
+       
+       Dependent on the nature of cargo further attributes such as
+       temperature control, identification of dangerous goods, non-standard
+       dimensions, handling requirements may also be sent.
+
+2.     REFERENCES
+
+       See UNTDID, Part 4, Chapter 2.3 UN/ECE UNSM - General Introduction,
+       Section 1.
+
+3.     TERMS AND DEFINITIONS
+
+3.1    Standard terms and definitions
+
+       See UNTDID, Part 4, Chapter 2.3 UN/ECE UNSM - General Introduction,
+       Section 2.
+
+3.2    Message terms and definitions
+
+       See UNTDID. Part 4, Chapter 2.6 UN/ECE UNSM - General Introduction,
+       Section 2
+
+4.     MESSAGE DEFINITION
+
+4.1    Segment clarification
+
+       This section should be read in conjunction with the segment table
+       which indicates mandatory, conditional and repeating requirements.
+
+00010   UNH, Message header
+        A service segment starting and uniquely identifying a message. The
+        message type code for the Verified gross mass message is VERMAS.
+
+        Note: Verified gross mass messages conforming to this document must
+        contain the following data in segment UNH, composite S009:
+
+        Data element  0065 VERMAS
+                      0052 D
+                      0054 17B
+                      0051 UN
+
+00020   BGM, Beginning of message
+        A segment to indicate the type and function of the message and to
+        transmit the identifying number.
+
+00030   DTM, Date/time/period
+        A segment to indicate dates and times for the entire message
+        including the date and time of the preparation of the message.
+
+
+00040   Segment group 1:  RFF-DTM
+        A group of segments to specify references relating to the message
+        and related dates and times.
+
+00050      RFF, Reference
+           A segment to identify a reference which applies to the entire
+           message, e.g. the reference to a previous message.
+
+00060      DTM, Date/time/period
+           A segment to indicate dates and times relating to the reference.
+
+
+00070   Segment group 2:  NAD-SG3
+        A group of segments to identify a party for the entire message
+        including the message sender and related contacts.
+
+00080      NAD, Name and address
+           A segment to specify the name/address of the party and to
+           identify the party role.
+
+
+00090      Segment group 3:  CTA-COM
+           A group of segments to identify a contact and its communications
+           related to the party.
+
+00100         CTA, Contact information
+              A segment to identify a person or a department to whom
+              communication should be directed.
+
+00110         COM, Communication contact
+              A segment to identify communication numbers or email
+              addresses for a person or department to whom communication
+              should be directed.
+
+
+00120   Segment group 4:  EQD-RFF-LOC-SEL-SG5-SG6-SG7
+        A group of segments containing information about an individual
+        piece of transport equipment.
+
+00130      EQD, Equipment details
+           A segment to identify the transport equipment.
+
+00140      RFF, Reference
+           A segment to specify a reference to the transport equipment.
+
+00150      LOC, Place/location identification
+           A segment to identify a place or a location related to the
+           transport equipment.
+
+00160      SEL, Seal number
+           A segment to specify a seal number.
+
+
+00170      Segment group 5:  MEA-DTM
+           A group of segments to specify the gross mass of transport
+           equipment and date/time when it was determined.
+
+00180         MEA, Measurements
+              A segment to specify the gross mass (gross weight) of the
+              transport equipment and to give the indication of whether the
+              gross mass has been verified, e.g. according to SOLAS
+              regulations.
+
+00190         DTM, Date/time/period
+              A segment to specify a date and/or time when the gross mass
+              was determined.
+
+
+00200      Segment group 6:  TDT-RFF
+           A group of segments identifying the means of transport and
+           related details for the transport movement.
+
+00210         TDT, Transport information
+              A segment to specify information regarding the transport such
+              as mode of transport, means of transport, its conveyance
+              reference number and the identification of the means of
+              transport.
+
+00220         RFF, Reference
+              A segment to specify a reference relating to the transport,
+              such as an additional voyage reference number.
+
+
+00230      Segment group 7:  DOC-DTM-SG8
+           A group of segments providing information about documentation
+           related to the gross mass verification.
+
+00240         DOC, Document/message details
+              A segment to specify the type and identification of
+              documentation.
+
+00250         DTM, Date/time/period
+              A segment to specify a date and/or time related to the
+              documentation.
+
+
+00260         Segment group 8:  NAD-SG9
+              A group of segments to qualify and specify name and address
+              information related to the documentation.
+
+00270            NAD, Name and address
+                 A segment to specify the function and name/address of an
+                 organization or individual.
+
+
+00280            Segment group 9:  CTA-COM
+                 A group of segments to specify a contact and related
+                 communication information.
+
+00290               CTA, Contact information
+                    A segment to specify the function and details of a
+                    contact person or department.
+
+00300               COM, Communication contact
+                    A segment to identify communication numbers or email
+                    addresses for a person or department to whom a
+                    communication should be directed.
+
+00310   UNT, Message trailer
+        A service segment ending a message, giving the total number of
+        segments in the message (including the UNH & UNT) and the control
+        reference number of the message.
+
+4.2    Segment index (alphabetical sequence by tag)
+
+          BGM Beginning of message
+          COM Communication contact
+          CTA Contact information
+          DOC Document/message details
+          DTM Date/time/period
+          EQD Equipment details
+          LOC Place/location identification
+          MEA Measurements
+          NAD Name and address
+          RFF Reference
+          SEL Seal number
+          TDT Transport information
+          UNH Message header
+          UNT Message trailer
+
+4.3    Message structure
+
+4.3.1  Segment table
+
+Pos     Tag Name                                     S   R
+
+00010   UNH Message header                           M   1     
+00020   BGM Beginning of message                     M   1     
+00030   DTM Date/time/period                         C   9     
+
+00040       ---- Segment group 1  ------------------ C   9----------------+
+00050   RFF Reference                                M   1                |
+00060   DTM Date/time/period                         C   9----------------+
+
+00070       ---- Segment group 2  ------------------ C   9----------------+
+00080   NAD Name and address                         M   1                |
+                                                                          |
+00090       ---- Segment group 3  ------------------ C   9---------------+|
+00100   CTA Contact information                      M   1               ||
+00110   COM Communication contact                    C   9---------------++
+
+00120       ---- Segment group 4  ------------------ C   99999------------+
+00130   EQD Equipment details                        M   1                |
+00140   RFF Reference                                C   9                |
+00150   LOC Place/location identification            C   9                |
+00160   SEL Seal number                              C   99               |
+                                                                          |
+00170       ---- Segment group 5  ------------------ C   9---------------+|
+00180   MEA Measurements                             M   1               ||
+00190   DTM Date/time/period                         C   9---------------+|
+                                                                          |
+00200       ---- Segment group 6  ------------------ C   9---------------+|
+00210   TDT Transport information                    M   1               ||
+00220   RFF Reference                                C   9---------------+|
+                                                                          |
+00230       ---- Segment group 7  ------------------ C   9---------------+|
+00240   DOC Document/message details                 M   1               ||
+00250   DTM Date/time/period                         C   9               ||
+                                                                         ||
+00260       ---- Segment group 8  ------------------ C   9--------------+||
+00270   NAD Name and address                         M   1              |||
+                                                                        |||
+00280       ---- Segment group 9  ------------------ C   9-------------+|||
+00290   CTA Contact information                      M   1             ||||
+00300   COM Communication contact                    C   9-------------++++
+00310   UNT Message trailer                          M   1     

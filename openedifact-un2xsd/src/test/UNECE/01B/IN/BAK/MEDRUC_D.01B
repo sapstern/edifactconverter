@@ -1,0 +1,1241 @@
+                              UN/EDIFACT
+
+                UNITED NATIONS STANDARD MESSAGE (UNSM)
+
+                Medical resource usage and cost message
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                           Message Type : MEDRUC
+                                           Version      : D
+                                           Release      : 01B
+                                           Contr. Agency: UN
+
+                                           Revision     : 2
+                                           Date         : 2001-05-15
+
+
+
+
+
+
+SOURCE: D11 Healthcare (SWG)
+
+
+
+                               CONTENTS
+
+                Medical resource usage and cost message
+
+0.     INTRODUCTION
+
+1.     SCOPE
+
+       1.1   Functional definition
+
+       1.2   Field of application
+
+       1.3   Principles
+
+2.     REFERENCES
+
+3.     TERMS AND DEFINITIONS
+
+       3.1   Standard terms and definitions
+
+4.     MESSAGE DEFINITION
+
+       4.1   Segment clarification
+
+       4.2   Segment index (alphabetical sequence by tag)
+
+       4.3   Message structure
+             4.3.1 Segment table
+
+
+
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------
+For general information on UN standard message types see UN Trade Data
+Interchange Directory, UNTDID, Part 4, Section 2.3, UN/ECE UNSM
+General Introduction
+----------------------------------------------------------------------
+
+
+
+0.     INTRODUCTION
+
+       This specification provides the definition of the Medical
+       resource usage and cost message (MEDRUC) to be used in
+       Electronic Data Interchange (EDI) between trading partners
+       involved in administration, commerce and transport.
+
+1.     SCOPE
+
+1.1    Functional definition
+
+       The MEDRUC message is sent from a party providing medical and
+       related administrative services to a funding institution,
+       allowing evaluation of the medical activity and justification
+       for reimbursement. It can also be sent from a funding
+       institution to another party in order to advise which
+       reimbursements have been made.
+       
+       The MEDRUC message can carry either initial specifications of
+       used resources and costs, or modifications to specifications
+       given in a previous message.
+       
+       Typically, the MEDRUC message can be used between a healthcare
+       service provider or an insurance company and another insurance
+       company as well as between an insurance company and a
+       healthcare service provider.
+
+1.2    Field of application
+
+       The Medical resource usage and cost message may be used for
+       both national and international applications. It is based on
+       universal practice related to administration, commerce and
+       transport, and is not dependent on the type of business or
+       industry.
+       
+       Particularly, MEDRUC can be applied for all types of healthcare
+       service providers, funding institutions and healthcare systems.
+
+1.3    Principles
+
+       The MEDRUC message has a hierarchical structure:
+       - One message can carry one or more reimbursement claims.
+       - Each reimbursement claim concerns medical services provided
+       to one or several patients.
+       - Each medical service gives information about service provided
+       including amounts and price information (unit, prices,
+       quantities, rates) as well as medical justification for the
+       services provided (clinical information concerning diseases or
+       interventions) and administrative justification for services
+       provided according to insurance coverage.
+       - Each medical service can consist of none, one or many
+       detailed medical activities.
+       - Each detailed medical activity can contain the same
+       information elements as for a medical service.
+       
+       Additional information can be attached to each level of the
+       hierarchical structure using an internal reference mechanism.
+       This information may include:
+       - medical, administrative and financial parties involved.
+       - relevant insurance contracts and corresponding rights.
+       - description of patient or healthcare service provider
+       transportation.
+
+2.     REFERENCES
+
+       See UNTDID, Part 4, Chapter 2.3 UN/ECE UNSM - General
+       Introduction, Section 1.
+
+3.     TERMS AND DEFINITIONS
+
+3.1    Standard terms and definitions
+
+       See UNTDID, Part 4, Chapter 2.3 UN/ECE UNSM - General
+       Introduction, Section 2.
+
+4.     MESSAGE DEFINITION
+
+4.1    Segment clarification
+
+       This section should be read in conjunction with the segment
+       table which indicates mandatory, conditional and repeating
+       requirements.
+
+0010   UNH, Message header
+       A service segment starting and uniquely identifying a message.
+       The message type code for the Medical resource usage and cost
+       message is MEDRUC.
+
+       Note: Medical resource usage and cost messages conforming to
+       this document must contain the following data in segment UNH,
+       composite S009:
+
+       Data element  0065 MEDRUC
+                     0052 D
+                     0054 01B
+                     0051 UN
+
+0020   BGM, Beginning of message
+       A segment for unique identification of the message and
+       specification of its function.
+
+0030   DTM, Date/time/period
+       A segment identifying the date/time of message generation
+       and/or other date/times concerning the whole message.
+
+0040   RFF, Reference
+       A segment specifying references to other related message(s) or
+       batch(es), e.g. a previous message.
+
+0050   FTX, Free text
+       A segment giving free text information, in coded or clear form,
+       for specifying information about the whole message.
+
+0060   CUX, Currencies
+       A segment specifying the currency in which all the monetary
+       amounts are expressed in the message.
+
+0070   CNT, Control total
+       A segment specifying aggregate information concerning the whole
+       message, e.g. number of claims, number of parties, number of
+       patients, etc.
+
+
+0080   Segment group 1:  MOA-TAX
+       A group of segments giving total amounts for the whole
+       reimbursement message, and the relevant tax information if any.
+
+0090      MOA, Monetary amount
+          A segment specifying total amounts for the whole
+          reimbursement message.
+
+0100      TAX, Duty/tax/fee details
+          A segment specifying the tax type if relevant.
+
+
+0110   Segment group 2:  PNA-SEQ-ADR-CTA-COM-RFF-REL-NAT-LAN-SPR-EMP-
+                         QUA-DTM-STS-RCS-PDI-FII
+       Parties Segment Group.
+       A group of segments giving information about involved
+       financial, administrative and medical parties such as
+       requester, payee, insurance organisations, insured family and
+       service providers, or their representatives.
+
+0120      PNA, Party identification
+          A segment specifying the identity number and name of a
+          party.
+
+0130      SEQ, Sequence details
+          A segment allocating a sequence number to the individual
+          party allowing each party to be referenced from within the
+          message.
+
+0140      ADR, Address
+          A segment specifying address(es) of the party.
+
+0150      CTA, Contact information
+          A segment identifying a person or department to whom
+          contacts should be directed and their function.
+
+0160      COM, Communication contact
+          A segment giving communication type and number of the party.
+
+0170      RFF, Reference
+          A segment specifying alternative identification numbers of
+          the party.
+          
+          This segment also facilitates reference to another party if
+          the current party is related to another party such as a
+          department in a hospital, a physician in a department, etc.
+
+0180      REL, Relationship
+          A segment specifying the relationship with another party.
+
+0190      NAT, Nationality
+          A segment specifying the nationalities of the party.
+
+0200      LAN, Language
+          A segment specifying the language used by the party.
+
+0210      SPR, Organisation classification details
+          A segment specifying the type and (medical) speciality of an
+          organisation.
+
+0220      EMP, Employment details
+          A segment specifying the type and (medical) speciality of a
+          person as well as his/her position within an organisation.
+
+0230      QUA, Qualification
+          A segment specifying the professional (medical)
+          qualifications of the party.
+
+0240      DTM, Date/time/period
+          A segment specifying validity dates or any other date
+          related to the party.
+
+0250      STS, Status
+          A segment specifying the status of involvement for the party
+          (former, previous, current, next).
+
+0260      RCS, Requirements and conditions
+          A segment specifying administrative conditions of a party,
+          such as the type of location from which a healthcare
+          professional operates, (e.g. town, countryside, mountain
+          area), identifier for agreement on reimbursement mode and
+          tariff, or other statutory information.
+
+0270      PDI, Person demographic information
+          A segment specifying demographic information such as sex,
+          marital status, and other demographic information.
+
+0280      FII, Financial institution information
+          A segment identifying an account number and a financial
+          institution related to the party.
+
+
+0290   Segment group 3:  AGR-SEQ-RFF-DTM-SG4
+       Contracts Segment Group.
+       A group of segments related to the whole message, specifying
+       contracts between insured parties or between patients and
+       insurance institutions, and detailing insurance coverage.
+
+0300      AGR, Agreement identification
+          A segment identifying the type of the insurance contract.
+
+0310      SEQ, Sequence details
+          A segment allocating a sequence number to the individual
+          contract allowing each contract to be referenced from within
+          the message.
+
+0320      RFF, Reference
+          A segment specifying certificate numbers and other
+          references related to the contract.
+          This segment is also used to hold a reference to
+          administrative parties in the Parties Segment Group where
+          the related insurance organisation or institution is
+          identified.
+
+0330      DTM, Date/time/period
+          A segment specifying dates, times and periods related to the
+          contract such as period of validity and period of specific
+          coverage.
+
+
+0340      Segment group 4:  ICD-FTX
+          A group of segments specifying detailed information about
+          rights and insurance coverage.
+
+0350         ICD, Insurance cover description
+             A segment identifying the insurance scheme or product
+             covering the patient.
+
+0360         FTX, Free text
+             A segment with free text information, in coded or clear
+             form, illustrating or justifying a particular term of the
+             insurance scheme or product, specified in the ICD
+             segment.
+
+
+0370   Segment group 5:  DOC-DTM-SG6
+       External documents Segment Group.
+       A group of segments giving the identification of external
+       documents the message is referring to (e.g. forms, regulation
+       texts, etc.).
+
+0380      DOC, Document/message details
+          A segment specifying the type and the name of a document.
+
+0390      DTM, Date/time/period
+          A segment specifying dates related to the document. (e.g.
+          issuing date, validity date, etc.).
+
+
+0400      Segment group 6:  PNA-ADR-STS-RCS
+          A group of segments providing information about parties
+          related to the document, such as signatories, sender and
+          receivers.
+
+0410         PNA, Party identification
+             A segment identifying the party.
+
+0420         ADR, Address
+             A segment specifying the address of the party.
+
+0430         STS, Status
+             A segment specifying the involvement status of the party
+             (former, previous, current, next).
+
+0440         RCS, Requirements and conditions
+             A segment specifying administrative conditions of a party
+             such as the social sector it belongs to.
+
+
+0450   Segment group 7:  FCA-GIS-RFF-DTM-FTX-AGR-DOC-SG8-SG9-SG10-SG11
+       This segment group provides information about a reimbursement
+       claim: identification of patient(s), and the healthcare
+       services provided to the patient(s).
+       
+       The reimbursement claim specified in this segment group may be
+       related to any party specified in the Parties Segment Group,
+       any insurance coverage as specified in the Contracts Segment
+       Group or any transport activity as specified in the Transports
+       Segment Group.
+
+0460      FCA, Financial charges allocation
+          A segment specifying whether reimbursement is due to the
+          patient, to the healthcare service provider, or to a
+          combination of both.
+
+0470 X    GIS, General indicator
+          A segment specifying the service type of the actual
+          reimbursement claim, i.e. whether this is a new
+          reimbursement claim, modification of a previous
+          reimbursement claim, cancellation of a previous
+          reimbursement claim or a complete replacement of a previous
+          reimbursement claim.
+
+0480      RFF, Reference
+          A segment specifying certificate numbers and other
+          references related to the reimbursement claim.
+          
+          This segment may also be used to hold the reference to
+          administrative, financial, and medical parties of the
+          Parties Segment Group, insurance contracts of the Contract
+          Segment Group and transport activities of the Transports
+          Segment Group.
+
+0490      DTM, Date/time/period
+          A segment specifying dates, times and periods related to the
+          reimbursement claim.
+
+0500      FTX, Free text
+          A segment with free text information, in coded or clear
+          form, for specifying information about the reimbursement
+          claim.
+
+0510      AGR, Agreement identification
+          A segment identifying the type of the insurance contract
+          related to the reimbursement claim.
+
+0520      DOC, Document/message details
+          A segment specifying documents the reimbursement claim is
+          referring to.
+          
+          This segment may also be used to hold a document reference
+          of the external documents Segment Group.
+
+
+0530      Segment group 8:  MOA-TAX
+          To specify total amounts, and the relevant duty/tax/fee
+          information about the current reimbursement claim.
+
+0540         MOA, Monetary amount
+             A segment specifying total amounts such as total amount
+             to pay.
+
+0550         TAX, Duty/tax/fee details
+             A segment specifying relevant tax information.
+
+
+0560      Segment group 9:  RCS-FTX
+          This segment group provides information about required
+          administrative conditions concerning the reimbursement
+          claim, such as risk identification (e.g. illness, maternity,
+          accident, industrial accident).
+
+0570         RCS, Requirements and conditions
+             A segment specifying requirements and conditions
+             concerning the reimbursement claim.
+
+0580         FTX, Free text
+             A segment with free text information, in coded or clear
+             form, illustrating or justifying a particular condition
+             specified in the RCS segment.
+
+
+0590      Segment group 10: PNA-RFF-ADR-COM-DTM-PDI-RSL-NAT-LAN-HAN-
+                            REL
+          This segment group identifies the patient(s) to whom the
+          medical services of this actual reimbursement claim have
+          been provided and information about any related person, or
+          other name or identity of the patient.
+          
+          This segment group may also be used to specify name and
+          identity of any other party related to the actual
+          reimbursement claim, and involved in the medical or
+          administrative process provided to the patient(s). In this
+          case, only the PNA segment is used.
+
+0600         PNA, Party identification
+             A segment identifying the patient, related person, or
+             party identity number and name.
+
+0610         RFF, Reference
+             A segment specifying the identification numbers of the
+             person or other identification references such as card
+             number.
+             
+             This segment may also be used to keep the reference to
+             administrative, financial, and medical parties of the
+             Parties Segment Group, and insurance contracts of the
+             Contracts Segment Group.
+
+0620         ADR, Address
+             A segment specifying the details of the patient and
+             related person(s) place of residence, or any other
+             address or location related to the person, such as place
+             of birth.
+
+0630         COM, Communication contact
+             A segment providing a telecommunication number for the
+             person.
+
+0640         DTM, Date/time/period
+             A segment specifying relevant dates/times for the person
+             such as date of birth, date of death or date
+             identification card was issued.
+
+0650         PDI, Person demographic information
+             A segment specifying demographic information such as sex,
+             marital status, and other demographic information.
+
+0660         RSL, Result
+             A segment specifying the result of a clinical
+             examination, such as the height or weight of the patient.
+
+0670         NAT, Nationality
+             A segment specifying the nationality of a person.
+
+0680         LAN, Language
+             A segment specifying the language used by the person.
+
+0690         HAN, Handling instructions
+             A segment specifying confidentiality constraints on
+             person data.
+
+0700         REL, Relationship
+             A segment specifying the relationship between a related
+             person and the patient. This relation can be an organ
+             donor-receiver relationship, a mother-child relationship
+             or any other family relationship.
+
+
+0710      Segment group 11: PRC-GIS-STS-IMD-CIN-PNA-DTM-RFF-FTX-QTY-
+                            PCD-SG12-SG13-SG14-SG15
+          A group of segments describing a medical activity. A medical
+          activity can be a collection of several detailed medical
+          activities which are all related to the same medical
+          treatment.
+          
+          The medical activity specified in this segment group may
+          also be related to any party specified in the Parties
+          Segment Group, any insurance coverage description as
+          specified in the Contracts Segment Group or to any transport
+          activity as specified in the Transports Segment Group.
+
+0720         PRC, Process identification
+             A segment specifying the type of medical activity
+             provided such as hospitalisation or outpatient treatment.
+
+0730 X       GIS, General indicator
+             A segment specifying the service type for the medical
+             activity: new activity, modification of a previous
+             activity, cancellation of a previous activity or
+             replacement of a previous activity.
+
+0740         STS, Status
+             A segment specifying the activity status regarding its
+             achievement (e.g. started, in progress, terminated)
+             and/or payment (e.g. received, granted, paid).
+
+0750         IMD, Item description
+             A segment identifying the actual medical activity, and
+             allowing several alternative coding schemes depending on
+             separately agreed criteria.
+
+0760         CIN, Clinical information
+             A segment justifying the medical activity provided in
+             terms of diagnosis or clinical observation.
+
+0770         PNA, Party identification
+             A segment specifying the identity number and name of any
+             medical or administrative party related to the current
+             activity, such as treatment provider or prescriber,
+             diagnosis originator, etc.
+
+0780         DTM, Date/time/period
+             A segment specifying dates, times and periods related to
+             the current medical activity such as date performed, date
+             of prescription, date of sickness and date of medical
+             authorisation.
+
+0790         RFF, Reference
+             To specify a reference related to a treatment such as
+             identification number of prescription or medical
+             authorisation number.
+             This segment may also be used to hold the reference to
+             administrative, financial, and medical parties of the
+             Parties Segment Group, insurance contracts of the
+             Contracts Segment Group and transports of the Transports
+             Segment Group.
+
+0800         FTX, Free text
+             A segment with free text information, in coded or clear
+             form, specifying information about the current medical
+             activity.
+
+0810         QTY, Quantity
+             A segment providing quantities related to the medical
+             activity such as number of units of service as identified
+             in the IMD segment.
+             If the service type of this medical activity is a
+             modification then variations from the original quantities
+             are given here.
+
+0820         PCD, Percentage details
+             A segment specifying percentage used to calculate a share
+             of a reimbursement. This information is useful when a
+             party has already paid a certain amount, or more
+             generally when several recipients are identified in the
+             business scenario (e.g. 75% of a visit will be paid to
+             the general practitioner and 25% to the patient).
+
+
+0830         Segment group 12: PAS-LOC-DTM-RFF
+             A group of segments specifying healthcare administrative
+             information about the patient.
+
+0840            PAS, Attendance
+                A segment specifying patient administrative
+                information such as administrative status concerning
+                current hospital stay or outpatient visit or ward stay
+                related to the patient.
+
+0850            LOC, Place/location identification
+                A segment specifying the physical location of patient
+                care in terms of ward, room, bed, etc.
+
+0860            DTM, Date/time/period
+                A segment specifying admission and/or discharge date
+                and time or start and/or end date and time of a ward
+                stay.
+
+0870            RFF, Reference
+                This segment holds the reference of a healthcare party
+                for specifying healthcare administrative information
+                such as hospital, department, etc. where patient is
+                admitted, located, etc.
+
+
+0880         Segment group 13: MOA-TAX
+             To specify total amounts, and the relevant duty/tax/fee
+             information about the current medical activity.
+
+0890            MOA, Monetary amount
+                A segment specifying total amounts such as amount of
+                fees.
+
+0900            TAX, Duty/tax/fee details
+                A segment specifying relevant tax information.
+
+
+0910         Segment group 14: RCS-FTX
+             This segment group provides information about required
+             medical and administrative conditions concerning the
+             current medical activity.
+
+0920            RCS, Requirements and conditions
+                A segment specifying requirements and conditions about
+                the current medical activity.
+
+0930            FTX, Free text
+                A segment with free text information, in coded or
+                clear form, illustrating or justifying a particular
+                condition specified in the RCS segment.
+
+
+0940         Segment group 15: CLI-GIS-IMD-CIN-PNA-DTM-RFF-FTX-QTY-
+                               PCD-PAC-SG16-SG17-SG18
+             A group of segments describing a detailed medical
+             activity.
+             
+             The detailed medical activity specified in this segment
+             group may also be related to any party specified in the
+             Parties Segment Group, any insurance coverage description
+             as specified in the Contracts Segment Group or to any
+             transport activity as specified in the Transports Segment
+             Group.
+
+0950            CLI, Clinical intervention
+                A segment specifying a clinical intervention.
+
+0960 X          GIS, General indicator
+                A segment specifying the service type of the current
+                detailed medical activity, i.e. whether this is a new
+                detailed medical activity, modification of a previous
+                detailed medical activity, cancellation of a previous
+                detailed medical activity or a complete replacement of
+                a previous detailed medical activity.
+
+0970            IMD, Item description
+                A segment identifying the current detailed medical
+                activity and allowing several alternative coding
+                schemes depending on separately agreed criteria.
+
+0980            CIN, Clinical information
+                A segment specifying the reason for applying the
+                current detailed medical activity in terms of
+                diagnosis or clinical observation.
+
+0990            PNA, Party identification
+                A segment specifying the identity number and name of
+                any medical or administrative party related to the
+                current activity, such as activity provider or
+                prescriber, diagnosis originator, etc.
+
+1000            DTM, Date/time/period
+                A segment specifying dates, times and periods related
+                to the current medical activity such as date
+                performed, date of prescription, date of sickness and
+                date of medical authorisation.
+
+1010            RFF, Reference
+                To specify the reference related to a detailed medical
+                activity such as identification number of prescription
+                and medical authorisation number.
+                
+                This segment may also be used to hold the reference to
+                administrative, financial, and medical parties of the
+                Parties Segment Group, insurance contracts of the
+                Contracts Segment Group, and transports of the
+                Transports Segment Group.
+
+1020            FTX, Free text
+                A segment with free text information, in coded or
+                clear form, specifying information about the current
+                detailed medical activity.
+
+1030            QTY, Quantity
+                A segment specifying quantities related to the
+                detailed medical activity such as number of units of
+                service as identified in the IMD segment.
+                
+                If the service type of this detailed medical activity
+                is a modification then variations from the original
+                quantities are given here.
+
+1040            PCD, Percentage details
+                A segment specifying percentage used to calculate a
+                share of a reimbursement. This information is useful
+                when a party has already paid a certain amount, or
+                more generally when several recipients are identified
+                in the business scenario (e.g. 75% of a visit will be
+                paid to the general practitioner and 25% to the
+                patient).
+
+1050            PAC, Package
+                A segment specifying package and number of physical
+                units for drugs or any other materials.
+
+
+1060            Segment group 16: MOA-TAX
+                To specify total amounts, and the relevant
+                duty/tax/fee information about the detailed medical
+                activity.
+
+1070               MOA, Monetary amount
+                   A segment specifying total amounts such as amount
+                   of fees.
+
+1080               TAX, Duty/tax/fee details
+                   A segment specifying relevant tax information.
+
+
+1090            Segment group 17: RCS-FTX
+                This segment group provides information about required
+                administrative conditions about the reimbursement
+                claim, such as risk identification (e.g. illness,
+                maternity, accident, industrial accident).
+
+1100               RCS, Requirements and conditions
+                   A segment specifying requirements and conditions
+                   concerning the current detailed medical activity.
+
+1110               FTX, Free text
+                   A segment with free text information, in coded or
+                   clear form, illustrating or justifying a particular
+                   condition specified in the RCS segment.
+
+
+1120            Segment group 18: EQD-SEQ
+                A group of segments providing information about the
+                equipment used to provide the current detailed medical
+                activity.
+
+1130               EQD, Equipment details
+                   A segment identifying the equipment used.
+
+1140               SEQ, Sequence details
+                   A segment specifying the sequential number of the
+                   activity performed on the equipment.
+
+
+1150   Segment group 19: TMD-SEQ-GIS-FTX-SG20
+       Transports Segment Group.
+       A group of segments specifying a transport activity related to
+       the provision of a medical service. A transport activity
+       comprises of several transport phases, each transport phase can
+       be made up of several detailed transport activities.
+
+1160      TMD, Transport movement details
+          A segment specifying journey trip such as a journey from a
+          hospital to a patient home.
+
+1170      SEQ, Sequence details
+          A segment allocating a sequence number to the transport
+          activity, allowing each transport activity to be referenced
+          from within the message.
+
+1180 X    GIS, General indicator
+          A segment specifying the service type of the transport
+          activity: new transport activity, modification of a previous
+          transport activity, cancellation of a previous transport
+          activity or replacement for a previous transport activity.
+
+1190      FTX, Free text
+          A segment with free text information, in coded or clear
+          form, specifying information about the whole transport
+          activity.
+
+
+1200      Segment group 20: TDT-GIS-IMD-PNA-RFF-FTX-CIN-QTY-SG21-SG22-
+                            SG23
+          A group of segments specifying one transport phase. A new
+          phase can result from vehicle changes, crew changes,
+          different stages, different numbers of people transported,
+          different rates, etc.
+          
+          The transport activity specified in this segment group may
+          also be related to any party specified in the Parties
+          Segment Group such as transport service provider.
+
+1210         TDT, Details of transport
+             A segment identifying the transport service provider, the
+             kind of transportation used, and the vehicle.
+
+1220 X       GIS, General indicator
+             A segment specifying the service type of the actual
+             transport phase: new transport phase, modification of a
+             previous reported transport phase, cancellation of a
+             previous reported transport phase and replacement for a
+             previous reported transport phase.
+
+1230         IMD, Item description
+             A segment identifying the current transport activity and
+             allowing several alternative coding schemes depending on
+             separately agreed criteria.
+
+1240         PNA, Party identification
+             A segment identifying the party transported and the
+             transport service provider, such as a driver.
+
+1250         RFF, Reference
+             A segment specifying references concerning the actual
+             transport phase such as authorisation number.
+             
+             This segment may also be used to hold the reference to
+             administrative, financial, and medical parties of the
+             Parties Segment Group, and insurance contracts of
+             Contracts Segment Group.
+
+1260         FTX, Free text
+             A segment with free text information, in coded or clear
+             form, specifying information about the current transport
+             phase.
+
+1270         CIN, Clinical information
+             A segment specifying the reason for the current transport
+             phase in terms of diagnosis or clinical observation.
+
+1280         QTY, Quantity
+             A segment specifying quantities related to the transport
+             phase, such as number of people transported.
+
+
+1290         Segment group 21: ADR-DTM
+             A group of segments specifying the transport legs and
+             relevant dates and times.
+
+1300            ADR, Address
+                A segment specifying the address details of the
+                transport phase such as location of departure and
+                arrival.
+
+1310            DTM, Date/time/period
+                A segment specifying relevant dates and times for the
+                transport phase such as date/time of departure,
+                arrival and elapsed time.
+
+
+1320         Segment group 22: TSR-FTX
+             This segment group provides information about special
+             circumstances affecting the transport phase.
+
+1330            TSR, Transport service requirements
+                A segment specifying special circumstances affecting
+                the current transport phase.
+
+1340            FTX, Free text
+                A segment with free text information, in coded or
+                clear form, illustrating or justifying a particular
+                circumstance specified in the TSR segment.
+
+
+1350         Segment group 23: TCC-GIS-IMD-DTM-RFF-FTX-QTY-PCD-SG24-
+                               SG25
+             A group of segments providing information about each
+             transport phase specifying the transport components to be
+             used for financial calculation.
+
+1360            TCC, Charge/rate calculations
+                A segment specifying charges for a transport
+                component.
+
+1370 X          GIS, General indicator
+                A segment specifying the service type of the actual
+                transport component, i.e. whether this is a new
+                transport component, modification of a previous
+                transport component, cancellation of a previous
+                transport component or a complete replacement of a
+                previous transport component.
+
+1380            IMD, Item description
+                A segment identifying the current transport component
+                such as night trip, day trip, toll gate and highway.
+
+1390            DTM, Date/time/period
+                A segment specifying dates and times concerning the
+                current transport component.
+
+1400            RFF, Reference
+                To specify references of a transport component.
+
+1410            FTX, Free text
+                A segment with free text information, in coded or
+                clear form, illustrating or justifying the current
+                transport component.
+
+1420            QTY, Quantity
+                A segment specifying quantities related to the
+                transport component such as number of km.
+
+1430            PCD, Percentage details
+                A segment specifying percentage used to calculate a
+                share of a reimbursement. This information is useful
+                when a party has already paid a certain amount, or
+                more generally when several recipients are identified
+                in the business scenario (e.g. 75% of a transport will
+                be paid to the transport service provider and 25% to
+                the patient).
+
+
+1440            Segment group 24: MOA-TAX
+                To specify total amounts and the relevant duty/tax/fee
+                information.
+
+1450               MOA, Monetary amount
+                   A segment specifying total amounts such as amount
+                   of fees.
+
+1460               TAX, Duty/tax/fee details
+                   A segment specifying relevant tax information.
+
+
+1470            Segment group 25: TSR-FTX
+                This segment group provides information about special
+                circumstances affecting the current transport
+                component.
+
+1480               TSR, Transport service requirements
+                   A segment specifying special circumstances
+                   affecting the current transport component.
+
+1490               FTX, Free text
+                   A segment with free text information, in coded or
+                   clear form, illustrating or justifying a particular
+                   circumstance specified in the TSR segment.
+
+
+1500   Segment group 26: AUT-DTM
+       A group of segments providing an authentication result for the
+       message.
+       This segment group can also be used for authentication results
+       of message sender or receiver.
+
+1510      AUT, Authentication result
+          A segment specifying the result of an authentication
+          procedure.
+
+1520      DTM, Date/time/period
+          A segment specifying dates and times of an authentication
+          result.
+
+1530   UNT, Message trailer
+       A service segment ending a message, giving the total number of
+       segments in the message (including the UNH & UNT) and the
+       control reference number of the message.
+
+4.2    Segment index (alphabetical sequence by tag)
+
+          ADR Address
+          AGR Agreement identification
+          AUT Authentication result
+          BGM Beginning of message
+          CIN Clinical information
+          CLI Clinical intervention
+          CNT Control total
+          COM Communication contact
+          CTA Contact information
+          CUX Currencies
+          DOC Document/message details
+          DTM Date/time/period
+          EMP Employment details
+          EQD Equipment details
+          FCA Financial charges allocation
+          FII Financial institution information
+          FTX Free text
+       X  GIS General indicator
+          HAN Handling instructions
+          ICD Insurance cover description
+          IMD Item description
+          LAN Language
+          LOC Place/location identification
+          MOA Monetary amount
+          NAT Nationality
+          PAC Package
+          PAS Attendance
+          PCD Percentage details
+          PDI Person demographic information
+          PNA Party identification
+          PRC Process identification
+          QTY Quantity
+          QUA Qualification
+          RCS Requirements and conditions
+          REL Relationship
+          RFF Reference
+          RSL Result
+          SEQ Sequence details
+          SPR Organisation classification details
+          STS Status
+          TAX Duty/tax/fee details
+          TCC Charge/rate calculations
+          TDT Details of transport
+          TMD Transport movement details
+          TSR Transport service requirements
+          UNH Message header
+          UNT Message trailer
+
+4.3    Message structure
+
+4.3.1  Segment table
+
+Pos    Tag Name                                      S   R
+
+0010   UNH Message header                            M   1     
+0020   BGM Beginning of message                      M   1     
+0030   DTM Date/time/period                          C   9     
+0040   RFF Reference                                 C   9     
+0050   FTX Free text                                 C   9     
+0060   CUX Currencies                                C   1     
+0070   CNT Control total                             C   9     
+
+0080       ÄÄÄÄÄ Segment group 1  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄÄÄÄ¿
+0090   MOA Monetary amount                           M   1           ³
+0100   TAX Duty/tax/fee details                      C   1ÄÄÄÄÄÄÄÄÄÄÄÙ
+
+0110       ÄÄÄÄÄ Segment group 2  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   999ÄÄÄÄÄÄÄÄÄ¿
+0120   PNA Party identification                      M   1           ³
+0130   SEQ Sequence details                          C   1           ³
+0140   ADR Address                                   C   9           ³
+0150   CTA Contact information                       C   9           ³
+0160   COM Communication contact                     C   9           ³
+0170   RFF Reference                                 C   99          ³
+0180   REL Relationship                              C   9           ³
+0190   NAT Nationality                               C   9           ³
+0200   LAN Language                                  C   9           ³
+0210   SPR Organisation classification details       C   1           ³
+0220   EMP Employment details                        C   9           ³
+0230   QUA Qualification                             C   9           ³
+0240   DTM Date/time/period                          C   99          ³
+0250   STS Status                                    C   1           ³
+0260   RCS Requirements and conditions               C   99          ³
+0270   PDI Person demographic information            C   1           ³
+0280   FII Financial institution information         C   9ÄÄÄÄÄÄÄÄÄÄÄÙ
+
+0290       ÄÄÄÄÄ Segment group 3  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   999ÄÄÄÄÄÄÄÄÄ¿
+0300   AGR Agreement identification                  M   1           ³
+0310   SEQ Sequence details                          C   1           ³
+0320   RFF Reference                                 C   99          ³
+0330   DTM Date/time/period                          C   99          ³
+                                                                     ³
+0340       ÄÄÄÄÄ Segment group 4  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99ÄÄÄÄÄÄÄÄÄ¿³
+0350   ICD Insurance cover description               M   1          ³³
+0360   FTX Free text                                 C   9ÄÄÄÄÄÄÄÄÄÄÁÙ
+
+0370       ÄÄÄÄÄ Segment group 5  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99ÄÄÄÄÄÄÄÄÄÄ¿
+0380   DOC Document/message details                  M   1           ³
+0390   DTM Date/time/period                          C   9           ³
+                                                                     ³
+0400       ÄÄÄÄÄ Segment group 6  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄÄÄ¿³
+0410   PNA Party identification                      M   1          ³³
+0420   ADR Address                                   C   9          ³³
+0430   STS Status                                    C   1          ³³
+0440   RCS Requirements and conditions               C   9ÄÄÄÄÄÄÄÄÄÄÁÙ
+
+0450       ÄÄÄÄÄ Segment group 7  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   999ÄÄÄÄÄÄÄÄÄ¿
+0460   FCA Financial charges allocation              M   1           ³
+0470 X GIS General indicator                         C   9           ³
+0480   RFF Reference                                 C   99          ³
+0490   DTM Date/time/period                          C   99          ³
+0500   FTX Free text                                 C   99          ³
+0510   AGR Agreement identification                  C   99          ³
+0520   DOC Document/message details                  C   9           ³
+                                                                     ³
+0530       ÄÄÄÄÄ Segment group 8  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99ÄÄÄÄÄÄÄÄÄ¿³
+0540   MOA Monetary amount                           M   1          ³³
+0550   TAX Duty/tax/fee details                      C   1ÄÄÄÄÄÄÄÄÄÄÙ³
+                                                                     ³
+0560       ÄÄÄÄÄ Segment group 9  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99ÄÄÄÄÄÄÄÄÄ¿³
+0570   RCS Requirements and conditions               M   1          ³³
+0580   FTX Free text                                 C   9ÄÄÄÄÄÄÄÄÄÄÙ³
+                                                                     ³
+0590       ÄÄÄÄÄ Segment group 10 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   999ÄÄÄÄÄÄÄÄ¿³
+0600   PNA Party identification                      M   1          ³³
+0610   RFF Reference                                 C   99         ³³
+0620   ADR Address                                   C   9          ³³
+0630   COM Communication contact                     C   9          ³³
+0640   DTM Date/time/period                          C   99         ³³
+0650   PDI Person demographic information            C   1          ³³
+0660   RSL Result                                    C   9          ³³
+0670   NAT Nationality                               C   9          ³³
+0680   LAN Language                                  C   9          ³³
+0690   HAN Handling instructions                     C   9          ³³
+0700   REL Relationship                              C   1ÄÄÄÄÄÄÄÄÄÄÙ³
+                                                                     ³
+0710       ÄÄÄÄÄ Segment group 11 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   999ÄÄÄÄÄÄÄÄ¿³
+0720   PRC Process identification                    M   1          ³³
+0730 X GIS General indicator                         C   1          ³³
+0740   STS Status                                    C   9          ³³
+0750   IMD Item description                          C   9          ³³
+0760   CIN Clinical information                      C   99         ³³
+0770   PNA Party identification                      C   99         ³³
+0780   DTM Date/time/period                          C   99         ³³
+0790   RFF Reference                                 C   99         ³³
+0800   FTX Free text                                 C   99         ³³
+0810   QTY Quantity                                  C   99         ³³
+0820   PCD Percentage details                        C   99         ³³
+                                                                    ³³
+0830       ÄÄÄÄÄ Segment group 12 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99ÄÄÄÄÄÄÄÄ¿³³
+0840   PAS Attendance                                M   1         ³³³
+0850   LOC Place/location identification             C   9         ³³³
+0860   DTM Date/time/period                          C   9         ³³³
+0870   RFF Reference                                 C   9ÄÄÄÄÄÄÄÄÄÙ³³
+                                                                    ³³
+0880       ÄÄÄÄÄ Segment group 13 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99ÄÄÄÄÄÄÄÄ¿³³
+0890   MOA Monetary amount                           M   1         ³³³
+0900   TAX Duty/tax/fee details                      C   1ÄÄÄÄÄÄÄÄÄÙ³³
+                                                                    ³³
+0910       ÄÄÄÄÄ Segment group 14 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99ÄÄÄÄÄÄÄÄ¿³³
+0920   RCS Requirements and conditions               M   1         ³³³
+0930   FTX Free text                                 C   9ÄÄÄÄÄÄÄÄÄÙ³³
+                                                                    ³³
+0940       ÄÄÄÄÄ Segment group 15 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   999ÄÄÄÄÄÄÄ¿³³
+0950   CLI Clinical intervention                     M   1         ³³³
+0960 X GIS General indicator                         C   1         ³³³
+0970   IMD Item description                          C   9         ³³³
+0980   CIN Clinical information                      C   99        ³³³
+0990   PNA Party identification                      C   99        ³³³
+1000   DTM Date/time/period                          C   99        ³³³
+1010   RFF Reference                                 C   99        ³³³
+1020   FTX Free text                                 C   99        ³³³
+1030   QTY Quantity                                  C   99        ³³³
+1040   PCD Percentage details                        C   99        ³³³
+1050   PAC Package                                   C   9         ³³³
+                                                                   ³³³
+1060       ÄÄÄÄÄ Segment group 16 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99ÄÄÄÄÄÄÄ¿³³³
+1070   MOA Monetary amount                           M   1        ³³³³
+1080   TAX Duty/tax/fee details                      C   1ÄÄÄÄÄÄÄÄÙ³³³
+                                                                   ³³³
+1090       ÄÄÄÄÄ Segment group 17 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99ÄÄÄÄÄÄÄ¿³³³
+1100   RCS Requirements and conditions               M   1        ³³³³
+1110   FTX Free text                                 C   9ÄÄÄÄÄÄÄÄÙ³³³
+                                                                   ³³³
+1120       ÄÄÄÄÄ Segment group 18 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99ÄÄÄÄÄÄÄ¿³³³
+1130   EQD Equipment details                         M   1        ³³³³
+1140   SEQ Sequence details                          C   1ÄÄÄÄÄÄÄÄÁÁÁÙ
+
+1150       ÄÄÄÄÄ Segment group 19 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   999ÄÄÄÄÄÄÄÄÄ¿
+1160   TMD Transport movement details                M   1           ³
+1170   SEQ Sequence details                          C   1           ³
+1180 X GIS General indicator                         C   1           ³
+1190   FTX Free text                                 C   99          ³
+                                                                     ³
+1200       ÄÄÄÄÄ Segment group 20 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   999ÄÄÄÄÄÄÄÄ¿³
+1210   TDT Details of transport                      M   1          ³³
+1220 X GIS General indicator                         C   1          ³³
+1230   IMD Item description                          C   9          ³³
+1240   PNA Party identification                      C   99         ³³
+1250   RFF Reference                                 C   99         ³³
+1260   FTX Free text                                 C   99         ³³
+1270   CIN Clinical information                      C   99         ³³
+1280   QTY Quantity                                  C   99         ³³
+                                                                    ³³
+1290       ÄÄÄÄÄ Segment group 21 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99ÄÄÄÄÄÄÄÄ¿³³
+1300   ADR Address                                   M   1         ³³³
+1310   DTM Date/time/period                          C   9ÄÄÄÄÄÄÄÄÄÙ³³
+                                                                    ³³
+1320       ÄÄÄÄÄ Segment group 22 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99ÄÄÄÄÄÄÄÄ¿³³
+1330   TSR Transport service requirements            M   1         ³³³
+1340   FTX Free text                                 C   9ÄÄÄÄÄÄÄÄÄÙ³³
+                                                                    ³³
+1350       ÄÄÄÄÄ Segment group 23 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   999ÄÄÄÄÄÄÄ¿³³
+1360   TCC Charge/rate calculations                  M   1         ³³³
+1370 X GIS General indicator                         C   1         ³³³
+1380   IMD Item description                          C   9         ³³³
+1390   DTM Date/time/period                          C   99        ³³³
+1400   RFF Reference                                 C   99        ³³³
+1410   FTX Free text                                 C   99        ³³³
+1420   QTY Quantity                                  C   99        ³³³
+1430   PCD Percentage details                        C   99        ³³³
+                                                                   ³³³
+1440       ÄÄÄÄÄ Segment group 24 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99ÄÄÄÄÄÄÄ¿³³³
+1450   MOA Monetary amount                           M   1        ³³³³
+1460   TAX Duty/tax/fee details                      C   1ÄÄÄÄÄÄÄÄÙ³³³
+                                                                   ³³³
+1470       ÄÄÄÄÄ Segment group 25 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99ÄÄÄÄÄÄÄ¿³³³
+1480   TSR Transport service requirements            M   1        ³³³³
+1490   FTX Free text                                 C   9ÄÄÄÄÄÄÄÄÁÁÁÙ
+
+1500       ÄÄÄÄÄ Segment group 26 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄÄÄÄ¿
+1510   AUT Authentication result                     M   1           ³
+1520   DTM Date/time/period                          C   9ÄÄÄÄÄÄÄÄÄÄÄÙ
+1530   UNT Message trailer                           M   1     

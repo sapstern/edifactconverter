@@ -1,0 +1,340 @@
+                              UN/EDIFACT
+
+                         DRAFT RECOMMENDATION
+
+           Notification of registration of a worker message
+
+
+
+
+
+----------------------------------------------------------------------
+This message is available for formal trial for at least six months
+from the date of approval by UN/ECE/TRADE/WP.4.
+ 
+Organisations are invited to trial this message. Comments on the
+results from the trial should be forwarded to their Rapporteur's Team
+Secretariat as soon as they are available. Based on the results of the
+trials, a UNSM may be issued.
+ 
+The segments, composite data elements, data elements and codes for
+use in the trial of this message are contained in the Draft directory.
+However, this information may differ from that in the Standard
+directory (UNTDID), even for material having the same identifying
+tags.
+----------------------------------------------------------------------
+
+
+
+
+
+
+
+
+                                            Message Type : SSREGW
+                                            Version      : D
+                                            Release      : 96A
+                                            Contr. Agency: UN
+                                            Status       : 1
+                                            Revision     : 1
+                                            Date         : 95-11-23
+
+
+
+
+
+
+SOURCE: Western European EDIFACT Board, MD10
+
+
+
+                               CONTENTS
+
+           Notification of registration of a worker message
+
+
+
+0.   INTRODUCTION
+
+
+1.   SCOPE
+
+     1.1   Functional definition
+
+     1.2   Field of application
+
+     1.3   Principles
+
+2.   REFERENCES
+
+3.   TERMS AND DEFINITIONS
+
+4.   MESSAGE DEFINITION
+
+     4.1   Data segment clarification
+
+     4.2   Data segment index (alphabetical sequence)
+
+     4.3   Message structure
+
+           4.3.1 Segment table
+
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------
+For general information on UN standard message types see UN Trade Data
+Interchange Directory, UNTDID, Part 4, Section 2.6, UN/ECE UNSM
+General Introduction
+----------------------------------------------------------------------
+
+
+
+0.     INTRODUCTION
+
+       This specification provides the definition of the Notification
+       of registration of a worker message (SSREGW) to be used in
+       Electronic Data Interchange (EDI) between trading partners
+       involved in administration, commerce and transport.
+
+1.     SCOPE
+
+1.1    Functional Definition
+
+       The SSREGW message is exchanged between designated bodies to
+       enable interchange and registration of a worker's social
+       security number. The message is also exchanged by designated
+       bodies to request and compile details of worker's social
+       security insurance record.
+
+1.2    Field of Application
+
+       The Notification of registration of a worker message may be
+       used for both national and international trade. It is based on
+       universal commercial practice and is not dependent on the type
+       of business or industry.
+
+1.3    Principles
+
+       The SSREGW message is used for several purposes :
+       
+       1 - it is sent by the designated body of one State to the
+       equivalent body of another State to advise that a national of
+       the latter State has registered for Social Security purposes in
+       the former State and to advise the Social Security number
+       allocated to him.
+       
+       2 - it is sent by the designated body which received a SSREGW
+       message of the former type to acknowledge receipt of this
+       message and to advise or confirm the registration number of the
+       worker.
+       
+       3 - it is sent by the designated body of one State to the
+       equivalent body of another State to request details of a
+       worker's Social Security insurance record in the latter State.
+       
+       4 - it is sent by the designated body in the State of the
+       worker's nationality to equivalent bodies in all other States
+       in which the worker has been registered to communicate
+       insurance numbers in other states.
+
+2.     REFERENCES
+
+       See UNTDID, Part 4, Chapter 2.6 UN/ECE UNSM - General
+       Introduction, Section 1.
+
+3.     TERMS AND DEFINITIONS
+
+       See UNTDID, Part 4, Chapter 2.6 UN/ECE UNSM - General
+       Introduction, Section 2.
+
+4.     MESSAGE DEFINITION
+
+4.1    Data Segment Clarification
+
+       This section should be read in conjunction with the Branching
+       Diagram and the Segment Table which indicate mandatory,
+       conditional and repeating requirements.
+
+0010 | UNH, Message header
+       A service segment starting and uniquely identifying a message.
+       The message type code for the Notification of registration of a
+       worker message is SSREGW.
+       
+       Note: Notification of registration of a worker messages
+       conforming to this document must contain the following data in
+       segment UNH, composite S009:
+
+       Data element  0065 SSREGW
+                     0052 D
+                     0054 96A
+                     0051 UN
+
+0020   BGM, Beginning of message
+       A segment to identify the type and the function of the message
+       (registration, confirmation of registration, request of details
+       on a worker's Social Security insurance record, answer to this
+       request, ...) and, if necessary, the number of the message.
+
+0030   DTM, Date/time/period
+       A segment indicating the date of preparation of the message.
+
+0040   GIS, General indicator
+       A segment indicating the type of process the message belongs
+       to.
+
+
+0050   Segment group 1:  RFF-DTM
+       A group of segments identifying a previous message, related to
+       the current message.
+
+0060      RFF, Reference
+          A segment identifying the reference of a previously sent or
+          received message related to the current message.
+
+0070      DTM, Date/time/period
+          A segment indicating the date of a previous message whose
+          reference is given in the above RFF segment.
+
+
+0080   Segment group 2:  PNA-GIR-NAT-DOC-ADR-ATT-SG3-SG4
+       A group of segments identifying the parties and/or workers, its
+       or his relatives and giving related information. e.g. giving
+       the workers insurance or identification numbers.
+
+0090      PNA, Party name
+          A segment giving a person's surnames and forenames and his
+          function in the message (worker, worker's mother, father,
+          spouse).
+
+0100      GIR, Related identification numbers
+          A segment indicating the Insurance or identification numbers
+          of the worker in the country identified in the related PNA
+          segment.
+
+0110      NAT, Nationality
+          A segment indicating the nationality of the person
+          identified in the related PNA segment.
+
+0120      DOC, Document/message details
+          A segment specifying the type and the number of an identity
+          document (identity card or passport) belonging to the person
+          identified in the related PNA segment.
+
+0130      ADR, Address
+          A segment indicating current and if relevant, the previous
+          address of the person.
+
+0140      ATT, Attribute
+          A segment specifying person's natural, professional or
+          academic titles.
+
+
+0150      Segment group 3:  DTM-ADR
+          A group of segments giving the person's birth or death
+          details.
+
+0160         DTM, Date/time/period
+             A segment indicating date of birth or date of death of
+             the person.
+
+0170         ADR, Address
+             A segment indicating place of birth or place of death.
+             This segment can be used to identify the country,
+             province or department and city of birth or death.
+
+
+0180      Segment group 4:  PDI-DTM
+          A group of segments giving details on the person's gender
+          and marital status.
+
+0190         PDI, Person demographic information
+             A segment specifying the gender or the marital status
+             (married, divorced, ...) of the person identified in the
+             related PNA segment.
+
+0200         DTM, Date/time/period
+             A segment indicating relevant dates related to the civil
+             status (date of marriage or date of divorce, ...).
+
+0210   FTX, Free text
+       A segment giving additional information on the worker.
+
+
+0220   Segment group 5:  AUT-DTM
+       A group of segments specifying the details of authentication.
+
+0230      AUT, Authentication result
+          A segment specifying the details of any authentication
+          (validation) procedure applied to the SSREGW message.
+
+0240      DTM, Date/time/period
+          A segment identifying the date and where necessary, the time
+          of authentication.
+
+0250   UNT, Message trailer
+       A service segment ending a message, giving the total number of
+       segments in the message and the control reference number of the
+       message.
+
+4.2    Data segment index (Alphabetical sequence by tag)
+
+          ADR Address
+          ATT Attribute
+          AUT Authentication result
+          BGM Beginning of message
+          DOC Document/message details
+          DTM Date/time/period
+          FTX Free text
+          GIR Related identification numbers
+          GIS General indicator
+          NAT Nationality
+          PDI Person demographic information
+          PNA Party name
+          RFF Reference
+          UNH Message header
+          UNT Message trailer
+
+4.3    Message structure
+
+4.3.1  Segment table
+
+Pos    Tag Name                                      S   R
+
+0010   UNH Message header                            M   1     
+0020   BGM Beginning of message                      M   1     
+0030   DTM Date/time/period                          C   1     
+0040   GIS General indicator                         M   1     
+
+0050       ÄÄÄÄÄ Segment group 1  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   1ÄÄÄÄÄÄÄÄÄÄÄ¿
+0060   RFF Reference                                 M   1           ³
+0070   DTM Date/time/period                          C   1ÄÄÄÄÄÄÄÄÄÄÄÙ
+
+0080       ÄÄÄÄÄ Segment group 2  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   99ÄÄÄÄÄÄÄÄÄÄ¿
+0090   PNA Party name                                M   1           ³
+0100   GIR Related identification numbers            C   1           ³
+0110   NAT Nationality                               C   1           ³
+0120   DOC Document/message details                  C   1           ³
+0130   ADR Address                                   C   2           ³
+0140   ATT Attribute                                 C   5           ³
+                                                                     ³
+0150       ÄÄÄÄÄ Segment group 3  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   2ÄÄÄÄÄÄÄÄÄÄ¿³
+0160   DTM Date/time/period                          M   1          ³³
+0170   ADR Address                                   C   1ÄÄÄÄÄÄÄÄÄÄÙ³
+                                                                     ³
+0180       ÄÄÄÄÄ Segment group 4  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   1ÄÄÄÄÄÄÄÄÄÄ¿³
+0190   PDI Person demographic information            M   1          ³³
+0200   DTM Date/time/period                          C   2ÄÄÄÄÄÄÄÄÄÄÁÙ
+0210   FTX Free text                                 C   1     
+
+0220       ÄÄÄÄÄ Segment group 5  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   1ÄÄÄÄÄÄÄÄÄÄÄ¿
+0230   AUT Authentication result                     M   1           ³
+0240   DTM Date/time/period                          C   1ÄÄÄÄÄÄÄÄÄÄÄÙ
+0250   UNT Message trailer                           M   1     

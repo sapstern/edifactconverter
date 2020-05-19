@@ -1,0 +1,884 @@
+                              UN/EDIFACT
+
+                UNITED NATIONS STANDARD MESSAGE (UNSM)
+
+              Reservation response - interactive message
+
+
+
+    This message can only be used with ISO 9735 Version 4 or later.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                           Message Type : RESRSP
+                                           Version      : D
+                                           Release      : 07B
+                                           Contr. Agency: UN
+
+                                           Revision     : 6
+                                           Date         : 2007-11-06
+
+
+
+
+
+
+SOURCE: TBG9 Travel, Tourism and Leisure
+
+
+
+                               CONTENTS
+
+              Reservation response - interactive message
+
+0.     INTRODUCTION
+
+1.     SCOPE
+
+       1.1   Functional definition
+
+       1.2   Field of application
+
+       1.3   Principles
+
+2.     REFERENCES
+
+3.     TERMS AND DEFINITIONS
+
+       3.1   Standard terms and definitions
+
+4.     MESSAGE DEFINITION
+
+       4.1   Segment clarification
+
+       4.2   Segment index (alphabetical sequence by tag)
+
+       4.3   Message structure
+             4.3.1 Segment table
+
+
+
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------
+For general information on UN standard message types see UN Trade Data
+Interchange Directory, UNTDID, Part 4, Section 2.3, UN/ECE UNSM
+General Introduction
+----------------------------------------------------------------------
+
+
+
+0.     INTRODUCTION
+
+       This specification provides the definition of the Reservation
+       response - interactive message (RESRSP) to be used in
+       Electronic Data Interchange (EDI) between trading partners
+       involved in administration, commerce and transport.
+
+1.     SCOPE
+
+1.1    Functional definition
+
+       An interactive Travel, Tourism and Leisure Reservations
+       Response is sent by a customer or his agent, to convey the
+       results of a reservations request for a Travel, Tourism and
+       Leisure service. The Travel, Tourism and Leisure Reservation
+       Request - Interactive message (RESREQ) is utilised to provide
+       the interactive request to which the RESRSP is used to respond.
+
+1.2    Field of application
+
+       The Reservation response - interactive message may be used for
+       both national and international applications. It is based on
+       universal practice related to administration, commerce and
+       transport, and is not dependent on the type of business or
+       industry.
+
+1.3    Principles
+
+       RESRSP may be used for the following functions within the
+       Interactive Reservations Scenario for Travel, Tourism and
+       Leisure:
+       
+       (1) To respond to an initial reservation request for a hotel,
+       rental car, train trip, airline flight, or tour.
+       
+       (2) To respond to a request to cancel, ignore, or modify a
+       reservation.
+       
+       (3) To display a current or previously made reservation.
+       
+       See Travel, Tourism and Leisure Interactive Reservations
+       Scenario.
+
+2.     REFERENCES
+
+       See UNTDID, Part 4, Chapter 2.3 UN/ECE UNSM - General
+       Introduction, Section 1.
+
+3.     TERMS AND DEFINITIONS
+
+3.1    Standard terms and definitions
+
+       See UNTDID, Part 4, Chapter 2.3 UN/ECE UNSM - General
+       Introduction, Section 2.
+
+4.     MESSAGE DEFINITION
+
+4.1    Segment clarification
+
+       This section should be read in conjunction with the segment
+       table which indicates mandatory, conditional and repeating
+       requirements.
+
+0010   UIH, Interactive message header
+       A service segment starting and uniquely identifying a message.
+       The message type code for the Reservation response -
+       interactive message is RESRSP.
+
+       Note: Reservation response - interactive messages conforming to
+       this document must contain the following data in segment UIH,
+       composite S306:
+
+       Data element  0065 RESRSP
+                     0052 D
+                     0054 07B
+                     0051 UN
+
+0020   MSD, Message action details
+       A segment identifying the industry type (i.e. air, car, train,
+       accommodations, etc.) and business function of the message.
+
+0030   ORG, Originator of request details
+       A segment providing data pertaining to the originator of the
+       interactive processing request (i.e. Travel Agent Identity or
+       Location and the commercial Computer Reservations System
+       delivering the message).
+
+0040   RCI, Reservation control information
+       Information providing a specific reference to a Travel, Tourism
+       and Leisure (TT&L) reservation for products or services.
+
+0050   NUN, Number of units
+       Number and identifying qualifier pertaining to the entire
+       reservation response (i.e. number and type of passengers, [4
+       adults]).
+
+0060   CRI, Consumer reference information
+       Consumer reference information relating to the entire TT&L
+       reservation response (corporate discount number, personal
+       profile number).
+
+0070   TFF, Tariff information
+       Tariff information relating to the entire TT&L reservation
+       response.
+
+0080   PDT, Product information
+       Availability information related to the entire TT&L reservation
+       response.
+
+0090   ATI, Tour information
+       Additional information relating to a tour (tour code or name,
+       length of tour, number of stops, etc.).
+
+0100   CON, Contact information
+       Information providing contact numbers relevant to the entire
+       TT&L reservation.
+
+0110   CMN, Commission information
+       Information concerning the amount of commission that will be
+       paid for the booking of a service or product.
+
+0120   ITM, Item number
+       A group or line number associated with this booking to be used
+       as a reference in additional booking requests.
+
+0130   IFT, Interactive free text
+       Free form text data pertaining to the entire reservation
+       response.
+
+0140   PMT, Payment information
+       Payment instructions for the entire reservation response.
+
+0150   TDI, Traveller document information
+       Information relating to documents associated with the entire
+       reservation response.
+
+0160   ADS, Address
+       Addresses related to the entire TT&L reservation.
+
+0170   HDI, Hardware device information
+       Information specifying terminal equipment addresses and device
+       types. This information may be used for tracing purposes.
+
+
+0180   Segment group 1:  NME-ADS
+       This segment group provides names and addresses pertaining to
+       the entire reservation.
+
+0190      NME, Name
+          Name(s) related to the entire TT&L reservation.
+
+0200      ADS, Address
+          An address pertaining to the preceding name.
+
+
+0210   Segment group 2:  SSR-IFT
+       This segment group provides details pertaining to special
+       services information and the associated free text information.
+
+0220      SSR, Special requirement details
+          Details pertaining to special services or requirements
+          relating to the entire reservation response.
+
+0230      IFT, Interactive free text
+          Free form text data pertaining to the special services.
+
+
+0240   Segment group 3:  ERI-IFT
+       This segment group provides error information that relates to
+       the entire reservation.
+
+0250      ERI, Application error information
+          Error condition data pertaining to the entire reservation
+          response.
+
+0260      IFT, Interactive free text
+          Free form text data pertaining to the preceding error
+          condition.
+
+
+0270   Segment group 4:  RUL-PMT-ADS
+       This segment group provides information pertaining to the rules
+       and any associated penalty payments for the entire booking.
+
+0280      RUL, Rule information
+          Rule and policy information that pertain to the booking.
+
+0290      PMT, Payment information
+          Payment information that are associated with the preceding
+          rules.
+
+0300      ADS, Address
+          An address associated with the payment information.
+
+
+0310   Segment group 5:  TIF-FTI-CRI-CON-IFT-DIS-ASD-TFF-ADS-PMT-TDI-
+                         SG6
+       This segment group provides information pertaining to an
+       individual traveller or traveller group associated with the
+       TT&L reservation response.
+
+0320      TIF, Traveller information
+          Personal details pertaining to a unique traveller (surname,
+          given name, indication that traveller or group is
+          accompanied by non ticketed infant, etc.).
+
+0330      FTI, Frequent traveller information
+          Frequent traveller program information relating to a
+          specific traveller or group.
+
+0340      CRI, Consumer reference information
+          Consumer reference information relating to a specific
+          traveller or group.
+
+0350      CON, Contact information
+          Contact information associated with a traveller or group.
+
+0360      IFT, Interactive free text
+          Free form text data pertaining to a traveller or group.
+
+0370      DIS, Discount information
+          Discount information for a traveller or group.
+
+0380      ASD, Service details
+          Date, time and location information related to a service for
+          a specific traveller or group.
+
+0390      TFF, Tariff information
+          Tariff information related to a specific traveller or group.
+
+0400      ADS, Address
+          Address information for a traveller or group.
+
+0410      PMT, Payment information
+          Payment instructions for a traveller or group.
+
+0420      TDI, Traveller document information
+          Information relating to documents associated with a
+          traveller or group.
+
+
+0430      Segment group 6:  SSR-IFT
+          A group of segments to provide details concerning special
+          services for a traveller or group.
+
+0440         SSR, Special requirement details
+             Details pertaining to special services for a traveller or
+             group.
+
+0450         IFT, Interactive free text
+             Free text information associated with the special
+             service.
+
+
+0460   Segment group 7:  TVL-MSD-RCI-RPI-MOV-PDT-ATI-DIS-AAI-CON-ADS-
+                         NME-ASD-NUN-CMN-CNX-PMT-IFT-TDI-TFF-SG8-SG9-
+                         SG10-SG11-SG12
+       This segment group provides information pertaining to a Travel,
+       Tourism and Leisure (TT&L) product or service.
+
+0470      TVL, Travel product information
+          Information identifying the TT&L product or service (service
+          provider, service location, date of service, service
+          description, etc.).
+
+0480      MSD, Message action details
+          A segment identifying the industry type (i.e. air, car,
+          train, accommodations, etc.) and a business function
+          relating to the product or service.
+
+0490      RCI, Reservation control information
+          Information providing a specific reference to a product or
+          service.
+
+0500      RPI, Quantity and action details
+          Details relating to quantity and action required associated
+          with the product or service.
+
+0510      MOV, Car delivery instruction
+          Information pertaining to the delivery of an automobile or
+          chauffeur instructions.
+
+0520      PDT, Product information
+          Availability information for a particular product or
+          service.
+
+0530      ATI, Tour information
+          Additional information relating to a specific tour.
+
+0540      DIS, Discount information
+          Discount information for a product or service.
+
+0550      AAI, Accommodation allocation information
+          Information relating to what accommodations have been
+          allocated for a product or service.
+
+0560      CON, Contact information
+          Contact numbers for a product or service.
+
+0570      ADS, Address
+          Address information for a product or service.
+
+0580      NME, Name
+          Name(s) information for a product or service.
+
+0590      ASD, Service details
+          Additional date, time and location information for a product
+          or service.
+
+0600      NUN, Number of units
+          Number and identifying qualifier pertaining to this product
+          or service.
+
+0610      CMN, Commission information
+          Information concerning commissions to be paid for this
+          product or service.
+
+0620      CNX, Connection details
+          A segment to indicate the via locations between the origin
+          and destination of a journey.
+
+0630      PMT, Payment information
+          Payment instructions for a product or service.
+
+0640      IFT, Interactive free text
+          Free form text data pertaining to the product or service.
+
+0650      TDI, Traveller document information
+          Information relating to documents associated with a product
+          or service (voucher number, ticket number, etc.).
+
+0660      TFF, Tariff information
+          Tariff information relating to the product or service (car
+          rental rate, coach fare, hotel rate, etc.).
+
+
+0670      Segment group 8:  VEH-PDT
+          A group of segments to specify details and related
+          information concerning a vehicle to be transported on a
+          product or service.
+
+0680         VEH, Vehicle
+             Details concerning a vehicle to be transported on a
+             product or service.
+
+0690         PDT, Product information
+             Product information related to the vehicle to be
+             transported.
+
+
+0700      Segment group 9:  SSR-IFT
+          Special service information and associated free text related
+          to a product or service.
+
+0710         SSR, Special requirement details
+             Details pertaining to special services or requirements
+             related to a product or service.
+
+0720         IFT, Interactive free text
+             Free text information related to the special service.
+
+
+0730      Segment group 10: ERI-IFT
+          This segment group provides error information pertaining to
+          the associated product or service.
+
+0740         ERI, Application error information
+             Error data pertaining to the associated product or
+             service.
+
+0750         IFT, Interactive free text
+             Free form or coded text data pertaining to the preceding
+             ERI segment.
+
+
+0760      Segment group 11: RUL-PMT
+          This segment provides rule and associated payment
+          information for a particular service or product.
+
+0770         RUL, Rule information
+             Rule and policy information for a particular service or
+             product.
+
+0780         PMT, Payment information
+             Payment information that is associated to the preceding
+             rule or policy.
+
+
+0790      Segment group 12: TIF-FTI-CRI-CON-IFT-ASD-ADS-PMT-TFF-SG13
+          This segment group provides information pertaining to an
+          individual traveller or traveller group associated with the
+          preceding product or service information.
+
+0800         TIF, Traveller information
+             Personal details pertaining to a unique traveller and
+             associated to the preceding product or service
+             information (i.e. surname, given name, indication that
+             traveller or group is accompanied by non ticketed infant,
+             etc.).
+
+0810         FTI, Frequent traveller information
+             Frequent traveller program information relating to a
+             specific traveller or group and associated to the
+             preceding product or service information.
+
+0820         CRI, Consumer reference information
+             Consumer reference information for a specific traveller
+             or group and associated to the preceding product or
+             service information.
+
+0830         CON, Contact information
+             Contact numbers associated with a traveller or group and
+             associated to the preceding product or service
+             information.
+
+0840         IFT, Interactive free text
+             Free form text data pertaining to a traveller or group
+             and associated to the preceding product or service
+             information.
+
+0850         ASD, Service details
+             Date, time and location information for a specific
+             traveller or group for a product or service.
+
+0860         ADS, Address
+             Address information associated with a traveller or group
+             and associated to the preceding product or service
+             information.
+
+0870         PMT, Payment information
+             Payment instructions for a traveller or group and
+             associated to the preceding product or service
+             information.
+
+0880         TFF, Tariff information
+             Tariff information for a traveller or group and
+             associated to a specific product or service.
+
+
+0890         Segment group 13: SSR-IFT
+             Special service information and related free text
+             pertaining to a traveller or group and associated to the
+             preceding product or service.
+
+0900            SSR, Special requirement details
+                Details pertaining to special services related to a
+                traveller or group and associated to the preceding
+                product or service.
+
+0910            IFT, Interactive free text
+                Free text information related to the special service.
+
+
+0920   Segment group 14: ODI-MSD-IFT-SG15-SG16
+       Like Segment Group 7, this segment group provides information
+       pertaining to a Travel, Tourism and Leisure (TT&L) product or
+       service. However, in certain situations product or service data
+       must be grouped as part of an overall journey. Segment group 14
+       provides that grouping capability.
+
+0930      ODI, Origin and destination details
+          A segment providing the origin and destination of a journey.
+
+0940      MSD, Message action details
+          A segment identifying the industry type (i.e. air, car,
+          train, accommodations, etc.) and business function relating
+          to the associated journey.
+
+0950      IFT, Interactive free text
+          Free form text data relating to the associated journey.
+
+
+0960      Segment group 15: ERI-IFT
+          This segment group provides error information pertaining to
+          the associated journey.
+
+0970         ERI, Application error information
+             Error condition data pertaining to the associated
+             journey.
+
+0980         IFT, Interactive free text
+             Free form text data pertaining to the preceding error
+             data.
+
+
+0990      Segment group 16: TVL-APD-RPI-NUN-PDT-ATI-AAI-DIS-TFF-RCI-
+                            ASD-IFT-PMT-SG17-SG18-SG19
+          This segment group provides information pertaining to a
+          Travel, Tourism and Leisure (TT&L) product or service which
+          is related to the preceding journey information.
+
+1000         TVL, Travel product information
+             Information identifying the TT&L product or service
+             pertaining to a journey. (service provider, service
+             location, date of service, service description, etc.).
+
+1010         APD, Additional transport details
+             A segment providing additional data relating to the
+             preceding TVL segment (i.e. aircraft type, number of
+             stops, on time performance, gate description, etc.).
+
+1020         RPI, Quantity and action details
+             Details relating to quantity and action required
+             associated with the product or service.
+
+1030         NUN, Number of units
+             Number and identifying qualifier relating to the product
+             or service.
+
+1040         PDT, Product information
+             Availability information relating to the product or
+             service.
+
+1050         ATI, Tour information
+             Additional information relating to the product or
+             service.
+
+1060         AAI, Accommodation allocation information
+             Information relating to the accommodations that have been
+             allocated for a product or service.
+
+1070         DIS, Discount information
+             Discount information relating to the product or service.
+
+1080         TFF, Tariff information
+             Tariff information relating to a product or service.
+
+1090         RCI, Reservation control information
+             Information providing a specific reference to the product
+             or service.
+
+1100         ASD, Service details
+             Additional date, time and location information for a
+             product or service.
+
+1110         IFT, Interactive free text
+             Free text information related to a product or service.
+
+1120         PMT, Payment information
+             Payment instructions and amounts for a product or
+             service.
+
+
+1130         Segment group 17: VEH-PDT
+             A group of segments to specify details and related
+             information about a vehicle to be transported on a
+             product or service.
+
+1140            VEH, Vehicle
+                Details concerning a vehicle to be transported on a
+                product or service.
+
+1150            PDT, Product information
+                Product information related to the vehicle to be
+                transported.
+
+
+1160         Segment group 18: SSR-PMT-CON-ADS-IFT
+             A group of segments for special services and requirements
+             and the payment associated with those services and the
+             information on those responsible for the payment.
+
+1170            SSR, Special requirement details
+                Information about special services and requirements
+                relating to the product or service pertaining to a
+                journey.
+
+1180            PMT, Payment information
+                Payment instructions for a special service or
+                requirement.
+
+1190            CON, Contact information
+                Contact numbers related to payment information.
+
+1200            ADS, Address
+                Address information related to payment information.
+
+1210            IFT, Interactive free text
+                Free text information related to the special service.
+
+
+1220         Segment group 19: ERI-IFT
+             This segment group provides error information pertaining
+             to the associated product or service data.
+
+1230            ERI, Application error information
+                Error condition data pertaining to the associated
+                product or service data.
+
+1240            IFT, Interactive free text
+                Free form text data pertaining to the preceding error
+                condition.
+
+1250   UIT, Interactive message trailer
+       A service segment ending a message, giving the total number of
+       segments in the message (including the UIH & UIT) and the
+       control reference number of the message.
+
+4.2    Segment index (alphabetical sequence by tag)
+
+          AAI Accommodation allocation information
+          ADS Address
+          APD Additional transport details
+          ASD Service details
+          ATI Tour information
+          CMN Commission information
+          CNX Connection details
+          CON Contact information
+          CRI Consumer reference information
+          DIS Discount information
+          ERI Application error information
+          FTI Frequent traveller information
+          HDI Hardware device information
+          IFT Interactive free text
+          ITM Item number
+          MOV Car delivery instruction
+          MSD Message action details
+          NME Name
+          NUN Number of units
+          ODI Origin and destination details
+          ORG Originator of request details
+          PDT Product information
+          PMT Payment information
+          RCI Reservation control information
+          RPI Quantity and action details
+          RUL Rule information
+          SSR Special requirement details
+          TDI Traveller document information
+          TFF Tariff information
+          TIF Traveller information
+          TVL Travel product information
+          UIH Interactive message header
+          UIT Interactive message trailer
+          VEH Vehicle
+
+4.3    Message structure
+
+4.3.1  Segment table
+
+Pos    Tag Name                                      S   R
+
+0010   UIH Interactive message header                M   1     
+0020   MSD Message action details                    C   1     
+0030   ORG Originator of request details             C   1     
+0040   RCI Reservation control information           C   1     
+0050   NUN Number of units                           C   1     
+0060   CRI Consumer reference information            C   1     
+0070   TFF Tariff information                        C   9     
+0080   PDT Product information                       C   1     
+0090   ATI Tour information                          C   1     
+0100   CON Contact information                       C   1     
+0110   CMN Commission information                    C   1     
+0120   ITM Item number                               C   1     
+0130   IFT Interactive free text                     C   9     
+0140   PMT Payment information                       C   9     
+0150   TDI Traveller document information            C   9     
+0160   ADS Address                                   C   9     
+0170   HDI Hardware device information               C   1     
+
+0180       ----- Segment group 1  ------------------ C   9-----------+
+0190   NME Name                                      M   1           |
+0200   ADS Address                                   C   1-----------+
+
+0210       ----- Segment group 2  ------------------ C   99----------+
+0220   SSR Special requirement details               M   1           |
+0230   IFT Interactive free text                     C   1-----------+
+
+0240       ----- Segment group 3  ------------------ C   5-----------+
+0250   ERI Application error information             M   1           |
+0260   IFT Interactive free text                     C   1-----------+
+
+0270       ----- Segment group 4  ------------------ C   99----------+
+0280   RUL Rule information                          M   1           |
+0290   PMT Payment information                       C   1           |
+0300   ADS Address                                   C   1-----------+
+
+0310       ----- Segment group 5  ------------------ C   999---------+
+0320   TIF Traveller information                     M   1           |
+0330   FTI Frequent traveller information            C   1           |
+0340   CRI Consumer reference information            C   1           |
+0350   CON Contact information                       C   1           |
+0360   IFT Interactive free text                     C   1           |
+0370   DIS Discount information                      C   1           |
+0380   ASD Service details                           C   1           |
+0390   TFF Tariff information                        C   1           |
+0400   ADS Address                                   C   9           |
+0410   PMT Payment information                       C   9           |
+0420   TDI Traveller document information            C   9           |
+                                                                     |
+0430       ----- Segment group 6  ------------------ C   99---------+|
+0440   SSR Special requirement details               M   1          ||
+0450   IFT Interactive free text                     C   1----------++
+
+0460       ----- Segment group 7  ------------------ C   99----------+
+0470   TVL Travel product information                M   1           |
+0480   MSD Message action details                    C   1           |
+0490   RCI Reservation control information           C   1           |
+0500   RPI Quantity and action details               C   1           |
+0510   MOV Car delivery instruction                  C   1           |
+0520   PDT Product information                       C   1           |
+0530   ATI Tour information                          C   1           |
+0540   DIS Discount information                      C   1           |
+0550   AAI Accommodation allocation information      C   1           |
+0560   CON Contact information                       C   1           |
+0570   ADS Address                                   C   1           |
+0580   NME Name                                      C   1           |
+0590   ASD Service details                           C   1           |
+0600   NUN Number of units                           C   1           |
+0610   CMN Commission information                    C   1           |
+0620   CNX Connection details                        C   1           |
+0630   PMT Payment information                       C   9           |
+0640   IFT Interactive free text                     C   99          |
+0650   TDI Traveller document information            C   9           |
+0660   TFF Tariff information                        C   99          |
+                                                                     |
+0670       ----- Segment group 8  ------------------ C   9----------+|
+0680   VEH Vehicle                                   M   1          ||
+0690   PDT Product information                       C   1----------+|
+                                                                     |
+0700       ----- Segment group 9  ------------------ C   99---------+|
+0710   SSR Special requirement details               M   1          ||
+0720   IFT Interactive free text                     C   1----------+|
+                                                                     |
+0730       ----- Segment group 10 ------------------ C   5----------+|
+0740   ERI Application error information             M   1          ||
+0750   IFT Interactive free text                     C   1----------+|
+                                                                     |
+0760       ----- Segment group 11 ------------------ C   99---------+|
+0770   RUL Rule information                          M   1          ||
+0780   PMT Payment information                       C   1----------+|
+                                                                     |
+0790       ----- Segment group 12 ------------------ C   999--------+|
+0800   TIF Traveller information                     M   1          ||
+0810   FTI Frequent traveller information            C   1          ||
+0820   CRI Consumer reference information            C   1          ||
+0830   CON Contact information                       C   1          ||
+0840   IFT Interactive free text                     C   1          ||
+0850   ASD Service details                           C   1          ||
+0860   ADS Address                                   C   9          ||
+0870   PMT Payment information                       C   9          ||
+0880   TFF Tariff information                        C   99         ||
+                                                                    ||
+0890       ----- Segment group 13 ------------------ C   99--------+||
+0900   SSR Special requirement details               M   1         |||
+0910   IFT Interactive free text                     C   1---------+++
+
+0920       ----- Segment group 14 ------------------ C   99----------+
+0930   ODI Origin and destination details            M   1           |
+0940   MSD Message action details                    C   1           |
+0950   IFT Interactive free text                     C   1           |
+                                                                     |
+0960       ----- Segment group 15 ------------------ C   5----------+|
+0970   ERI Application error information             M   1          ||
+0980   IFT Interactive free text                     C   1----------+|
+                                                                     |
+0990       ----- Segment group 16 ------------------ C   99---------+|
+1000   TVL Travel product information                M   1          ||
+1010   APD Additional transport details              C   1          ||
+1020   RPI Quantity and action details               C   1          ||
+1030   NUN Number of units                           C   1          ||
+1040   PDT Product information                       C   1          ||
+1050   ATI Tour information                          C   1          ||
+1060   AAI Accommodation allocation information      C   1          ||
+1070   DIS Discount information                      C   1          ||
+1080   TFF Tariff information                        C   1          ||
+1090   RCI Reservation control information           C   1          ||
+1100   ASD Service details                           C   1          ||
+1110   IFT Interactive free text                     C   9          ||
+1120   PMT Payment information                       C   9          ||
+                                                                    ||
+1130       ----- Segment group 17 ------------------ C   9---------+||
+1140   VEH Vehicle                                   M   1         |||
+1150   PDT Product information                       C   1---------+||
+                                                                    ||
+1160       ----- Segment group 18 ------------------ C   99--------+||
+1170   SSR Special requirement details               M   1         |||
+1180   PMT Payment information                       C   1         |||
+1190   CON Contact information                       C   1         |||
+1200   ADS Address                                   C   1         |||
+1210   IFT Interactive free text                     C   1---------+||
+                                                                    ||
+1220       ----- Segment group 19 ------------------ C   5---------+||
+1230   ERI Application error information             M   1         |||
+1240   IFT Interactive free text                     C   1---------+++
+1250   UIT Interactive message trailer               M   1     

@@ -1,0 +1,462 @@
+                              UN/EDIFACT
+
+                UNITED NATIONS STANDARD MESSAGE (UNSM)
+
+                        Payment order message
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                           Message Type : PAYORD
+                                           Version      : D
+                                           Release      : 01B
+                                           Contr. Agency: UN
+
+                                           Revision     : 2
+                                           Date         : 2001-05-15
+
+
+
+
+
+
+SOURCE: D6 Finance (SWG)
+
+
+
+                               CONTENTS
+
+                        Payment order message
+
+0.     INTRODUCTION
+
+1.     SCOPE
+
+       1.1   Functional definition
+
+       1.2   Field of application
+
+       1.3   Principles
+
+2.     REFERENCES
+
+3.     TERMS AND DEFINITIONS
+
+       3.1   Standard terms and definitions
+
+4.     MESSAGE DEFINITION
+
+       4.1   Segment clarification
+
+       4.2   Segment index (alphabetical sequence by tag)
+
+       4.3   Message structure
+             4.3.1 Segment table
+
+
+
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------
+For general information on UN standard message types see UN Trade Data
+Interchange Directory, UNTDID, Part 4, Section 2.3, UN/ECE UNSM
+General Introduction
+----------------------------------------------------------------------
+
+
+
+0.     INTRODUCTION
+
+       This specification provides the definition of the Payment order
+       message (PAYORD) to be used in Electronic Data Interchange
+       (EDI) between trading partners involved in administration,
+       commerce and transport.
+
+1.     SCOPE
+
+1.1    Functional definition
+
+       A Payment Order is sent by the Ordering Customer (or Payor or
+       Agent on behalf of the Ordering Customer) to the Ordered Bank,
+       to instruct the Ordered Bank to debit an account it services
+       for the Ordering Customer, and to arrange for the payment of a
+       specified amount to the Beneficiary (or Payee or Agent in
+       favour of Beneficiary) in settlement of the referenced business
+       transaction(s). Throughout this document, the term 'Ordering
+       Customer' refers to either an Ordering Customer, or a Payor or
+       Agent acting on behalf of the Ordering Customer; likewise the
+       term 'Beneficiary' refers to either a Beneficiary, or a Payee
+       or Agent acting on behalf of the Beneficiary.
+
+1.2    Field of application
+
+       The Payment order message may be used for both national and
+       international applications. It is based on universal practice
+       related to administration, commerce and transport, and is not
+       dependent on the type of business or industry.
+       
+       This message may be applied for both national and international
+       settlements.
+
+1.3    Principles
+
+       A Payment Order may cover the financial settlement of one or
+       more commercial trade transactions, such as invoices, credit
+       notes, debit notes, etc. It is not intended for use in
+       securities trading.
+       
+       The Ordered Bank may need a confirmation/authorization to be
+       able to process the Payment Order Message, if the payment
+       order(s) is (are) sent by a third party.
+
+2.     REFERENCES
+
+       See UNTDID, Part 4, Chapter 2.3 UN/ECE UNSM - General
+       Introduction, Section 1.
+
+3.     TERMS AND DEFINITIONS
+
+3.1    Standard terms and definitions
+
+       See UNTDID, Part 4, Chapter 2.3 UN/ECE UNSM - General
+       Introduction, Section 2.
+
+4.     MESSAGE DEFINITION
+
+4.1    Segment clarification
+
+       This section should be read in conjunction with the segment
+       table which indicates mandatory, conditional and repeating
+       requirements.
+
+0010   UNH, Message header
+       A service segment starting and uniquely identifying a message.
+       The message type code for the Payment order message is PAYORD.
+
+       Note: Payment order messages conforming to this document must
+       contain the following data in segment UNH, composite S009:
+
+       Data element  0065 PAYORD
+                     0052 D
+                     0054 01B
+                     0051 UN
+
+0020   BGM, Beginning of message
+       A segment for unique identification of the Payment Order, the
+       type of Payment Order and its function. The requirement for a
+       response, e.g., related debit advice, may be indicated.
+       
+       Note: The identification will be passed back to the Ordering
+       Customer for reconciliation purposes; it would be used in the
+       case of a cancellation or confirmation of a Payment Order.
+
+0030   BUS, Business function
+       A segment identifying certain characteristics of the Payment
+       Order, such as its business function. In so doing, it provides
+       information about the message that may be used, for instance,
+       for routing within an institution, for tariffing, or for the
+       provision of some statistical information.
+
+0040   PAI, Payment instructions
+       A segment specifying the conditions, guarantee, method and
+       channel of payment for the Payment Order.
+
+0050   FCA, Financial charges allocation
+       A segment specifying the method for allocation of charges and
+       allowances (e.g., charges borne by the Ordering Customer, the
+       Beneficiary or both), and identifying the Ordering Customer's
+       account to which such charges or allowances should be directed
+       where it is different from the principal account.
+
+0060   DTM, Date/time/period
+       A segment identifying the date/time of creation of the message,
+       the requested execution date and/or due date at the
+       beneficiary's side as well as other dates and times relevant to
+       the financial transaction.
+
+0070   FTX, Free text
+       This segment contains the details of payment, which have to be
+       passed from the ordered bank to the beneficiary through the
+       banking chain together with the remittance details.
+
+
+0080   Segment group 1:  RFF-DTM
+       A group of segments identifying a previously-sent message.
+
+0090      RFF, Reference
+          A segment specifying the reference number of the previously-
+          sent message.
+
+0100      DTM, Date/time/period
+          A segment identifying the creation date of the referenced
+          message.
+
+
+0110   Segment group 2:  MOA-CUX-DTM-RFF
+       A group of segments identifying the monetary amount and, if
+       necessary, the currencies, exchange rate and date for the
+       payment.
+
+0120      MOA, Monetary amount
+          A segment giving the amount of the payment.
+
+0130      CUX, Currencies
+          A segment identifying the source currency and the target
+          currency of the transaction when they are different. The
+          rate of exchange is solely used when previously agreed
+          between the Ordering Customer and the Ordered Bank.
+
+0140      DTM, Date/time/period
+          A segment identifying the effective date and/or time the
+          rate of exchange was fixed. The other occurrence identifies
+          the reference date.
+
+0150      RFF, Reference
+          A segment identifying other transactions to which funds
+          associated with the Payment Order are related, such as a
+          separate foreign exchange deal.
+
+
+0160   Segment group 3:  FII-CTA-COM
+       A group of segments providing information about the financial
+       institutions and accounts related to the Payment Order,
+       together with details of any parties to be contacted in
+       relation with the transaction. This group may also contain a
+       single customer for the debiting and/or crediting side.
+
+0170      FII, Financial institution information
+          A segment identifying the financial institution (e.g., bank)
+          and relevant account number and currency for each party
+          involved in the transaction. The Ordering Customer may
+          indicate the previously agreed choice of financial
+          institution for payment.
+
+0180      CTA, Contact information
+          A segment identifying a person or a department for the
+          financial institution specified in the FII segment and to
+          whom communication should be directed.
+
+0190      COM, Communication contact
+          A segment providing a communication number for the party
+          identified in the FII segment and optionally for the contact
+          identified in the associated CTA segment.
+
+
+0200   Segment group 4:  NAD-CTA-COM
+       A group of segments identifying the name and address of the
+       non-financial institutions involved in the transaction and
+       their contacts.
+
+0210      NAD, Name and address
+          A segment identifying the name and address of the non-
+          financial parties associated with the Payment Order and
+          their functions.
+
+0220      CTA, Contact information
+          A segment identifying a person or a department for the party
+          specified in the NAD segment and to whom communication
+          should be directed.
+
+0230      COM, Communication contact
+          A segment providing a communication number for the party
+          identified in the NAD segment and optionally for the contact
+          identified in the associated CTA segment.
+
+
+0240   Segment group 5:  INP-FTX-DTM
+       A group of segments containing instructions from the Ordering
+       Customer relating to parties identified in the NAD and FII
+       segments. It specifies action to be taken by the identified
+       parties, and the date (and optionally time) by which such
+       action needs to be taken.
+
+0250      INP, Parties and instruction
+          A segment identifying the party to enact the instruction and
+          the parties to be contacted at or by the associated
+          financial institution on matters concerning the execution of
+          the payment. It specifies where appropriate the instruction
+          in coded form.
+
+0260      FTX, Free text
+          A segment providing free text instruction relating to the
+          associated INP segment.
+
+0270      DTM, Date/time/period
+          A segment specifying the earliest and the latest dates and
+          times by which the instruction specified in the INP and/or
+          FTX segments needs to be carried out.
+
+
+0280   Segment group 6:  GIS-MOA-LOC-NAD-RCS-FTX
+       A group of segments providing information for subsequent use by
+       regulatory authorities requiring statistical and other types of
+       data. It also identifies the regulatory authority for which the
+       information is intended followed by the information itself.
+
+0290 X    GIS, General indicator
+          A segment identifying what processing should be completed
+          for regulatory authorities.
+
+0300      MOA, Monetary amount
+          A segment giving the amount and the currency of each
+          transaction to be reported.
+
+0310      LOC, Place/location identification
+          A segment giving the different origins/destinations (places)
+          of goods/investment/services.
+
+0320      NAD, Name and address
+          A segment identifying the recipient of the associated
+          informative text.
+
+0330      RCS, Requirements and conditions
+          A segment giving the nature (e.g. goods, transport services)
+          and direction of each transaction to be recorded in coded
+          form.
+
+0340      FTX, Free text
+          A segment giving information, in coded or clear form, to
+          provide information relevant to regulatory authorities
+          requirements.
+
+
+0350   Segment group 7:  DOC-DTM
+       A group of segments providing brief structured cross references
+       to transactions to which the Payment Order relates.
+
+0360      DOC, Document/message details
+          A segment identifying the document(s) relating to the
+          payment order.
+
+0370      DTM, Date/time/period
+          A segment identifying the date of issue of the document(s)
+          described in the preceding DOC segment.
+
+
+0380   Segment group 8:  AUT-DTM
+       A group of segments specifying the details of authentication.
+
+0390      AUT, Authentication result
+          A segment specifying the details of any authentication
+          (validation) procedure applied to the Payment Order message.
+
+0400      DTM, Date/time/period
+          A segment identifying the date and where necessary, the time
+          of validation.
+
+0410   UNT, Message trailer
+       A service segment ending a message, giving the total number of
+       segments in the message (including the UNH & UNT) and the
+       control reference number of the message.
+
+4.2    Segment index (alphabetical sequence by tag)
+
+          AUT Authentication result
+          BGM Beginning of message
+          BUS Business function
+          COM Communication contact
+          CTA Contact information
+          CUX Currencies
+          DOC Document/message details
+          DTM Date/time/period
+          FCA Financial charges allocation
+          FII Financial institution information
+          FTX Free text
+       X  GIS General indicator
+          INP Parties and instruction
+          LOC Place/location identification
+          MOA Monetary amount
+          NAD Name and address
+          PAI Payment instructions
+          RCS Requirements and conditions
+          RFF Reference
+          UNH Message header
+          UNT Message trailer
+
+4.3    Message structure
+
+4.3.1  Segment table
+
+Pos    Tag Name                                      S   R
+
+0010   UNH Message header                            M   1     
+0020   BGM Beginning of message                      M   1     
+0030   BUS Business function                         C   1     
+0040   PAI Payment instructions                      C   1     
+0050   FCA Financial charges allocation              C   1     
+0060   DTM Date/time/period                          M   4     
+0070   FTX Free text                                 C   5     
+
+0080       ÄÄÄÄÄ Segment group 1  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   5ÄÄÄÄÄÄÄÄÄÄÄ¿
+0090   RFF Reference                                 M   1           ³
+0100   DTM Date/time/period                          C   1ÄÄÄÄÄÄÄÄÄÄÄÙ
+
+0110       ÄÄÄÄÄ Segment group 2  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   1ÄÄÄÄÄÄÄÄÄÄÄ¿
+0120   MOA Monetary amount                           M   1           ³
+0130   CUX Currencies                                C   1           ³
+0140   DTM Date/time/period                          C   2           ³
+0150   RFF Reference                                 C   1ÄÄÄÄÄÄÄÄÄÄÄÙ
+
+0160       ÄÄÄÄÄ Segment group 3  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   4ÄÄÄÄÄÄÄÄÄÄÄ¿
+0170   FII Financial institution information         M   1           ³
+0180   CTA Contact information                       C   1           ³
+0190   COM Communication contact                     C   5ÄÄÄÄÄÄÄÄÄÄÄÙ
+
+0200       ÄÄÄÄÄ Segment group 4  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   6ÄÄÄÄÄÄÄÄÄÄÄ¿
+0210   NAD Name and address                          M   1           ³
+0220   CTA Contact information                       C   1           ³
+0230   COM Communication contact                     C   5ÄÄÄÄÄÄÄÄÄÄÄÙ
+
+0240       ÄÄÄÄÄ Segment group 5  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   4ÄÄÄÄÄÄÄÄÄÄÄ¿
+0250   INP Parties and instruction                   M   1           ³
+0260   FTX Free text                                 C   1           ³
+0270   DTM Date/time/period                          C   2ÄÄÄÄÄÄÄÄÄÄÄÙ
+
+0280       ÄÄÄÄÄ Segment group 6  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   10ÄÄÄÄÄÄÄÄÄÄ¿
+0290 X GIS General indicator                         M   1           ³
+0300   MOA Monetary amount                           C   1           ³
+0310   LOC Place/location identification             C   2           ³
+0320   NAD Name and address                          C   1           ³
+0330   RCS Requirements and conditions               C   1           ³
+0340   FTX Free text                                 C   10ÄÄÄÄÄÄÄÄÄÄÙ
+
+0350       ÄÄÄÄÄ Segment group 7  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   10ÄÄÄÄÄÄÄÄÄÄ¿
+0360   DOC Document/message details                  M   1           ³
+0370   DTM Date/time/period                          C   1ÄÄÄÄÄÄÄÄÄÄÄÙ
+
+0380       ÄÄÄÄÄ Segment group 8  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   5ÄÄÄÄÄÄÄÄÄÄÄ¿
+0390   AUT Authentication result                     M   1           ³
+0400   DTM Date/time/period                          C   1ÄÄÄÄÄÄÄÄÄÄÄÙ
+0410   UNT Message trailer                           M   1     

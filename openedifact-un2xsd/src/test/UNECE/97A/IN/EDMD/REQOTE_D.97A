@@ -1,0 +1,1672 @@
+                              UN/EDIFACT
+
+                UNITED NATIONS STANDARD MESSAGE (UNSM)
+
+                      Request for quote message
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                            Message Type : REQOTE
+                                            Version      : D
+                                            Release      : 97A
+                                            Contr. Agency: UN
+
+                                            Revision     : 5
+                                            Date         : 96-12-13
+
+
+
+
+
+
+SOURCE: Submitted by PAEB purchasing group on behalf of WEEB-MD1
+
+
+
+                               CONTENTS
+
+                      Request for quote message
+
+0.   INTRODUCTION
+
+1.   SCOPE
+
+     1.1   Functional definition
+
+     1.2   Field of application
+
+     1.3   Principles
+
+2.   REFERENCES
+
+3.   TERMS AND DEFINITIONS
+
+     3.1   Standard terms and definitions
+
+4.   MESSAGE DEFINITION
+
+     4.1   Data segment clarification
+
+           4.1.1 Header section
+           4.1.2 Detail section
+           4.1.3 Summary section
+
+     4.2   Data segment index (alphabetical sequence)
+
+     4.3   Message structure
+
+           4.3.1 Segment table
+
+
+
+
+
+
+----------------------------------------------------------------------
+For general information on UN standard message types see UN Trade Data
+Interchange Directory, UNTDID, Part 4, Section 2.6, UN/ECE UNSM
+General Introduction
+----------------------------------------------------------------------
+
+
+
+0.     INTRODUCTION
+
+       This specification provides the definition of the Request for
+       quote message (REQOTE) to be used in Electronic Data
+       Interchange (EDI) between trading partners involved in
+       administration, commerce and transport.
+
+1.     SCOPE
+
+1.1    Functional Definition
+
+       A message which provides potential buyers with the ability to
+       solicit price, delivery schedule, and other conditions from
+       potential sellers of goods or services.
+
+1.2    Field of Application
+
+       The UN Standard Request for Quote Message may be applied for
+       both the national and international trade. It is based on
+       universal commercial practice and is not dependent on the type
+       of business or industry.
+
+1.3    Principles
+
+       - A potential buyer may solicit offers for one or more goods
+       items or services.
+       
+       - A request for quote may refer to goods items or services
+       related to one or more delivery schedules, call-offs, etc.
+       
+       - A request for quote for cross border transactions may contain
+       additional information for customs and/or statistical purposes.
+
+2.     REFERENCES
+
+       See UNTDID, Part 4, Chapter 2.6 UN/ECE UNSM - General
+       Introduction, Section 1.
+
+3.     TERMS AND DEFINITIONS
+
+3.1    Standard terms and definitions
+
+       See UNTDID, Part 4, Chapter 2.6 UN/ECE UNSM - General
+       Introduction, Section 2.
+
+4.     MESSAGE DEFINITION
+
+4.1    Data Segment Clarification
+
+       This section should be read in conjunction with the Segment
+       Table which indicate mandatory, conditional and repeating
+       requirements.
+       
+       The following guidelines and principles apply to the whole
+       message and are intended to facilitate the understanding and
+       implementation of the message:
+       
+       All specified dates/times should be in the format
+       'yymmdd'/'hhmm' unless all parties involved in the transaction
+       agree that there is a functional requirement for an alternative
+       format. Periods should be specified as whole numbers
+       representing the required period as indicated in the format
+       qualifier (weeks, months, etc.) 
+       
+       Where a choice of code or text is given only the code element
+       should be used wherever possible.
+       
+       Data that is not necessary to meet the functional requirements
+       of the message should not be included.
+       
+       Care must be taken that the segment qualifier in dependent
+       segments do not conflict with the segment qualifier of the
+       trigger segment.
+       
+       Free text information within the message should be avoided as
+       this inhibits automatic processing.
+
+4.1.1  Header section
+
+       Information to be provided in the Header section:
+
+0010   UNH, Message header
+       A service segment starting and uniquely identifying a message.
+       The message type code for the Request for quote message is
+       REQOTE.
+       
+       Note: Request for quote messages conforming to this document
+       must contain the following data in segment UNH, composite S009:
+
+       Data element  0065 REQOTE
+                     0052 D
+                     0054 97A
+                     0051 UN
+
+0020   BGM, Beginning of message
+       A segment by which the sender must uniquely identify the
+       request for quote by means of its type and number and when
+       necessary it's function.
+
+0030   DTM, Date/time/period
+       A segment specifying general dates and, when relevant, times
+       related to the whole message. The segment must be specified at
+       least once to identify the request date.
+       
+       Examples of the use of this DTM segment are: Date the request
+       for quote was made, and the last date the quotation will be
+       accepted. The Date/time/period segment within other segment
+       groups should be used whenever the date/time/period requires to
+       be logically related to another specified data item e.g.
+       Payment due date is specified within the PAT segment group.
+
+0040   PAI, Payment instructions
+       A segment requesting or confirming conditions of payment,
+       guarantee and method of payment for the whole request for
+       quotation, if accepted. An example of the use of this segment
+       is to specify that a documentary credit will be used.
+
+0050   ALI, Additional information
+       A segment indicating special conditions related to the total
+       request for quotation owing to origin, customs preference, or
+       other commercial factors.
+
+0060   IMD, Item description
+       A segment providing a description common to all line items of
+       the request for quotation.
+
+0070   IRQ, Information required
+       A segment to specify information to be supplied in the
+       quotation.
+
+0080   FTX, Free text
+       A segment with free text information, in coded or clear form,
+       used when additional information is needed but cannot be
+       accommodated within other segments. In computer to computer
+       exchanges such text will normally require the received to
+       process this segment manually.
+
+
+0090   Segment group 1:  RFF-DTM
+       A group of segments for giving references and where necessary,
+       their dates, relating to the whole message, e.g. contract
+       number, import/export license number, reservation number.
+
+0100      RFF, Reference
+          A segment identifying the reference by its number and where
+          appropriate a line number.
+
+0110      DTM, Date/time/period
+          A segment specifying the date/time related to the reference.
+
+
+0120   Segment group 2:  AJT-FTX
+       A segment group to give information about adjustment.
+
+0130      AJT, Adjustment details
+          A segment giving adjustment details.
+
+0140      FTX, Free text
+          A segment giving additional information on the adjustment.
+
+
+0150   Segment group 3:  TAX-MOA-LOC
+       A group of segments specifying tax related information, and
+       when necessary, the location(s) to which that tax information
+       relates.
+
+0160      TAX, Duty/tax/fee details
+          A segment specifying a tax type, category and rate, or
+          exemption, relating to the whole order, e.g. Value Added Tax
+          at the standard rate is applicable for all items.
+
+0170      MOA, Monetary amount
+          A segment specifying the amount for the identified tax/fee.
+
+0180      LOC, Place/location identification
+          A segment indicating the location to which the tax or
+          exemption specified in the TAX segment applies, e.g. city or
+          state or country.
+
+
+0190   Segment group 4:  CUX-DTM
+       A group of segments specifying the currencies and related
+       dates/times/period valid for the whole request for quotation.
+       Currency data may be omitted in national applications but will
+       be required for international transactions.
+
+0200      CUX, Currencies
+          A segment identifying the currencies required in the request
+          for quotation. A rate of exchange may be given to convert a
+          reference currency into a target currency.
+
+0210      DTM, Date/time/period
+          A segment specifying the date/time/period related to the
+          rate of exchange.
+
+
+0220   Segment group 5:  PAT-DTM-PCD-MOA
+       A group of segments specifying the terms of payment applicable
+       for the whole order.
+
+0230      PAT, Payment terms basis
+          A segment identifying the payment terms and date/time basis.
+
+0240      DTM, Date/time/period
+          A segment giving the specific date/time/period, if needed,
+          of any payments, discounts, instalments etc.
+
+0250      PCD, Percentage details
+          A segment specifying the discount, interest, penalty as well
+          as instalment percentage.
+
+0260      MOA, Monetary amount
+          A segment specifying amounts related to payment discounts,
+          penalties or instalments.
+
+
+0270   Segment group 6:  TOD-LOC
+       A group of segments indicating the terms of delivery for the
+       whole order.
+
+0280      TOD, Terms of delivery or transport
+          A segment identifying the delivery terms to be used. e.g. UN
+          INCOTERMS code could be used to specify the delivery terms.
+
+0290      LOC, Place/location identification
+          A segment identifying locations relevant to the delivery
+          terms specified in the TOD segment.
+
+
+0300   Segment group 7:  EQD-HAN-MEA-FTX
+       A group of segments providing information relating to equipment
+       identification and ownership, handling and identification of
+       hazardous materials, relating to the whole order.
+
+0310      EQD, Equipment details
+          A segment to define information regarding equipment to be
+          used in relation to the request for quotation, and if
+          required, to indicate responsibility for supply of the
+          equipment.
+
+0320      HAN, Handling instructions
+          A segment providing information on required handling of
+          materials and additionally, if required, identifying
+          hazardous materials in the whole order.
+
+0330      MEA, Measurements
+          A segment providing measurement information for the
+          equipment.
+
+0340      FTX, Free text
+          A segment with free text information, in coded or clear
+          form, used when additional information is needed but cannot
+          be accommodated within other segments. In computer to
+          computer exchanges such text will normally require the
+          receiver to process this segment manually.
+
+
+0350   Segment group 8:  RCS-RFF-DTM-FTX
+       A group of segments identifying any rules, laws or regulations
+       with which the supplier must comply to meet requirements, e.g.
+       building regulations, safety requirements, etc.
+
+0360      RCS, Requirements and conditions
+          A segment to enable industry or national requirements to be
+          specified.
+
+0370      RFF, Reference
+          A segment identifying the referenced document by its number
+          and, where appropriate, a line number.
+
+0380      DTM, Date/time/period
+          A segment indicating the date/time details relating to the
+          references.
+
+0390      FTX, Free text
+          A segment with free text information, in coded or clear
+          form, used when additional information is needed but cannot
+          be accommodated within other segments. In computer to
+          computer exchanges such text will normally require the
+          receiver to process this segment manually.
+
+
+0400   Segment group 9:  APR-PRI-QTY-DTM-MOA-RNG
+       A group of segments identifying requested classes of pricing,
+       quantities or pricing breaks.
+
+0410      APR, Additional price information
+          A segment to identify pricing information such as a price
+          multiplier, the class or type of trade and additionally
+          identifying the reason for any changes.
+
+0420      PRI, Price details
+          A segment to specify the price type. The price used in the
+          calculation of the line amount will be identified as one of
+          the calculation prices.
+
+0430      QTY, Quantity
+          A segment to specify pertinent quantities relating to the
+          pricing information.
+
+0440      DTM, Date/time/period
+          A segment specifying the date/time/period relevant to the
+          pricing information.
+
+0450      MOA, Monetary amount
+          A segment to specify amounts relevant to the pricing
+          information.
+
+0460      RNG, Range details
+          A segment to identify the quantity or amount ranges to which
+          the additional price information applies.
+
+
+0470   Segment group 10: DLM-MOA-DTM
+       A group of segments specifying delivery limitations.
+
+0480      DLM, Delivery limitations
+          A segment specifying requested limitations on quoted
+          delivery.
+
+0490      MOA, Monetary amount
+          A segment specifying monetary amount limitations.
+
+0500      DTM, Date/time/period
+          A segment specifying the date/time/period related to the
+          delivery limitation.
+
+
+0510   Segment group 11: NAD-LOC-FII-SG12-SG13-SG14
+       A group of segments identifying the parties with associated
+       information.
+
+0520      NAD, Name and address
+          A segment identifying names and addresses of the parties, in
+          coded or clear form, and their functions relevant to the
+          request for quotation. Identification of the seller and
+          buyer parties is mandatory for a request for quotation. It
+          is recommended that where possible only the coded form of
+          the party ID should be specified, e.g. the Buyer and Seller
+          are known to each other, thus only the coded ID is required,
+          but the Consignee or Delivery address may vary and would
+          have to be clearly specified, preferably in structured
+          format.
+
+0530      LOC, Place/location identification
+          A segment giving more specific location information of the
+          party specified in the NAD segment e.g. internal
+          site/building number.
+
+0540      FII, Financial institution information
+          A segment identifying the financial institution (e.g. bank)
+          and relevant account numbers for the seller, buyer and where
+          necessary other parties. e.g. the buyer may provide a choice
+          of financial institutions for direct debit purposes.
+
+
+0550      Segment group 12: RFF-DTM
+          A group of segments giving references only relevant to the
+          specified party rather than the whole message.
+
+0560         RFF, Reference
+             A segment identifying the reference by its number and
+             where appropriate a line number within a document.
+
+0570         DTM, Date/time/period
+             A segment specifying the date and/or time related to the
+             reference.
+
+
+0580      Segment group 13: DOC-DTM
+          A group of segments identifying the documentary requirements
+          of the specified party.
+
+0590         DOC, Document/message details
+             A segment identifying and providing information relating
+             to the documents required by the party specified by the
+             NAD segment. For example, the party may require a
+             Certificate of Analysis.
+
+0600         DTM, Date/time/period
+             A segment specifying the date and/or time of the
+             document.
+
+
+0610      Segment group 14: CTA-COM
+          A group of segments giving contact details of the specific
+          person or department within the party identified in the NAD
+          segment.
+
+0620         CTA, Contact information
+             A segment to identify a person or department, and their
+             function, to whom communications should be directed.
+
+0630         COM, Communication contact
+             A segment to identify a communications type and number
+             for the contact specified in the CTA segment.
+
+
+0640   Segment group 15: TDT-QTY-SG16
+       A group of segments identifying the mode and means of
+       transport, location and relevant dates and times for
+       transportation, relating to the whole order.
+
+0650      TDT, Details of transport
+          A segment specifying the mode, means and identification of
+          the transport for the goods in the request for quotation. If
+          required, the carrier's address should be indicated within
+          the NAD Segment group.
+
+0660      QTY, Quantity
+          A segment to specify pertinent quantities relating to the
+          transportation details TDT.
+
+
+0670      Segment group 16: LOC-DTM
+          A group of segments giving the location and date/time
+          information relative to the transportation.
+
+0680         LOC, Place/location identification
+             A segment identifying locations relevant to the transport
+             specified in the TDT segment, e.g. place of departure or
+             border crossing point.
+
+0690         DTM, Date/time/period
+             A segment identifying the date/time details of departure
+             and/or arrival of the transported goods for the specified
+             location.
+
+
+0700   Segment group 17: PAC-MEA-SG18
+       A group of segments identifying the packaging, physical
+       dimensions and marks and numbers for goods referenced by the
+       whole order.
+
+0710      PAC, Package
+          A segment specifying the number and type of packages for the
+          whole order, e.g. number and type of pallets.
+
+0720      MEA, Measurements
+          A segment specifying physical measurements of packages
+          described in the PAC segment, e.g. package length, weight.
+
+
+0730      Segment group 18: PCI-RFF-DTM-GIN
+          A group of segments specifying the markings and labels on
+          individual physical units.
+
+0740         PCI, Package identification
+             A segment specifying markings and labels used on
+             individual physical units (packages) described in the PAC
+             segment.
+
+0750         RFF, Reference
+             A segment identifying the master label number.
+
+0760         DTM, Date/time/period
+             A segment specifying the dates relevant to the package
+             markings.
+
+0770         GIN, Goods identity number
+             A segment identifying the number or ranges of numbers for
+             use with the package markings.
+
+
+0780   Segment group 19: SCC-FTX-SG20
+       A group of segments specifying requested delivery schedules
+       relating to quantities, frequencies and dates for the
+       quotation.
+
+0790      SCC, Scheduling conditions
+          A segment specifying the type and status of the schedule
+          being given, and optionally defining a pattern to be
+          established, e.g. firm or proposed delivery schedule for a
+          weekly pattern.
+
+0800      FTX, Free text
+          A segment with free text information, in coded or clear
+          form, to give further clarification to scheduling
+          instructions. In computer to computer exchanges such text
+          will normally require the receiver to process this segment
+          manually.
+
+
+0810      Segment group 20: QTY-DTM
+          A group of segments to specify the scheduled quantities,
+          date/time of the schedule.
+
+0820         QTY, Quantity
+             A segment to specify pertinent quantities relating to the
+             schedule and pattern established in the SCC segment, e.g.
+             delivery quantity.
+
+0830         DTM, Date/time/period
+             A segment specifying the date/time/period details
+             relating to the quantity and schedule used to indicate
+             date/time ranges, e.g. start and end dates for a delivery
+             pattern, or delivery window.
+
+
+0840   Segment group 21: ALC-ALI-SG22-SG23-SG24-SG25-SG26
+       A group of segments specifying allowances and charges for the
+       requested quotation. The allowance or charge either relate to
+       the total request for quotation in which case it cannot be
+       overridden at detail level, or it can be overridden by the ALC
+       Segment group within the detail section. Where relevant,
+       additional information, tax and alternate MOA segments. The
+       basis for the calculation of the alternate currency details are
+       to be indicated in the TAX and MOA segments.
+       
+       The basis for the calculation of the allowance/charge may be a
+       quantity, a percentage, an amount or a rate to be specified in
+       one of the dependent Segment groups.
+
+0850      ALC, Allowance or charge
+          A segment identifying the charge or allowance and, where
+          necessary its calculation sequence.
+
+0860      ALI, Additional information
+          A segment indicating that the allowance or charge specified
+          is subject to special conditions owing to origin, customs
+          preference or commercial factors.
+
+
+0870      Segment group 22: QTY-RNG
+          A group of segments specifying the quantity of the allowance
+          or charge with its measure unit specifier. A range to which
+          the allowance or charge applies may be specified e.g. An
+          allowance of a free quantity of 20 pieces may be specified
+          if the goods quantity requested for quotation is greater
+          than 1000 pieces.
+
+0880         QTY, Quantity
+             A segment identifying the type of quantity and the
+             quantity related to the allowance or charge.
+
+0890         RNG, Range details
+             A segment specifying, if required, the range to which the
+             allowance or charge applies.
+
+
+0900      Segment group 23: PCD-RNG
+          A group of segments specifying the percentage for the
+          allowance or charge, e.g. The allowance/charge amount is
+          calculated as 5% of the goods value or a price reduction of
+          5% may be specified if the goods quantity requested for
+          quotation is within the range 5 tons to 10 tons.
+
+0910         PCD, Percentage details
+             A segment identifying the percentage and the percentage
+             basis for the calculation of the allowance or charge.
+
+0920         RNG, Range details
+             A segment specifying, if required, a range for the
+             application of the percentage.
+
+
+0930      Segment group 24: MOA-RNG
+          A group of segments specifying a monetary amount for an
+          allowance or charge. A range to which the allowance or
+          charge applies can be specified, e.g. an allowance of BEF
+          5000 may be specified if goods value requested in the
+          quotation is greater than BEF 100000.
+
+0940         MOA, Monetary amount
+             A segment identifying the monetary amount for the
+             allowance or charge.
+
+0950         RNG, Range details
+             A segment specifying, if required, a range for the
+             application of the allowance/charge amount.
+
+
+0960      Segment group 25: RTE-RNG
+          A group of segments specifying the rate per unit and basis
+          to which the allowance or charge applies, e.g. The
+          allowance/charge amount is 3 DEM per 10 tons.
+
+0970         RTE, Rate details
+             A segment specifying the rate per unit and the basis for
+             calculation.
+
+0980         RNG, Range details
+             A segment specifying, if required, the range for the
+             application of the allowance/charge rate.
+
+
+0990      Segment group 26: TAX-MOA
+          A group of segments specifying tax related information for
+          the allowance or charge.
+
+1000         TAX, Duty/tax/fee details
+             A segment specifying the tax type, category, and rate, or
+             exemption, related to the allowance or charge.
+
+1010         MOA, Monetary amount
+             A segment specifying the amount for the allowance or
+             charge tax.
+
+4.1.2  Detail section
+
+       Information to be provided in the Detail section:
+
+
+1020   Segment group 27: LIN-PIA-IMD-MEA-QTY-PCD-ALI-DTM-GIN-GIR-QVR-
+                         FTX-PAI-DOC-SG28-SG29-SG30-SG31-SG32-SG33-
+                         SG34-SG35-SG36-SG37-SG38-SG39-SG42-SG46-SG52-
+                         SG54
+       A group of segments providing details of the individual
+       requested items. There must be at least one occurrence of
+       Segment group 27 within an request for quote. This Segment
+       group may be repeated to give subline details.
+
+1030      LIN, Line item
+          A segment identifying the line item by the line number and
+          configuration level, and additionally, identifying the
+          product or service requested for quotation. Other product
+          identification numbers, e.g. Buyer product number, etc. can
+          be specified within the following PIA segment.
+
+1040      PIA, Additional product id
+          A segment providing either additional identification to the
+          product specified in the LIN segment (e.g. Harmonized System
+          number), or provides any substitute product identification.
+
+1050      IMD, Item description
+          A segment for describing the product or service being
+          requested in the quotation as well as product
+          characteristic. This segment should be used for products or
+          services that cannot be fully identified by a product code
+          or article number.
+
+1060      MEA, Measurements
+          A segment enabling the physical measurements of the item to
+          be specified where this is required for full identification
+          of the product. Any measurements must refer to the product
+          in its unpacked form. e.g. thickness of plastic film,
+          length, weight, etc.
+
+1070      QTY, Quantity
+          A segment identifying the product quantities e.g. quantity
+          requested.
+
+1080      PCD, Percentage details
+          A segment specifying the strength or yield of a product as a
+          percentage, e.g. 80% to indicate the strength of an acid.
+
+1090      ALI, Additional information
+          A segment indicating that the line item is subject to
+          special conditions owing to origin, customs preference,
+          embargo regulations or commercial factors.
+
+1100      DTM, Date/time/period
+          A segment specifying date/time/period details relating to
+          the line item only.
+
+1110      GIN, Goods identity number
+          A segment providing identity numbers to be applied to the
+          goods being in the request for quotation.
+
+1120      GIR, Related identification numbers
+          A segment providing sets of related identification numbers
+          for a line item, e.g. engine numbers, chassis number and
+          transmission number for a vehicle.
+
+1130      QVR, Quantity variances
+          A segment identifying quantity variances.
+
+1140      FTX, Free text
+          A segment with free text information, in coded or clear
+          form, used when additional information is needed but cannot
+          be accommodated within other segments. In computer to
+          computer exchanges such text will normally require the
+          receiver to process this segment manually.
+
+1150      PAI, Payment instructions
+          A segment to give payment conditions and payment means for
+          individual requested items.
+
+1160      DOC, Document/message details
+          A segment to indicate movement certificate requirements.
+
+
+1170      Segment group 28: CCI-CAV-MEA
+          A group of segments providing product characteristic and
+          product characteristic details.
+
+1180         CCI, Characteristic/class id
+             A segment to identify product characteristic and, or the
+             characteristic name and characteristic relevance for the
+             business process.
+
+1190         CAV, Characteristic value
+             A segment to specify common product characteristic by
+             value in either coded form or in free format.
+
+1200         MEA, Measurements
+             A segment indicating characteristic value being physical
+             measurement (including measurable quantities and
+             percentages) related to specified product characteristics
+             (for example voltage, percentage of material contained)
+             and where relevant measurement ranges.
+
+
+1210      Segment group 29: MOA-QTY-IMD-CUX-DTM
+          A group of segments to allow request of cost breakdown
+          information such as tooling cost, material or overhead cost.
+
+1220         MOA, Monetary amount
+             A segment to identify the cost of components of a quoted
+             price, e.g. tooling cost, labour, and material cost, etc.
+
+1230         QTY, Quantity
+             A segment to specify quantities relating to the cost
+             breakdown of the quoted prices.
+
+1240         IMD, Item description
+             A segment for describing the product or services being
+             quoted. This segment should be used to for products that
+             can not identified by a product code or article number.
+
+1250         CUX, Currencies
+             A segment identifying currencies relevant to the monetary
+             details. A rate of exchange may be given to convert the
+             currency.
+             
+             Currency data is usually omitted in national applications
+             but will be required for international transactions.
+
+1260         DTM, Date/time/period
+             A segment specifying the date/time/period relating to the
+             rate of exchange.
+
+
+1270      Segment group 30: AJT-FTX
+          A segment group to give information about adjustment.
+
+1280         AJT, Adjustment details
+             A segment giving adjustment details.
+
+1290         FTX, Free text
+             A segment giving additional information on the
+             adjustment.
+
+
+1300      Segment group 31: PRI-APR-RNG-CUX-DTM
+          A group of segments identifying the relevant pricing
+          information for the goods or services ordered.
+
+1310         PRI, Price details
+             A segment to specify the price type and amount. The price
+             used in the calculation of the line amount will be
+             identified as one of the calculation prices.
+
+1320         APR, Additional price information
+             A segment to identify pricing information such as a price
+             multiplier, the class or type of trade and additionally
+             identifying the reason for any changes.
+
+1330         RNG, Range details
+             A segment to identify the ranges (quantity, amount, etc.)
+             to which the additional price information applies.
+
+1340         CUX, Currencies
+             A segment to identify currencies required in the request
+             for quotation message.
+
+1350         DTM, Date/time/period
+             A segment to identify the date/time/period information
+             related to the price change. e.g. period of validity.
+
+
+1360      Segment group 32: RFF-DTM
+          A group of segments giving references and where necessary,
+          their dates, relating to the line item.
+
+1370         RFF, Reference
+             A segment identifying the reference by its number and
+             where appropriate a line number within a document.
+
+1380         DTM, Date/time/period
+             A segment specifying the date/time related to the
+             reference.
+
+
+1390      Segment group 33: LOC-QTY-DTM
+          A group of segments specifying destination and quantity
+          details for consignments involving multidestination
+          deliveries.
+
+1400         LOC, Place/location identification
+             A segment indicating the location to which part of the
+             consignment is to be delivered.
+
+1410         QTY, Quantity
+             A segment specifying the quantity to be delivered to the
+             identified location.
+
+1420         DTM, Date/time/period
+             A segment specifying the dates and/or times that the
+             delivery should be made.
+
+
+1430      Segment group 34: TAX-MOA-LOC
+          A group of segments specifying tax related information, and
+          when necessary, the location(s) to which that tax
+          information relates.
+
+1440         TAX, Duty/tax/fee details
+             A segment specifying a tax type, category and rate, or
+             exemption, relating to the line item.
+
+1450         MOA, Monetary amount
+             A segment specifying the amount for the identified
+             tax/fee.
+
+1460         LOC, Place/location identification
+             A segment indicating the location to which the tax or
+             exemption specified in the TAX segment applies, e.g. city
+             or state tax.
+
+
+1470      Segment group 35: TOD-LOC
+          A group of segments indicating the terms of delivery for the
+          line item where this is different to or not specified within
+          the heading section.
+
+1480         TOD, Terms of delivery or transport
+             A segment identifying the delivery terms to be used.
+
+1490         LOC, Place/location identification
+             A segment identifying locations relevant to the delivery
+             terms specified in the TOD segment.
+
+
+1500      Segment group 36: EQD-HAN-MEA-FTX
+          A group of segments providing information relating to
+          equipment identification and ownership, handling and
+          notification of hazardous materials, relating to the line
+          item where this is different to or not specified within the
+          heading section.
+
+1510         EQD, Equipment details
+             A segment to define fixed information regarding equipment
+             to be used in conjunction with the ordered item, and if
+             required, to indicate responsibility for supply of the
+             equipment, e.g. a container identification.
+
+1520         HAN, Handling instructions
+             A segment providing information on required handling of
+             materials and additionally, if required, identifying
+             hazardous materials in the ordered item.
+
+1530         MEA, Measurements
+             A segment providing measurement information for the
+             equipment.
+
+1540         FTX, Free text
+             A segment with free text information, in coded or clear
+             form, to give further clarification, when required, to
+             the equipment and handling details. In computer to
+             computer exchanges such text will normally require the
+             receiver to process this segment manually.
+
+
+1550      Segment group 37: RCS-RFF-DTM-FTX
+          A group of segments identifying any rules, laws or
+          regulations with which the supplier must comply to meet
+          requirements e.g. building regulations, safety requirements,
+          etc.
+
+1560         RCS, Requirements and conditions
+             A segment to enable industry or national requirements to
+             be specified.
+
+1570         RFF, Reference
+             A segment identifying the referenced document by its
+             number and, where appropriate, a line number.
+
+1580         DTM, Date/time/period
+             A segment indicating the date/time details relating to
+             the references.
+
+1590         FTX, Free text
+             A segment with free text information, in coded or clear
+             form, used when additional information is needed but
+             cannot be accommodated within other segments. In computer
+             to computer exchanges such text will normally require the
+             receiver to process this segment manually.
+
+
+1600      Segment group 38: PAT-DTM-PCD-MOA
+          A group of segments specifying the requested terms of
+          payment for the applicable item.
+
+1610         PAT, Payment terms basis
+             A segment identifying the payment terms and date/time
+             basis.
+
+1620         DTM, Date/time/period
+             A segment giving the specific date/time/period, if
+             needed, of any payments, discounts, instalments etc.
+
+1630         PCD, Percentage details
+             A segment specifying the discount, interest, penalty as
+             well as instalment percentage.
+
+1640         MOA, Monetary amount
+             A segment specifying amounts related to payment
+             discounts, penalties or instalments.
+
+
+1650      Segment group 39: PAC-MEA-QTY-DTM-SG40-SG41
+          A group of segments identifying the packaging, physical
+          dimensions, and marks and numbers for goods referenced in
+          the line item.
+
+1660         PAC, Package
+             A segment specifying the number of packages and the
+             physical type of packaging for the line item, e.g. pallet
+             type.
+
+1670         MEA, Measurements
+             A segment specifying physical measurements of packages
+             described in the PAC segment. e.g. cube or gross weight.
+
+1680         QTY, Quantity
+             A segment to specify maximum stack ability and number of
+             articles in the package.
+
+1690         DTM, Date/time/period
+             A segment to give the effective date of the package.
+
+
+1700         Segment group 40: RFF-DTM
+             A group of segments giving references e.g. to a packing
+             instruction document relevant to a particular package
+             type and its date/time/period of issue.
+
+1710            RFF, Reference
+                A segment identifying the packing instruction
+                document.
+
+1720            DTM, Date/time/period
+                A segment specifying the date/time related to the
+                referenced document.
+
+
+1730         Segment group 41: PCI-RFF-DTM-GIN
+             A group of segments specifying the markings and labels on
+             individual physical units.
+
+1740            PCI, Package identification
+                A segment specifying markings and labels used on
+                individual physical units (packages) described in the
+                PAC segment.
+
+1750            RFF, Reference
+                A segment identifying the master label number.
+
+1760            DTM, Date/time/period
+                A segment specifying the dates relevant to the package
+                markings.
+
+1770            GIN, Goods identity number
+                A segment identifying the number or ranges of numbers
+                for use with the package markings.
+
+
+1780      Segment group 42: NAD-LOC-SG43-SG44-SG45
+          A group of segments identifying the parties with associated
+          information, relevant to the line item only.
+
+1790         NAD, Name and address
+             A segment identifying names and addresses of the parties,
+             in coded or clear form, and their functions relevant to
+             the request for quotation. The Buyer and Seller are known
+             to each other, thus only the coded ID is required, but
+             the Consignee or Delivery address may vary and would have
+             to be clearly specified, preferably in structured format.
+
+1800         LOC, Place/location identification
+             A segment giving more specific location information of
+             the party specified in the NAD segment e.g. internal
+             site/building number.
+
+
+1810         Segment group 43: RFF-DTM
+             A group of segments giving references only relevant to
+             the specified party rather than the whole message.
+
+1820            RFF, Reference
+                A segment identifying the reference by its number and
+                where appropriate a line number within a document.
+
+1830            DTM, Date/time/period
+                A segment specifying the date and/or time related to
+                the reference.
+
+
+1840         Segment group 44: DOC-DTM
+             A group of segments identifying the documentary
+             requirements of the specified party.
+
+1850            DOC, Document/message details
+                A segment identifying and providing information
+                relating to the documents required by the party
+                specified by the NAD segment. For example, the party
+                may require a Certificate of Analysis.
+
+1860            DTM, Date/time/period
+                A segment specifying the date and/or time of the
+                document.
+
+
+1870         Segment group 45: CTA-COM
+             A group of segments giving contact details of the
+             specific person or department within the party identified
+             in the NAD segment.
+
+1880            CTA, Contact information
+                A segment to identify a person or department, and
+                their function, to whom communications should be
+                directed.
+
+1890            COM, Communication contact
+                A segment to identify a communications type and number
+                for the contact specified in the CTA segment.
+
+
+1900      Segment group 46: ALC-ALI-SG47-SG48-SG49-SG50-SG51
+          A group of segments specifying allowances and charges for
+          the line items. 
+          The basis for the calculation of the allowance/charge may be
+          a quantity, a percentage, an amount or a rate detailed in
+          the dependent Segment groups.
+
+1910         ALC, Allowance or charge
+             A segment identifying the charge or allowance and, where
+             necessary its calculation sequence.
+
+1920         ALI, Additional information
+             A segment indicating that the allowance or charge
+             specified is subject to special conditions owing to
+             origin, customs preference or commercial factors.
+
+
+1930         Segment group 47: QTY-RNG
+             A group of segments specifying the quantity of the
+             allowance or charge with its measure unit specifier. A
+             range to which the allowance or charge applies may be
+             specified e.g. An allowance of a free quantity of 20
+             pieces may be specified if the goods quantity is greater
+             than 1000 pieces.
+
+1940            QTY, Quantity
+                A segment identifying the type of quantity and the
+                quantity related to the allowance or charge.
+
+1950            RNG, Range details
+                A segment specifying, if required, the range to which
+                the allowance or charge applies.
+
+
+1960         Segment group 48: PCD-RNG
+             A group of segments specifying the percentage for the
+             allowance or charge, e.g. The allowance/charge amount is
+             calculated as 5% of the goods value or a price reduction
+             of 5% may be specified if the goods quantity is within
+             the range 5 tons to 10 tons.
+
+1970            PCD, Percentage details
+                A segment identifying the percentage and the
+                percentage basis for the calculation of the allowance
+                or charge.
+
+1980            RNG, Range details
+                A segment specifying, if required, a range for the
+                application of the percentage.
+
+
+1990         Segment group 49: MOA-RNG
+             A group of segments specifying a monetary amount for an
+             allowance or charge. A range to which the allowance or
+             charge applies can be specified, e.g. an allowance of BEF
+             5000 may be specified if goods value is greater than BEF
+             100000.
+
+2000            MOA, Monetary amount
+                A segment identifying the monetary amount for the
+                allowance or charge.
+
+2010            RNG, Range details
+                A segment specifying, if required, a range for the
+                application of the allowance/charge amount.
+
+
+2020         Segment group 50: RTE-RNG
+             A group of segments specifying the rate per unit and
+             basis to which the allowance or charge applies, e.g. The
+             allowance/charge amount is DEM 3 per 10 tons.
+
+2030            RTE, Rate details
+                A segment specifying the rate per unit and the basis
+                for calculation.
+
+2040            RNG, Range details
+                A segment specifying, if required, the range for the
+                application of the allowance/charge rate.
+
+
+2050         Segment group 51: TAX-MOA
+             A group of segments specifying tax related information
+             for the allowance or charge.
+
+2060            TAX, Duty/tax/fee details
+                A segment specifying the tax type, category, and rate,
+                or exemption, related to the allowance or charge.
+
+2070            MOA, Monetary amount
+                A segment specifying the amount for the allowance or
+                charge tax.
+
+
+2080      Segment group 52: TDT-QTY-SG53
+          A group of segments identifying the mode and means of
+          transport, location and relevant dates and times for
+          transportation, relating to the line item, where this is
+          different to or not specified within the heading section.
+
+2090         TDT, Details of transport
+             A segment specifying the mode, means and identification
+             of the transport for the goods item being ordered, where
+             this is different to or not specified within the heading
+             section.
+
+2100         QTY, Quantity
+             A segment to specify quantities relevant to
+             transportation, e.g. delivery quantity.
+
+
+2110         Segment group 53: LOC-DTM
+             A group of segments giving the location and date/time
+             information relative to the transportation.
+
+2120            LOC, Place/location identification
+                A segment identifying locations relevant to the
+                transport specified in the TDT segment.
+
+2130            DTM, Date/time/period
+                A segment identifying the date/time details of
+                departure and/or arrival of the transported goods for
+                the specified location.
+
+
+2140      Segment group 54: SCC-FTX-SG55
+          A group of segments specifying requested delivery schedules
+          relating to quantities, frequencies, and dates, required for
+          the line item, where this is different to or not specified
+          within the heading section.
+
+2150         SCC, Scheduling conditions
+             A segment specifying the type and status of the schedule
+             being given, and optionally defining a pattern to be
+             established, e.g. firm or proposed delivery schedule for
+             a weekly pattern.
+
+2160         FTX, Free text
+             A segment with free text information, in coded or clear
+             form, used when additional information is needed but
+             cannot be accommodated within other segments. In computer
+             to computer exchanges such text will normally require the
+             receiver to process this segment manually.
+
+
+2170         Segment group 55: QTY-DTM
+             A group of segments to specify the scheduled quantities,
+             date/time details of the schedule and where required the
+             reference of the schedule.
+
+2180            QTY, Quantity
+                A segment to specify quantities relating to the
+                schedule and pattern established in the SCC segment,
+                e.g. delivery quantity.
+
+2190            DTM, Date/time/period
+                A segment indicating the date/time details relating to
+                the quantity and schedule details in the SCC/QTY
+                segments. This segment may be repeated to indicate
+                date/time ranges, e.g. start and end dates for a
+                delivery pattern, or delivery window.
+
+4.1.3  Summary section
+
+       Information to be provided in the Summary section:
+
+2200   UNS, Section control
+       A service segment placed before the first user data segment in
+       the summary section to indicate the end of that section.
+
+2210   MOA, Monetary amount
+       A segment giving the total amounts for the whole message.
+
+2220   CNT, Control total
+       A segment by which control totals may be provided by the sender
+       for checking by the receiver.
+
+
+2230   Segment group 56: ALC-MOA-ALI
+       A group of segments to summarize the allowances and charges,
+       Monetary amounts for the entire request for quote.
+
+2240      ALC, Allowance or charge
+          A segment identifying the charge or allowance type to be
+          summarized.
+
+2250      MOA, Monetary amount
+          A segment specifying the summary amount for the allowance or
+          charge.
+
+2260      ALI, Additional information
+          A segment indicating that allowance or charge specified is
+          subject to special conditions owing to the origin, customs
+          preference or commercial factors.
+
+2270   UNT, Message trailer
+       A service segment ending a message, giving the total number of
+       segments in the message and the control reference number of the
+       message.
+
+4.2    Data segment index (Alphabetical sequence by tag)
+
+          AJT Adjustment details
+          ALC Allowance or charge
+          ALI Additional information
+          APR Additional price information
+          BGM Beginning of message
+          CAV Characteristic value
+          CCI Characteristic/class id
+          CNT Control total
+          COM Communication contact
+          CTA Contact information
+          CUX Currencies
+          DLM Delivery limitations
+          DOC Document/message details
+          DTM Date/time/period
+          EQD Equipment details
+          FII Financial institution information
+          FTX Free text
+          GIN Goods identity number
+          GIR Related identification numbers
+          HAN Handling instructions
+          IMD Item description
+          IRQ Information required
+          LIN Line item
+          LOC Place/location identification
+          MEA Measurements
+          MOA Monetary amount
+          NAD Name and address
+          PAC Package
+          PAI Payment instructions
+          PAT Payment terms basis
+          PCD Percentage details
+          PCI Package identification
+          PIA Additional product id
+          PRI Price details
+          QTY Quantity
+          QVR Quantity variances
+          RCS Requirements and conditions
+          RFF Reference
+          RNG Range details
+          RTE Rate details
+          SCC Scheduling conditions
+          TAX Duty/tax/fee details
+          TDT Details of transport
+          TOD Terms of delivery or transport
+          UNH Message header
+          UNS Section control
+          UNT Message trailer
+
+4.3    Message structure
+
+4.3.1  Segment table
+
+Pos    Tag Name                                      S   R
+
+           HEADER SECTION
+
+0010   UNH Message header                            M   1     
+0020   BGM Beginning of message                      M   1     
+0030   DTM Date/time/period                          M   35    
+0040   PAI Payment instructions                      C   1     
+0050   ALI Additional information                    C   5     
+0060   IMD Item description                          C   1     
+0070   IRQ Information required                      C   10    
+0080   FTX Free text                                 C   99    
+
+0090       ÄÄÄÄÄ Segment group 1  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   10ÄÄÄÄÄÄÄÄÄÄ¿
+0100   RFF Reference                                 M   1           ³
+0110   DTM Date/time/period                          C   5ÄÄÄÄÄÄÄÄÄÄÄÙ
+
+0120       ÄÄÄÄÄ Segment group 2  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   1ÄÄÄÄÄÄÄÄÄÄÄ¿
+0130   AJT Adjustment details                        M   1           ³
+0140   FTX Free text                                 C   5ÄÄÄÄÄÄÄÄÄÄÄÙ
+
+0150       ÄÄÄÄÄ Segment group 3  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   5ÄÄÄÄÄÄÄÄÄÄÄ¿
+0160   TAX Duty/tax/fee details                      M   1           ³
+0170   MOA Monetary amount                           C   1           ³
+0180   LOC Place/location identification             C   5ÄÄÄÄÄÄÄÄÄÄÄÙ
+
+0190       ÄÄÄÄÄ Segment group 4  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   5ÄÄÄÄÄÄÄÄÄÄÄ¿
+0200   CUX Currencies                                M   1           ³
+0210   DTM Date/time/period                          C   5ÄÄÄÄÄÄÄÄÄÄÄÙ
+
+0220       ÄÄÄÄÄ Segment group 5  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   10ÄÄÄÄÄÄÄÄÄÄ¿
+0230   PAT Payment terms basis                       M   1           ³
+0240   DTM Date/time/period                          C   5           ³
+0250   PCD Percentage details                        C   1           ³
+0260   MOA Monetary amount                           C   1ÄÄÄÄÄÄÄÄÄÄÄÙ
+
+0270       ÄÄÄÄÄ Segment group 6  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   10ÄÄÄÄÄÄÄÄÄÄ¿
+0280   TOD Terms of delivery or transport            M   1           ³
+0290   LOC Place/location identification             C   2ÄÄÄÄÄÄÄÄÄÄÄÙ
+
+0300       ÄÄÄÄÄ Segment group 7  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   10ÄÄÄÄÄÄÄÄÄÄ¿
+0310   EQD Equipment details                         M   1           ³
+0320   HAN Handling instructions                     C   5           ³
+0330   MEA Measurements                              C   5           ³
+0340   FTX Free text                                 C   5ÄÄÄÄÄÄÄÄÄÄÄÙ
+
+0350       ÄÄÄÄÄ Segment group 8  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   10ÄÄÄÄÄÄÄÄÄÄ¿
+0360   RCS Requirements and conditions               M   1           ³
+0370   RFF Reference                                 C   5           ³
+0380   DTM Date/time/period                          C   5           ³
+0390   FTX Free text                                 C   5ÄÄÄÄÄÄÄÄÄÄÄÙ
+
+0400       ÄÄÄÄÄ Segment group 9  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   25ÄÄÄÄÄÄÄÄÄÄ¿
+0410   APR Additional price information              M   1           ³
+0420   PRI Price details                             C   1           ³
+0430   QTY Quantity                                  C   2           ³
+0440   DTM Date/time/period                          C   1           ³
+0450   MOA Monetary amount                           C   2           ³
+0460   RNG Range details                             C   2ÄÄÄÄÄÄÄÄÄÄÄÙ
+
+0470       ÄÄÄÄÄ Segment group 10 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   1ÄÄÄÄÄÄÄÄÄÄÄ¿
+0480   DLM Delivery limitations                      M   1           ³
+0490   MOA Monetary amount                           C   1           ³
+0500   DTM Date/time/period                          C   1ÄÄÄÄÄÄÄÄÄÄÄÙ
+
+0510       ÄÄÄÄÄ Segment group 11 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99ÄÄÄÄÄÄÄÄÄÄ¿
+0520   NAD Name and address                          M   1           ³
+0530   LOC Place/location identification             C   25          ³
+0540   FII Financial institution information         C   5           ³
+                                                                     ³
+0550       ÄÄÄÄÄ Segment group 12 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   10ÄÄÄÄÄÄÄÄÄ¿³
+0560   RFF Reference                                 M   1          ³³
+0570   DTM Date/time/period                          C   5ÄÄÄÄÄÄÄÄÄÄÙ³
+                                                                     ³
+0580       ÄÄÄÄÄ Segment group 13 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   5ÄÄÄÄÄÄÄÄÄÄ¿³
+0590   DOC Document/message details                  M   1          ³³
+0600   DTM Date/time/period                          C   1ÄÄÄÄÄÄÄÄÄÄÙ³
+                                                                     ³
+0610       ÄÄÄÄÄ Segment group 14 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   5ÄÄÄÄÄÄÄÄÄÄ¿³
+0620   CTA Contact information                       M   1          ³³
+0630   COM Communication contact                     C   5ÄÄÄÄÄÄÄÄÄÄÁÙ
+
+0640       ÄÄÄÄÄ Segment group 15 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   10ÄÄÄÄÄÄÄÄÄÄ¿
+0650   TDT Details of transport                      M   1           ³
+0660   QTY Quantity                                  C   5           ³
+                                                                     ³
+0670       ÄÄÄÄÄ Segment group 16 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   10ÄÄÄÄÄÄÄÄÄ¿³
+0680   LOC Place/location identification             M   1          ³³
+0690   DTM Date/time/period                          C   5ÄÄÄÄÄÄÄÄÄÄÁÙ
+
+0700       ÄÄÄÄÄ Segment group 17 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   10ÄÄÄÄÄÄÄÄÄÄ¿
+0710   PAC Package                                   M   1           ³
+0720   MEA Measurements                              C   5           ³
+                                                                     ³
+0730       ÄÄÄÄÄ Segment group 18 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   10ÄÄÄÄÄÄÄÄÄ¿³
+0740   PCI Package identification                    M   1          ³³
+0750   RFF Reference                                 C   1          ³³
+0760   DTM Date/time/period                          C   5          ³³
+0770   GIN Goods identity number                     C   10ÄÄÄÄÄÄÄÄÄÁÙ
+
+0780       ÄÄÄÄÄ Segment group 19 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   10ÄÄÄÄÄÄÄÄÄÄ¿
+0790   SCC Scheduling conditions                     M   1           ³
+0800   FTX Free text                                 C   5           ³
+                                                                     ³
+0810       ÄÄÄÄÄ Segment group 20 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   10ÄÄÄÄÄÄÄÄÄ¿³
+0820   QTY Quantity                                  M   1          ³³
+0830   DTM Date/time/period                          C   5ÄÄÄÄÄÄÄÄÄÄÁÙ
+
+0840       ÄÄÄÄÄ Segment group 21 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   15ÄÄÄÄÄÄÄÄÄÄ¿
+0850   ALC Allowance or charge                       M   1           ³
+0860   ALI Additional information                    C   5           ³
+                                                                     ³
+0870       ÄÄÄÄÄ Segment group 22 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   1ÄÄÄÄÄÄÄÄÄÄ¿³
+0880   QTY Quantity                                  M   1          ³³
+0890   RNG Range details                             C   1ÄÄÄÄÄÄÄÄÄÄÙ³
+                                                                     ³
+0900       ÄÄÄÄÄ Segment group 23 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   1ÄÄÄÄÄÄÄÄÄÄ¿³
+0910   PCD Percentage details                        M   1          ³³
+0920   RNG Range details                             C   1ÄÄÄÄÄÄÄÄÄÄÙ³
+                                                                     ³
+0930       ÄÄÄÄÄ Segment group 24 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   2ÄÄÄÄÄÄÄÄÄÄ¿³
+0940   MOA Monetary amount                           M   1          ³³
+0950   RNG Range details                             C   1ÄÄÄÄÄÄÄÄÄÄÙ³
+                                                                     ³
+0960       ÄÄÄÄÄ Segment group 25 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   1ÄÄÄÄÄÄÄÄÄÄ¿³
+0970   RTE Rate details                              M   1          ³³
+0980   RNG Range details                             C   1ÄÄÄÄÄÄÄÄÄÄÙ³
+                                                                     ³
+0990       ÄÄÄÄÄ Segment group 26 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   5ÄÄÄÄÄÄÄÄÄÄ¿³
+1000   TAX Duty/tax/fee details                      M   1          ³³
+1010   MOA Monetary amount                           C   1ÄÄÄÄÄÄÄÄÄÄÁÙ
+
+           DETAIL SECTION
+
+1020       ÄÄÄÄÄ Segment group 27 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   200000ÄÄÄÄÄÄ¿
+1030   LIN Line item                                 M   1           ³
+1040   PIA Additional product id                     C   25          ³
+1050   IMD Item description                          C   99          ³
+1060   MEA Measurements                              C   5           ³
+1070   QTY Quantity                                  C   5           ³
+1080   PCD Percentage details                        C   1           ³
+1090   ALI Additional information                    C   5           ³
+1100   DTM Date/time/period                          C   35          ³
+1110   GIN Goods identity number                     C   1000        ³
+1120   GIR Related identification numbers            C   1000        ³
+1130   QVR Quantity variances                        C   1           ³
+1140   FTX Free text                                 C   99          ³
+1150   PAI Payment instructions                      C   1           ³
+1160   DOC Document/message details                  C   1           ³
+                                                                     ³
+1170       ÄÄÄÄÄ Segment group 28 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   999ÄÄÄÄÄÄÄÄ¿³
+1180   CCI Characteristic/class id                   M   1          ³³
+1190   CAV Characteristic value                      C   10         ³³
+1200   MEA Measurements                              C   10ÄÄÄÄÄÄÄÄÄÙ³
+                                                                     ³
+1210       ÄÄÄÄÄ Segment group 29 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   100ÄÄÄÄÄÄÄÄ¿³
+1220   MOA Monetary amount                           M   1          ³³
+1230   QTY Quantity                                  C   2          ³³
+1240   IMD Item description                          C   1          ³³
+1250   CUX Currencies                                C   1          ³³
+1260   DTM Date/time/period                          C   2ÄÄÄÄÄÄÄÄÄÄÙ³
+                                                                     ³
+1270       ÄÄÄÄÄ Segment group 30 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   1ÄÄÄÄÄÄÄÄÄÄ¿³
+1280   AJT Adjustment details                        M   1          ³³
+1290   FTX Free text                                 C   5ÄÄÄÄÄÄÄÄÄÄÙ³
+                                                                     ³
+1300       ÄÄÄÄÄ Segment group 31 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99ÄÄÄÄÄÄÄÄÄ¿³
+1310   PRI Price details                             M   1          ³³
+1320   APR Additional price information              C   1          ³³
+1330   RNG Range details                             C   1          ³³
+1340   CUX Currencies                                C   5          ³³
+1350   DTM Date/time/period                          C   5ÄÄÄÄÄÄÄÄÄÄÙ³
+                                                                     ³
+1360       ÄÄÄÄÄ Segment group 32 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99ÄÄÄÄÄÄÄÄÄ¿³
+1370   RFF Reference                                 M   1          ³³
+1380   DTM Date/time/period                          C   5ÄÄÄÄÄÄÄÄÄÄÙ³
+                                                                     ³
+1390       ÄÄÄÄÄ Segment group 33 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   100ÄÄÄÄÄÄÄÄ¿³
+1400   LOC Place/location identification             M   1          ³³
+1410   QTY Quantity                                  C   1          ³³
+1420   DTM Date/time/period                          C   5ÄÄÄÄÄÄÄÄÄÄÙ³
+                                                                     ³
+1430       ÄÄÄÄÄ Segment group 34 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   10ÄÄÄÄÄÄÄÄÄ¿³
+1440   TAX Duty/tax/fee details                      M   1          ³³
+1450   MOA Monetary amount                           C   1          ³³
+1460   LOC Place/location identification             C   5ÄÄÄÄÄÄÄÄÄÄÙ³
+                                                                     ³
+1470       ÄÄÄÄÄ Segment group 35 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   5ÄÄÄÄÄÄÄÄÄÄ¿³
+1480   TOD Terms of delivery or transport            M   1          ³³
+1490   LOC Place/location identification             C   2ÄÄÄÄÄÄÄÄÄÄÙ³
+                                                                     ³
+1500       ÄÄÄÄÄ Segment group 36 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   10ÄÄÄÄÄÄÄÄÄ¿³
+1510   EQD Equipment details                         M   1          ³³
+1520   HAN Handling instructions                     C   5          ³³
+1530   MEA Measurements                              C   5          ³³
+1540   FTX Free text                                 C   5ÄÄÄÄÄÄÄÄÄÄÙ³
+                                                                     ³
+1550       ÄÄÄÄÄ Segment group 37 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   10ÄÄÄÄÄÄÄÄÄ¿³
+1560   RCS Requirements and conditions               M   1          ³³
+1570   RFF Reference                                 C   5          ³³
+1580   DTM Date/time/period                          C   5          ³³
+1590   FTX Free text                                 C   5ÄÄÄÄÄÄÄÄÄÄÙ³
+                                                                     ³
+1600       ÄÄÄÄÄ Segment group 38 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   10ÄÄÄÄÄÄÄÄÄ¿³
+1610   PAT Payment terms basis                       M   1          ³³
+1620   DTM Date/time/period                          C   5          ³³
+1630   PCD Percentage details                        C   1          ³³
+1640   MOA Monetary amount                           C   1ÄÄÄÄÄÄÄÄÄÄÙ³
+                                                                     ³
+1650       ÄÄÄÄÄ Segment group 39 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   10ÄÄÄÄÄÄÄÄÄ¿³
+1660   PAC Package                                   M   1          ³³
+1670   MEA Measurements                              C   5          ³³
+1680   QTY Quantity                                  C   5          ³³
+1690   DTM Date/time/period                          C   5          ³³
+                                                                    ³³
+1700       ÄÄÄÄÄ Segment group 40 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   5ÄÄÄÄÄÄÄÄÄ¿³³
+1710   RFF Reference                                 M   1         ³³³
+1720   DTM Date/time/period                          C   5ÄÄÄÄÄÄÄÄÄÙ³³
+                                                                    ³³
+1730       ÄÄÄÄÄ Segment group 41 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   10ÄÄÄÄÄÄÄÄ¿³³
+1740   PCI Package identification                    M   1         ³³³
+1750   RFF Reference                                 C   1         ³³³
+1760   DTM Date/time/period                          C   5         ³³³
+1770   GIN Goods identity number                     C   10ÄÄÄÄÄÄÄÄÁÙ³
+                                                                     ³
+1780       ÄÄÄÄÄ Segment group 42 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99ÄÄÄÄÄÄÄÄÄ¿³
+1790   NAD Name and address                          M   1          ³³
+1800   LOC Place/location identification             C   5          ³³
+                                                                    ³³
+1810       ÄÄÄÄÄ Segment group 43 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   5ÄÄÄÄÄÄÄÄÄ¿³³
+1820   RFF Reference                                 M   1         ³³³
+1830   DTM Date/time/period                          C   5ÄÄÄÄÄÄÄÄÄÙ³³
+                                                                    ³³
+1840       ÄÄÄÄÄ Segment group 44 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   5ÄÄÄÄÄÄÄÄÄ¿³³
+1850   DOC Document/message details                  M   1         ³³³
+1860   DTM Date/time/period                          C   5ÄÄÄÄÄÄÄÄÄÙ³³
+                                                                    ³³
+1870       ÄÄÄÄÄ Segment group 45 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   5ÄÄÄÄÄÄÄÄÄ¿³³
+1880   CTA Contact information                       M   1         ³³³
+1890   COM Communication contact                     C   5ÄÄÄÄÄÄÄÄÄÁÙ³
+                                                                     ³
+1900       ÄÄÄÄÄ Segment group 46 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99ÄÄÄÄÄÄÄÄÄ¿³
+1910   ALC Allowance or charge                       M   1          ³³
+1920   ALI Additional information                    C   5          ³³
+                                                                    ³³
+1930       ÄÄÄÄÄ Segment group 47 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   1ÄÄÄÄÄÄÄÄÄ¿³³
+1940   QTY Quantity                                  M   1         ³³³
+1950   RNG Range details                             C   1ÄÄÄÄÄÄÄÄÄÙ³³
+                                                                    ³³
+1960       ÄÄÄÄÄ Segment group 48 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   1ÄÄÄÄÄÄÄÄÄ¿³³
+1970   PCD Percentage details                        M   1         ³³³
+1980   RNG Range details                             C   1ÄÄÄÄÄÄÄÄÄÙ³³
+                                                                    ³³
+1990       ÄÄÄÄÄ Segment group 49 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   2ÄÄÄÄÄÄÄÄÄ¿³³
+2000   MOA Monetary amount                           M   1         ³³³
+2010   RNG Range details                             C   1ÄÄÄÄÄÄÄÄÄÙ³³
+                                                                    ³³
+2020       ÄÄÄÄÄ Segment group 50 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   1ÄÄÄÄÄÄÄÄÄ¿³³
+2030   RTE Rate details                              M   1         ³³³
+2040   RNG Range details                             C   1ÄÄÄÄÄÄÄÄÄÙ³³
+                                                                    ³³
+2050       ÄÄÄÄÄ Segment group 51 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   5ÄÄÄÄÄÄÄÄÄ¿³³
+2060   TAX Duty/tax/fee details                      M   1         ³³³
+2070   MOA Monetary amount                           C   1ÄÄÄÄÄÄÄÄÄÁÙ³
+                                                                     ³
+2080       ÄÄÄÄÄ Segment group 52 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   10ÄÄÄÄÄÄÄÄÄ¿³
+2090   TDT Details of transport                      M   1          ³³
+2100   QTY Quantity                                  C   5          ³³
+                                                                    ³³
+2110       ÄÄÄÄÄ Segment group 53 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   10ÄÄÄÄÄÄÄÄ¿³³
+2120   LOC Place/location identification             M   1         ³³³
+2130   DTM Date/time/period                          C   5ÄÄÄÄÄÄÄÄÄÁÙ³
+                                                                     ³
+2140       ÄÄÄÄÄ Segment group 54 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   100ÄÄÄÄÄÄÄÄ¿³
+2150   SCC Scheduling conditions                     M   1          ³³
+2160   FTX Free text                                 C   5          ³³
+                                                                    ³³
+2170       ÄÄÄÄÄ Segment group 55 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   10ÄÄÄÄÄÄÄÄ¿³³
+2180   QTY Quantity                                  M   1         ³³³
+2190   DTM Date/time/period                          C   5ÄÄÄÄÄÄÄÄÄÁÁÙ
+
+           SUMMARY SECTION
+
+2200   UNS Section control                           M   1     
+2210   MOA Monetary amount                           C   15    
+2220   CNT Control total                             C   10    
+
+2230       ÄÄÄÄÄ Segment group 56 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   10ÄÄÄÄÄÄÄÄÄÄ¿
+2240   ALC Allowance or charge                       M   1           ³
+2250   MOA Monetary amount                           M   1           ³
+2260   ALI Additional information                    C   1ÄÄÄÄÄÄÄÄÄÄÄÙ
+2270   UNT Message trailer                           M   1     

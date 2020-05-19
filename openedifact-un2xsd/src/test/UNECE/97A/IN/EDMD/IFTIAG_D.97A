@@ -1,0 +1,532 @@
+                              UN/EDIFACT
+
+                UNITED NATIONS STANDARD MESSAGE (UNSM)
+
+                     Dangerous cargo list message
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                            Message Type : IFTIAG
+                                            Version      : D
+                                            Release      : 97A
+                                            Contr. Agency: UN
+
+                                            Revision     : 3
+                                            Date         : 96-12-13
+
+
+
+
+
+
+SOURCE: Joint Transport Group (JM4)
+
+
+
+                               CONTENTS
+
+                     Dangerous cargo list message
+
+0.   INTRODUCTION
+
+1.   SCOPE
+
+     1.1   Functional definition
+
+     1.2   Field of application
+
+     1.3   Principles
+
+2.   REFERENCES
+
+3.   TERMS AND DEFINITIONS
+
+     3.1   Standard terms and definitions
+
+4.   MESSAGE DEFINITION
+
+     4.1   Data segment clarification
+
+     4.2   Data segment index (alphabetical sequence)
+
+     4.3   Message structure
+
+           4.3.1 Segment table
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------
+For general information on UN standard message types see UN Trade Data
+Interchange Directory, UNTDID, Part 4, Section 2.6, UN/ECE UNSM
+General Introduction
+----------------------------------------------------------------------
+
+
+
+0.     INTRODUCTION
+
+       This specification provides the definition of the Dangerous
+       cargo list message (IFTIAG) to be used in Electronic Data
+       Interchange (EDI) between trading partners involved in
+       administration, commerce and transport.
+
+1.     SCOPE
+
+1.1    Functional Definition
+
+       The International Forwarding and Transport Dangerous Cargo List
+       Message is a message: 
+       
+       - from the party acting on behalf of the carrier for the
+       gathering of the dangerous goods information of the cargo in a
+       certain port or place of call or loading, 
+       - to the party acting on behalf of the carrier in the next port
+       or place of call or discharge, 
+       
+       conveying the information relating to one conveyance or voyage
+       of a means of transport such as a vessel, train, truck or
+       barge, on the dangerous goods being carried on board -
+       irrespective of the operations that will take place in the next
+       port of call. 
+       This message provides the basic information by which the
+       message recipient can notify to the local authorities about the
+       loading, unloading and transit-related operations, by means of
+       the International forwarding and transport dangerous goods
+       notification message (IFTDGN).
+
+1.2    Field of Application
+
+       The Dangerous cargo list message may be used for both national
+       and international applications. It is based on universal
+       practice related to administration, commerce and transport, and
+       is not dependent on the type of business or industry.
+
+1.3    Principles
+
+       The Dangerous Cargo List corresponds to IMO FAL Form 7 (in
+       preparation), which always has to be on board of the vessel. 
+        
+       An agent in the following port of call uses the Dangerous Cargo
+       List to draw up the IFTDGN message (Dangerous Goods
+       Notification) to the responsible authorities in order to report
+       the goods discharged, loaded or in transit. 
+        
+       A shipping agent in a port of loading sends the Dangerous Cargo
+       List message to all the agents of the same shipping line in the
+       subsequent ports of call. 
+       In turn, a shipping agent in the following port of call makes
+       up an additional Dangerous Cargo List for the dangerous goods
+       loaded in that port, to be communicated to the agents in the
+       ports called thereafter. 
+        
+       More than one Dangerous Cargo List can exist for one vessel in
+       case of a consortium. 
+        
+       Sometimes the Dangerous Cargo list is sent from agent to agent
+       via the carrier (shipowner). 
+        
+       The following guidelines, rules and functionality apply to the
+       message: 
+        
+       *   One message relates to one conveyance/voyage of a means of
+       transport. 
+        
+       *   One message is to be suitable to give information on
+       dangerous goods on board. 
+        
+       *   One message is to be based on the local legal information
+       requirements regarding the notification of dangerous goods to
+       the (port) authority. 
+        
+       *   One message may contain several consignments. 
+        
+       *   A consignment may contain several goods items/dangerous
+       goods classes. 
+        
+       *   Each goods item can contain only one dangerous goods class.
+       A goods item reflects the operational description of the goods.
+       
+        
+       *   A dangerous goods class may be transported in one or more
+       equipment, and a single equipment may contain one or more
+       dangerous goods classes. 
+        
+       *   The message has to cater for the provision of sending
+       updates (change, deletion or cancellation).
+
+2.     REFERENCES
+
+       See UNTDID, Part 4, Chapter 2.6 UN/ECE UNSM - General
+       Introduction, Section 1.
+
+3.     TERMS AND DEFINITIONS
+
+3.1    Standard terms and definitions
+
+       See UNTDID, Part 4, Chapter 2.6 UN/ECE UNSM - General
+       Introduction, Section 2.
+
+4.     MESSAGE DEFINITION
+
+4.1    Data Segment Clarification
+
+       This section should be read in conjunction with the Segment
+       Table which indicate mandatory, conditional and repeating
+       requirements.
+
+0010   UNH, Message header
+       A service segment starting and uniquely identifying a message.
+       The message type code for the Dangerous cargo list message is
+       IFTIAG.
+       
+       Note: Dangerous cargo list messages conforming to this document
+       must contain the following data in segment UNH, composite S009:
+
+       Data element  0065 IFTIAG
+                     0052 D
+                     0054 97A
+                     0051 UN
+
+0020   BGM, Beginning of message
+       A segment to indicate the beginning of the message by
+       identifying the message by a document/message number. Update
+       (change or replace) messages can be accommodated using Message
+       function code together with the Reference to the previous
+       message (in RFF segment) quoting the document/message number of
+       the message being updated by this message.
+
+0030   DTM, Date/time/period
+       A segment to indicate a date/or time applying to the whole
+       message, such as date and time of document or message issue.
+
+0040   CNT, Control total
+       A segment to specify the number of equipment in the message,
+       explicitly given by the sender.
+
+0050   FTX, Free text
+       A segment to specify free form or processable supplementary
+       information.
+
+
+0060   Segment group 1:  RFF-DTM
+       A group of segments to specify a reference relating to the
+       whole message, and its date and/or time.
+
+0070      RFF, Reference
+          A segment to express a reference which applies to an entire
+          message. 
+          Note: when this segment contains a reference to a previous
+          message which will be updated (or changed or replaced), it
+          shall be used in conjunction with data element 1225 in the
+          BGM segment.
+
+0080      DTM, Date/time/period
+          A segment to indicate date and/or time related to the
+          reference.
+
+
+0090   Segment group 2:  TDT-DTM-CTA
+       A group of segments to indicate the details of the movement of
+       dangerous goods such as means of transport and arrival
+       date/times.
+
+0100      TDT, Details of transport
+          A segment to indicate the transport information related to
+          the visit of a means of transport in the port (main
+          transport).
+
+0110      DTM, Date/time/period
+          A segment to indicate the sailing date.
+
+0120      CTA, Contact information
+          A segment to identify the master of the vessel.
+
+
+0130   Segment group 3:  NAD-SG4
+       A group of segments to identify a party and related contacts.
+
+0140      NAD, Name and address
+          A segment to identify the party's name, address and
+          function.
+
+
+0150      Segment group 4:  CTA-COM
+          A group of segments to identify a contact and its
+          communications related to the party.
+
+0160         CTA, Contact information
+             A segment to identify a person or department within the
+             party.
+
+0170         COM, Communication contact
+             A segment to identify a communication number of a person
+             or department to whom communication should be directed.
+
+
+0180   Segment group 5:  LOC-NAD-RFF-DTM
+       A group of segments to identify locations related to the place
+       of origin of the dangerous cargo list, ports of loading,
+       discharge and calls.
+
+0190      LOC, Place/location identification
+          A segment to indicate locations related to the shipment and
+          arrival of a consignment or a segment to indicate locations
+          related to the place of origin of the dangerous cargo list.
+          The locations to be qualified: 
+          - Port where dangerous cargo list was made 
+          - Place/port of loading 
+          - Place/port of discharge (for cargo to be discharged) 
+          - Next port of call (for cargo in transit)
+
+0200      NAD, Name and address
+          A segment to identify a party's name, address and function
+          relevant in the specified port. The functions to be
+          qualified: 
+          - Carrier's agent
+
+0210      RFF, Reference
+          A segment to express a reference which applies to the agents
+          in the specified port. Reference to be specified: 
+          - Reference of carrier's agent
+
+0220      DTM, Date/time/period
+          A segment to indicate the document/message date/time (i.e.
+          of the Dangerous cargo list) relating to the port where the
+          Dangerous cargo list was made.
+
+
+0230   Segment group 6:  EQD-SEL
+       A group of segments to specify (groups of) equipment (with
+       guidelines) in which the dangerous goods are transported.
+
+0240      EQD, Equipment details
+          A segment to specify equipment, equipment size and type used
+          in the transport: e.g. container.
+
+0250      SEL, Seal number
+          A segment to specify a seal number related to the equipment.
+
+
+0260   Segment group 7:  CNI-LOC-RFF-NAD-SG8
+       A group of segments to describe a consignment of dangerous
+       goods carried on the specified means of transport.
+
+0270      CNI, Consignment information
+          A segment to identify the consignment.
+
+0280      LOC, Place/location identification
+          A segment to indicate locations related to the shipment and
+          arrival of a consignment. The locations to be qualified: 
+          - Point of origin 
+          - Final destination
+
+0290      RFF, Reference
+          A segment to express a reference for the consignment.
+          References to be qualified: 
+          - Booking number 
+          - Bill of lading number
+
+0300      NAD, Name and address
+          A segment to identify a party's name and address relevant to
+          the consignment. Functions to be qualified: 
+          - Consignor per bill of lading 
+          - Consignee per bill of lading
+
+
+0310      Segment group 8:  GID-FTX-PCI-SG9
+          A group of segments to specify a goods item within the
+          consignment.
+
+0320         GID, Goods item details
+             A segment to identify a goods item within the consignment
+             and to indicate the heading of a goods item with the
+             number of packages. 
+             Note: A goods item is a group of goods: 
+             - belonging to the same UN Class of dangerous goods 
+             - having the same technical name 
+             - using the same type of colli
+
+0330         FTX, Free text
+             A segment to specify processable supplementary
+             information relating to the goods item. Text subject to
+             be qualified: 
+             - Description of goods 
+             - Special instructions 
+             - Packaging information 
+             - Packing marking information
+
+0340         PCI, Package identification
+             A segment to specify marks and numbers of the goods item.
+
+
+0350         Segment group 9:  DGS-FTX-LOC-MEA-SG10
+             A group of segments to specify the dangerous goods
+             details of the goods item. A goods item can be classified
+             by only one dangerous goods class.
+
+0360            DGS, Dangerous goods
+                A segment to indicate the dangerous goods regulation
+                information, e.g. IMO code, UNDG number, dangerous
+                goods classes, packing group.
+
+0370            FTX, Free text
+                A segment to specify processable supplementary
+                information relating to the goods item. Text subject
+                to be qualified: 
+                - Dangerous goods additional information, e.g.
+                information on supplementary classifications like the
+                Suez Canal class, Singapore class and CFO class 
+                - Dangerous goods technical name
+
+0380            LOC, Place/location identification
+                A segment to specify cell location details for
+                non-containerised cargo.
+
+0390            MEA, Measurements
+                A segment to specify the weights of that portion of
+                the dangerous goods item. The transport measurements
+                to be qualified: 
+                - Gross weight 
+                - Net weight
+
+
+0400            Segment group 10: SGP-LOC-MEA
+                A group of segments to specify the distribution of the
+                dangerous goods item among the transport equipment.
+
+0410               SGP, Split goods placement
+                   A segment to identify the equipment in which goods
+                   are transported e.g. by their prefix and numbers.
+
+0420               LOC, Place/location identification
+                   A segment to indicate locations related to the
+                   stowage of the goods. Location to be qualified: 
+                   - Stowage cell
+
+0430               MEA, Measurements
+                   A segment to specify the weights of that portion of
+                   the goods item in the transport equipment. The
+                   transport measurements to be qualified: 
+                   - Gross weight 
+                   - Net weight
+
+0440   UNT, Message trailer
+       A service segment ending a message, giving the total number of
+       segments in the message and the control reference number of the
+       message.
+
+4.2    Data segment index (Alphabetical sequence by tag)
+
+          BGM Beginning of message
+          CNI Consignment information
+          CNT Control total
+          COM Communication contact
+          CTA Contact information
+          DGS Dangerous goods
+          DTM Date/time/period
+          EQD Equipment details
+          FTX Free text
+          GID Goods item details
+          LOC Place/location identification
+          MEA Measurements
+          NAD Name and address
+          PCI Package identification
+          RFF Reference
+          SEL Seal number
+          SGP Split goods placement
+          TDT Details of transport
+          UNH Message header
+          UNT Message trailer
+
+4.3    Message structure
+
+4.3.1  Segment table
+
+Pos    Tag Name                                      S   R
+
+0010   UNH Message header                            M   1     
+0020   BGM Beginning of message                      M   1     
+0030   DTM Date/time/period                          C   9     
+0040   CNT Control total                             M   1     
+0050   FTX Free text                                 C   5     
+
+0060       ÄÄÄÄÄ Segment group 1  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄÄÄÄ¿
+0070   RFF Reference                                 M   1           ³
+0080   DTM Date/time/period                          C   9ÄÄÄÄÄÄÄÄÄÄÄÙ
+
+0090       ÄÄÄÄÄ Segment group 2  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   1ÄÄÄÄÄÄÄÄÄÄÄ¿
+0100   TDT Details of transport                      M   1           ³
+0110   DTM Date/time/period                          C   1           ³
+0120   CTA Contact information                       C   1ÄÄÄÄÄÄÄÄÄÄÄÙ
+
+0130       ÄÄÄÄÄ Segment group 3  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄÄÄÄ¿
+0140   NAD Name and address                          M   1           ³
+                                                                     ³
+0150       ÄÄÄÄÄ Segment group 4  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄÄÄ¿³
+0160   CTA Contact information                       M   1          ³³
+0170   COM Communication contact                     C   9ÄÄÄÄÄÄÄÄÄÄÁÙ
+
+0180       ÄÄÄÄÄ Segment group 5  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   3ÄÄÄÄÄÄÄÄÄÄÄ¿
+0190   LOC Place/location identification             M   1           ³
+0200   NAD Name and address                          C   1           ³
+0210   RFF Reference                                 C   1           ³
+0220   DTM Date/time/period                          C   1ÄÄÄÄÄÄÄÄÄÄÄÙ
+
+0230       ÄÄÄÄÄ Segment group 6  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9999ÄÄÄÄÄÄÄÄ¿
+0240   EQD Equipment details                         M   1           ³
+0250   SEL Seal number                               C   1ÄÄÄÄÄÄÄÄÄÄÄÙ
+
+0260       ÄÄÄÄÄ Segment group 7  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   9999ÄÄÄÄÄÄÄÄ¿
+0270   CNI Consignment information                   M   1           ³
+0280   LOC Place/location identification             C   2           ³
+0290   RFF Reference                                 C   2           ³
+0300   NAD Name and address                          C   2           ³
+                                                                     ³
+0310       ÄÄÄÄÄ Segment group 8  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   9999ÄÄÄÄÄÄÄ¿³
+0320   GID Goods item details                        M   1          ³³
+0330   FTX Free text                                 C   5          ³³
+0340   PCI Package identification                    C   1          ³³
+                                                                    ³³
+0350       ÄÄÄÄÄ Segment group 9  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   1ÄÄÄÄÄÄÄÄÄ¿³³
+0360   DGS Dangerous goods                           M   1         ³³³
+0370   FTX Free text                                 M   5         ³³³
+0380   LOC Place/location identification             C   99        ³³³
+0390 * MEA Measurements                              M   9         ³³³
+                                                                   ³³³
+0400       ÄÄÄÄÄ Segment group 10 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9999ÄÄÄÄÄ¿³³³
+0410   SGP Split goods placement                     M   1        ³³³³
+0420   LOC Place/location identification             C   1        ³³³³
+0430   MEA Measurements                              C   2ÄÄÄÄÄÄÄÄÁÁÁÙ
+0440   UNT Message trailer                           M   1     

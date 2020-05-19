@@ -1,0 +1,295 @@
+                              UN/EDIFACT
+
+                         DRAFT RECOMMENDATION
+
+                          Call info message
+
+
+
+
+
+----------------------------------------------------------------------
+This message is available for formal trial for at least six months
+from the date of approval by UN/ECE/TRADE/WP.4.
+ 
+Organisations are invited to trial this message. Comments on the
+results from the trial should be forwarded to their Rapporteur's Team
+Secretariat as soon as they are available. Based on the results of the
+trials, a UNSM may be issued.
+ 
+The segments, composite data elements, data elements and codes for
+use in the trial of this message are contained in the Draft directory.
+However, this information may differ from that in the Standard
+directory (UNTDID), even for material having the same identifying
+tags.
+----------------------------------------------------------------------
+
+
+
+
+
+
+
+
+                                            Message Type : CALINF
+                                            Version      : D
+                                            Release      : 96A
+                                            Contr. Agency: UN
+                                            Status       : 1
+                                            Revision     : 1
+                                            Date         : 95-11-23
+
+
+
+
+
+
+SOURCE: Joint Transport Group (JM4)
+
+
+
+                               CONTENTS
+
+                          Call info message
+
+
+
+0.   INTRODUCTION
+
+
+1.   SCOPE
+
+     1.1   Functional definition
+
+     1.2   Field of application
+
+     1.3   Principles
+
+2.   REFERENCES
+
+3.   TERMS AND DEFINITIONS
+
+4.   MESSAGE DEFINITION
+
+     4.1   Data segment clarification
+
+     4.2   Data segment index (alphabetical sequence)
+
+     4.3   Message structure
+
+           4.3.1 Segment table
+
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------
+For general information on UN standard message types see UN Trade Data
+Interchange Directory, UNTDID, Part 4, Section 2.6, UN/ECE UNSM
+General Introduction
+----------------------------------------------------------------------
+
+
+
+0.     INTRODUCTION
+
+       This specification provides the definition of the Call info
+       message (CALINF) to be used in Electronic Data Interchange
+       (EDI) between trading partners involved in administration,
+       commerce and transport.
+
+1.     SCOPE
+
+1.1    Functional Definition
+
+       A message from a liner agent to a stevedore providing
+       information concerning the planned arrival of a vessel and the
+       expected container operations.
+       
+       This message is part of a total set of container-related
+       messages. These messages serve to facilitate the intermodal
+       handling of containers by streamlining the information
+       exchange.
+       The business scenario for the container messages is clarified
+       in a separate document, called: 'Guide to the scenario of
+       EDIFACT container messages'.
+
+1.2    Field of Application
+
+       The Call info message may be used for both national and
+       international trade. It is based on universal commercial
+       practice and is not dependent on the type of business or
+       industry.
+
+1.3    Principles
+
+       In the context of the 'Guide to the scenario of EDIFACT
+       container messages' (as referred to at the start of section 1)
+       the following guidelines, rules and functionality apply to this
+       Call info message:
+       
+       *   A message will contain information on only one means of
+       transport/conveyance.
+       
+       *   Separate messages (Call info message and Vessel departure
+       message) will be used for the means of transport in order to
+       cater for opening and closing of the information exchange
+       related to that means of transport.
+       Updates for these messages may be sent.
+       
+       *   Arrival of equipment is the movement of equipment towards
+       the premises of a stevedore, inland (equipment) depot,
+       container freight station - independent of the mode of
+       transport.
+
+2.     REFERENCES
+
+       See UNTDID, Part 4, Chapter 2.6 UN/ECE UNSM - General
+       Introduction, Section 1.
+
+3.     TERMS AND DEFINITIONS
+
+       See UNTDID, Part 4, Chapter 2.6 UN/ECE UNSM - General
+       Introduction, Section 2.
+
+4.     MESSAGE DEFINITION
+
+4.1    Data Segment Clarification
+
+       This section should be read in conjunction with the Branching
+       Diagram and the Segment Table which indicate mandatory,
+       conditional and repeating requirements.
+
+0010 | UNH, Message header
+       A service segment starting and uniquely identifying a message.
+       The message type code for the Call info message is CALINF.
+       
+       Note: Call info messages conforming to this document must
+       contain the following data in segment UNH, composite S009:
+
+       Data element  0065 CALINF
+                     0052 D
+                     0054 96A
+                     0051 UN
+
+0020   BGM, Beginning of message
+       A segment to indicate the beginning of a message and to
+       transmit identifying number.
+
+0030   RFF, Reference
+       A segment to provide a reference relating to the whole message,
+       such as:
+       -   reference to previous message.
+
+
+0040   Segment group 1:  NAD-CTA
+       A group of segments to identify a party and related contacts.
+
+0050      NAD, Name and address
+          A segment to identify a name and address of a party, such
+          as: 
+          -   message sender 
+          -   message recipient 
+          -   ordering customer/principal 
+          -   ordering customer agent
+
+0060      CTA, Contact information
+          A segment to identify a person or department for the party,
+          such as: 
+          -   information contact
+
+
+0070   Segment group 2:  TDT-RFF-LOC-DTM-FTX
+       A group of segments to specify details for the arriving means
+       of transport.
+
+0080      TDT, Details of transport
+          A segment to identify the transport details of the arriving
+          vessel.
+
+0090      RFF, Reference
+          A segment to identify a relevant reference number, such as: 
+          -   Customs declaration number 
+          -   shipping line reference
+
+0100      LOC, Place/location identification
+          A segment to identify locations related to the transport
+          details, such as: 
+          -   previous port of call 
+          -   next port of call 
+          -   place/port of discharge
+
+0110      DTM, Date/time/period
+          A segment to identify a date and time related to the arrival
+          of the means of transport, such as: 
+          -   estimated arrival 
+          -   estimated departure
+
+0120      FTX, Free text
+          A segment to provide supplementary information related to
+          the means of transport, such as: 
+          -   additional remarks related to the transport 
+          -   remarks
+
+
+0130   Segment group 3:  QTY-FTX
+       A group of segments to specify total numbers.
+
+0140      QTY, Quantity
+          A segment to specify the planned number of operations on
+          equipment for the arriving vessel.
+
+0150      FTX, Free text
+          A segment to provide supplementary information related to
+          the planned number of operations on equipment.
+
+0160   UNT, Message trailer
+       A service segment ending a message, giving the total number of
+       segments in the message and the control reference number of the
+       message.
+
+4.2    Data segment index (Alphabetical sequence by tag)
+
+          BGM Beginning of message
+          CTA Contact information
+          DTM Date/time/period
+          FTX Free text
+          LOC Place/location identification
+          NAD Name and address
+          QTY Quantity
+          RFF Reference
+          TDT Details of transport
+          UNH Message header
+          UNT Message trailer
+
+4.3    Message structure
+
+4.3.1  Segment table
+
+Pos    Tag Name                                      S   R
+
+0010   UNH Message header                            M   1     
+0020   BGM Beginning of message                      M   1     
+0030   RFF Reference                                 C   9     
+
+0040       ÄÄÄÄÄ Segment group 1  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   9ÄÄÄÄÄÄÄÄÄÄÄ¿
+0050   NAD Name and address                          M   1           ³
+0060   CTA Contact information                       C   9ÄÄÄÄÄÄÄÄÄÄÄÙ
+
+0070       ÄÄÄÄÄ Segment group 2  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   1ÄÄÄÄÄÄÄÄÄÄÄ¿
+0080   TDT Details of transport                      M   1           ³
+0090   RFF Reference                                 C   9           ³
+0100   LOC Place/location identification             M   9           ³
+0110   DTM Date/time/period                          M   9           ³
+0120   FTX Free text                                 C   9ÄÄÄÄÄÄÄÄÄÄÄÙ
+
+0130       ÄÄÄÄÄ Segment group 3  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   9ÄÄÄÄÄÄÄÄÄÄÄ¿
+0140   QTY Quantity                                  M   1           ³
+0150   FTX Free text                                 C   1ÄÄÄÄÄÄÄÄÄÄÄÙ
+0160   UNT Message trailer                           M   1     

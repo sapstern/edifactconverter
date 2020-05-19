@@ -1,0 +1,475 @@
+                              UN/EDIFACT
+
+                UNITED NATIONS STANDARD MESSAGE (UNSM)
+
+                        Banking status message
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                            Message Type : BANSTA
+                                            Version      : D
+                                            Release      : 97A
+                                            Contr. Agency: UN
+
+                                            Revision     : 2
+                                            Date         : 96-12-13
+
+
+
+
+
+
+SOURCE: Joint message design group 6 - Finance (JM6)
+
+
+
+                               CONTENTS
+
+                        Banking status message
+
+0.   INTRODUCTION
+
+1.   SCOPE
+
+     1.1   Functional definition
+
+     1.2   Field of application
+
+     1.3   Principles
+
+2.   REFERENCES
+
+3.   TERMS AND DEFINITIONS
+
+     3.1   Standard terms and definitions
+
+4.   MESSAGE DEFINITION
+
+     4.1   Data segment clarification
+
+     4.2   Data segment index (alphabetical sequence)
+
+     4.3   Message structure
+
+           4.3.1 Segment table
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------
+For general information on UN standard message types see UN Trade Data
+Interchange Directory, UNTDID, Part 4, Section 2.6, UN/ECE UNSM
+General Introduction
+----------------------------------------------------------------------
+
+
+
+0.     INTRODUCTION
+
+       This specification provides the definition of the Banking
+       status message (BANSTA) to be used in Electronic Data
+       Interchange (EDI) between trading partners involved in
+       administration, commerce and transport.
+
+1.     SCOPE
+
+1.1    Functional Definition
+
+       A BANSTA message is sent by a financial institution to its
+       customer and/or vice versa and among financial institutions. It
+       is used for all kind of enquiries, answers and status
+       information at application level.
+
+1.2    Field of Application
+
+       This message may be applied for both national and international
+       transactions. It is based on universal practice and is not
+       dependent on the type of business or industry.
+
+1.3    Principles
+
+       A BANSTA message must always refer to a specific
+       previously-sent message.
+       
+       - A BANSTA message may cover the response given to any
+       previously-sent message, such as a commercial or payment
+       instruction, a request for information, etc. This message
+       provides a means to report on errors and inconsistencies found
+       in the original message at application level.
+       
+       - It is not intended to report on syntactical errors or to
+       provide a non-repudiation response.
+       
+       - This message may provide status information about execution
+       on original multi-instruction messages such as the Multiple
+       Payment Order message (PAYMUL) or a multiple Direct Debit
+       message in a positive and/or negative way.
+       
+       - This message does not apply to responses given to payment
+       instructions, when another message type is necessary. This
+       message could be used for any response to a previously-sent
+       message when such response is needed and/or requested.
+
+2.     REFERENCES
+
+       See UNTDID, Part 4, Chapter 2.6 UN/ECE UNSM - General
+       Introduction, Section 1.
+
+3.     TERMS AND DEFINITIONS
+
+3.1    Standard terms and definitions
+
+       See UNTDID, Part 4, Chapter 2.6 UN/ECE UNSM - General
+       Introduction, Section 2.
+
+4.     MESSAGE DEFINITION
+
+4.1    Data Segment Clarification
+
+       This section should be read in conjunction with the Segment
+       Table which indicate mandatory, conditional and repeating
+       requirements.
+       
+       The following semantic principles apply to the message and are
+       intended to facilitate the understanding and implementation of
+       the message:
+       
+       The Banking Status message is structured in three levels: A, B
+       and C.
+       
+       -   Level A Segment Groups 1, 2, 3 and 9 contains general data
+       related to the whole message.
+       
+       -   Level B Segment Groups 4 and 5 refers to the
+       previously-sent message and, if necessary, identifies a single
+       transaction within a multiple message.
+       
+       -   Level C Segment Groups 6 to 8 provides the reason and
+       details for the status of message/transaction.
+       
+       -   The structure of the message is designed to allow several B
+       and C levels, each level B being followed by at least one or
+       several C levels.
+       
+       -   Where a choice of code or text is given only the code
+       element should be used wherever possible.
+
+0010   UNH, Message header
+       A service segment starting and uniquely identifying a message.
+       The message type code for the Banking status message is BANSTA.
+       
+       Note: Banking status messages conforming to this document must
+       contain the following data in segment UNH, composite S009:
+
+       Data element  0065 BANSTA
+                     0052 D
+                     0054 97A
+                     0051 UN
+
+0020   BGM, Beginning of message
+       A segment by means of which the sender must uniquely identify
+       the BANSTA message using its type and number and its function
+       (e.g. response, enquiry, status etc.).
+
+0030   DTM, Date/time/period
+       A segment specifying the date and, if required, the time the
+       message is created.
+
+0040   BUS, Business function
+       A segment identifying certain characteristics of the Banking
+       Status message, such as its business function.
+
+
+0050   Segment group 1:  RFF-DTM
+       A group of segments identifying a previously-sent message,
+       and/or customer to customer reference and related dates.
+
+0060      RFF, Reference
+          A segment specifying the reference of the previously-sent
+          message.
+
+0070      DTM, Date/time/period
+          A segment identifying the creation date of the referenced
+          message.
+
+
+0080   Segment group 2:  FII-CTA-COM
+       A group of segments identifying the financial institutions
+       involved in the Banking Status message, routing functions and
+       contacts.
+
+0090      FII, Financial institution information
+          A segment identifying the financial institution(s)
+          associated with the transaction, in coded or uncoded form
+          and their function.
+
+0100      CTA, Contact information
+          A segment identifying a person or a department for the party
+          specified in the leading FII segment to whom communication
+          should be directed.
+
+0110      COM, Communication contact
+          A segment identifying communication type(s) and number(s) of
+          person(s) or department(s) specified in the associated CTA
+          segment.
+
+
+0120   Segment group 3:  NAD-CTA-COM
+       A group of segments identifying the name(s) and adress(es) of
+       non-financial parties involved in the transaction, their
+       function and their contacts.
+
+0130      NAD, Name and address
+          A segment identifying the names and addresses of the
+          non-financial parties associated with the Banking Status
+          message, in coded or uncoded form, and their function.
+
+0140      CTA, Contact information
+          A segment identifying a person or department for the party
+          specified in the NAD segment and to whom communication
+          should be directed.
+
+0150      COM, Communication contact
+          A segment identifying communication type(s) and number(s) of
+          person(s) or department(s) specified in the associated CTA
+          segment.
+
+
+0160   Segment group 4:  LIN-SG5-SG6
+       A group of segments identifying a message or transaction and
+       the status of the referred message/transaction, as well as any
+       reasons clarifying the status.
+
+0170      LIN, Line item
+          A segment identifying the beginning of the details related
+          to the previously-sent message by a sequential line number.
+
+
+0180      Segment group 5:  RFF-DTM
+          A group of segments specifying reference number(s), date/or
+          time needed in order to identify a referenced message or
+          transaction.
+
+0190         RFF, Reference
+             A segment providing references of the message/transaction
+             to be referred to.
+
+0200         DTM, Date/time/period
+             A segment identifying the date/time of the referred
+             message or transaction.
+
+
+0210      Segment group 6:  SEQ-GIS-DTM-MOA-CUX-PCD-FTX-DOC-SG7-SG8
+          A group of segments identifying the status, and any reasons
+          clarifying this status, of the referred message/transaction.
+
+0220         SEQ, Sequence details
+             A segment identifying the beginning of the specification
+             of the status and related details about the
+             message/transaction by a sequential number.
+
+0230         GIS, General indicator
+             A segment specifying the processing status of a
+             referenced message/transaction in a coded form. It is
+             used in conjunction with one or more of the following
+             segments or groups clarifying the detailed reply or
+             status/information.
+
+0240         DTM, Date/time/period
+             A segment identifying dates and/or times related to
+             information in the GIS-segment.
+
+0250         MOA, Monetary amount
+             A segment identifying the amount(s) associated with the
+             related information in the GIS-segment.
+
+0260         CUX, Currencies
+             A segment identifying the currency associated with the
+             related information in the GIS segment.
+
+0270         PCD, Percentage details
+             A segment identifying the percentage associated with the
+             related information in the GIS segment.
+
+0280         FTX, Free text
+             A segment specifying free form data associated with the
+             related information in the GIS segment.
+
+0290         DOC, Document/message details
+             A segment identifying the documents associated with the
+             related information in the GIS segment.
+
+
+0300         Segment group 7:  FII-CTA-COM
+             A group of segments identifying the financial
+             institution(s) associated with the related information in
+             the GIS segment.
+
+0310            FII, Financial institution information
+                A segment identifying the financial institution(s)
+                associated with the related information in the GIS
+                segment.
+
+0320            CTA, Contact information
+                A segment identifying a person or a department for the
+                party specified in the leading FII segment to whom
+                communication should be directed.
+
+0330            COM, Communication contact
+                A segment identifying communication type(s) and
+                number(s) of person(s) or departments(s) specified in
+                the associated CTA segment.
+
+
+0340         Segment group 8:  NAD-CTA-COM
+             A group of segments identifying the name and address of
+             non-financial parties associated with the related
+             information in the GIS segment.
+
+0350            NAD, Name and address
+                A segment identifying names and address of
+                non-financial parties associated with the related
+                information in the GIS segment.
+
+0360            CTA, Contact information
+                A segment identifying a person or a department for the
+                party specified in the leading NAD segment to whom
+                communication should be directed.
+
+0370            COM, Communication contact
+                A segment identifying communication type(s) and
+                number(s) of person(s) or departments(s) specified in
+                the associated CTA segment.
+
+0380   CNT, Control total
+       A segment identifying the kind of control-checks and the total
+       according to the coded form.
+
+
+0390   Segment group 9:  AUT-DTM
+       A group of segments specifying details of any authentication
+       (validation) procedures applied to the BANSTA message.
+
+0400      AUT, Authentication result
+          A segment specifying the details of any authentication
+          (validation) procedures applied to the BANSTA message.
+
+0410      DTM, Date/time/period
+          A segment identifying the validation date/time.
+
+0420   UNT, Message trailer
+       A service segment ending a message, giving the total number of
+       segments in the message and the control reference number of the
+       message.
+
+4.2    Data segment index (Alphabetical sequence by tag)
+
+          AUT Authentication result
+          BGM Beginning of message
+          BUS Business function
+          CNT Control total
+          COM Communication contact
+          CTA Contact information
+          CUX Currencies
+          DOC Document/message details
+          DTM Date/time/period
+          FII Financial institution information
+          FTX Free text
+          GIS General indicator
+          LIN Line item
+          MOA Monetary amount
+          NAD Name and address
+          PCD Percentage details
+          RFF Reference
+          SEQ Sequence details
+          UNH Message header
+          UNT Message trailer
+
+4.3    Message structure
+
+4.3.1  Segment table
+
+Pos    Tag Name                                      S   R
+
+0010   UNH Message header                            M   1     
+0020   BGM Beginning of message                      M   1     
+0030   DTM Date/time/period                          M   1     
+0040   BUS Business function                         C   1     
+
+0050       ÄÄÄÄÄ Segment group 1  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   2ÄÄÄÄÄÄÄÄÄÄÄ¿
+0060   RFF Reference                                 M   1           ³
+0070   DTM Date/time/period                          C   1ÄÄÄÄÄÄÄÄÄÄÄÙ
+
+0080       ÄÄÄÄÄ Segment group 2  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   5ÄÄÄÄÄÄÄÄÄÄÄ¿
+0090   FII Financial institution information         M   1           ³
+0100   CTA Contact information                       C   1           ³
+0110   COM Communication contact                     C   5ÄÄÄÄÄÄÄÄÄÄÄÙ
+
+0120       ÄÄÄÄÄ Segment group 3  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   3ÄÄÄÄÄÄÄÄÄÄÄ¿
+0130   NAD Name and address                          M   1           ³
+0140   CTA Contact information                       C   1           ³
+0150   COM Communication contact                     C   5ÄÄÄÄÄÄÄÄÄÄÄÙ
+
+0160       ÄÄÄÄÄ Segment group 4  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ M   99ÄÄÄÄÄÄÄÄÄÄ¿
+0170   LIN Line item                                 M   1           ³
+                                                                     ³
+0180       ÄÄÄÄÄ Segment group 5  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   5ÄÄÄÄÄÄÄÄÄÄ¿³
+0190   RFF Reference                                 M   1          ³³
+0200   DTM Date/time/period                          C   1ÄÄÄÄÄÄÄÄÄÄÙ³
+                                                                     ³
+0210       ÄÄÄÄÄ Segment group 6  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   99ÄÄÄÄÄÄÄÄÄ¿³
+0220   SEQ Sequence details                          M   1          ³³
+0230   GIS General indicator                         M   1          ³³
+0240   DTM Date/time/period                          C   2          ³³
+0250   MOA Monetary amount                           C   1          ³³
+0260   CUX Currencies                                C   1          ³³
+0270   PCD Percentage details                        C   1          ³³
+0280   FTX Free text                                 C   1          ³³
+0290   DOC Document/message details                  C   5          ³³
+                                                                    ³³
+0300       ÄÄÄÄÄ Segment group 7  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   1ÄÄÄÄÄÄÄÄÄ¿³³
+0310   FII Financial institution information         M   1         ³³³
+0320   CTA Contact information                       C   1         ³³³
+0330   COM Communication contact                     C   5ÄÄÄÄÄÄÄÄÄÙ³³
+                                                                    ³³
+0340       ÄÄÄÄÄ Segment group 8  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   1ÄÄÄÄÄÄÄÄÄ¿³³
+0350   NAD Name and address                          M   1         ³³³
+0360   CTA Contact information                       C   1         ³³³
+0370   COM Communication contact                     C   5ÄÄÄÄÄÄÄÄÄÁÁÙ
+0380   CNT Control total                             C   5     
+
+0390       ÄÄÄÄÄ Segment group 9  ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ C   5ÄÄÄÄÄÄÄÄÄÄÄ¿
+0400   AUT Authentication result                     M   1           ³
+0410   DTM Date/time/period                          C   1ÄÄÄÄÄÄÄÄÄÄÄÙ
+0420   UNT Message trailer                           M   1     
