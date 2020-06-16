@@ -4,6 +4,10 @@ import java.io.InputStream;
 import java.util.Hashtable;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.logging.ConsoleHandler;
+import java.util.logging.Handler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -23,6 +27,9 @@ public abstract class AbstractEdifactParser extends DefaultHandler
 	public static final String EDIFACT_ROOT_SEGMENT_NAME = "EDIFACTINTERCHANGE";
 	protected List<EdifactSegment> rawListOfAllEdifactSegments = null;
 	protected Hashtable<String, Node> theElementTab = null;
+	
+	
+	
 	/**
 	 * @param xsdFileName
 	 * @return

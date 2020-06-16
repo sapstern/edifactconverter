@@ -2,12 +2,17 @@ package com.sapstern.openedifact.run;
 
 import java.io.*;
 import java.util.Scanner;
+import java.util.logging.ConsoleHandler;
+import java.util.logging.Handler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 
 import org.xml.sax.SAXException;
 
+import com.sapstern.openedifact.sax.AbstractEdifactParser;
 import com.sapstern.openedifact.sax.EdifactSaxParserToFlat;
 import com.sapstern.openedifact.sax.EdifactSaxParserToFlatIF;
 import com.sapstern.openedifact.sax.EdifactSaxParserToXML;
@@ -18,14 +23,19 @@ public class ConverterRunner {
 	static final int PROCESS_2_FLAT = 0;  
 	static final int PROCESS_2_XML = 1;
 
+	static boolean isNamespace = false;
 	static int processToRun = -1;
 	static String inputString = null;
 	static String namespacePrefix = "";
+	static Level theLevel = null;
 	
 
+	
+	
 	public static void main(String[] args) {
 
 		parseArgs(args);
+		
 		switch(processToRun)
 		{
 		case PROCESS_2_FLAT:
@@ -48,8 +58,13 @@ public class ConverterRunner {
 			}
 			break;
 		case PROCESS_2_XML:
-			try {
-				EdifactSaxParserToXMLIF theXmlParser = EdifactSaxParserToXML.factory("UTF-8");
+			try {	
+				Logger theLogger = null;
+				if (theLevel!=null)
+					theLogger = initLogging(theLevel);
+				else
+					theLogger = initLogging(Level.INFO);
+				EdifactSaxParserToXMLIF theXmlParser = EdifactSaxParserToXML.factory("UTF-8", theLogger, isNamespace);
 				String xmlData = theXmlParser.parseEdifact(inputString);
 				PrintWriter p = new PrintWriter(new FileOutputStream(new File("out.xml")));
 				System.out.println(xmlData);
@@ -72,6 +87,23 @@ public class ConverterRunner {
 		}
 	}
 
+	/**
+	 * Convenience method to control logging level
+	 * @param theLogger
+	 * @param level
+	 * @return
+	 */
+	public static Logger initLogging (Level level) {
+		Logger theLogger = java.util.logging.Logger.getAnonymousLogger();
+		Handler handlerObj = new ConsoleHandler();
+		handlerObj.setLevel(level);
+		theLogger.addHandler(handlerObj);
+		theLogger.setLevel(level);
+		theLogger.setUseParentHandlers(false);
+		return theLogger;
+	}
+	
+	
 	/**
 	 * Parst die Argumentenliste (commandline) nach directoryName, messageType, theVersion.<BR>
 	 */
@@ -105,17 +137,22 @@ public class ConverterRunner {
 			    }
 			    inputString = fileContents.toString();
 			    scanner.close();				
-
 			}
 			
 			if (args[i].equals("-data"))
 				inputString = args[++i];
 			
-			if(args[i].equals("-ns"))
+			if(args[i].equals("-nsPrefix"))
 				namespacePrefix = args[++i];
 				
-
-
+			if(args[i].equals("-outNs"))
+				isNamespace = Boolean.parseBoolean(args[++i]);
+			
+			if(args[i].equals("-logLevel"))
+			{
+				theLevel = Level.parse(args[++i]);
+			}
+			
 		}
 	}
 

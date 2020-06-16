@@ -4,7 +4,7 @@
   <parent>
     <artifactId>openedifact</artifactId>
     <groupId>com.sapstern.openedifact</groupId>
-    <version>2.2-SNAPSHOT</version>
+    <version>${revision}-SNAPSHOT</version>
   </parent>
 
   <artifactId>openedifact-sample-01</artifactId>

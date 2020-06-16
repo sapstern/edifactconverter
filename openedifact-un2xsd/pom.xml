@@ -4,11 +4,10 @@
   <parent>
     <artifactId>openedifact</artifactId>
     <groupId>com.sapstern.openedifact</groupId>
-    <version>2.2-SNAPSHOT</version>
+    <version>${revision}-SNAPSHOT</version>
   </parent>
 
   <artifactId>openedifact-un2xsd</artifactId>
-
   <name>openedifact-un2xsd</name>
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>

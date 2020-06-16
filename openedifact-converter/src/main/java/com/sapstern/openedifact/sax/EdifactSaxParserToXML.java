@@ -54,6 +54,7 @@ import com.sapstern.openedifact.sax.parse.segments.EdifactSegment;
 import com.sapstern.openedifact.sax.parse.segments.EdifactSubField;
 import com.sapstern.openedifact.transform.StringTokenizerEscape;
 
+
 /**
  *  <BR><BR>
  * <B>Class/Interface Description: </B><BR>
@@ -95,7 +96,9 @@ public class EdifactSaxParserToXML extends AbstractEdifactParser implements XMLR
 	private String decimalSep = ".";
 
 	private boolean edielSwedish = false;
-
+	private boolean isNamepace = false; //echo the default namespace
+	private String nameSpace = "";
+	
 	private java.util.logging.Logger logger = null;
 
 
@@ -106,10 +109,9 @@ public class EdifactSaxParserToXML extends AbstractEdifactParser implements XMLR
 	@SuppressWarnings("unused")
 	private String theMessageName = null;
 
-	static
-	{
-		compositeAttribs.addAttribute(namespaceURI, "", "composite", "CDATA", "true");
-	}
+	
+	
+	
 
 	/**
 	 * Factory (with logging)for this parser
@@ -134,9 +136,36 @@ public class EdifactSaxParserToXML extends AbstractEdifactParser implements XMLR
 	{
 		EdifactSaxParserToXML theParser = new EdifactSaxParserToXML(encoding, logger);
 		return theParser;
-
 	}
 
+	/**
+	 * @param encoding
+	 * @param isNamespace
+	 * @return
+	 * @throws SAXException
+	 */
+	public static EdifactSaxParserToXMLIF factory(String encoding, boolean isNamespace) throws SAXException
+	{
+		EdifactSaxParserToXML theParser = new EdifactSaxParserToXML(encoding, null, isNamespace);
+		return theParser;
+	}
+
+	
+	/**
+	 * @param encoding
+	 * @param logger
+	 * @param isNamespace
+	 * @return
+	 * @throws SAXException
+	 */
+	public static EdifactSaxParserToXMLIF factory(String encoding, java.util.logging.Logger logger, boolean isNamespace) throws SAXException
+	{
+		EdifactSaxParserToXML theParser = new EdifactSaxParserToXML(encoding, logger);
+		theParser.isNamepace = isNamespace;
+		return theParser;
+	}
+
+	
 	/**
 	 * @param encoding
 	 * @throws SAXException
@@ -144,9 +173,21 @@ public class EdifactSaxParserToXML extends AbstractEdifactParser implements XMLR
 	private EdifactSaxParserToXML(String encoding) throws SAXException
 	{
 		super();
-		init(encoding, null);
+		init(encoding, null, false);
 	}
 
+	/**
+	 * @param encoding
+	 * @param isNamespace
+	 * @throws SAXException
+	 */
+	private EdifactSaxParserToXML(String encoding, boolean isNamespace) throws SAXException
+	{
+		super();
+		init(encoding, null, isNamespace);
+	}
+
+	
 	/**
 	 * @param encoding
 	 * @param logger
@@ -156,34 +197,53 @@ public class EdifactSaxParserToXML extends AbstractEdifactParser implements XMLR
 	{
 		super();
 		this.logger = logger;
-		//this.logger.setLevel(Level.FINEST);
-		init(encoding, logger);
+		
+		init(encoding, logger, false);
 	}
 
-	private void init(String encoding, java.util.logging.Logger logger)	throws SAXException
+	
+	private EdifactSaxParserToXML(String encoding, java.util.logging.Logger logger, boolean isNamespace) throws SAXException
+	{
+		super();
+		this.logger = logger;
+		
+		init(encoding, logger, isNamespace);
+	}
+	
+	
+	/**
+	 * @param encoding
+	 * @param logger
+	 * @param isNamespace
+	 * @throws SAXException
+	 */
+	private void init(String encoding, java.util.logging.Logger logger, boolean isNamespace)	throws SAXException
 	{
 		if (logger == null)
 		{
-			this.logger = java.util.logging.Logger.getAnonymousLogger();
-			this.logger.setLevel(Level.FINEST);
+			this.logger = java.util.logging.Logger.getAnonymousLogger();			
 			logger = this.logger;
 		}
 
 		this.logger.entering("EdifactSaxParserToXML", "init");
 		this.encoding = encoding;
+		this.isNamepace = isNamespace;
 		try
 		{
+			
 			SAXTransformerFactory saxTransformerFactory = (SAXTransformerFactory) SAXTransformerFactory
 					.newInstance();
+			
 			logger.finest("got saxTransformerFactory");
 			TransformerHandler handler = saxTransformerFactory
 					.newTransformerHandler();
 			logger.finest("got TransformerHandler");
 			transformer = handler.getTransformer();
-			logger.finest("got transformer");
+			logger.finest("got transformer "+transformer.getClass().getCanonicalName());			
 			transformer.setOutputProperty(OutputKeys.ENCODING, encoding);
 			transformer.setOutputProperty(OutputKeys.INDENT, "yes");
 			transformer.setOutputProperty(OutputKeys.METHOD, "xml");
+			
 		}
 		catch (TransformerConfigurationException tce)
 		{
@@ -211,7 +271,7 @@ public class EdifactSaxParserToXML extends AbstractEdifactParser implements XMLR
 
 			if (fieldObject.isComposite)
 			{
-				contentHandler.startElement(namespaceURI, "",
+				contentHandler.startElement(namespaceURI, nameSpace,
 						fieldObject.fieldTagName, null);
 				List<EdifactSubField> subFieldList = fieldObject.subFields;
 				for (int j = 0; j < subFieldList.size(); j++)
@@ -220,20 +280,20 @@ public class EdifactSaxParserToXML extends AbstractEdifactParser implements XMLR
 							.get(j);
 					if (subFieldObject.subFieldTagName != null)
 					{
-						contentHandler.startElement(namespaceURI, "", subFieldObject.subFieldTagName, attribs);
+						contentHandler.startElement(namespaceURI, nameSpace, subFieldObject.subFieldTagName, attribs);
 						contentHandler.characters(subFieldObject.subFieldValue.toCharArray(), 0, subFieldObject.subFieldValue.length());
-						contentHandler.endElement(namespaceURI, "",	subFieldObject.subFieldTagName);
+						contentHandler.endElement(namespaceURI, nameSpace,	subFieldObject.subFieldTagName);
 					}
 				}
 			}
 			else
 			{
-				contentHandler.startElement(namespaceURI, "",
+				contentHandler.startElement(namespaceURI, nameSpace,
 						fieldObject.fieldTagName, attribs);
 				contentHandler.characters(value.toCharArray(), 0, value
 						.length());
 			}
-			contentHandler.endElement(namespaceURI, "",
+			contentHandler.endElement(namespaceURI, nameSpace,
 					fieldObject.fieldTagName);
 		}
 		logger.exiting("EdifactSaxParserToXML", "parseCurrentSegment");
@@ -250,11 +310,11 @@ public class EdifactSaxParserToXML extends AbstractEdifactParser implements XMLR
 	{
 		logger.entering("EdifactSaxParserToXML", "traverseEdifactSegment");
 		logger.log(Level.FINE, "segment " + segment);
-		contentHandler.startElement(namespaceURI, "", segment.segmentName,	attribs);
+		contentHandler.startElement(namespaceURI, nameSpace, segment.segmentName,	attribs);
 		parseCurrentSegment(segment);
 		if (segment.childSegments.isEmpty())
 		{
-			contentHandler.endElement(namespaceURI, "", segment.segmentName);
+			contentHandler.endElement(namespaceURI, nameSpace, segment.segmentName);
 			return;
 		}
 		else
@@ -263,7 +323,7 @@ public class EdifactSaxParserToXML extends AbstractEdifactParser implements XMLR
 			{
 				traverseEdifactSegment((EdifactSegment) segment.childSegments.get(i));
 			}
-			contentHandler.endElement(namespaceURI, "", segment.segmentName);
+			contentHandler.endElement(namespaceURI, nameSpace, segment.segmentName);
 		}
 		logger.exiting("EdifactSaxParserToXML", "traverseEdifactSegment");
 	}
@@ -405,16 +465,26 @@ public class EdifactSaxParserToXML extends AbstractEdifactParser implements XMLR
 		buffyRootTagName.append((String) initialValues.get("messageVersion"));
 		String xsdFileName = buffyRootTagName.toString();
 		logger.log(Level.INFO, "xsdFileName " + xsdFileName);
-
+		if (isNamepace)
+		{
+			namespaceURI = "urn:sapstern.com:" + xsdFileName;
+			nameSpace = "ns0";
+			rootAttribs.addAttribute("http://www.w3.org/2001/XMLSchema-instance",
+					nameSpace, "xmlns:"+nameSpace, "CDATA", namespaceURI);
+		}
+		else 
+			rootAttribs.addAttribute("http://www.w3.org/2001/XMLSchema-instance",
+					nameSpace, "xmlns:ns0", "CDATA", namespaceURI);
 		rootAttribs.addAttribute("http://www.w3.org/2001/XMLSchema-instance",
 				"xmlns:xsi", "xmlns:xsi", "CDATA",
 				"http://www.w3.org/2001/XMLSchema-instance");
 		rootAttribs.addAttribute("http://www.w3.org/2001/XMLSchema-instance",
 				"", "xsi:noNamespaceSchemaLocation", "CDATA", xsdFileName
 				+ ".xsd");
-		rootAttribs.addAttribute("http://www.w3.org/2001/XMLSchema-instance",
-				"", "xmlns:ns0", "CDATA", "urn:sapstern.com:" + xsdFileName);
-
+		
+		
+		compositeAttribs.addAttribute(namespaceURI, nameSpace, "composite", "CDATA", "true");
+		
 		contentHandler.startDocument();
 
 		EdifactSegment tree;
@@ -1131,6 +1201,6 @@ public class EdifactSaxParserToXML extends AbstractEdifactParser implements XMLR
 	  }
 	}
 
-
+	
 
 }
