@@ -71,6 +71,7 @@ import com.sapstern.openedifact.unece.xsd.data.TypeDef;
  * 20.02.07   fricke         1.0      created 
  * 01.10.13	  fricke		 2.0      swapped from proprietary SEF format to UN/ECE website data descriptions
  * 11.11.19   fricke         2.1      changed definition of UNA / UNB segment to mandatory
+ * 17.06.20   fricke         2.2      add license info to xsd files
  * -------------------------------------------------------------------------------------------------</PRE>
  *
  *****************************************************************/
@@ -111,7 +112,7 @@ public class SaxParserUNECEToXSD  implements XMLReader
 	   attribs.addAttribute( namespaceURI, "", "composite", "CDATA", "true");
    }
 
-   
+   static final String LICENSE_STRING = "";
    
 	/**
 	 * The constructor to be used for this SAX parser instance
@@ -155,8 +156,18 @@ public class SaxParserUNECEToXSD  implements XMLReader
 	public void parse(InputSource source) throws IOException, SAXException
 	{
 	   messageName = messageName.replace("D.", "");
+	   //contentHandler.characters(ch, start, length);
 	   contentHandler.startDocument();
 	   contentHandler.startElement(namespaceURI, "xsd:schema", "xsd:schema", uneceParseAttribs);
+	   createAnnotationComment("Free Message Converter Copyleft 2007 - 2020 Matthias Fricke mf@sapstern.com", true, false);
+	   createAnnotationComment("Licensed under the Apache License, Version 2.0 (the \"License\");", false, false);
+	   createAnnotationComment("You may obtain a copy of the License at", false, false);
+	   createAnnotationComment("     http://www.apache.org/licenses/LICENSE-2.0", false, false);
+	   createAnnotationComment("Unless required by applicable law or agreed to in writing, software", false, false);
+	   createAnnotationComment("distributed under the License is distributed on an \"AS IS\" BASIS,", false, false);
+	   createAnnotationComment("WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.", false, false);
+	   createAnnotationComment("See the License for the specific language governing permissions and", false, false);
+	   createAnnotationComment("limitations under the License.", false, true);
 	   AttributesImpl  messageTypeAttribs = new AttributesImpl();
 	   messageTypeAttribs.addAttribute( "", "name", "name", "CDATA", messageType );	   
 	   contentHandler.startElement(namespaceURI, "xsd:element", "xsd:element", messageTypeAttribs);
@@ -269,11 +280,7 @@ public class SaxParserUNECEToXSD  implements XMLReader
 				contentHandler.startElement(namespaceURI, "xsd:element", "xsd:element", theAttribs);
 				if(theData.theDescription != null)
 				{
-					contentHandler.startElement(namespaceURI, "xsd:annotation", "xsd:annotation", new AttributesImpl());
-					contentHandler.startElement(namespaceURI, "xsd:documentation", "xsd:documentation", new AttributesImpl());
-					contentHandler.characters(theData.theDescription.toCharArray(), 0, theData.theDescription.length());
-					contentHandler.endElement(namespaceURI, "xsd:documentation", "xsd:documentation" );
-					contentHandler.endElement(namespaceURI, "xsd:annotation", "xsd:annotation" );
+					createAnnotationComment(theData.theDescription, true, true);
 				}
 
 				contentHandler.startElement(namespaceURI, "xsd:complexType", "xsd:complexType", new AttributesImpl());
@@ -301,6 +308,17 @@ public class SaxParserUNECEToXSD  implements XMLReader
 
 			   
 		   }
+	}
+
+
+	private void createAnnotationComment(String theText, boolean isAnnotationStart, boolean isAnnotationEnd) throws SAXException {
+		if (isAnnotationStart)
+			contentHandler.startElement(namespaceURI, "xsd:annotation", "xsd:annotation", new AttributesImpl());		
+		contentHandler.startElement(namespaceURI, "xsd:documentation", "xsd:documentation", new AttributesImpl());
+		contentHandler.characters(theText.toCharArray(), 0, theText.length());
+		contentHandler.endElement(namespaceURI, "xsd:documentation", "xsd:documentation" );
+		if (isAnnotationEnd)
+			contentHandler.endElement(namespaceURI, "xsd:annotation", "xsd:annotation" );
 	}
 
 
