@@ -9,7 +9,7 @@
 	</properties>
 	<groupId>com.sapstern.openedifact</groupId>
 	<artifactId>openedifact</artifactId>
-	<version>${revision}-SNAPSHOT</version>
+	<version>2.2-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>openedifact</name>
 	<!-- FIXME change it to the project's website -->

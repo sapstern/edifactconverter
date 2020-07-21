@@ -75,6 +75,7 @@ import com.sapstern.openedifact.transform.StringTokenizerEscape;
  * 24.05.18   fricke         2.3 bugfix FTX+ACB+++This is a test' problem (https://sourceforge.net/p/edifactconverter/tickets/4/)
  * 08.11.19   fricke         2.4 bugfix parsing composites like IMD+F++A:::PRODUCT 1' Product 1 was in wrong field <D_3055>PRODUCT 1</D_3055> it should be in and is now <D_7008>PRODUCT 1</D_7008>
  * 11.11.19   wasawasa       2.5 bugfix if segment string ends with seperator like +someData+' senseless but possible
+ * 16.06.20   fricke         2.6 make parser output default XML namespace
  * -------------------------------------------------------------------------------------------------------------------------------</PRE>
  *
  *****************************************************************/
