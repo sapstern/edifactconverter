@@ -196,7 +196,7 @@ public class EdifactSaxParserToXML extends AbstractEdifactParser implements XMLR
 	 */
 	private EdifactSaxParserToXML(String encoding, java.util.logging.Logger logger) throws SAXException
 	{
-		super();
+		super(logger);
 		this.logger = logger;
 		
 		init(encoding, logger, false);

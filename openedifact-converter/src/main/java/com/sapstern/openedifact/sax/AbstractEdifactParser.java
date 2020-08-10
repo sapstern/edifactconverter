@@ -20,9 +20,6 @@ import java.io.InputStream;
 import java.util.Hashtable;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.logging.ConsoleHandler;
-import java.util.logging.Handler;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -37,13 +34,25 @@ import org.xml.sax.helpers.DefaultHandler;
 
 import com.sapstern.openedifact.sax.parse.segments.EdifactSegment;
 
+
+
 public abstract class AbstractEdifactParser extends DefaultHandler 
 {
 
 	public static final String EDIFACT_ROOT_SEGMENT_NAME = "EDIFACTINTERCHANGE";
 	protected List<EdifactSegment> rawListOfAllEdifactSegments = null;
 	protected Hashtable<String, Node> theElementTab = null;
+	private java.util.logging.Logger logger = null;
 	
+	AbstractEdifactParser(){
+		super();
+		this.logger = Logger.getAnonymousLogger();
+	}
+	
+	AbstractEdifactParser(Logger theLogger){
+		super();
+		this.logger = theLogger;
+	}
 	
 	
 	/**
@@ -76,6 +85,7 @@ public abstract class AbstractEdifactParser extends DefaultHandler
 	 * @throws SAXException
 	 */
 	protected InputStream getIS(String xsdFileName) throws SAXException {
+		logger.entering(this.getClass().getName(), "getIS", xsdFileName);
 		InputStream is = null;
 		try {
 		is = Thread.currentThread().getContextClassLoader().getResourceAsStream(xsdFileName);
@@ -83,9 +93,10 @@ public abstract class AbstractEdifactParser extends DefaultHandler
 			is = this.getClass().getResourceAsStream(xsdFileName);
 		if(is==null)
 			is = this.getClass().getClassLoader().getResourceAsStream(xsdFileName);
-		} catch (Exception ignore) {}
+		} catch (Exception ignore) {logger.finest(this.getClass().getName()+".getIS("+xsdFileName+") => Exception: "+ignore.getMessage());}
 		if (is==null)
 			throw new SAXException("Unable to load resource: "+xsdFileName);
+		logger.exiting(this.getClass().getName(), "getIS");
 		return is;
 	}
 	/**
