@@ -30,15 +30,19 @@ import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
-public class DirectoryProcessor {
+import com.sapstern.openedifact.unece.xsd.log.AbstractLogger;
+
+public class DirectoryProcessor extends AbstractLogger{
 
 	static final int BUFFER = 2048;
+	
+	
 
 	public static File[] getFiles(String dirName) {
 
 		File[] resultArry = null;
 		File currentFile = new File(dirName);
-		EdifactConverterFilenameFilter fileNameFilter = new EdifactConverterFilenameFilter();
+		
 
 		List<File> resultFilesList = new LinkedList<File>(); 
 		// returns pathnames for files and directory
@@ -78,13 +82,13 @@ public class DirectoryProcessor {
 	}
 	public static void processFile(String dirName) throws IOException
 	{
-		System.out.println("Directory: "+dirName);
+		LOGGER.info("Directory: "+dirName);
 		File[] theFiles = getFiles(dirName);
 
 		for (int i=0;i<theFiles.length;i++)
 		{
 			File currentFile = theFiles[i];
-			System.out.println("File: "+currentFile.getName());
+			LOGGER.info("File: "+currentFile.getName());
 
 			String filenameUPPER = currentFile.getName();
 
@@ -125,7 +129,7 @@ public class DirectoryProcessor {
 		ZipEntry entry;
 		while((entry = zin.getNextEntry()) != null) 
 		{
-			System.out.println("Extracting: " +entry);
+			LOGGER.info("Extracting: " +entry);
 			int count;
 			byte data[] = new byte[BUFFER];
 			// write the files to the disk

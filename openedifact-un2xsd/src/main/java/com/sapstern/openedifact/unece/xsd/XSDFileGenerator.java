@@ -20,42 +20,46 @@ import java.io.File;
 import java.io.IOException;
 
 import com.sapstern.openedifact.unece.xsd.gen.Generator;
+import com.sapstern.openedifact.unece.xsd.log.AbstractLogger;
 
 
-public class XSDFileGenerator 
-{
+public class XSDFileGenerator extends AbstractLogger{
 
 	private static String theProjectDirectory = "/home/matthias/gitDieter/openedifact-un2xsd/src/test/UNECE";
-	private static String theMessageDirectory = theProjectDirectory+"/<VERSION>/IN/EDMD";
-	private static String theDirectory = theProjectDirectory+"/<VERSION>/IN";
+	private static String theMessageDirectory = theProjectDirectory + "/<VERSION>/IN/EDMD";
+	private static String theDirectory = theProjectDirectory + "/<VERSION>/IN";
 	private static String messageType = "EDIFACTINTERCHANGE";
 	private static String theVersion = "";
 	private static String theEncoding = "ISO-8859-1";
+	
 
+	
 
 	/**
 	 * @param args
 	 */
-	public static void main(String[] args)
-	{
+	public static void main(String[] args) {
+
 		parseArgs(args);
+		
+
 		theMessageDirectory = theMessageDirectory.replace("<VERSION>", theVersion);
 		theDirectory = theDirectory.replace("<VERSION>", theVersion);
 		Generator theGenerator = null;
 		try {
-			
-			theGenerator = new Generator(theVersion, theProjectDirectory, theEncoding, messageType, theMessageDirectory, theDirectory);
+
+			theGenerator = new Generator(theVersion, theProjectDirectory, theEncoding, messageType, theMessageDirectory,
+					theDirectory);
 		} catch (Exception e1) {
 			e1.printStackTrace();
 			System.exit(-1);
-		} 
-		
-		File theDirectoryFile = new File ( theMessageDirectory );
+		}
+
+		File theDirectoryFile = new File(theMessageDirectory);
 		String[] arryFileNames = theDirectoryFile.list();
-		System.out.println(theMessageDirectory);
-		for ( int z=0; z<arryFileNames.length; z++ )
-		{
-			if (arryFileNames[z].equalsIgnoreCase("CVS") )
+		LOGGER.info(theMessageDirectory);
+		for (int z = 0; z < arryFileNames.length; z++) {
+			if (arryFileNames[z].equalsIgnoreCase("CVS"))
 				continue;
 
 			try {
@@ -75,23 +79,22 @@ public class XSDFileGenerator
 			}
 		}
 
-
 	}
 
+
+
 	/**
-	 * Parst die Argumentenliste (commandline) nach directoryName, messageType, theVersion.<BR>
+	 * Parst die Argumentenliste (commandline) nach directoryName, messageType,
+	 * theVersion.<BR>
 	 */
-	static void parseArgs(String args[])
-	{
+	static void parseArgs(String args[]) {
 		if ((args == null) || (args.length == 0))
 			return;
-		for (int i = 0; i < args.length; i++)
-		{
-			if (args[i].equals("-directoryName"))
-			{
+		for (int i = 0; i < args.length; i++) {
+			if (args[i].equals("-directoryName")) {
 				theProjectDirectory = args[++i];
-				theMessageDirectory = theProjectDirectory+"/<VERSION>/IN/EDMD";
-				theDirectory = theProjectDirectory+"/<VERSION>/IN";
+				theMessageDirectory = theProjectDirectory + "/<VERSION>/IN/EDMD";
+				theDirectory = theProjectDirectory + "/<VERSION>/IN";
 			}
 			if (args[i].equals("-messageType"))
 				messageType = args[++i];
@@ -99,8 +102,11 @@ public class XSDFileGenerator
 				theVersion = args[++i];
 			if (args[i].equals("-encoding"))
 				theEncoding = args[++i];
+			
 
 		}
 	}
+	
+
 
 }

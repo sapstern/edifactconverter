@@ -44,10 +44,11 @@ import com.sapstern.openedifact.unece.xsd.data.SegmentData;
 import com.sapstern.openedifact.unece.xsd.data.SegmentStructureData;
 import com.sapstern.openedifact.unece.xsd.data.SegmentStructureElement;
 import com.sapstern.openedifact.unece.xsd.data.TypeDef;
+import com.sapstern.openedifact.unece.xsd.log.AbstractLogger;
 import com.sapstern.openedifact.unece.xsd.sax.SaxParserUNECEToXSD;
 import com.sapstern.openedifact.unece.xsd.utils.StringChecker;
 
-public class Generator implements TypeDef{
+public class Generator extends AbstractLogger implements TypeDef{
 
 	private String theProjectDirectory = "/home/matthias/gitDieter/openedifact-un2xsd/src/test/UNECE";
 	private String theEncoding = "ISO-8859-1";
@@ -60,6 +61,7 @@ public class Generator implements TypeDef{
 	private Hashtable<String, Integer> tabOffsetVersion = null;
 	private Hashtable<String, Integer> tabOffsetGeneric = null;
 
+	
 
 
 	/**
@@ -78,6 +80,7 @@ public class Generator implements TypeDef{
 
 		tabOffsetGeneric = getOffsetValues("XXX");
 		tabOffsetVersion = getOffsetValues(theVersion);		
+		//XSDFileGenerator.setLogLevel(LOGGER);
 	}
 
 	/**
@@ -168,7 +171,7 @@ public class Generator implements TypeDef{
 					continue;
 				currentLine = normalizeLineEncoding(currentLine);
 				lineTab.put(i, currentLine);
-				//System.out.println(currentLine);
+				//LOGGER.info(currentLine);
 			}
 		}
 
@@ -230,7 +233,7 @@ public class Generator implements TypeDef{
 			}
 
 			theSegmentList.add(data);
-			System.out.println(data.theSegmentName + " " + data.theSegmentDescr	+ " " + data.isMandatory + " " + data.theCardinality + " "	+ data.theLevel + " " + data.theNameOfSegmentGroup);
+			LOGGER.info(data.theSegmentName + " " + data.theSegmentDescr	+ " " + data.isMandatory + " " + data.theCardinality + " "	+ data.theLevel + " " + data.theNameOfSegmentGroup);
 
 		}
 		// Hole Alle Segmente
@@ -373,7 +376,7 @@ public class Generator implements TypeDef{
 				return "1";
 		else 
 			return "0";
-		}catch (Exception e) {System.out.println(theLine);}
+		}catch (Exception e) {LOGGER.info(theLine);}
 		return "0";
 	}
 
@@ -396,12 +399,12 @@ public class Generator implements TypeDef{
 
 			if (theSegmentTab.get(theSegment.theSegmentName)==null)
 			{
-				//	System.out.println("Not found in Tab: "+theSegment.theSegmentName);
+				//	LOGGER.info("Not found in Tab: "+theSegment.theSegmentName);
 				continue;
 			}
 
 			SegmentStructureData theSegmentStructure = theSegmentTab.get(theSegment.theSegmentName);
-			//System.out.println(theSegment.theSegmentName);
+			//LOGGER.info(theSegment.theSegmentName);
 			if ( !theList.contains(theSegmentStructure) )
 				theList.add(theSegmentStructure);
 		}
@@ -444,7 +447,7 @@ public class Generator implements TypeDef{
 				continue;
 			if (isWinEncoding(theVersion))
 				line = normalizeLineEncoding(line);
-			System.out.println(line);
+			LOGGER.info(line);
 			if (line.indexOf("----------------------------------------------------------------------")!=-1)
 			{
 				isSegment = false;
@@ -541,7 +544,7 @@ public class Generator implements TypeDef{
 				theElement.isManadatory = isMandatory(localLine);
 
 				if (theData==null)
-					System.out.println(theElement.theName);
+					LOGGER.info(theElement.theName);
 				if (lineNumber!=-1)
 					theData.theMemberList.add(theElement);
 			}
@@ -683,7 +686,7 @@ public class Generator implements TypeDef{
 					CompositeDataDefinition theDataDefinitition = new CompositeDataDefinition();
 					theDataDefinitition.theName = "D_" + theNumberToken;
 
-					// System.out.println(line);
+					// LOGGER.info(line);
 					// Bei Zeilenumbruch auf die naechste Zeile wechseln
 					if (line.length() < 56)
 						setMandatory(in.readLine(), theDataDefinitition, tab.get("COMPOSITE_MANDATORY_START"), tab.get("COMPOSITE_MANDATORY_END"));
@@ -730,7 +733,7 @@ public class Generator implements TypeDef{
 			// TODO Auto-generated catch block
 
 			e.printStackTrace();
-			System.out.println("Dumping string: "+line);
+			LOGGER.info("Dumping string: "+line);
 			System.exit(-1);
 		}
 	}
