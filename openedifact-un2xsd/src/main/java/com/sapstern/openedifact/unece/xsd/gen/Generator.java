@@ -142,7 +142,9 @@ public class Generator extends AbstractLogger implements TypeDef{
 			}
 			if (isLineProcessing)
 			{
-
+				//Old files eg 96A contain an annex, we dont want to read that
+				if(line.startsWith("Annex"))
+					break;
 				int localLineNumber = getRgexNumber(line, 5);
 				if (localLineNumber!=-1)
 				{
@@ -836,7 +838,12 @@ public class Generator extends AbstractLogger implements TypeDef{
 	{
 		if (line.substring(startIndex, endIndex).equals(tokenName))
 		{
-			String theToken = line.substring(11).trim();
+			int theIndex = line.indexOf(tokenName+":");
+			if (theIndex==-1)
+				throw new IndexOutOfBoundsException("Token not found "+tokenName+":");
+			
+			theIndex = theIndex + (tokenName+":").length();
+			String theToken = line.substring(theIndex).trim();
 			theTab.put(tokenName, theToken);
 
 		}
