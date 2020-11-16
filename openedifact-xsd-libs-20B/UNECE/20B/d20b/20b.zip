@@ -1,0 +1,1339 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- 
+	This website is powered by TYPO3 - inspiring people to share!
+	TYPO3 is a free open source Content Management Framework initially created by Kasper Skaarhoj and licensed under GNU/GPL.
+	TYPO3 is copyright 1998-2020 of Kasper Skaarhoj. Extensions are copyright of their respective owners.
+	Information and contribution at https://typo3.org/
+-->
+
+<base href="/">
+
+<title>UNECE Homepage</title>
+<meta name="generator" content="TYPO3 CMS">
+
+
+<link rel="stylesheet" type="text/css" href="/typo3temp/Assets/32be61a672.css?1537972778" media="all">
+
+
+
+<script src="/typo3temp/Assets/9a38f34785.js?1537972778" type="text/javascript"></script>
+
+
+<meta http-equiv="content-type" content="text/html; charset=utf-8" /><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga'); ga('create', 'UA-11755638-2', 'auto'); ga('send', 'pageview'); </script><link rel="stylesheet" type="text/css" media="all" href="/typo3conf/ext/unece_templates_2014/Resources/Public/Style/superfish/superfish.css" /><link rel="stylesheet" type="text/css" media="all" href="/typo3conf/ext/unece_templates_2014/Resources/Public/Style/rss-date-ui-views.css" /><link rel="stylesheet" type="text/css" media="all" href="/typo3conf/ext/unece_templates_2014/Resources/Public/Style/drupal-specific-2.css" /><link rel="stylesheet" type="text/css" media="all" href="/typo3conf/ext/unece_templates_2014/Resources/Public/Style/drupal-reset.css" /><link rel="stylesheet" type="text/css" media="all" href="/typo3conf/ext/unece_templates_2014/Resources/Public/Style/fonts.css" /><link rel="stylesheet" type="text/css" media="all" href="/typo3conf/ext/unece_templates_2014/Resources/Public/Style/ece-specific.css" /><link rel="stylesheet" type="text/css" media="all" href="/typo3conf/ext/unece_templates_2014/Resources/Public/Style/grid.css" /><link href='https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,700,700italic,800&subset=latin,cyrillic' rel='stylesheet' type='text/css'><link rel="stylesheet" type="text/css" media="all" href="/typo3conf/ext/unece_templates_2014/Resources/Public/Style/table-styles.css" /><link rel="stylesheet" type="text/css" media="all" href="/typo3conf/ext/unece_templates_2014/Resources/Public/Style/typo3-specific.css" /><link rel="stylesheet" type="text/css" media="all" href="/typo3conf/ext/unece_templates_2014/Resources/Public/Style/links.css" /><link rel="stylesheet" type="text/css" media="all" href="/typo3conf/ext/unece_templates_2014/Resources/Public/Style/executive-secretary-homepage-blog-block.css" /><link rel="stylesheet" type="text/css" media="all" href="/typo3conf/ext/unece_templates_2014/Resources/Public/Style/plugin-overrides.css" /><link rel="stylesheet" type="text/css" media="all" href="/typo3conf/ext/unece_templates_2014/Resources/Public/Style/stories.css" /><!--[if lte IE 8]><link type="text/css" rel="stylesheet" href="/typo3conf/ext/unece_templates_2014/Resources/Public/Style/fonts/opensans/stylesheet.css" media="all" /><![endif]--><!--[if lte IE 7]><link type="text/css" rel="stylesheet" href="/typo3conf/ext/unece_templates_2014/Resources/Public/Style/ie7.css" media="all" /><![endif]--><!--[if lte IE 8]><link type="text/css" rel="stylesheet" href="/typo3conf/ext/unece_templates_2014/Resources/Public/Style/ie8.css" media="all" /><![endif]--><!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]--><script type="text/javascript" src="/fileadmin/templates/libs/jquery.min-1.9.1.js"></script><script type="text/javascript" src="/typo3conf/ext/unece_templates_2014/Resources/Public/Javascript/jquery.cycle.all.js"></script><script type="text/javascript" src="/typo3conf/ext/unece_templates_2014/Resources/Public/Style/superfish/superfish.js"></script><script type="text/javascript" src="/typo3conf/ext/unece_templates_2014/Resources/Public/Javascript/main.js"></script><link rel="stylesheet" type="text/css" media="all" href="/typo3conf/ext/unece_templates_2014/Resources/Public/Style/tabs-custom-styles.css" />
+</head>
+<body id="page_37691" class="html front not-logged-in page-home i18n-en omega-mediaqueries-processed responsive-layout-normal">
+<div id="unece-background"></div>
+<div id="skip-link">
+	<a href="#main-content" class="element-invisible element-focusable">Skip to main content</a>
+</div>
+
+<div class="page clearfix" id="page">
+<header id="section-header" class="section section-header">
+	<div id="zone-branding-wrapper" class="zone-wrapper zone-branding-wrapper clearfix">
+		<div id="zone-branding" class="zone zone-branding clearfix container-12">
+			<div class="grid-10 region region-branding" id="region-branding">
+				<div class="region-inner region-branding-inner">
+					<div class="branding-data clearfix">
+						<hgroup class="site-name-slogan">
+							<h1 class="site-name"><a href="/" title="Home" class="active">United Nations Economic Commission for Europe</a></h1>
+							<h2 class="sdg-logo"><a href="/unece-and-the-sdgs/unece-and-the-sdgs.html" title="Home">Sustainable Development Goals</a></h2>
+						</hgroup>
+					</div>
+
+					<!--###language_menu###-->
+					<div class="block block-locale block-language block-locale-language odd block-without-title" id="block-locale-language">
+						<div class="block-inner clearfix">
+							<div class="content clearfix">
+								<ul class="language-switcher-locale-url">
+									<li class="en first active"><a href="/" class="language-link active" lang="en">English</a></li>
+									<li class="fr last"><a href="/fr" class="language-link" lang="fr">Français</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<!--###language_menu###-->
+
+					<div class="block block-search block-form block-search-form even block-without-title" id="block-search-form">
+						<div class="block-inner clearfix">
+							<div class="content clearfix">
+									<form action="/unece/search" method="get" id="search-block-form" accept-charset="UTF-8">
+		<div>
+			<div class="container-inline">
+				<h2 class="element-invisible">Search form</h2>
+
+				<div class="form-item form-type-textfield form-item-search-block-form">
+					<label class="element-invisible" for="search-input">Search </label>
+					<input title="Enter the terms you wish to search for." type="text" id="search-input" name="q" value="" size="15" maxlength="128" class="form-text">
+				</div>
+
+				<div class="form-actions form-wrapper" id="edit-actions">
+					<input type="submit" id="edit-submit" name="op" value="Search" class="form-submit">
+				</div>
+			</div>
+		</div>
+	</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<a href="/covid-19.html" style="background: url(/typo3conf/ext/unece_templates_2014/Resources/Public/Style/images/coronavirus-advisory.png); height: 43px; width: 996px; display: block; margin: auto;">&nbsp;</a>
+	</div>
+
+	<div id="zone-menu-wrapper" class="zone-wrapper zone-menu-wrapper clearfix">
+		<div id="zone-menu" class="zone zone-menu clearfix container-12">
+			<div class="grid-12 region region-menu" id="region-menu">
+				<div class="region-inner region-menu-inner">
+
+					<!--  menu -->
+					<div class="block block-superfish block-1 block-superfish-1 odd block-without-title" id="block-superfish-1">
+						<div class="block-inner clearfix">
+							<div class="content clearfix">
+								<ul class="sf-menu main-menu sf-horizontal sf-style-default sf-shadow">
+									<li><a href="/mission.html">About UNECE</a><ul><li><a href="/press/execsec/current_exec.html">Executive Secretary</a></li><li><a href="/mission.html">Mission</a></li><li><a href="/oes/nutshell/governing_bodies.html">Organizational structure</a></li><li><a href="/info/about-unece/unecesecretariat/management.html">Secretariat</a></li><li><a href="/commission/excom/welcome.html">Executive Committee</a></li><li><a href="/commission/index.html">Commission</a></li><li><a href="/leginstr/cover.html">Legal instruments</a></li><li><a href="/oes/job_opportunities/vacancy_announcements.html">Work with us</a></li></ul></li><li><a href="/mission.html">Our work</a><ul><li><a href="/ceci0.html">Economic Cooperation & Integration</a></li><li><a href="/env/welcome.html">Environmental Policy</a></li><li><a href="/forests/welcome.html">Forests</a></li><li><a href="/housing.html">Housing & Land</a></li><li><a href="/pau/welcome.html">Population</a></li><li><a href="/energy.html">Sustainable Energy</a></li><li><a href="/stats/stats_h.html">Statistics</a></li><li><a href="/tradewelcome/trade-programme.html">Trade</a></li><li><a href="/trans/welcome.html">Transport</a></li></ul></li><li><a href="/mission.html">Themes</a><ul><li><a href="/unece-and-the-sdgs/unece-and-the-sdgs.html">UNECE and the SDGs</a></li><li><a href="/high-impact-areas/general-introduction.html">High-impact Areas</a></li><li><a href="/gender.html">Gender</a></li><li><a href="/speca/welcome.html">SPECA</a></li><li><a href="/operact/welcome.html">Technical cooperation</a></li><li><a href="https://thepep.unece.org/">THE PEP</a></li><li><a href="/united-nations-special-envoy-for-road-safety/roadsafetyenvoy.html">UN SG's Special Envoy for Road Safety</a></li><li><a href="/unrsf/home.html">UN Road Safety Fund</a></li><li><a href="/runcwelcome/un-cooperation-in-the-unece-region.html">UN cooperation in the UNECE region</a></li><li><a href="/rfsd.html">Regional Forum on Sustainable Development</a></li></ul></li><li><a href="/info/where-we-work/where-we-work.html">Where we work</a></li><li><a href="/info/open-unece/open-unece.html">Open UNECE</a></li><li><a href="/info/events/meetings-and-events.html">Events</a><ul><li><a href="/info/events/meetings-and-events.html">Meetings & Events</a></li><li><a href="/meetings/practical.html">Information for Delegates</a></li><li><a href="/covid-19.html">Coronavirus Advisory</a></li></ul></li><li><a href="/publications/oes/welcome.html">Publications</a></li><li><a href="/info/media/media.html">Media</a><ul><li><a href="/info/media/executive-secretarys-blog.html">Executive Secretary's Blog</a></li><li><a href="/info/media/news.html">News</a></li><li><a href="/press/current_press_h.html">Press Releases</a></li><li><a href="/info/media/covid-19-news-press-releases.html">Covid-19 Press Releases</a></li><li><a href="/press/execsec/execsectoc.html">Speeches</a></li><li><a href="/info/media/stories/buy-food.html">Stories</a></li><li><a href="/info/media/unece-weekly/unece-weekly.html">UNECE Weekly</a></li><li><a href="/videoc/welcome.html">Videos</a></li></ul></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<!--  menu -->
+
+				</div>
+			</div>
+		</div>
+	</div>
+</header>
+
+<section id="section-content" class="section section-content">
+<div id="zone-content-wrapper" class="zone-wrapper zone-content-wrapper clearfix">
+	<div id="zone-content" class="zone zone-content clearfix container-12">
+		<div class="grid-12 region region-content" id="region-content">
+			<!-- MAIN CONTENT -->
+
+			<div class="region-inner region-content-inner">
+				<a id="main-content"></a>
+				
+				<!-- MAJOR EVENTS -->
+				<section class="block block-views grid-5 block-highlights-block block-views-highlights-block even" id="block-views-highlights-block">
+					<div class="block-inner clearfix">
+						<h2 class="block-title">Major events</h2>
+						<div class="content clearfix">
+							<div class="view view-highlights view-id-highlights view-display-id-block">
+								<div class="view-content">
+									
+	<!--  CONTENT ELEMENT, uid:45766/list [begin] -->
+		<a id="c45766"></a>
+		<!--  Plugin inserted: [begin] -->
+			
+
+
+
+		
+	
+			
+					
+
+
+	
+	
+
+
+
+
+						
+							
+	
+	
+	
+	
+
+<!--
+	=====================
+	Partials/List/Event.html
+-->
+
+<div class="views-row article odd">
+	<div class="views-field views-field-body">
+		<div class="field-content">
+			<div class="box-left">
+				<div class="views-field views-field-title">
+					<span class="field-content">
+						<a href="http://www.unece.org/index.php?id=52639">
+							Informal virtual consultations and Roundtable of the Working...
+						</a>
+					</span>
+				</div>
+				<div class="views-field views-field-field-highlight-subtitle">
+					<div class="field-content"></div>
+				</div>
+				<div class="views-field views-field-body">
+					<div class="field-content">
+						<p>
+							<strong>16 - 17 November</strong>, Online (see link)
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="views-field views-field-field-highlight-featured-image">
+		<div class="field-content">
+
+			<!-- image -->
+			
+				<!-- media preview element -->
+				<a href="http://www.unece.org/index.php?id=52639">
+					
+						
+							
+								<img src="uploads/tx_news/Fresh_Fruits_Vegetables_ME_Nov_2020.jpg" title="" alt="" width="158" height="86" />
+							
+						
+					
+				</a>
+			
+
+		</div>
+	</div>
+</div>
+
+
+	
+	
+	
+	
+
+						
+							
+	
+	
+	
+	
+
+<!--
+	=====================
+	Partials/List/Event.html
+-->
+
+<div class="views-row article even">
+	<div class="views-field views-field-body">
+		<div class="field-content">
+			<div class="box-left">
+				<div class="views-field views-field-title">
+					<span class="field-content">
+						<a href="https://www.unece.org/index.php?id=53503">
+							(SC.2) Working Party on Rail Transport (74th session)
+						</a>
+					</span>
+				</div>
+				<div class="views-field views-field-field-highlight-subtitle">
+					<div class="field-content"></div>
+				</div>
+				<div class="views-field views-field-body">
+					<div class="field-content">
+						<p>
+							<strong>18 - 20 November</strong>, Palais des Nations, Geneva
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="views-field views-field-field-highlight-featured-image">
+		<div class="field-content">
+
+			<!-- image -->
+			
+				<!-- media preview element -->
+				<a href="https://www.unece.org/index.php?id=53503">
+					
+						
+							
+								<img src="uploads/tx_news/Rail_Transport_1_Major_Event_03.jpg" title="" alt="" width="158" height="86" />
+							
+						
+					
+				</a>
+			
+
+		</div>
+	</div>
+</div>
+
+
+	
+	
+	
+	
+
+						
+					
+
+
+	
+	
+
+
+
+
+
+				
+		
+
+	
+
+		<!--  Plugin inserted: [end] -->
+			
+	<!--  CONTENT ELEMENT, uid:45766/list [end] -->
+		
+	<!--  CONTENT ELEMENT, uid:45997/list [begin] -->
+		<a id="c45997"></a>
+		<!--  Plugin inserted: [begin] -->
+			
+
+
+
+		
+	
+			
+					
+
+
+	
+	
+
+
+
+
+						
+							
+	
+	
+	
+	
+	
+	<!--
+	=====================
+		Partials/List/Blog.html
+-->
+<div class="block block-views grid-5 block-view-executive-secretary-blog even block-without-title" style="margin-left:15px;">
+	<div class="block-inner clearfix">
+		<div class="content clearfix">
+			<div class="view view-executive-secretary-blog-posts view-id-executive_secretary_blog_posts view-display-id-block">
+				<div class="view-header">
+					<h2 class="block-title">
+						<a href="/info/media/executive-secretary-blog/2020/trustworthy-official-statistics-help-us-all-overcome-crises-now-and-in-the-future/doc.html"><span>Bach&apos;s Blog</span> The Executive Secretary's Blog</a></a>
+					</h2>
+					<span id="cheetah"></span>
+				</div>
+				<div class="view-content">
+					<div class="views-row">
+						<div class="views-field views-field-field-esblog-post-publishng-date">
+							<span class="views-label views-label-field-esblog-post-publishng-date">Posted on: </span>
+							<div class="field-content">
+								<span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="2020-10-20T00:00:00+02:00">
+									20 October 2020
+								</span>
+							</div>
+						</div>
+						<div class="views-field views-field-title">
+							<span class="field-content">
+								<a href="/info/media/executive-secretary-blog/2020/trustworthy-official-statistics-help-us-all-overcome-crises-now-and-in-the-future/doc.html">Trustworthy official statistics help us all overcome crises, now and in the future</a>
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+	
+	
+
+						
+					
+
+
+	
+	
+
+
+
+
+
+				
+		
+
+	
+
+		<!--  Plugin inserted: [end] -->
+			
+	<!--  CONTENT ELEMENT, uid:45997/list [end] -->
+		
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- MAJOR EVENTS -->
+				
+				<div class="block block-views grid-7 alpha block-focus-block block-views-focus-block odd block-without-title" id="block-views-focus-block">
+					<div class="block-inner clearfix">
+						<div class="content clearfix">
+							<div class="view view-focus view-id-focus view-display-id-block">
+								<div class="view-content">
+									<!-- NEWS SLIDESHOW -->
+									<div class="skin-default">
+										
+	<!--  CONTENT ELEMENT, uid:45763/list [begin] -->
+		<a id="c45763"></a>
+		<!--  Plugin inserted: [begin] -->
+			
+
+
+
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$('#slideshow').cycle({
+					'fx': 'fade',
+					'speed': 750,
+					'timeout': 5000,
+
+				});
+			});
+		</script>
+		<div id="slideshow">
+			
+	
+			
+					
+
+
+	
+	
+
+
+
+
+						
+							
+	
+	
+	
+	
+	
+
+<!-- PURPOSE: this template is rendered when the special "layout" called "Event" is selected in plugin properties. -->
+<!-- Suggested contents: any HTML container tags and CSS class names which must apply, then passthrough render of default Item -->
+
+<div id="views_slideshow_cycle_div_focus-block_0" class="views_slideshow_cycle_hidden views-slideshow-cycle-main-frame-row views_slideshow_cycle_slide views_slideshow_slide views-row-1 views-row-odd">
+	<div class="views-slideshow-cycle-main-frame-row-item views-row views-row-0  views-row-first views-row-odd">
+		<div class="views-field views-field-field-focus-featured-image">
+			<div class="field-content">
+				<a href="/info/media/presscurrent-press-h/transport/2020/remember-support-and-act-on-world-day-of-remembrance-for-road-traffic-victims-urges-un-road-safety-fund/doc.html">
+					
+						<img src="uploads/tx_news/web_Transport_UNRSF_pic.jpg" width="340" height="210" title="" alt="" />
+					
+				</a>
+			</div>
+		</div>
+		<div class="views-field views-field-title">
+			<span class="field-content">
+				<a href="/info/media/presscurrent-press-h/transport/2020/remember-support-and-act-on-world-day-of-remembrance-for-road-traffic-victims-urges-un-road-safety-fund/doc.html">
+					Remember, support and act on World Day of Remembrance for Road Traffic Victims, urges UN Road Safety Fund
+				</a>
+				<a href="/info/media/presscurrent-press-h/transport/2020/remember-support-and-act-on-world-day-of-remembrance-for-road-traffic-victims-urges-un-road-safety-fund/doc.html">
+					<span class="link-read-more">Read more</span>
+				</a>
+			</span>
+		</div>
+	</div>
+</div>
+
+	
+	
+	
+
+						
+							
+	
+	
+	
+	
+	
+
+<!-- PURPOSE: this template is rendered when the special "layout" called "Event" is selected in plugin properties. -->
+<!-- Suggested contents: any HTML container tags and CSS class names which must apply, then passthrough render of default Item -->
+
+<div id="views_slideshow_cycle_div_focus-block_1" class="views_slideshow_cycle_hidden views-slideshow-cycle-main-frame-row views_slideshow_cycle_slide views_slideshow_slide views-row-2 views-row-even">
+	<div class="views-slideshow-cycle-main-frame-row-item views-row views-row-1  views-row-even">
+		<div class="views-field views-field-field-focus-featured-image">
+			<div class="field-content">
+				<a href="/info/media/presscurrent-press-h/forestry/2020/unece-supports-five-countries-of-the-caucasus-and-central-asia-to-develop-national-sets-of-criteria-and-indicators-for-sustainable-forest-management/doc.html">
+					
+						<img src="uploads/tx_news/web_Forest_Caucasus_857.jpg" width="340" height="210" title="" alt="" />
+					
+				</a>
+			</div>
+		</div>
+		<div class="views-field views-field-title">
+			<span class="field-content">
+				<a href="/info/media/presscurrent-press-h/forestry/2020/unece-supports-five-countries-of-the-caucasus-and-central-asia-to-develop-national-sets-of-criteria-and-indicators-for-sustainable-forest-management/doc.html">
+					UNECE supports five countries of the Caucasus and Central Asia to develop national sets of criteria and indicators for sustainable forest management
+				</a>
+				<a href="/info/media/presscurrent-press-h/forestry/2020/unece-supports-five-countries-of-the-caucasus-and-central-asia-to-develop-national-sets-of-criteria-and-indicators-for-sustainable-forest-management/doc.html">
+					<span class="link-read-more">Read more</span>
+				</a>
+			</span>
+		</div>
+	</div>
+</div>
+
+	
+	
+	
+
+						
+							
+	
+	
+	
+	
+	
+
+<!-- PURPOSE: this template is rendered when the special "layout" called "Event" is selected in plugin properties. -->
+<!-- Suggested contents: any HTML container tags and CSS class names which must apply, then passthrough render of default Item -->
+
+<div id="views_slideshow_cycle_div_focus-block_2" class="views_slideshow_cycle_hidden views-slideshow-cycle-main-frame-row views_slideshow_cycle_slide views_slideshow_slide views-row-3 views-row-odd">
+	<div class="views-slideshow-cycle-main-frame-row-item views-row views-row-2  views-row-odd">
+		<div class="views-field views-field-field-focus-featured-image">
+			<div class="field-content">
+				<a href="/info/media/news/trade/2020/uncefact-showcases-technologies-to-improve-cross-border-trade-and-support-an-inclusive-digital-economy/doc.html">
+					
+						<img src="uploads/tx_news/web_Trade_CEFACT_857.jpg" width="340" height="210" title="" alt="" />
+					
+				</a>
+			</div>
+		</div>
+		<div class="views-field views-field-title">
+			<span class="field-content">
+				<a href="/info/media/news/trade/2020/uncefact-showcases-technologies-to-improve-cross-border-trade-and-support-an-inclusive-digital-economy/doc.html">
+					UN/CEFACT showcases technologies to improve cross-border trade and support an inclusive digital economy
+				</a>
+				<a href="/info/media/news/trade/2020/uncefact-showcases-technologies-to-improve-cross-border-trade-and-support-an-inclusive-digital-economy/doc.html">
+					<span class="link-read-more">Read more</span>
+				</a>
+			</span>
+		</div>
+	</div>
+</div>
+
+	
+	
+	
+
+						
+							
+	
+	
+	
+	
+	
+
+<!-- PURPOSE: this template is rendered when the special "layout" called "Event" is selected in plugin properties. -->
+<!-- Suggested contents: any HTML container tags and CSS class names which must apply, then passthrough render of default Item -->
+
+<div id="views_slideshow_cycle_div_focus-block_3" class="views_slideshow_cycle_hidden views-slideshow-cycle-main-frame-row views_slideshow_cycle_slide views_slideshow_slide views-row-4 views-row-even">
+	<div class="views-slideshow-cycle-main-frame-row-item views-row views-row-3  views-row-even">
+		<div class="views-field views-field-field-focus-featured-image">
+			<div class="field-content">
+				<a href="/info/media/presscurrent-press-h/population/2020/covid-19-crisis-shows-the-specific-needs-of-older-persons-must-receive-more-attention-in-emergencies/doc.html">
+					
+						<img src="uploads/tx_news/web_Woman_with_mask.jpg" width="340" height="210" title="" alt="" />
+					
+				</a>
+			</div>
+		</div>
+		<div class="views-field views-field-title">
+			<span class="field-content">
+				<a href="/info/media/presscurrent-press-h/population/2020/covid-19-crisis-shows-the-specific-needs-of-older-persons-must-receive-more-attention-in-emergencies/doc.html">
+					COVID-19 crisis shows the specific needs of older persons must receive more attention in emergencies
+				</a>
+				<a href="/info/media/presscurrent-press-h/population/2020/covid-19-crisis-shows-the-specific-needs-of-older-persons-must-receive-more-attention-in-emergencies/doc.html">
+					<span class="link-read-more">Read more</span>
+				</a>
+			</span>
+		</div>
+	</div>
+</div>
+
+	
+	
+	
+
+						
+							
+	
+	
+	
+	
+	
+
+<!-- PURPOSE: this template is rendered when the special "layout" called "Event" is selected in plugin properties. -->
+<!-- Suggested contents: any HTML container tags and CSS class names which must apply, then passthrough render of default Item -->
+
+<div id="views_slideshow_cycle_div_focus-block_4" class="views_slideshow_cycle_hidden views-slideshow-cycle-main-frame-row views_slideshow_cycle_slide views_slideshow_slide views-row-5 views-row-odd">
+	<div class="views-slideshow-cycle-main-frame-row-item views-row views-row-4  views-row-odd">
+		<div class="views-field views-field-field-focus-featured-image">
+			<div class="field-content">
+				<a href="/info/media/news/environment/2020/unece-kicks-off-of-clean-air-project-in-kazakhstan-supporting-ratification-of-key-air-convention-protocols/doc.html">
+					
+						<img src="uploads/tx_news/web_Air_pollution_857.jpg" width="340" height="210" title="" alt="" />
+					
+				</a>
+			</div>
+		</div>
+		<div class="views-field views-field-title">
+			<span class="field-content">
+				<a href="/info/media/news/environment/2020/unece-kicks-off-of-clean-air-project-in-kazakhstan-supporting-ratification-of-key-air-convention-protocols/doc.html">
+					UNECE kicks off of clean air project in Kazakhstan, supporting ratification of key Air Convention protocols
+				</a>
+				<a href="/info/media/news/environment/2020/unece-kicks-off-of-clean-air-project-in-kazakhstan-supporting-ratification-of-key-air-convention-protocols/doc.html">
+					<span class="link-read-more">Read more</span>
+				</a>
+			</span>
+		</div>
+	</div>
+</div>
+
+	
+	
+	
+
+						
+					
+
+
+	
+	
+
+
+
+
+
+				
+		
+
+		</div>
+	
+
+		<!--  Plugin inserted: [end] -->
+			
+	<!--  CONTENT ELEMENT, uid:45763/list [end] -->
+		
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<!-- BLOG -->
+				<section class="grid-5">
+					
+				</section>
+				<!-- BLOG -->
+
+				<!-- RECENT NEWS -->
+				<section class="block block-views grid-7 alpha block-press-releases-block block-views-press-releases-block odd" id="block-views-press-releases-block">
+					<div class="block-inner clearfix">
+						<h2 class="block-title">Recent Press Releases</h2>
+						<div class="content clearfix">
+							<div class="view view-press-releases view-id-press_releases view-display-id-block">
+								<div class="view-header">
+									<a href="/info/media/press releases/" title="VIEW MORE">VIEW MORE</a>
+								</div>
+								<div class="view-content">
+									
+	<!--  CONTENT ELEMENT, uid:45762/list [begin] -->
+		<div id="c45762" class="csc-default">
+		<!--  Plugin inserted: [begin] -->
+			
+
+
+
+		
+	
+			
+					
+
+
+	
+	
+
+
+
+
+						
+							
+	
+	
+<!--
+	=====================
+	Partials/List/Recent.html
+-->
+<div class="views-row  views-row-odd article articletype-1 topnews ">
+
+	
+	<div class="views-field views-field-field-story-issue-date">
+		<div class="field-content">
+			<span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="2020-11-13T00:00:00+01:00">
+				13 November 2020
+			</span>
+		</div>
+	</div>
+	<div class="views-field views-field-title">
+		<span class="field-content">
+			<a href="/info/media/presscurrent-press-h/transport/2020/remember-support-and-act-on-world-day-of-remembrance-for-road-traffic-victims-urges-un-road-safety-fund/doc.html">Remember, support and act on World Day of Remembrance for Road Traffic Victims, urges UN Road Safety Fund</a>
+		</span>
+	</div>
+</div>
+
+	
+	
+	
+	
+	
+	
+
+						
+							
+	
+	
+<!--
+	=====================
+	Partials/List/Recent.html
+-->
+<div class="views-row  article articletype-1 topnews ">
+
+	
+	<div class="views-field views-field-field-story-issue-date">
+		<div class="field-content">
+			<span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="2020-11-12T00:00:00+01:00">
+				12 November 2020
+			</span>
+		</div>
+	</div>
+	<div class="views-field views-field-title">
+		<span class="field-content">
+			<a href="/info/media/presscurrent-press-h/forestry/2020/unece-supports-five-countries-of-the-caucasus-and-central-asia-to-develop-national-sets-of-criteria-and-indicators-for-sustainable-forest-management/doc.html">UNECE supports five countries of the Caucasus and Central Asia to develop national sets of criteria and indicators for sustainable forest management</a>
+		</span>
+	</div>
+</div>
+
+	
+	
+	
+	
+	
+	
+
+						
+					
+
+
+	
+	
+
+
+
+
+
+				
+		
+
+	
+
+		<!--  Plugin inserted: [end] -->
+			</div>
+	<!--  CONTENT ELEMENT, uid:45762/list [end] -->
+		
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- RECENT NEWS -->
+
+				
+
+				<!-- UNECE STORIES -->
+				<section class="block block-views grid-12 alpha block-main-areas-of-work-block block-views-main-areas-of-work-block odd" id="block-views-main-areas-of-work-block">
+					<div class="block-inner clearfix">
+						<h2 class="block-title">How we impact your daily life</h2>
+						<div class="content clearfix">
+							<div class="view view-main-areas-of-work view-id-main_areas_of_work view-display-id-block">
+								<div class="view-content">
+									
+	<!--  CONTENT ELEMENT, uid:46017/text [begin] -->
+		<div id="c46017" class="csc-default">
+		<!--  Text: [begin] -->
+			<p class="bodytext">We help countries to cooperate. This impacts your life every single day when you:</p>
+		<!--  Text: [end] -->
+			</div>
+	<!--  CONTENT ELEMENT, uid:46017/text [end] -->
+		
+	<!--  CONTENT ELEMENT, uid:45761/list [begin] -->
+		<a id="c45761"></a>
+		<!--  Plugin inserted: [begin] -->
+			
+
+
+
+		
+	
+			
+					
+
+
+	
+	
+
+
+
+
+						
+							
+	
+	
+	
+<!--
+	=====================
+	Partials/List/Story.html
+-->
+
+<div class="views-row  views-row-first">
+	
+	<!-- image -->
+
+	<div class="views-field views-field-field-division-logo">
+		<div class="field-content">
+
+			
+					<div class="news-img-wrap">
+						<a href="/info/media/stories/grow-old.html">
+							
+								<img src="uploads/tx_news/ICONES_ageing.png" width="85" height="85" title="" alt="" />
+							
+						</a>
+					</div>
+				
+
+		</div>
+	</div>
+	<!-- link -->
+	<div class="views-field views-field-title">
+		<span class="field-content"><a href="/info/media/stories/grow-old.html">Grow old</a></span>
+	</div>
+</div>
+
+	
+	
+	
+	
+	
+
+						
+							
+	
+	
+	
+<!--
+	=====================
+	Partials/List/Story.html
+-->
+
+<div class="views-row ">
+	
+	<!-- image -->
+
+	<div class="views-field views-field-field-division-logo">
+		<div class="field-content">
+
+			
+					<div class="news-img-wrap">
+						<a href="https://www.unece.org/protect_your_environment">
+							
+								<img src="uploads/tx_news/earth_image_carousel.png" width="85" height="85" title="" alt="" />
+							
+						</a>
+					</div>
+				
+
+		</div>
+	</div>
+	<!-- link -->
+	<div class="views-field views-field-title">
+		<span class="field-content"><a href="https://www.unece.org/protect_your_environment">Protect your environment</a></span>
+	</div>
+</div>
+
+	
+	
+	
+	
+	
+
+						
+							
+	
+	
+	
+<!--
+	=====================
+	Partials/List/Story.html
+-->
+
+<div class="views-row ">
+	
+	<!-- image -->
+
+	<div class="views-field views-field-field-division-logo">
+		<div class="field-content">
+
+			
+					<div class="news-img-wrap">
+						<a href="/info/media/stories/teach-a-man-to-fishsustainably.html">
+							
+								<img src="uploads/tx_news/FLUX_image_for_homepage.png" width="85" height="85" title="" alt="" />
+							
+						</a>
+					</div>
+				
+
+		</div>
+	</div>
+	<!-- link -->
+	<div class="views-field views-field-title">
+		<span class="field-content"><a href="/info/media/stories/teach-a-man-to-fishsustainably.html">Teach a man to fish... sustainably</a></span>
+	</div>
+</div>
+
+	
+	
+	
+	
+	
+
+						
+							
+	
+	
+	
+<!--
+	=====================
+	Partials/List/Story.html
+-->
+
+<div class="views-row ">
+	
+	<!-- image -->
+
+	<div class="views-field views-field-field-division-logo">
+		<div class="field-content">
+
+			
+					<div class="news-img-wrap">
+						<a href="/info/media/stories/throw-out-garbage.html">
+							
+								<img src="uploads/tx_news/Garbage_Homepage.PNG" width="85" height="85" title="" alt="" />
+							
+						</a>
+					</div>
+				
+
+		</div>
+	</div>
+	<!-- link -->
+	<div class="views-field views-field-title">
+		<span class="field-content"><a href="/info/media/stories/throw-out-garbage.html">Throw out garbage</a></span>
+	</div>
+</div>
+
+	
+	
+	
+	
+	
+
+						
+							
+	
+	
+	
+<!--
+	=====================
+	Partials/List/Story.html
+-->
+
+<div class="views-row ">
+	
+	<!-- image -->
+
+	<div class="views-field views-field-field-division-logo">
+		<div class="field-content">
+
+			
+					<div class="news-img-wrap">
+						<a href="/info/media/stories/live-near-industry.html">
+							
+								<img src="uploads/tx_news/Industrial_Safety_85.png" width="85" height="85" title="" alt="" />
+							
+						</a>
+					</div>
+				
+
+		</div>
+	</div>
+	<!-- link -->
+	<div class="views-field views-field-title">
+		<span class="field-content"><a href="/info/media/stories/live-near-industry.html">Live near industry</a></span>
+	</div>
+</div>
+
+	
+	
+	
+	
+	
+
+						
+							
+	
+	
+	
+<!--
+	=====================
+	Partials/List/Story.html
+-->
+
+<div class="views-row ">
+	
+	<!-- image -->
+
+	<div class="views-field views-field-field-division-logo">
+		<div class="field-content">
+
+			
+					<div class="news-img-wrap">
+						<a href="/info/media/stories/use-chemicals.html">
+							
+								<img src="uploads/tx_news/acid_red_web.png" width="85" height="85" title="" alt="" />
+							
+						</a>
+					</div>
+				
+
+		</div>
+	</div>
+	<!-- link -->
+	<div class="views-field views-field-title">
+		<span class="field-content"><a href="/info/media/stories/use-chemicals.html">Use chemicals</a></span>
+	</div>
+</div>
+
+	
+	
+	
+	
+	
+
+						
+							
+	
+	
+	
+<!--
+	=====================
+	Partials/List/Story.html
+-->
+
+<div class="views-row ">
+	
+	<!-- image -->
+
+	<div class="views-field views-field-field-division-logo">
+		<div class="field-content">
+
+			
+					<div class="news-img-wrap">
+						<a href="/info/media/stories/data-can-save-lives.html">
+							
+								<img src="uploads/tx_news/Climate_Change_homepage__Icon_02.jpg" width="85" height="85" title="" alt="" />
+							
+						</a>
+					</div>
+				
+
+		</div>
+	</div>
+	<!-- link -->
+	<div class="views-field views-field-title">
+		<span class="field-content"><a href="/info/media/stories/data-can-save-lives.html">Face climate change</a></span>
+	</div>
+</div>
+
+	
+	
+	
+	
+	
+
+						
+					
+
+
+	
+	
+
+
+
+
+
+				
+		
+
+	
+
+		<!--  Plugin inserted: [end] -->
+			
+	<!--  CONTENT ELEMENT, uid:45761/list [end] -->
+		
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- UNECE STORIES -->
+
+				<!-- FEATURED VIDEOS -->
+				<section class="block block-views grid-8 alpha block-african-policy-centres-block block-views-african-policy-centres-block even" id="block-views-african-policy-centres-block">
+					<div class="block-inner clearfix">
+						<h2 class="block-title">Featured Videos</h2>
+						<div class="content clearfix">
+							<div class="view view-african-policy-centres view-id-african_policy_centres view-display-id-block">
+								<div class="view-content">
+									
+	<!--  CONTENT ELEMENT, uid:45765/list [begin] -->
+		<div id="c45765" class="csc-default">
+		<!--  Plugin inserted: [begin] -->
+			
+
+
+	<!--
+
+		BEGIN: Content of extension "youtube_grid", plugin "tx_youtubegrid_pi1"
+
+	-->
+	<div class="tx-youtubegrid-pi1">
+		
+            <link rel="stylesheet" type="text/css" media="all"  href="/typo3conf/ext/youtube_grid/css/yt-grid-feed.css" />
+                <script src="/typo3conf/ext/youtube_grid/js/ytembed_v1.1.js" type="text/javascript"></script>
+            <div id="ytContainer"></div>
+            <script type="text/javascript">ytEmbed.init({'key':'AIzaSyAWNTpFV0kJUQ9mSbWhweeqSc9cjVlmdB8','block':'ytContainer','q':'PL4iZR0KyjSQ9VxjaqLHPk0yeXQYssy-Tz','type':'playlist','results':2,'order':'new_first','player':'embed','layout':'grid','display_first':'false','className':'ytGrid','width':'500','height':'','paging':'false','meta':'false'})</script>
+        
+	</div>
+	
+	<!-- END: Content of extension "youtube_grid", plugin "tx_youtubegrid_pi1" -->
+
+	
+		<!--  Plugin inserted: [end] -->
+			</div>
+	<!--  CONTENT ELEMENT, uid:45765/list [end] -->
+		
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- FEATURED VIDEOS -->
+
+				<!-- BOTTOM_RIGHT -->
+				<section class="grid-4">
+					
+	<!--  CONTENT ELEMENT, uid:56601/html [begin] -->
+		<div id="c56601" class="csc-default">
+		<!--  Raw HTML content: [begin] -->
+			<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+  jQuery(document).ready(function() {
+    jQuery('#block-views-ece-databank-images-block').cycle({'fx': 'fade', 'speed': 700, 'timeout': 5000 });
+  });
+//--><!]]>
+</script>
+<div id="block-views-ece-databank-images-block" class="block">
+  <a href="http://www.unece.org/unece-and-the-sdgs/unece-and-the-sdgs.html" target="_blank"><img src="./typo3conf/ext/unece_templates_2014/Resources/Public/Style/images/SDGs01.jpg" /></a>
+  </div>
+		<!--  Raw HTML content: [end] -->
+			</div>
+	<!--  CONTENT ELEMENT, uid:56601/html [end] -->
+		
+				</section>
+				<!-- BOTTOM_RIGHT -->
+			</div>
+		</div>
+		<!-- END MAIN CONTENT -->
+	</div>
+</div>
+
+<!-- FOOTER -->
+<div id="zone-postscript-wrapper" class="zone-wrapper zone-postscript-wrapper clearfix">
+	<div id="zone-postscript" class="zone zone-postscript clearfix container-12">
+		<div class="grid-3 region region-postscript-first" id="region-postscript-first">
+			<div class="region-inner region-postscript-first-inner">
+				<section class="block block-menu block-menu-about-unece block-menu-menu-about-unece odd" id="block-menu-menu-about-unece">
+					<div class="block-inner clearfix">
+						<h2 class="block-title">About UNECE</h2>
+						<div class="content clearfix">
+							<ul class="menu">
+								<li class="first leaf"><a href="/termsofreferenceandrulesofprocedureoftheunece.html" title="Mission">Mission</a></li>
+								<li class="leaf"><a href="/press/execsec/current_exec.html" title="Executive Secretary">Executive Secretary</a></li>
+								<li class="leaf"><a href="/oes/nutshell/governing_bodies.html" title="Organizational Structure">Organizational Structure</a></li>
+							</ul>
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>
+		<div class="grid-3 region region-postscript-second" id="region-postscript-second">
+			<div class="region-inner region-postscript-second-inner">
+				<section class="block block-menu block-menu-opportunities block-menu-menu-opportunities odd" id="block-menu-menu-opportunities">
+					<div class="block-inner clearfix">
+						<h2 class="block-title">Opportunities</h2>
+						<div class="content clearfix">
+							<ul class="menu">
+								<li class="first leaf"><a href="/oes/Job_opportunities/Vacancy_Announcements.html" title="Vacancies">Vacancies</a></li>
+								<li class="last leaf"><a href="/oes/internships/internship_prog.html" title="Internship Programme">Internship Programme</a></li>
+							</ul>
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>
+		<div class="grid-3 region region-postscript-third alpha omega" id="region-postscript-third">
+			<div class="region-inner region-postscript-third-inner">
+				<section class="block block-menu block-menu-resources block-menu-menu-resources odd" id="block-menu-menu-resources">
+					<div class="block-inner clearfix">
+						<h2 class="block-title">Resources</h2>
+						<div class="content clearfix">
+							<ul class="menu">
+								<li class="first leaf"><a href="http://w3.unece.org/pxweb/" title="Statistical Database">Statistical Database</a></li>
+								<li class="last leaf"><a href="/info/open-unece/evaluation.html" title="Evaluation">Evaluations</a></li>
+							</ul>
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>
+		<div class="grid-3 region region-postscript-fourth" id="region-postscript-fourth">
+			<div class="region-inner region-postscript-fourth-inner">
+				<section class="block block-unece-custom block-footer block-unece-custom-footer odd" id="block-unece-custom-footer">
+					<div class="block-inner clearfix">
+						<h2 class="block-title">Follow UNECE</h2>
+						<div class="content clearfix">
+							<div class="item-list">
+								<ul>
+									<li class="first"><a href="https://www.facebook.com/UNECEpage" id="link-fbk">Facebook</a></li>
+									<li><a href="http://www.unece.org/unece/rss_feed.html" id="link-rss">Rss
+<!--###rss_footer###-->
+<!--###rss_footer###-->
+</a></li>
+									<li><a href="https://twitter.com/UNECE" id="link-tw">Twitter</a></li>
+									<!--<li><a href="/email-alert" id="link-email-alerts">Email alerts</a></li>-->
+									<li><a href="https://www.youtube.com/user/UNECE" id="link-youtube">YouTube</a></li>
+									<li><a href="/contact/contact.html" id="contact-us">Contact us</a></li>
+									<li><a href="https://instagram.com/un_ece" id="link-instagram">Instagram</a></li>
+									<li class="last"><a href="https://www.flickr.com/photos/98046700@N04/" id="link-flickr">Flickr</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- FOOTER -->
+
+</section>
+
+<footer id="section-footer" class="section section-footer">
+	<div id="zone-footer-wrapper" class="zone-wrapper zone-footer-wrapper clearfix">
+		<div id="zone-footer" class="zone zone-footer clearfix container-12">
+			<div class="grid-12 region region-footer-first" id="region-footer-first">
+				<div class="region-inner region-footer-first-inner">
+					<div class="block block-unece-custom grid-8 block-copyright block-unece-custom-copyright odd block-without-title" id="block-unece-custom-copyright">
+						<div class="block-inner clearfix">
+							<div class="content clearfix">© United Nations Economic Commission for Europe | <a href="https://www.unece.org/index.php?id=20034">Terms and Conditions of Use</a> | <a href="https://www.unece.org/index.php?id=20032">Privacy Notice</a></div>
+						</div>
+					</div>
+					<div class="block block-menu grid-4 block-menu-footer-menu block-menu-menu-footer-menu even block-without-title" id="block-menu-menu-footer-menu">
+						<div class="block-inner clearfix">
+							<div class="content clearfix">
+								<ul class="menu">
+									<li class="first last leaf"><a href="/contact/contact.html" title="Contact us">Contact us</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>
+
+</div>
+
+<!--###google-gtag###-->
+<!--###google-gtag###-->
+
+	<!--  CONTENT ELEMENT, uid:46159/html [begin] -->
+		<div id="c46159" class="csc-default">
+		<!--  Raw HTML content: [begin] -->
+			<script src="/fileadmin/templates/js/gatag.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+  </script>
+  <script type="text/javascript">
+    var pageTracker = _gat._getTracker("UA-11755638-2");
+    pageTracker._initData();
+    pageTracker._trackPageview();
+  </script>
+		<!--  Raw HTML content: [end] -->
+			</div>
+	<!--  CONTENT ELEMENT, uid:46159/html [end] -->
+		
+
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+	jQuery(document).ready(function(){
+		jQuery('ul.sf-menu').superfish();
+	});
+//--><!]]>
+</script>
+
+<script src="/typo3conf/ext/powermail/Resources/Public/JavaScripts/Libraries/jquery.datetimepicker.min.js?1495321234" type="text/javascript"></script>
+<script src="/typo3conf/ext/powermail/Resources/Public/JavaScripts/Libraries/parsley.min.js?1495321234" type="text/javascript"></script>
+<script src="/typo3conf/ext/powermail/Resources/Public/JavaScripts/Powermail/Tabs.min.js?1495321234" type="text/javascript"></script>
+<script src="/typo3conf/ext/powermail/Resources/Public/JavaScripts/Powermail/Form.min.js?1495321234" type="text/javascript"></script>
+
+
+</body>
+</html>
