@@ -50,7 +50,7 @@
 	 	<get
 			src="http://www.unece.org/fileadmin/DAM/trade/untdid/d${version.lower}/d${version.lower}.zip"
 			dest="UNECE/${version.uppercase}/d${version.lower}/${version.lower}.zip"
-			verbose="true" usetimestamp="true" /> 
+			verbose="true"/> 
 		<unzip src="UNECE/${version.uppercase}/d${version.lower}/${version.lower}.zip"
 			dest="UNECE/${version.uppercase}/d${version.lower}" />		
 		<copy todir="UNECE/BACKUP" overwrite="true" file="UNECE/${version.uppercase}/d${version.lower}/${version.lower}.zip"/>		
@@ -68,6 +68,15 @@
 		<echo message="##########################################" />
 		<echo message="### running ${version.uppercase} build ###" />
 		<echo message="##########################################" />
+		<fail message="Files are missing.">
+			<condition>
+			<not>
+				<resourcecount count="3">
+					<fileset id="fs" dir="." includes="UNECE/${version.uppercase}/d${version.lower}/EDSD/EDSD.${version.uppercase},UNECE/${version.uppercase}/d${version.lower}/EDCD/EDCD.${version.uppercase},UNECE/${version.uppercase}/d${version.lower}/EDED/EDED.${version.uppercase}"/>
+				</resourcecount>
+			</not>
+			</condition>
+		</fail>		
 		<copy todir="UNECE/${version.uppercase}/IN/EDMD" flatten="true">
 			<resources>
 				<fileset dir="UNECE/${version.uppercase}/d${version.lower}/EDMD" includes="**/*.${version.uppercase}" />						
@@ -109,7 +118,7 @@
 		<echo message="### Removing obsolete files ###" />
 		<echo message="###############################" />
 		<delete failonerror="no" quiet="false"
-			dir="UNECE/${version.uppercase}" />
+				dir="UNECE/${version.uppercase}" /> 
 	</target>
 
 </project>

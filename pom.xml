@@ -67,17 +67,17 @@
 		<module>openedifact-sample-01</module>
 		<module>openedifact-un2xsd</module>
 		<module>openedifact-xsd-libs-96A</module>
-		<module>openedifact-xsd-libs-96B</module>
-		<module>openedifact-xsd-libs-97A</module>
-		<module>openedifact-xsd-libs-97B</module>
+		<!--<module>openedifact-xsd-libs-96B</module>-->
+		<!--<module>openedifact-xsd-libs-97A</module>-->
+		<!--<module>openedifact-xsd-libs-97B</module>-->
 		<!--    <module>openedifact-xsd-libs-98A</module><module>openedifact-xsd-libs-98B</module> -->
 		<module>openedifact-xsd-libs-99A</module>
-		<module>openedifact-xsd-libs-99B</module>
+		<!--<module>openedifact-xsd-libs-99B</module>-->
 		<module>openedifact-xsd-libs-00A</module>
 		<module>openedifact-xsd-libs-00B</module>
 		<module>openedifact-xsd-libs-01A</module>
 		<module>openedifact-xsd-libs-01B</module>
-		<module>openedifact-xsd-libs-01C</module>
+		<!--<module>openedifact-xsd-libs-01C</module>-->
 		<module>openedifact-xsd-libs-02A</module>
 		<module>openedifact-xsd-libs-02B</module>
 		<module>openedifact-xsd-libs-03A</module>
@@ -104,7 +104,7 @@
 		<module>openedifact-xsd-libs-13B</module>
 		<module>openedifact-xsd-libs-14A</module>
 		<module>openedifact-xsd-libs-14B</module>
-		<module>openedifact-xsd-libs-15A</module>
+		<!--<module>openedifact-xsd-libs-15A</module>-->
 		<module>openedifact-xsd-libs-15B</module>
 		<module>openedifact-xsd-libs-16A</module>
 		<module>openedifact-xsd-libs-16B</module>

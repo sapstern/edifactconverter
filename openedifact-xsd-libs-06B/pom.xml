@@ -31,7 +31,7 @@
 	<build>
 		<plugins>
 			<plugin>
-				<artifactId>maven-antrun-plugin</artifactId>
+				<artifactId>maven-antrun-plugin</artifactId><version>3.0.0</version>
 				<executions>
 					<execution>
 						<id>ant-magic</id>
@@ -40,12 +40,12 @@
 							<goal>run</goal>
 						</goals>
 						<configuration>
-							<tasks>								
+							<target>								
 								<ant antfile="UNECE/build.xml" target="build">
 									<property name="version.lower" value="${unece.version.lower}"/>
 									<property name="version.uppercase" value="${unece.version}" />
 								</ant>
-							</tasks>
+							</target>
 						</configuration>
 					</execution>
 				</executions>
