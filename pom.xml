@@ -104,7 +104,7 @@
 		<module>openedifact-xsd-libs-13B</module>
 		<module>openedifact-xsd-libs-14A</module>
 		<module>openedifact-xsd-libs-14B</module>
-		<!--<module>openedifact-xsd-libs-15A</module>-->
+		<module>openedifact-xsd-libs-15A</module>
 		<module>openedifact-xsd-libs-15B</module>
 		<module>openedifact-xsd-libs-16A</module>
 		<module>openedifact-xsd-libs-16B</module>

@@ -133,7 +133,15 @@ public class DirectoryProcessor extends AbstractLogger{
 			int count;
 			byte data[] = new byte[BUFFER];
 			// write the files to the disk
-			FileOutputStream fos = new FileOutputStream(new File(dirName+"/"+currentDir+"/"+entry.getName()));
+			String fileName = entry.getName();
+			if(fileName.indexOf("/")!=-1 && !entry.isDirectory()){
+				int startIndex = fileName.indexOf("/");
+				startIndex = startIndex + 1;
+				fileName = fileName.substring(startIndex, fileName.length());
+			}
+			
+				
+			FileOutputStream fos = new FileOutputStream(new File(dirName+"/"+currentDir+"/"+fileName));
 			dest = new BufferedOutputStream(fos, BUFFER);
 			while ((count = zin.read(data, 0, BUFFER)) != -1) 
 			{
