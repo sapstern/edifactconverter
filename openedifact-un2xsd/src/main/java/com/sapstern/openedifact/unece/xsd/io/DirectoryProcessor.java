@@ -121,38 +121,52 @@ public class DirectoryProcessor extends AbstractLogger{
 	 * @throws IOException
 	 */
 	private static void processFileInZip(String dirName, File currentFile, String filenameUPPER)throws FileNotFoundException, IOException {
-		String currentDir = filenameUPPER.substring(0, 4);
-		FileInputStream fis = new FileInputStream(currentFile); 
-		ZipInputStream zin = new    ZipInputStream(new BufferedInputStream(fis)); 
-		BufferedOutputStream dest = null;
-
-		ZipEntry entry;
-		while((entry = zin.getNextEntry()) != null) 
-		{
-			LOGGER.info("Extracting: " +entry);
-			int count;
-			byte data[] = new byte[BUFFER];
-			// write the files to the disk
-			String fileName = entry.getName();
-			if(fileName.indexOf("/")!=-1 && !entry.isDirectory()){
-				int startIndex = fileName.indexOf("/");
-				startIndex = startIndex + 1;
-				fileName = fileName.substring(startIndex, fileName.length());
-			}
-			
-				
-			FileOutputStream fos = new FileOutputStream(new File(dirName+"/"+currentDir+"/"+fileName));
-			dest = new BufferedOutputStream(fos, BUFFER);
-			while ((count = zin.read(data, 0, BUFFER)) != -1) 
-			{
-				dest.write(data, 0, count);
-			}
-			dest.flush();
-			dest.close();
-		}				      
-
+			 
+		ZipInputStream zin = new    ZipInputStream(new BufferedInputStream(new FileInputStream(currentFile))); 
+		
+		writeFilefromZip(zin, dirName+"/"+filenameUPPER.substring(0, 4)+"/");
+									      
 		zin.close();
 	}
+	
+	/**
+	 * recursive traversal of directory tree inside zip from UNECE
+	 * 
+	 * @param zin 
+	 * @param theDir
+	 * @throws IOException
+	 */
+	private static void writeFilefromZip(ZipInputStream zin, String theDir) throws IOException{
+		
+		ZipEntry entry = zin.getNextEntry();
+		if(entry==null)
+			return;
+		if(entry.isDirectory()) {			
+			writeFilefromZip(zin, theDir);
+			return;
+		}
+		
+		String fileName = entry.getName();
+		if(fileName.indexOf("/")!=-1){
+			int startIndex = fileName.lastIndexOf("/");
+			startIndex = startIndex + 1;
+			fileName = fileName.substring(startIndex, fileName.length());
+		}
+		fileName = fileName.toUpperCase();	
+		FileOutputStream fos = new FileOutputStream(new File(theDir+fileName));
+		BufferedOutputStream dest = new BufferedOutputStream(fos, BUFFER);
+		int count;
+		byte data[] = new byte[BUFFER];
+		while ((count = zin.read(data, 0, BUFFER)) != -1) 
+		{
+			dest.write(data, 0, count);
+		}
+		dest.flush();
+		dest.close();
+		writeFilefromZip(zin, theDir);
+			
+	}
+	
 	public static void main(String[] args)
 	{
 		String dirName = null;

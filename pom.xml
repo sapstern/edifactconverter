@@ -67,12 +67,13 @@
 		<module>openedifact-sample-01</module>
 		<module>openedifact-un2xsd</module>
 		<module>openedifact-xsd-libs-96A</module>
-		<!--<module>openedifact-xsd-libs-96B</module>-->
-		<!--<module>openedifact-xsd-libs-97A</module>-->
-		<!--<module>openedifact-xsd-libs-97B</module>-->
-		<!--    <module>openedifact-xsd-libs-98A</module><module>openedifact-xsd-libs-98B</module> -->
+		<!--<module>openedifact-xsd-libs-96B</module> Zip structure of 96b.zip completly obfuscated-->
+		<module>openedifact-xsd-libs-97A</module>
+		<module>openedifact-xsd-libs-97B</module> <!-- Not working EDSD.97B error line offset 4 if time investigate -->
+		<module>openedifact-xsd-libs-98A</module>
+		<module>openedifact-xsd-libs-98B</module>
 		<module>openedifact-xsd-libs-99A</module>
-		<!--<module>openedifact-xsd-libs-99B</module>-->
+		<module>openedifact-xsd-libs-99B</module><!-- Some messages corrupt G_BOPBNK_99B_SG4 S_LOC -->
 		<module>openedifact-xsd-libs-00A</module>
 		<module>openedifact-xsd-libs-00B</module>
 		<module>openedifact-xsd-libs-01A</module>

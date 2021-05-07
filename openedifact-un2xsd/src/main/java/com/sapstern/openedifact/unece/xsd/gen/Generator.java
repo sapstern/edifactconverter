@@ -31,6 +31,7 @@ import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.logging.Level;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -60,7 +61,7 @@ public class Generator extends AbstractLogger implements TypeDef{
 
 	private Hashtable<String, Integer> tabOffsetVersion = null;
 	private Hashtable<String, Integer> tabOffsetGeneric = null;
-
+	private static final Pattern mandatoryPattern = Pattern.compile("[MC]\\s+[a-z][a-z]?\\.*[0-9]+");
 	
 
 
@@ -690,10 +691,19 @@ public class Generator extends AbstractLogger implements TypeDef{
 
 					// LOGGER.info(line);
 					// Bei Zeilenumbruch auf die naechste Zeile wechseln
-					if (line.length() < 56)
-						setMandatory(in.readLine(), theDataDefinitition, tab.get("COMPOSITE_MANDATORY_START"), tab.get("COMPOSITE_MANDATORY_END"));
+					Matcher mandatoryMatcher = mandatoryPattern.matcher(line);
+					if (!mandatoryMatcher.find()){
+						mandatoryMatcher = mandatoryPattern.matcher(in.readLine());
+						if (!mandatoryMatcher.find()) {
+							LOGGER.log(Level.SEVERE, ".getCompositeElementsTab() Setup Data definition fails: "+theDataDefinitition+" => unable to determine mandatory attrib EDCD file");
+							LOGGER.log(Level.SEVERE, "Dumping EDCD line: "+line);
+						}
+					}
+					String mandatoryToken = mandatoryMatcher.group();
+					if (mandatoryToken.startsWith("C"))
+						theDataDefinitition.isManadatory = "0";
 					else
-						setMandatory(line, theDataDefinitition, tab.get("COMPOSITE_MANDATORY_START"), tab.get("COMPOSITE_MANDATORY_END"));
+						theDataDefinitition.isManadatory = "1";
 
 					theDefinition.theDataList.add(theDataDefinitition);
 
@@ -720,25 +730,6 @@ public class Generator extends AbstractLogger implements TypeDef{
 		return theGlobCompositeTab;
 	}
 
-	/**
-	 * @param line
-	 * @param theDataDefinitition
-	 */
-	private void setMandatory(String line, CompositeDataDefinition theDataDefinitition, int startIndex, int endIndex)
-	{
-		try {
-			if (line.substring(startIndex, endIndex).equals("C"))
-				theDataDefinitition.isManadatory = "0";
-			else
-				theDataDefinitition.isManadatory = "1";
-		} catch (StringIndexOutOfBoundsException e) {
-			// TODO Auto-generated catch block
-
-			e.printStackTrace();
-			LOGGER.info("Dumping string: "+line);
-			System.exit(-1);
-		}
-	}
 
 	/**
 	 * @param theFileName

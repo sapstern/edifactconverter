@@ -76,7 +76,10 @@ public class XSDFileGenerator extends AbstractLogger{
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+			} catch (StringIndexOutOfBoundsException e){
+				e.printStackTrace();
 			}
+			
 		}
 
 	}

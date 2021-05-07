@@ -19,5 +19,8 @@ package com.sapstern.openedifact.unece.xsd.data;
 public class CompositeDataDefinition extends DataDef
 {
 	
-
+	@Override
+	public String toString() {
+		return "CompositeDataDefinition => "+super.toString();
+	}
 }

@@ -22,5 +22,9 @@ public abstract class DataDef implements TypeDef {
 	public String theName = null;
 	public String isManadatory = null;
 	public int theType = -1;
+	@Override
+	public String toString() {
+		return "Name: "+theName+" Mandatory element: "+isManadatory+" Type: "+theType;
+	}
 
 }

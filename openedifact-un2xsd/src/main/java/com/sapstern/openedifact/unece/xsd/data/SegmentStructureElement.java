@@ -21,5 +21,8 @@ public class SegmentStructureElement extends DataDef
 	
 	
 	 
-
+	@Override
+	public String toString() {
+		return "SegmentStructureElement => "+super.toString();
+	}
 }
