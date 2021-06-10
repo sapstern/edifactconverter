@@ -379,8 +379,8 @@ public class EdifactSaxParserToXML extends AbstractEdifactParser implements XMLR
 
 		rawEdifact = new String(byteEdifact, encoding);
 		logger.log(Level.FINE, "rawEdifact ok");
-
-		if (rawEdifact.matches(".*UNB\\+UNOC.*"))
+		// Hint of orca007 iso-2022
+		if (rawEdifact.matches(".*UNB\\+UNOC.*|.*UNB\\+UNOX.*"))
 		{
 			// we are fine do nothing
 			logger.log(Level.FINE, "match .*UNB\\+UNOC.*");
