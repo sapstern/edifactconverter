@@ -76,6 +76,7 @@ import com.sapstern.openedifact.transform.StringTokenizerEscape;
  * 08.11.19   fricke         2.4 bugfix parsing composites like IMD+F++A:::PRODUCT 1' Product 1 was in wrong field <D_3055>PRODUCT 1</D_3055> it should be in and is now <D_7008>PRODUCT 1</D_7008>
  * 11.11.19   wasawasa       2.5 bugfix if segment string ends with seperator like +someData+' senseless but possible
  * 16.06.20   fricke         2.6 make parser output default XML namespace
+ * 12.06.21	  orca007		 2.7 ISO-2022 issue (e.g. japanese charset)
  * -------------------------------------------------------------------------------------------------------------------------------</PRE>
  *
  *****************************************************************/
@@ -380,15 +381,15 @@ public class EdifactSaxParserToXML extends AbstractEdifactParser implements XMLR
 		rawEdifact = new String(byteEdifact, encoding);
 		logger.log(Level.FINE, "rawEdifact ok");
 		// Hint of orca007 iso-2022
-		if (rawEdifact.matches(".*UNB\\+UNOC.*|.*UNB\\+UNOX.*"))
+		if (rawEdifact.matches("(?s).*UNB\\+UNOC.*|.*UNB\\+UNOX.*"))
 		{
 			// we are fine do nothing
 			logger.log(Level.FINE, "match .*UNB\\+UNOC.*");
 		}
 		else
-			if (rawEdifact.matches(".*UNB\\+UNOB.*|.*UNB\\+UNOA.*"))
+			if (rawEdifact.matches("(?s).*UNB\\+UNOB.*|.*UNB\\+UNOA.*"))
 			{
-				logger.log(Level.FINE, "match .*UNB\\+UNOB.*|.*UNB\\+UNOA.*");
+				logger.log(Level.FINE, "match (?s).*UNB\\+UNOB.*|.*UNB\\+UNOA.*");
 				rawEdifact = new String(byteEdifact, "ASCII");
 
 				// EDIEL swedish specials
