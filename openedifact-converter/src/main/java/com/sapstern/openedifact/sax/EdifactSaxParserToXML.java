@@ -77,6 +77,7 @@ import com.sapstern.openedifact.transform.StringTokenizerEscape;
  * 11.11.19   wasawasa       2.5 bugfix if segment string ends with seperator like +someData+' senseless but possible
  * 16.06.20   fricke         2.6 make parser output default XML namespace
  * 12.06.21	  orca007		 2.7 ISO-2022 issue (e.g. japanese charset)
+ * 18.11.21   björn			 2.8 adding some Getters
  * -------------------------------------------------------------------------------------------------------------------------------</PRE>
  *
  *****************************************************************/
@@ -100,20 +101,16 @@ public class EdifactSaxParserToXML extends AbstractEdifactParser implements XMLR
 	private boolean edielSwedish = false;
 	private boolean isNamepace = false; //echo the default namespace
 	private String nameSpace = "";
-	
+
 	private java.util.logging.Logger logger = null;
 
-
-
+	private String organization = "";
+	private String name = "";
+	private String version = "";
 
 	private Document xsdDOM = null;
 
-	@SuppressWarnings("unused")
 	private String theMessageName = null;
-
-	
-	
-	
 
 	/**
 	 * Factory (with logging)for this parser
@@ -460,11 +457,14 @@ public class EdifactSaxParserToXML extends AbstractEdifactParser implements XMLR
 		Hashtable<String, String> initialValues = getInitialValues(rawEdifact, segmentDelimiter, componentDataSeparator);
 		// String messageName = (String)initialValues.get("messageName");
 		StringBuffer buffyRootTagName = new StringBuffer();
-		buffyRootTagName.append((String) initialValues.get("messageOrganization"));
+		organization = (String) initialValues.get("messageOrganization");
+		name = (String) initialValues.get("messageName");
+		version = (String) initialValues.get("messageVersion");
+		buffyRootTagName.append(organization);
 		buffyRootTagName.append("_");
-		buffyRootTagName.append((String) initialValues.get("messageName"));
+		buffyRootTagName.append(name);
 		buffyRootTagName.append("_");
-		buffyRootTagName.append((String) initialValues.get("messageVersion"));
+		buffyRootTagName.append(version);
 		String xsdFileName = buffyRootTagName.toString();
 		logger.log(Level.INFO, "xsdFileName " + xsdFileName);
 		if (isNamepace)
@@ -567,7 +567,21 @@ public class EdifactSaxParserToXML extends AbstractEdifactParser implements XMLR
 		return null;
 	}
 
+	public String getOrganization() {
+		return organization;
+	}
 
+	public String Name() {
+		return name;
+	}
+
+	public String Version() {
+		return version;
+	}
+
+	public String getTheMessageName() {
+		return theMessageName;
+	}
 
 	/**
 	 * @param flatEdifact
