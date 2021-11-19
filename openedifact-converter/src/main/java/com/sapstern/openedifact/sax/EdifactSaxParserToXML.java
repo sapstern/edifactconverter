@@ -571,11 +571,11 @@ public class EdifactSaxParserToXML extends AbstractEdifactParser implements XMLR
 		return organization;
 	}
 
-	public String Name() {
+	public String getName() {
 		return name;
 	}
 
-	public String Version() {
+	public String getVersion() {
 		return version;
 	}
 
