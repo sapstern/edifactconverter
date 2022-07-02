@@ -117,5 +117,6 @@
 		<module>openedifact-xsd-libs-19B</module>
 		<module>openedifact-xsd-libs-20A</module>
 		<module>openedifact-xsd-libs-20B</module>
+		<module>openedifact-xsd-libs-21A</module>
 	</modules>
 </project>

@@ -176,7 +176,9 @@ public class SaxParserUNECEToXSD  implements XMLReader
 	   String theMsegment = "M_"+messageName; 
 	   setupSegmentDeclaration(contentHandler, "ref", "ref", "S_UNA", "0", null, true);	  	  	   
 	   setupSegmentDeclaration(contentHandler, "ref", "ref", "S_UNB", null, null, true);
+	   setupSegmentDeclaration(contentHandler, "ref", "ref", "S_UNG", "0", "unbounded", true);
 	   setupSegmentDeclaration(contentHandler, "ref", "ref", ""+theMsegment , null, "unbounded", true);
+	   setupSegmentDeclaration(contentHandler, "ref", "ref", "S_UNE", "0", "unbounded", true);
 	   setupSegmentDeclaration(contentHandler, "ref", "ref", "S_UNZ", null, null, true);	   
 	   contentHandler.endElement(namespaceURI, "xsd:sequence", "xsd:sequence" );
 	   contentHandler.endElement(namespaceURI, "xsd:complexType", "xsd:complexType" );
@@ -186,6 +188,8 @@ public class SaxParserUNECEToXSD  implements XMLReader
 	   setupSegmentStructure();	 
 	   setupContorlSegments("S_UNA");
  	   setupContorlSegments("S_UNB");
+ 	   setupContorlSegments("S_UNG");
+ 	   setupContorlSegments("S_UNE");
 	   setupContorlSegments("S_UNZ");
 	   setupComposite();
 	   setupDataElements();

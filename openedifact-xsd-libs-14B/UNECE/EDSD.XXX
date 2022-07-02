@@ -71,6 +71,43 @@
 110    0035 TEST INDICATOR                            C 1   n1
 
 
+       UNG  Functional Group Header
+
+       Function: To head, identify and specify a Functional Group
+
+010    0038 FUNCTIONAL GROUP                           M    an..6
+
+020    S006                                            M 1
+       0040                                            M   an..35 
+       0007                                            C   an..4
+
+030    S007                                            M 1
+       0044                                            M   an..35
+       0007                                            C   an..4 
+
+040    S004                                            M 1
+       0017                                            M  n6
+       0019                                            M  n4
+       0048                                            M   an..14
+       0051                                            M   an..2
+
+050    S008                                            M 1
+       0052                                            M   an..3
+       0054                                            M   an..3
+       0057                                            C   an..6
+       0058                                            C   an..14
+
+
+       UNE  Functional Group Trailer
+
+       Function: To end and check the completeness of a Functional Group
+
+010    0060                                           M   n..6
+
+020    0048                                           M   an..14
+
+
+
        UNZ  INTERCHANGE TRAILER
 
        Function:	To end and check the completeness of an interchange.
