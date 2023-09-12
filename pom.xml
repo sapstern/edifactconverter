@@ -18,7 +18,7 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.13.1</version>
+			<version>4.13.2</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
@@ -118,5 +118,8 @@
 		<module>openedifact-xsd-libs-20A</module>
 		<module>openedifact-xsd-libs-20B</module>
 		<module>openedifact-xsd-libs-21A</module>
+		<module>openedifact-xsd-libs-21B</module>
+		<module>openedifact-xsd-libs-22A</module>
+		<module>openedifact-xsd-libs-22B</module>
 	</modules>
 </project>
