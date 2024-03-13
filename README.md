@@ -1,7 +1,5 @@
 # -edifactconverter-
 
-# -edifactconverter-
-
 First Steps
 
 you need maven, ant and jdk 1.8 installed on your computer.
