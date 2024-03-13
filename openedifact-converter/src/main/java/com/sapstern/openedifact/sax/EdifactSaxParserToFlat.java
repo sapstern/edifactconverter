@@ -57,6 +57,7 @@ import org.xml.sax.helpers.DefaultHandler;
  * 24.04.2018 fricke		 2.4      check of fields per segment against DOM xsd completly rewritten
  * 07.05.2018 fricke		 2.5	  bugfixing for check of fields per segment 
  * 22.07.2018 fricke	     2.6      parsing of segment structure rewritten
+ * 13.03.2024 fricke         2.7      incorporated minor bugfix proposal by github user Abifen 
  * -------------------------------------------------------------------------------------------------</PRE>
  *
  *****************************************************************/
@@ -408,6 +409,10 @@ public class EdifactSaxParserToFlat extends AbstractEdifactParser implements Edi
 			currentSegmentXSDMemberList = getSegmentMembers(getNodeListOfComplexType(currentXSDSegment.getChildNodes()), false, "");
 
 			currentSegmentInstanceMemberList = new LinkedList<Hashtable<String,String>>(); //MFRI20180721
+			if (eName.equals("S_UNA")) { //Abifen*** no fieldDelimiter for UNA segment
+				emit(eName.substring(2));
+				return;
+			}
 			//Beginn des EDI segmentstrings
 			emit(eName.substring(2)+fieldDelimiter);
 			return;
@@ -473,15 +478,15 @@ public class EdifactSaxParserToFlat extends AbstractEdifactParser implements Edi
 			Hashtable<String, String> currentDataTab = new Hashtable<String, String>();//MFRI20180721
 			//Interseroh/Edeka Spezialbehandlung fuehrende Nullen in die Uhrzeit <C_S004><D_0019> haengen
 			String theData = buffyCharacters.toString();
-//			if(eName.equals("D_0019"))
-//			{
-//				for(int i=0;i<4;i++)
-//				{
-//					if(theData.length()>=4)
-//						break;
-//					theData = "0"+theData;
-//				}		
-//			}			
+			//			if(eName.equals("D_0019"))
+			//			{
+			//				for(int i=0;i<4;i++)
+			//				{
+			//					if(theData.length()>=4)
+			//						break;
+			//					theData = "0"+theData;
+			//				}		
+			//			}			
 			currentDataTab.put(eName, theData);
 			if(currentComposite!=null)
 				currentDataTab.put("COMPLEX_TAG_NAME", currentComposite);
