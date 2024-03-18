@@ -146,7 +146,7 @@ public class DirectoryProcessor extends AbstractLogger{
 			return;
 		}
 					
-		String fileName = new File(entry.getName()).getCanonicalPath();
+		String fileName = new File(entry.getName()).getCanonicalPath(); //Issue: Arbitrary file access during archive extraction ("Zip Slip") High
 		if(fileName.indexOf("/")!=-1){
 			int startIndex = fileName.lastIndexOf("/");
 			startIndex = startIndex + 1;
