@@ -118,7 +118,7 @@
 		<echo message="### Removing obsolete files ###" />
 		<echo message="###############################" />
 		<delete failonerror="no" quiet="false"
-				dir="UNECE/${version.uppercase}" />
+				dir="UNECE/${version.uppercase}" /> 
 	</target>
 
 </project>

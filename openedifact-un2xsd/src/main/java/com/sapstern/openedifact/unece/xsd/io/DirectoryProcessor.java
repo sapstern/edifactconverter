@@ -145,8 +145,8 @@ public class DirectoryProcessor extends AbstractLogger{
 			writeFilefromZip(zin, theDir);
 			return;
 		}
-		
-		String fileName = entry.getName();
+					
+		String fileName = new File(entry.getName()).getCanonicalPath();
 		if(fileName.indexOf("/")!=-1){
 			int startIndex = fileName.lastIndexOf("/");
 			startIndex = startIndex + 1;
