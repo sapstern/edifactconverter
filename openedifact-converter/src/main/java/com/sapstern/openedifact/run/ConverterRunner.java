@@ -29,7 +29,6 @@ import javax.xml.transform.TransformerException;
 
 import org.xml.sax.SAXException;
 
-import com.sapstern.openedifact.sax.AbstractEdifactParser;
 import com.sapstern.openedifact.sax.EdifactSaxParserToFlat;
 import com.sapstern.openedifact.sax.EdifactSaxParserToFlatIF;
 import com.sapstern.openedifact.sax.EdifactSaxParserToXML;
@@ -63,16 +62,10 @@ public class ConverterRunner {
 				System.out.println(ediData);
 				p.write(ediData);
 				p.close();
-			} catch (SAXException e) {
+			} catch (SAXException  | ParserConfigurationException | IOException e ) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			} catch (ParserConfigurationException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			} 
 			break;
 		case PROCESS_2_XML:
 			try {	
@@ -87,19 +80,10 @@ public class ConverterRunner {
 				System.out.println(xmlData);
 				p.write(xmlData);
 				p.close();
-			} catch (SAXException e) {
+			} catch (SAXException | TransformerException | IOException  e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			} catch (UnsupportedEncodingException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (TransformerException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			} 
 			break;
 		}
 	}
