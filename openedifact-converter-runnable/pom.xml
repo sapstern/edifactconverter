@@ -21,6 +21,18 @@
 		</dependency>
 		<dependency>
 			<groupId>com.sapstern.openedifact</groupId>
+			<artifactId>openedifact-xsd-libs-96A</artifactId>
+			<version>1.1-SNAPSHOT</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.sapstern.openedifact</groupId>
+			<artifactId>openedifact-xsd-libs-00A</artifactId>
+			<version>1.1-SNAPSHOT</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.sapstern.openedifact</groupId>
 			<artifactId>openedifact-xsd-libs-01B</artifactId>
 			<version>1.1-SNAPSHOT</version>
 			<scope>runtime</scope>
@@ -28,6 +40,12 @@
 		<dependency>
 			<groupId>com.sapstern.openedifact</groupId>
 			<artifactId>openedifact-xsd-libs-07A</artifactId>
+			<version>1.1-SNAPSHOT</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.sapstern.openedifact</groupId>
+			<artifactId>openedifact-xsd-libs-10B</artifactId>
 			<version>1.1-SNAPSHOT</version>
 			<scope>runtime</scope>
 		</dependency>

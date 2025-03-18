@@ -1,0 +1,209 @@
+    UNITED NATIONS DIRECTORIES FOR ELECTRONIC DATA INTERCHANGE FOR                
+		ADMINISTRATION, COMMERCE AND TRANSPORT
+
+
+			      UN/EDIFACT
+
+			   DRAFT DIRECTORY
+
+
+	   UNITED NATIONS TRADE DATA INTERCHANGE DIRECTORY
+			       (UNTDID)   
+
+
+
+				 D.96B
+
+
+
+
+
+			       1996-09-20
+
+
+SOURCE: UN/EDIFACT RAPPORTEURS
+STATUS: DRAFT
+ACTION: FOR ACCEPTANCE BY WP.4 AT ITS SEPTEMBER 1996 SESSION
+
+Copyright (1993) United Nations, all rights reserved
+---------------------------------------------------------------------------
+
+
+
+			  TABLE OF CONTENTS
+
+	DESCRIPTION                                DISKETTE
+						   FILE
+						   DOCUMENT.ZIP
+PART 1  INTRODUCTION                               D100_D.96B
+
+PART 2  UNIFORM RULES OF CONDUCT FOR INTERCHANGE    
+	OF TRADE DATA BY TELETRANSMISSION (UNCID)
+
+Chapter 1 Introductory note                        D210_D.96B
+
+Chapter 2 Text of the uniform rules of conduct     D220_D.96B
+
+Chapter 3 Guide for users (2)
+
+Chapter 4 Interchange agreement                    D240_D.96B
+
+PART 3  TERMS AND DEFINITIONS                     
+	Glossary                                   D300_D.96B
+
+PART 4  UNITED NATIONS RULES FOR ELECTRONIC       
+	DATA INTERCHANGE FOR ADMINISTRATION,
+	COMMERCE AND TRANSPORT
+
+Chapter 1   Introduction                           D410_D.96B
+
+Chapter 2   General information
+     2.1    Establishment of United Nations
+	    Standard Message types (UNSMs)         D421_D.96B
+     2.2    UN/EDIFACT syntax rules                
+	    (ISO 9735-First edition: 1988-07-15, 
+             Amended and reprinted: 1990-11-01, 
+             Amendment 1: 1992-12-01)              D422_D.96B
+     2.3    UN/EDIFACT syntax implementation       D4231_D.96B
+	    guidelines                             D4232_D.96B
+						   D4232A_D.96B
+						   D4233_D.96B
+     2.4  UN/EDIFACT message design guidelines     D424_D.96B
+     2.5  Version/release                          D425_D.96B
+     2.6  General introduction to UNSM
+	  descriptions                             D426_D.96B
+
+
+
+
+
+PART 5  UNITED NATIONS DIRECTORIES FOR ELECTRONIC
+	DATA INTERCHANGE FOR ADMINISTRATION, 
+	COMMERCE AND TRANSPORT
+
+Chapter 1 Introduction                             CONTENTD.96B
+Chapter 2 Message type directory(EDMD)             TRMD.ZIP(1)
+     1.   Indexes
+     1.1  Index of message types by code           TRMDI1.96B
+     1.2  Index of message types by name           TRMDI2.96B
+     2.   Message type specifications              xxxxxx_D.96B
+	  (xxxxxx = message type; for example,
+	  INVOIC_D.96B contains the specification
+	  for the invoice message)
+Chapter 3 Message frameworks(TRFR)(3)
+     1.   Indexes
+     1.1  Index of framework types by code         
+     1.2  Index of framework types by name         
+     2.   Framework type specifications
+
+Chapter 4 Segment directory (TRSD)                 TRSD.ZIP(1)(4)
+     1.   Indexes
+     1.1  Index of segments by tag                 TRSDI1.96B
+     1.2  Index of segments by name                TRSDI2.96B
+     2.   Segment specifications                   TRSD.96B
+
+Chapter 5 Composite data element directory (TRCD)  TRCD.ZIP(1)(5)
+     1.   Indexes
+     1.1  Index of composites by tag               TRCDI1.96B
+     1.2  Index of composites by name              TRCDI2.96B
+     2.   Composite specifications                 TRCD.96B
+
+Chapter 6 Data element directory (TRED)            TRED.ZIP(1)(6)
+     1.   Indexes
+     1.1  Index of data elements by tag            TREDI1.96B
+     1.2  Index of data elements by name           TREDI2.96B
+     2.   Data element specifications              TRED.96B
+
+Chapter 7 Code lists (UNCL)                        UNCL.ZIP(1)
+     1.   Code list                                UNCL-1.96B
+						   UNCL-2.96B
+     2.   Service code list                        UNSL.ZIP(1)
+						   UNSL.96B
+
+NOTES:
+
+(1) Each .ZIP file expands when "unzipped" (following the instructions
+in the README.TXT file) to become the files listed underneath with the
+exception of all CONTENTD.96B references which are found in this file
+(below). 
+
+(2) Under development.
+
+(3) Chapter 3 does not include files on this diskette, as there are no 
+framework messages.
+
+(4) Chapter 4 of Part 5 does not include service segments (tags
+beginning with UN) defined in ISO 9735 (the EDIFACT syntax).  Version
+control of these service control segments is reflected in data element
+0002 in segment UNB and is based on changes to ISO 9735. Therefore the
+usual UN/EDIFACT directory version/release control for UN/EDIFACT
+messages (using data elements 0052 and 0054 in segments UNH and UNG)
+is NOT applicable to those segments.
+
+(5) Chapter 5 of Part 5 does not include service composite data
+elements (the "Sxxx" series) which are defined in ISO 9735 (the
+EDIFACT syntax).  Version control for these data components is
+reflected in data element 0002 in segment UNB and is based on changes
+to ISO 9735.  Therefore the usual UN/EDIFACT directory version/release
+control for UN/EDIFACT messages (using data elements 0052 and 0054 in
+composites S008 and S009) is NOT applicable to those composite data
+elements.
+
+(6) Chapter 6 of Part 5 does not include service data elements (the
+"0xxx" series) which are defined in ISO 9735 (the EDIFACT syntax).
+Version control for these data elements is reflected in data element
+0002 in segment UNB and is based on changes to ISO 9735. Therefore the
+usual UN/EDIFACT directory version/release control for UN/EDIFACT
+messages (using data elements 0052 and 0054) is NOT applicable to
+those data elements.
+
+
+PART 5    UNITED NATIONS DIRECTORIES FOR ELECTRONIC DATA INTERCHANGE
+	  FOR ADMINISTRATION, COMMERCE AND TRANSPORT
+
+CHAPTER 1 INTRODUCTION
+
+This Part 5 of the UN/EDIFACT directories shall in each successive
+issue include: 
+
+     For Standard directories:
+
+     all unchanged, changed and new UN Standard Message Types (UNSMs)
+     and UNSM Frameworks and their supporting directories agreed for
+     public use by UN/ECE/TRADE/Working Party 4. 
+
+     For Draft directories:
+
+     all unchanged, changed and new UN Standard Message Types (UNSMs)
+     and UNSM Frameworks and their supporting directories agreed for
+     public use by UN/ECE/TRADE/Working Party 4.
+
+     plus
+
+     all new, unchanged and changed UN message types and frameworks
+     with a status of Draft Recommendation as well as their
+     supporting directories, as approved by WP.4.
+
+In the Standard Directories, UNSMs are specified in the chapter EDMD,
+supporting segments in EDSD, composite data elements in EDCD, data
+elements in EDED and code lists in UNCL.
+
+In the Draft Directories, UNSMs (Status 2) and Draft Recommendation
+messages (status 1) are specified in chapter TRMD, supporting segments
+in TRSD, composite data elements in TRCD, data elements in TRED and
+code lists in UNCL.
+
+Additions, changes and deletions in a new issue will be marked in
+reference to the previous issue for the type of directory in question.
+For example: additions in a Standard directory will be marked in
+reference to the last Standard directory.
+
+The data element part of the UN Trade Data Element Directory (UNTDED),
+of which EDED (the Data element directory within the Standard
+directory) is an excerpt in condensed form, is also ISO standard 7372
+for which there is a UN/ECE-ISO agreement for the Maintenance Agency,
+ISO 7372 MA.
+
+The complete contents of the current directory, as well as the
+diskette files in which this information can be found, are listed in
+the table of contents in the diskette file CONTENTD.96B.

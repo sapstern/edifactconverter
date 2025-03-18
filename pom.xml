@@ -122,5 +122,6 @@
 		<module>openedifact-xsd-libs-22A</module>
 		<module>openedifact-xsd-libs-22B</module>
 		<module>openedifact-xsd-libs-23A</module>
+		<module>openedifact-xsd-libs-24A</module>
 	</modules>
 </project>

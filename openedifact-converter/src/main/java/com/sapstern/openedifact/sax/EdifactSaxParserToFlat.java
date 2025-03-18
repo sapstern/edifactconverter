@@ -47,7 +47,7 @@ import org.xml.sax.helpers.DefaultHandler;
  * <DT><B>History:</B>
  * <PRE><!-- Do not use tabs in the history table! Do not extend table width! rel.inc defines release and increment no -->
  * date       name           rel.inc  changes
- * -------------------------------------------------------------------------------------------------
+ * -----------------------------------------------------------------------------------------------------------
  * 28.09.05   fricke         1.0      created 
  * 17.02.09	  Otto Frost     1.1	  Bugfix: handling of Edifact release char
  * 19.06.14   fricke         2.0      Adapted to the XML/EDIFACT standard  (ISO TS 20625)
@@ -58,7 +58,8 @@ import org.xml.sax.helpers.DefaultHandler;
  * 07.05.2018 fricke		 2.5	  bugfixing for check of fields per segment 
  * 22.07.2018 fricke	     2.6      parsing of segment structure rewritten
  * 13.03.2024 fricke         2.7      incorporated minor bugfix proposal by github user Abifen 
- * -------------------------------------------------------------------------------------------------</PRE>
+ * 31.08.2024 fricke         2.8      reworked UNA processing to deal with <ns1:S_UNA>:+.? &apos;</ns1:S_UNA>
+ * -----------------------------------------------------------------------------------------------------------</PRE>
  *
  *****************************************************************/
 /**
@@ -86,6 +87,7 @@ public class EdifactSaxParserToFlat extends AbstractEdifactParser implements Edi
 
 	private boolean isUNA06 = false;
 
+	private boolean isSUNA = false;
 
 	private StringBuffer sbUNA = new StringBuffer("");
 	private String segmentDelimiter = "'";
@@ -110,6 +112,7 @@ public class EdifactSaxParserToFlat extends AbstractEdifactParser implements Edi
 	//Set if nsPrf is known in advance
 	private String namespacePrefix = null;
 	private String xmlEncoding = null;
+	
 
 
 
@@ -296,7 +299,7 @@ public class EdifactSaxParserToFlat extends AbstractEdifactParser implements Edi
 		isUNA04 = false;
 		isUNA05 = false;
 		isUNA06 = false;
-
+		isSUNA = false;
 		sbUNA = new StringBuffer("");
 		segmentDelimiter = "'";
 		fieldDelimiter = "+";
@@ -399,7 +402,7 @@ public class EdifactSaxParserToFlat extends AbstractEdifactParser implements Edi
 			return;
 		}
 
-		isUNA01 = isUNA02 = isUNA03 = isUNA04 = isUNA05 = isUNA06 = false;
+		isUNA01 = isUNA02 = isUNA03 = isUNA04 = isUNA05 = isUNA06 = isSUNA = false;
 
 		if (eName.startsWith("S_")) {
 
@@ -411,6 +414,8 @@ public class EdifactSaxParserToFlat extends AbstractEdifactParser implements Edi
 			currentSegmentInstanceMemberList = new LinkedList<Hashtable<String,String>>(); //MFRI20180721
 			if (eName.equals("S_UNA")) { //Abifen*** no fieldDelimiter for UNA segment
 				emit(eName.substring(2));
+				isSUNA  = true;
+				buffyCharacters = new StringBuilder(); //MFRI cover UNA Segment <ns1:S_UNA>:+.? &apos;</ns1:S_UNA> 
 				return;
 			}
 			//Beginn des EDI segmentstrings
@@ -441,7 +446,12 @@ public class EdifactSaxParserToFlat extends AbstractEdifactParser implements Edi
 			String qName // qualified name
 			) throws SAXException {
 		String eName = sName; // element name
-		if (eName.equals("S_UNA")) {			
+		if (eName.equals("S_UNA")) {
+			isSUNA = false;
+			if(isUNA06)
+				isUNA06 = false;
+			else
+				processUNA();
 			return;
 		}
 		if (eName.equals("D_UNA1")) {
@@ -465,11 +475,8 @@ public class EdifactSaxParserToFlat extends AbstractEdifactParser implements Edi
 			return;
 		}
 		if (eName.equals("D_UNA6")) {
-			isUNA06 = false;
-			String sUNA = sbUNA.toString(); 
-			if (sUNA.contains(releaseChar+segmentDelimiter))
-				sUNA.replace(releaseChar+segmentDelimiter, releaseChar+" "+segmentDelimiter);
-			emit(sUNA);
+			//isUNA06 = false;
+			processUNA();
 			return;
 		}
 		if ("".equals(eName))
@@ -506,6 +513,198 @@ public class EdifactSaxParserToFlat extends AbstractEdifactParser implements Edi
 		}
 
 	}
+	
+	
+	/* (non-Javadoc)
+	 * @see com.sapstern.openedifact.sax.EdifactSaxParserToFlatIF#characters(char[], int, int)
+	 */
+	@Override
+	public void characters(char buf[], int offset, int len) throws SAXException 
+	{
+		String s = new String(buf, offset, len);
+		if(isSUNA) {
+			if (isUNA01)
+				// We know that we are now dealing with UNA segment contents
+				// We may not get all chars in one call...
+			{			
+				componentDataSeparator = s;
+				sbUNA.append(componentDataSeparator);
+				return;	
+			} 
+			if (isUNA02)
+				// We know that we are now dealing with UNA segment contents
+				// We may not get all chars in one call...
+			{			
+				fieldDelimiter = s;
+				sbUNA.append(fieldDelimiter);
+				return;	
+			} 
+			if (isUNA03)
+				// We know that we are now dealing with UNA segment contents
+				// We may not get all chars in one call...
+			{
+				sbUNA.append(buf,offset,len);
+				return;	
+			} 
+			if (isUNA04)
+				// We know that we are now dealing with UNA segment contents
+				// We may not get all chars in one call...
+			{
+				releaseChar = s;
+				sbUNA.append(releaseChar);			
+				return;	
+			} 
+			if (isUNA05)
+				// We know that we are now dealing with UNA segment contents
+				// We may not get all chars in one call...
+			{
+
+				repetitionChar = s;		
+				sbUNA.append(repetitionChar);
+				return;	
+			} 
+			if (isUNA06)
+				// We know that we are now dealing with UNA segment contents
+				// We may not get all chars in one call...
+			{
+				segmentDelimiter = s;
+				sbUNA.append(segmentDelimiter);			
+				return;	
+			} 
+			sbUNA.append(s); //UNA segment like <ns1:S_UNA>:+.? &apos;</ns1:S_UNA>
+			return;
+		}
+
+		if (!s.trim().equals("")) { // //MFRI20170811 Logic of Otto Frost re incorporated
+			//System.err.println("AQ"+s.trim()+"Q");
+			s = s.replaceAll("\\"+releaseChar,releaseChar+releaseChar);            //MFRI20170811
+			s = s.replaceAll("\\"+componentDataSeparator,releaseChar+componentDataSeparator);//MFRI20170811
+			s = s.replaceAll("\\"+fieldDelimiter,releaseChar+fieldDelimiter);      //MFRI20170811
+			s = s.replaceAll("\\"+segmentDelimiter,releaseChar+segmentDelimiter);  //MFRI20170811	
+
+			buffyCharacters.append(s.trim());
+		}
+
+	}
+	/* (non-Javadoc)
+	 * @see com.sapstern.openedifact.sax.EdifactSaxParserToFlatIF#ignorableWhitespace(char[], int, int)
+	 */
+	@Override
+	public void ignorableWhitespace(char buf[], int offset, int Len) throws SAXException {
+		//nl ();
+	}
+
+
+
+	/* (non-Javadoc)
+	 * @see com.sapstern.openedifact.sax.EdifactSaxParserToFlatIF#endPrefixMapping(java.lang.String)
+	 */
+	@Override
+	public void endPrefixMapping(String arg0) throws SAXException
+	{
+		// TODO Auto-generated method stub
+
+	}
+
+	/* (non-Javadoc)
+	 * @see com.sapstern.openedifact.sax.EdifactSaxParserToFlatIF#processingInstruction(java.lang.String, java.lang.String)
+	 */
+	@Override
+	public void processingInstruction(String arg0, String arg1)
+			throws SAXException
+	{
+		// TODO Auto-generated method stub
+
+	}
+
+	/* (non-Javadoc)
+	 * @see com.sapstern.openedifact.sax.EdifactSaxParserToFlatIF#setDocumentLocator(org.xml.sax.Locator)
+	 */
+	@Override
+	public void setDocumentLocator(Locator arg0)
+	{
+		// TODO Auto-generated method stub
+
+	}
+
+	/* (non-Javadoc)
+	 * @see com.sapstern.openedifact.sax.EdifactSaxParserToFlatIF#skippedEntity(java.lang.String)
+	 */
+	@Override
+	public void skippedEntity(String arg0) throws SAXException
+	{
+		// TODO Auto-generated method stub
+
+	}
+
+	/* (non-Javadoc)
+	 * @see com.sapstern.openedifact.sax.EdifactSaxParserToFlatIF#startPrefixMapping(java.lang.String, java.lang.String)
+	 */
+	@Override
+	public void startPrefixMapping(String arg0, String arg1)
+			throws SAXException
+	{
+		// TODO Auto-generated method stub
+
+	}
+
+
+
+	/**
+	 * Extract LinkedList holding the segment member names (D_ or C_
+	 * @param segmentChildNodes
+	 * @return
+	 */
+	private List<Hashtable<String, String>>  getSegmentMembers(List<Element> segmentChildNodes, boolean isComplex, String complexName) {
+
+		List<Hashtable<String, String>> theResultList = new LinkedList<Hashtable<String,String>>();
+
+		if (segmentChildNodes==null)
+			return theResultList;
+		for (int i=0; i<segmentChildNodes.size();i++)
+		{
+			Element localElement = segmentChildNodes.get(i);
+			if (       localElement.getAttributes().getNamedItem("ref") != null 
+					&& (   localElement.getAttributes().getNamedItem("ref").getNodeValue().startsWith("C_")
+							||     localElement.getAttributes().getNamedItem("ref").getNodeValue().startsWith("D_") 
+							)
+					)
+			{		
+				if(localElement.getAttributes().getNamedItem("ref").getNodeValue().startsWith("D_"))
+				{
+					Hashtable<String, String> tab = new Hashtable<String, String>();
+					tab.put("TAG_NAME", localElement.getAttributes().getNamedItem("ref").getNodeValue());
+					if(isComplex)
+					{
+						tab.put("SEPARATOR", componentDataSeparator);
+						tab.put("COMPLEX_TAG_NAME", complexName);						
+					}
+					else
+						tab.put("SEPARATOR", fieldDelimiter);
+					theResultList.add(tab);
+					continue;
+				}
+				if (localElement.getAttributes().getNamedItem("ref").getNodeValue().startsWith("C_"))
+				{
+					complexName = localElement.getAttributes().getNamedItem("ref").getNodeValue();
+					isComplex=true;
+					List<Element> childNodes = getNodeListOfComplexType((super.theElementTab.get(localElement.getAttributes().getNamedItem("ref").getNodeValue())).getChildNodes());
+					List<Hashtable<String, String>> complexMemberlist = getSegmentMembers(childNodes, isComplex, complexName);
+					theResultList.addAll(complexMemberlist);
+					isComplex=false;
+					int theIndex = theResultList.size();
+					if (theIndex>0)
+						theIndex = theIndex - 1;
+					Hashtable<String, String> lastMemberTab = theResultList.remove(theIndex);
+					lastMemberTab.put("SEPARATOR", fieldDelimiter);
+					theResultList.add(lastMemberTab);
+				}
+			}
+		}
+
+		return theResultList;
+	}
+	
 	/**
 	 * @param currentSegmentXSDMemberList: List of XSD Elements for this segment
 	 * @param currentSegmentInstanceMemberList: List holding actual tagnames/values for this segment from XML instance
@@ -643,191 +842,11 @@ public class EdifactSaxParserToFlat extends AbstractEdifactParser implements Edi
 		return resultTab;
 	}
 
-	/* (non-Javadoc)
-	 * @see com.sapstern.openedifact.sax.EdifactSaxParserToFlatIF#characters(char[], int, int)
-	 */
-	@Override
-	public void characters(char buf[], int offset, int len) throws SAXException 
-	{
-		String s = new String(buf, offset, len);
-		if (isUNA01)
-			// We know that we are now dealing with UNA segment contents
-			// We may not get all chars in one call...
-		{			
-			componentDataSeparator = s;
-			sbUNA.append(componentDataSeparator);
-			return;	
-		} 
-		if (isUNA02)
-			// We know that we are now dealing with UNA segment contents
-			// We may not get all chars in one call...
-		{			
-			fieldDelimiter = s;
-			sbUNA.append(fieldDelimiter);
-			return;	
-		} 
-		if (isUNA03)
-			// We know that we are now dealing with UNA segment contents
-			// We may not get all chars in one call...
-		{
-			sbUNA.append(buf,offset,len);
-			return;	
-		} 
-		if (isUNA04)
-			// We know that we are now dealing with UNA segment contents
-			// We may not get all chars in one call...
-		{
-			releaseChar = s;
-			sbUNA.append(releaseChar);			
-			return;	
-		} 
-		if (isUNA05)
-			// We know that we are now dealing with UNA segment contents
-			// We may not get all chars in one call...
-		{
-
-			repetitionChar = s;		
-			sbUNA.append(repetitionChar);
-			return;	
-		} 
-		if (isUNA06)
-			// We know that we are now dealing with UNA segment contents
-			// We may not get all chars in one call...
-		{
-			segmentDelimiter = s;
-			sbUNA.append(segmentDelimiter);			
-			return;	
-		} 
-
-
-		if (!s.trim().equals("")) { // //MFRI20170811 Logic of Otto Frost re incorporated
-			//System.err.println("AQ"+s.trim()+"Q");
-			s = s.replaceAll("\\"+releaseChar,releaseChar+releaseChar);            //MFRI20170811
-			s = s.replaceAll("\\"+componentDataSeparator,releaseChar+componentDataSeparator);//MFRI20170811
-			s = s.replaceAll("\\"+fieldDelimiter,releaseChar+fieldDelimiter);      //MFRI20170811
-			s = s.replaceAll("\\"+segmentDelimiter,releaseChar+segmentDelimiter);  //MFRI20170811	
-
-			buffyCharacters.append(s.trim());
-		}
-
-	}
-	/* (non-Javadoc)
-	 * @see com.sapstern.openedifact.sax.EdifactSaxParserToFlatIF#ignorableWhitespace(char[], int, int)
-	 */
-	@Override
-	public void ignorableWhitespace(char buf[], int offset, int Len) throws SAXException {
-		//nl ();
-	}
-
-
-
-	/* (non-Javadoc)
-	 * @see com.sapstern.openedifact.sax.EdifactSaxParserToFlatIF#endPrefixMapping(java.lang.String)
-	 */
-	@Override
-	public void endPrefixMapping(String arg0) throws SAXException
-	{
-		// TODO Auto-generated method stub
-
-	}
-
-	/* (non-Javadoc)
-	 * @see com.sapstern.openedifact.sax.EdifactSaxParserToFlatIF#processingInstruction(java.lang.String, java.lang.String)
-	 */
-	@Override
-	public void processingInstruction(String arg0, String arg1)
-			throws SAXException
-	{
-		// TODO Auto-generated method stub
-
-	}
-
-	/* (non-Javadoc)
-	 * @see com.sapstern.openedifact.sax.EdifactSaxParserToFlatIF#setDocumentLocator(org.xml.sax.Locator)
-	 */
-	@Override
-	public void setDocumentLocator(Locator arg0)
-	{
-		// TODO Auto-generated method stub
-
-	}
-
-	/* (non-Javadoc)
-	 * @see com.sapstern.openedifact.sax.EdifactSaxParserToFlatIF#skippedEntity(java.lang.String)
-	 */
-	@Override
-	public void skippedEntity(String arg0) throws SAXException
-	{
-		// TODO Auto-generated method stub
-
-	}
-
-	/* (non-Javadoc)
-	 * @see com.sapstern.openedifact.sax.EdifactSaxParserToFlatIF#startPrefixMapping(java.lang.String, java.lang.String)
-	 */
-	@Override
-	public void startPrefixMapping(String arg0, String arg1)
-			throws SAXException
-	{
-		// TODO Auto-generated method stub
-
-	}
-
-
-
-	/**
-	 * Extract LinkedList holding the segment member names (D_ or C_
-	 * @param segmentChildNodes
-	 * @return
-	 */
-	private List<Hashtable<String, String>>  getSegmentMembers(List<Element> segmentChildNodes, boolean isComplex, String complexName) {
-
-		List<Hashtable<String, String>> theResultList = new LinkedList<Hashtable<String,String>>();
-
-		if (segmentChildNodes==null)
-			return theResultList;
-		for (int i=0; i<segmentChildNodes.size();i++)
-		{
-			Element localElement = segmentChildNodes.get(i);
-			if (       localElement.getAttributes().getNamedItem("ref") != null 
-					&& (   localElement.getAttributes().getNamedItem("ref").getNodeValue().startsWith("C_")
-							||     localElement.getAttributes().getNamedItem("ref").getNodeValue().startsWith("D_") 
-							)
-					)
-			{		
-				if(localElement.getAttributes().getNamedItem("ref").getNodeValue().startsWith("D_"))
-				{
-					Hashtable<String, String> tab = new Hashtable<String, String>();
-					tab.put("TAG_NAME", localElement.getAttributes().getNamedItem("ref").getNodeValue());
-					if(isComplex)
-					{
-						tab.put("SEPARATOR", componentDataSeparator);
-						tab.put("COMPLEX_TAG_NAME", complexName);						
-					}
-					else
-						tab.put("SEPARATOR", fieldDelimiter);
-					theResultList.add(tab);
-					continue;
-				}
-				if (localElement.getAttributes().getNamedItem("ref").getNodeValue().startsWith("C_"))
-				{
-					complexName = localElement.getAttributes().getNamedItem("ref").getNodeValue();
-					isComplex=true;
-					List<Element> childNodes = getNodeListOfComplexType((super.theElementTab.get(localElement.getAttributes().getNamedItem("ref").getNodeValue())).getChildNodes());
-					List<Hashtable<String, String>> complexMemberlist = getSegmentMembers(childNodes, isComplex, complexName);
-					theResultList.addAll(complexMemberlist);
-					isComplex=false;
-					int theIndex = theResultList.size();
-					if (theIndex>0)
-						theIndex = theIndex - 1;
-					Hashtable<String, String> lastMemberTab = theResultList.remove(theIndex);
-					lastMemberTab.put("SEPARATOR", fieldDelimiter);
-					theResultList.add(lastMemberTab);
-				}
-			}
-		}
-
-		return theResultList;
+	private void processUNA() throws SAXException {
+		String sUNA = sbUNA.toString(); 
+		if (sUNA.contains(releaseChar+segmentDelimiter))
+			sUNA.replace(releaseChar+segmentDelimiter, releaseChar+" "+segmentDelimiter);
+		emit(sUNA);
 	}
 
 }

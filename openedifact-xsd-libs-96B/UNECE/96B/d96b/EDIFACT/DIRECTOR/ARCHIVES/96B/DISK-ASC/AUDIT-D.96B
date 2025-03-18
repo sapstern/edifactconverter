@@ -1,0 +1,44 @@
+
+
+
+
+               Audit Statement for Draft Directory
+
+This directory set is the official approved version of UN/EDIFACT
+Draft Directory D.96B.
+
+Following the preparation of the directory by the Directory
+Production Team, it was examined by the Directory Audit Team,
+(DAT) which has confirmed in a report to the EDIFACT Steering
+Group (ESG) that the content was prepared in accordance with
+approved procedures and is considered satisfactory for trial
+implementation.  
+
+A copy of the full audit report submitted to ESG is available
+from the UN/ECE secretariat.  All message design groups should be 
+aware of the DAT recommendations made to ESG, and joint message
+design groups JM 4 and JM 11 should review specific 
+recommendations made to em.
+
+The directory is the final version of the D.96B for user
+implementation.  Under no circumstances will any corrigenda,
+addenda or revisions be issued.
+
+If during implementation a user identifies what is considered to
+be an error, this should be notified in a Data Maintenance
+Request (DMR) to allow possible amendments in a subsequent Draft
+Directory.
+
+A DMR form can be obtained from the regional EDIFACT Board
+secretariat, who will advise of the process to be followed for
+its submission and may assist in the completion of the form.  The
+text section of the "Business Needs" section, of this DMR, should
+read "Possible Draft Directory Error".
+
+ ---------------------------------------------------------------
+                 -------------------------------
+                     _______________________
+                          _____________
+
+
+

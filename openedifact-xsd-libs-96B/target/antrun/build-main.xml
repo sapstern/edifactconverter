@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="maven-antrun-" default="main">
+  <target name="main">
+    <ant antfile="UNECE/build.xml" target="build">
+      <property name="version.lower" value="96b" />
+      <property name="version.uppercase" value="96B" />
+    </ant>
+  </target>
+</project>
