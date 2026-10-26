@@ -845,7 +845,7 @@ public class EdifactSaxParserToFlat extends AbstractEdifactParser implements Edi
 	private void processUNA() throws SAXException {
 		String sUNA = sbUNA.toString(); 
 		if (sUNA.contains(releaseChar+segmentDelimiter))
-			sUNA.replace(releaseChar+segmentDelimiter, releaseChar+" "+segmentDelimiter);
+			sUNA =	sUNA.replace(releaseChar+segmentDelimiter, releaseChar+" "+segmentDelimiter);
 		emit(sUNA);
 	}
 
