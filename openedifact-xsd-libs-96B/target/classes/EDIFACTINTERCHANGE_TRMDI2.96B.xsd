@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="ISO-8859-1"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:sapstern.com:EDIFACTINTERCHANGE_TRMDI2.96B" xmlns="urn:sapstern.com:EDIFACTINTERCHANGE_TRMDI2.96B">
+    <xsd:annotation>
+        <xsd:documentation>Free Message Converter Copyleft 2007 - 2020 Matthias Fricke mf@sapstern.com</xsd:documentation>
+        <xsd:documentation>Licensed under the Apache License, Version 2.0 (the "License");</xsd:documentation>
+        <xsd:documentation>You may obtain a copy of the License at</xsd:documentation>
+        <xsd:documentation>     http://www.apache.org/licenses/LICENSE-2.0</xsd:documentation>
+        <xsd:documentation>Unless required by applicable law or agreed to in writing, software</xsd:documentation>
+        <xsd:documentation>distributed under the License is distributed on an "AS IS" BASIS,</xsd:documentation>
+        <xsd:documentation>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</xsd:documentation>
+        <xsd:documentation>See the License for the specific language governing permissions and</xsd:documentation>
+        <xsd:documentation>limitations under the License.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:element name="EDIFACTINTERCHANGE">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element ref="S_UNA" minOccurs="0"/>
+                <xsd:element ref="S_UNB"/>
+                <xsd:element ref="S_UNG" minOccurs="0" maxOccurs="unbounded"/>
+                <xsd:element ref="M_TRMDI2.96B" maxOccurs="unbounded"/>
+                <xsd:element ref="S_UNE" minOccurs="0" maxOccurs="unbounded"/>
+                <xsd:element ref="S_UNZ"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="M_TRMDI2.96B">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="S_UNA">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="S_UNB">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element ref="C_S001"/>
+                <xsd:element ref="C_S002"/>
+                <xsd:element ref="C_S003"/>
+                <xsd:element ref="C_S004"/>
+                <xsd:element ref="D_0020"/>
+                <xsd:element ref="C_S005" minOccurs="0"/>
+                <xsd:element ref="D_0026" minOccurs="0"/>
+                <xsd:element ref="D_0029" minOccurs="0"/>
+                <xsd:element ref="D_0031" minOccurs="0"/>
+                <xsd:element ref="D_0032" minOccurs="0"/>
+                <xsd:element ref="D_0035" minOccurs="0"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="S_UNG">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element ref="D_0038"/>
+                <xsd:element ref="C_S006"/>
+                <xsd:element ref="C_S007"/>
+                <xsd:element ref="C_S004"/>
+                <xsd:element ref="C_S008"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="S_UNE">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element ref="D_0060"/>
+                <xsd:element ref="D_0048"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="S_UNZ">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element ref="D_0036"/>
+                <xsd:element ref="D_0020"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="C_S008">
+        <xsd:annotation>
+            <xsd:documentation>Specification of the version and release numbers of all</xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element ref="D_0052"/>
+                <xsd:element ref="D_0054"/>
+                <xsd:element ref="D_0057" minOccurs="0"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="C_S007">
+        <xsd:annotation>
+            <xsd:documentation>Identification of for example a division, branch or</xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element ref="D_0044"/>
+                <xsd:element ref="D_0007" minOccurs="0"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="C_S006">
+        <xsd:annotation>
+            <xsd:documentation>Identification of for example a division, branch or</xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element ref="D_0040"/>
+                <xsd:element ref="D_0007" minOccurs="0"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="C_S005">
+        <xsd:annotation>
+            <xsd:documentation>Reference or password as agreed between the</xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element ref="D_0022"/>
+                <xsd:element ref="D_0025" minOccurs="0"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="C_S004">
+        <xsd:annotation>
+            <xsd:documentation>Date and time of preparation of the interchange.</xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element ref="D_0017"/>
+                <xsd:element ref="D_0019"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="C_S003">
+        <xsd:annotation>
+            <xsd:documentation>Identification of the recipient of the interchange.</xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element ref="D_0010"/>
+                <xsd:element ref="D_0007" minOccurs="0"/>
+                <xsd:element ref="D_0014" minOccurs="0"/>
+                <xsd:element ref="D_0044" minOccurs="0"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="C_S002">
+        <xsd:annotation>
+            <xsd:documentation>Identification of the sender of the interchange.</xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element ref="D_0004"/>
+                <xsd:element ref="D_0007" minOccurs="0"/>
+                <xsd:element ref="D_0008" minOccurs="0"/>
+                <xsd:element ref="D_0040" minOccurs="0"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="C_S001">
+        <xsd:annotation>
+            <xsd:documentation>Identification of the agency controlling the syntax,</xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element ref="D_0001"/>
+                <xsd:element ref="D_0002"/>
+                <xsd:element ref="D_0080" minOccurs="0"/>
+                <xsd:element ref="D_0133" minOccurs="0"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="D_0060" type="numeric1..6">
+        <xsd:annotation>
+            <xsd:documentation>The number of messages and objects in the group.</xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="D_0057" type="string1..6">
+        <xsd:annotation>
+            <xsd:documentation>Code, assigned by the association responsible for the design</xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="D_0054" type="string1..3">
+        <xsd:annotation>
+            <xsd:documentation>Release number within the current message version number.</xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="D_0052" type="string1..3">
+        <xsd:annotation>
+            <xsd:documentation>Version number of a message type.</xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="D_0048" type="string1..14">
+        <xsd:annotation>
+            <xsd:documentation>Unique reference number for the group within an interchange.</xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="D_0044" type="string1..35">
+        <xsd:annotation>
+            <xsd:documentation>Third level identification of the interchange recipient.</xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="D_0040" type="string1..35">
+        <xsd:annotation>
+            <xsd:documentation>Third level identification of the interchange sender.</xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="D_0038" type="string1..6">
+        <xsd:annotation>
+            <xsd:documentation>Identification of the single message type in the group.</xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="D_0036" type="numeric1..6">
+        <xsd:annotation>
+            <xsd:documentation>The number of messages in an interchange or, if used, the</xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="D_0035" type="numeric1..1">
+        <xsd:annotation>
+            <xsd:documentation>Indication that the structural level containing the test</xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="D_0032" type="string1..35">
+        <xsd:annotation>
+            <xsd:documentation>Identification by name or code of the type of agreement under</xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="D_0031" type="numeric1..1">
+        <xsd:annotation>
+            <xsd:documentation>Code requesting acknowledgement for the interchange.</xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="D_0029" type="numeric1..1">
+        <xsd:annotation>
+            <xsd:documentation>Code determined by the sender requesting processing priority</xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="D_0026" type="string1..14">
+        <xsd:annotation>
+            <xsd:documentation>Identification of the application area assigned by the</xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="D_0025" type="string12">
+        <xsd:annotation>
+            <xsd:documentation>Qualifier for the recipient's reference or password.</xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="D_0022" type="string1..14">
+        <xsd:annotation>
+            <xsd:documentation>Reference or password to the recipient's system or to a third</xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="D_0020" type="string1..14">
+        <xsd:annotation>
+            <xsd:documentation>Unique reference assigned by the sender to an interchange.</xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="D_0019" type="numeric1..4">
+        <xsd:annotation>
+            <xsd:documentation>Local time of day when an interchange or a group was</xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="D_0017" type="numeric1..6">
+        <xsd:annotation>
+            <xsd:documentation>Local date when an interchange or a group was prepared.</xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="D_0014" type="string1..35">
+        <xsd:annotation>
+            <xsd:documentation>Second level identification of the interchange recipient.</xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="D_0010" type="string1..35">
+        <xsd:annotation>
+            <xsd:documentation>First level identification of the interchange recipient.</xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="D_0008" type="string1..35">
+        <xsd:annotation>
+            <xsd:documentation>Second level identification of the interchange sender.</xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="D_0007" type="string1..4">
+        <xsd:annotation>
+            <xsd:documentation>Qualifier referring to the source of the code for the level</xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="D_0004" type="string1..35">
+        <xsd:annotation>
+            <xsd:documentation>First level identification of the interchange sender.</xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="D_0002" type="string1..1">
+        <xsd:annotation>
+            <xsd:documentation>Version number of the syntax.</xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="D_0001" type="string1..4">
+        <xsd:annotation>
+            <xsd:documentation>Coded identification of the agency controlling the syntax,</xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="D_0133" type="string1..3">
+        <xsd:annotation>
+            <xsd:documentation>Coded identification of the character encoding used in the</xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="D_0080" type="string1..6">
+        <xsd:annotation>
+            <xsd:documentation>Version number of the service code list directory.</xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:simpleType name="string1..35">
+        <xsd:restriction base="xsd:string">
+            <xsd:minLength value="1"/>
+            <xsd:maxLength value="35"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="string12">
+        <xsd:restriction base="xsd:string">
+            <xsd:minLength value="1"/>
+            <xsd:maxLength value="2"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="string1..6">
+        <xsd:restriction base="xsd:string">
+            <xsd:minLength value="1"/>
+            <xsd:maxLength value="6"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="string1..4">
+        <xsd:restriction base="xsd:string">
+            <xsd:minLength value="1"/>
+            <xsd:maxLength value="4"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="numeric1..6">
+        <xsd:restriction base="xsd:decimal">
+            <xsd:totalDigits value="6"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="string1..3">
+        <xsd:restriction base="xsd:string">
+            <xsd:minLength value="1"/>
+            <xsd:maxLength value="3"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="string1..14">
+        <xsd:restriction base="xsd:string">
+            <xsd:minLength value="1"/>
+            <xsd:maxLength value="14"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="numeric1..4">
+        <xsd:restriction base="xsd:decimal">
+            <xsd:totalDigits value="4"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="string1..1">
+        <xsd:restriction base="xsd:string">
+            <xsd:minLength value="1"/>
+            <xsd:maxLength value="1"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="numeric1..1">
+        <xsd:restriction base="xsd:decimal">
+            <xsd:totalDigits value="1"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+</xsd:schema>

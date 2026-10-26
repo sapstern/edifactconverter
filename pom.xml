@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-       	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -66,14 +64,21 @@
 		<module>openedifact-converter</module>
 		<module>openedifact-sample-01</module>
 		<module>openedifact-un2xsd</module>
+		<module>openedifact-xsd-libs-93A</module>
+		<module>openedifact-xsd-libs-94A</module>
+		<module>openedifact-xsd-libs-94B</module>
+		<module>openedifact-xsd-libs-95A</module>
+		<module>openedifact-xsd-libs-95B</module>
 		<module>openedifact-xsd-libs-96A</module>
-		<!--<module>openedifact-xsd-libs-96B</module> Zip structure of 96b.zip completly obfuscated-->
+		<module>openedifact-xsd-libs-96B</module> 
 		<module>openedifact-xsd-libs-97A</module>
-		<module>openedifact-xsd-libs-97B</module> <!-- Not working EDSD.97B error line offset 4 if time investigate -->
+		<module>openedifact-xsd-libs-97B</module>
+		<!-- Not working EDSD.97B error line offset 4 if time investigate -->
 		<module>openedifact-xsd-libs-98A</module>
 		<module>openedifact-xsd-libs-98B</module>
 		<module>openedifact-xsd-libs-99A</module>
-		<module>openedifact-xsd-libs-99B</module><!-- Some messages corrupt G_BOPBNK_99B_SG4 S_LOC -->
+		<module>openedifact-xsd-libs-99B</module>
+		<!-- Some messages corrupt G_BOPBNK_99B_SG4 S_LOC -->
 		<module>openedifact-xsd-libs-00A</module>
 		<module>openedifact-xsd-libs-00B</module>
 		<module>openedifact-xsd-libs-01A</module>
