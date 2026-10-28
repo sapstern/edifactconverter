@@ -44,6 +44,8 @@
 			   dest="UNECE/${version.uppercase}/d${version.lower}" />				
 	</target>
 	<target name="getZip" depends="check-use-file" unless="file.exists">
+		<!-- unece.org no longer permits machine driven downloads, so the zip must be
+		     downloaded manually and placed in UNECE/BACKUP. Original download steps:
 		<echo message="#####################################" />
 		<echo message="### Getting ${version} data files ###" />
 		<echo message="#####################################" />
@@ -53,7 +55,9 @@
 			verbose="true"/> 
 		<unzip src="UNECE/${version.uppercase}/d${version.lower}/${version.lower}.zip"
 			dest="UNECE/${version.uppercase}/d${version.lower}" />		
-		<copy todir="UNECE/BACKUP" overwrite="true" file="UNECE/${version.uppercase}/d${version.lower}/${version.lower}.zip"/>		
+		<copy todir="UNECE/BACKUP" overwrite="true" file="UNECE/${version.uppercase}/d${version.lower}/${version.lower}.zip"/>
+		-->
+		<fail message="Source zip UNECE/BACKUP/${version.lower}.zip not found. unece.org does not allow automated downloads: download d${version.lower}.zip manually from https://unece.org/trade/uncefact/unedifact/download and save it as UNECE/BACKUP/${version.lower}.zip"/>
 	</target>
 	<target name="normalizeFiles" depends="unZipOnly,getZip">
 		<java classname="com.sapstern.openedifact.unece.xsd.io.DirectoryProcessor" fork="true">					
